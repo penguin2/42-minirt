@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/10 20:07:58 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/10 21:46:09 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define LIBFT_H
 
 # include <stddef.h>
-
-# define NAME_FT_CALLOC "ft_calloc"
 
 # define ERR_VLA_APPEND "Error: VLA allowances have been exceeded"
 

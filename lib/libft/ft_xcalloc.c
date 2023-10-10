@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:42 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/10 20:09:18 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/10 21:45:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_xcalloc(size_t count, size_t size)
 	ptr = ft_calloc(count, size);
 	if (ptr == NULL)
 	{
-		perror(NAME_FT_CALLOC);
+		perror("ft_calloc");
 		exit(EXIT_FAILURE);
 	}
 	return (ptr);

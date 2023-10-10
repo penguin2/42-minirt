@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:07 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/10 20:06:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/10 21:44:21 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_putstr_fd(const char *s, int fd)
 	if (s != NULL)
 	{
 		if (write(fd, s, ft_strlen(s)) == -1)
-			perror("Error");
+			perror("ft_putstr_fd");
 	}
 }
