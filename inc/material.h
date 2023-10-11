@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   material.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/11 20:27:08 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/11 19:43:31 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/11 19:51:05 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#ifndef MATERIAL_H
+# define MATERIAL_H
 
-# include "material.h"
-
-typedef struct s_object{
-	void		*ptr;
-	void		*image_map;
-	void		*bump_map;
-	t_material	material;
-}	t_object;
-
-t_object	*object_new(void *ptr);
-void		object_free(void *obj);
+typedef struct s_material{
+	double	k_ambient;
+	double	k_diffuse;
+	double	k_specular;
+	double	shininess;
+}	t_material;
 
 #endif
