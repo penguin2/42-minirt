@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   ray_at.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:51:29 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/12 16:33:02 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/12 16:33:44 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#include "libvec3.h"
+#include "ray.h"
 
-# include "material.h"
-
-typedef struct s_object{
-	void		*ptr;
-	void		*image_map;
-	void		*bump_map;
-	t_material	material;
-	void		(*free_ptr)(void *ptr);
-}	t_object;
-
-t_object	*object_new(
-				void *ptr,
-				void (*free_ptr)(void *ptr));
-void		object_free(void *object);
-
-#endif
+t_vec3	ray_at(t_ray ray, double t)
+{
+	return (vec3_add(ray.origin, vec3_mul(ray.dir, t)));
+}

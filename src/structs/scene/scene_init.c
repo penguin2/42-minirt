@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:10:37 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:58:41 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ static void	_temp_objects_and_lights(t_vla *lights, t_vla *objects)
 	(void)lights;
 	(void)objects;
 }
-

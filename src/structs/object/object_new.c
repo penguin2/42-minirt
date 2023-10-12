@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   object_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:51:29 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/12 16:49:56 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
-
-# include "material.h"
-
-typedef struct s_object{
-	void		*ptr;
-	void		*image_map;
-	void		*bump_map;
-	t_material	material;
-	void		(*free_ptr)(void *ptr);
-}	t_object;
+#include "libft.h"
+#include "material.h"
+#include "object.h"
+#include <stddef.h>
 
 t_object	*object_new(
 				void *ptr,
-				void (*free_ptr)(void *ptr));
-void		object_free(void *object);
+				void (*free_ptr)(void *ptr))
+{
+	t_object	*new;
 
-#endif
+	new = ft_xcalloc(1, sizeof(t_object));
+	new->ptr = ptr;
+	new->image_map = NULL;
+	new->bump_map = NULL;
+	new->material = material_create(1.0, 1.0, 1.0, 0.0);
+	new->free_ptr = free_ptr;
+	return (new);
+}

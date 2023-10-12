@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   object_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:51:29 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/12 16:50:03 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/12 16:59:24 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#include "object.h"
+#include <stdlib.h>
 
-# include "material.h"
+void	object_free(void *object)
+{
+	const t_object	*obj = object;
 
-typedef struct s_object{
-	void		*ptr;
-	void		*image_map;
-	void		*bump_map;
-	t_material	material;
-	void		(*free_ptr)(void *ptr);
-}	t_object;
-
-t_object	*object_new(
-				void *ptr,
-				void (*free_ptr)(void *ptr));
-void		object_free(void *object);
-
-#endif
+	obj->free_ptr(obj->ptr);
+	free(object);
+}

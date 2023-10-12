@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   material_create.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:51:29 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/12 16:34:03 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/12 16:34:59 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#include "material.h"
 
-# include "material.h"
+t_material	material_create(
+				double k_ambient,
+				double k_diffuse,
+				double k_specular,
+				double shininess
+				)
+{
+	t_material	new;
 
-typedef struct s_object{
-	void		*ptr;
-	void		*image_map;
-	void		*bump_map;
-	t_material	material;
-	void		(*free_ptr)(void *ptr);
-}	t_object;
-
-t_object	*object_new(
-				void *ptr,
-				void (*free_ptr)(void *ptr));
-void		object_free(void *object);
-
-#endif
+	new.k_ambient = k_ambient;
+	new.k_diffuse = k_diffuse;
+	new.k_specular = k_specular;
+	new.shininess = shininess;
+	return (new);
+}
