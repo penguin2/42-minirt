@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/12 20:03:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:29:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char		*ft_strchr(const char *s, int c);
 
 int			ft_atoi(const char *nptr);
 double		ft_atof(const char *str);
+char		*ft_ltoa(long int n);
+char		*ft_ftoa(double number, size_t limit);
 
 const char	*ft_skip_charsets(const char *str, const char *charsets);
 void		ft_free_strings(char **strings);

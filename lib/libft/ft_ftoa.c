@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 00:12:52 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 00:58:14 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:54:43 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ char	*ft_ftoa(double number, size_t limit)
 	size_t	idx;
 
 	str = (char *)ft_xcalloc(limit + 1, sizeof(char));
-	str_integer = ft_itoa((int)number);
+	str_integer = ft_ltoa((long int)number);
 	idx = ft_strlcpy(str, str_integer, limit + 1);
 	free(str_integer);
+	if (limit <= idx)
+		return (str);
 	str[idx++] = '.';
+	number -= (long int)number;
 	while (idx < limit)
 	{
 		number *= 10;
-		str[idx++] = (int)number % 10;
+		str[idx++] = ((long int)number % 10) + '0';
 	}
 	return (str);
 }
