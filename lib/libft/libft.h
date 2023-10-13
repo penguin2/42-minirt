@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 15:29:35 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 18:02:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdbool.h>
 
 # define ERR_VLA_APPEND "Error: VLA allowances have been exceeded"
 
@@ -25,21 +26,29 @@ typedef struct s_vla
 }	t_vla;
 
 int			ft_isdigit(int c);
+bool		ft_is_equal_str(const char *s1, const char *s2);
+bool		ft_is_equal_str_n(const char *s1, const char *s2, size_t n);
+
 size_t		ft_strlen(const char *str);
-size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char		*ft_strchr(const char *s, int c);
+char		*ft_strcat(char *dst, const char *src);
+char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strstr(const char *text, const char *pattern);
+char		*ft_strrstr(const char *text, const char *pattern);
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 int			ft_atoi(const char *nptr);
 double		ft_atof(const char *str);
 char		*ft_ltoa(long int n);
 char		*ft_ftoa(double number, size_t limit);
 
+char		**ft_split(const char *str, const char *delimiter);
 const char	*ft_skip_charsets(const char *str, const char *charsets);
 void		ft_free_strings(char **strings);
-char		**ft_split(const char *str, const char *delimiter);
 
 void		*ft_calloc(size_t count, size_t size);
 void		*ft_xcalloc(size_t count, size_t size);
+char		*ft_strdup(const char *s1);
 char		*ft_strdup_n(const char *str, size_t n);
 
 void		*ft_memset(void *b, int c, size_t len);

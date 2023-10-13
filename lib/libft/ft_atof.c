@@ -6,12 +6,11 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:43:32 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/12 20:35:43 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 16:36:12 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdbool.h>
 
 static double	_atof_integer(const char *nptr, bool minus_flag)
 {

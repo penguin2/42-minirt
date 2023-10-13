@@ -6,11 +6,10 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:02 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/10 20:12:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 17:53:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdio.h>
 #include <unistd.h>
 

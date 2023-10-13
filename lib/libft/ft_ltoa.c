@@ -6,12 +6,10 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:48:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 15:25:14 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 17:51:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-#include <stddef.h>
 #include "libft.h"
 
 size_t	_get_digit(long int n)

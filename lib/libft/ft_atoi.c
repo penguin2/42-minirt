@@ -6,12 +6,11 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:35:18 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/12 20:19:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 16:35:40 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdbool.h>
 #include <limits.h>
 
 static long int	atoi_plus(const char *nptr)

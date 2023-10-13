@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:21:24 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/12 21:28:39 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 17:55:30 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 static const char	*_skip_non_charsets(const char *str, const char *charsets)
 {
-	size_t	idx;
-
-	idx = 0;
 	while (*str != '\0')
 	{
 		if (ft_strchr(charsets, *str) != NULL)

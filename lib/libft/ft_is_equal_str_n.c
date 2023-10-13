@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_skip_charsets.c                                 :+:      :+:    :+:   */
+/*   ft_is_equal_str_n.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:39:11 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:54:51 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 17:03:16 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/13 17:50:17 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_skip_charsets(const char *str, const char *charsets)
+int	_ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*str != '\0')
+	size_t	idx;
+
+	if (n == 0)
+		return (0);
+	idx = 0;
+	while (idx < n)
 	{
-		if (ft_strchr(charsets, *str) == NULL)
-			break ;
-		str++;
+		if ((s1[idx] != s2[idx]) || (s1[idx] == '\0' || s2[idx] == '\0'))
+			return (s1[idx] - s2[idx]);
+		idx++;
 	}
-	return (str);
+	return (0);
+}
+
+bool	ft_is_equal_str_n(const char *s1, const char *s2, size_t n)
+{
+	return (_ft_strncmp(s1, s2, n) == 0);
 }
