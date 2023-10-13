@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 00:12:52 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 16:16:40 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/13 16:20:47 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ char	*ft_ftoa(double number, size_t limit)
 	ft_strlcpy(str, str_integer, idx + 1);
 	free(str_integer);
 	str[idx++] = '.';
-	number -= (long int)number;
 	while (0 < limit)
 	{
-		limit--;
+		number -= (long int)number;
 		number *= 10;
 		str[idx++] = ((long int)number % 10) + '0';
-		number -= (long int)number;
+		limit--;
 	}
 	return (str);
 }
