@@ -1,0 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   try_atof_limit.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/13 19:24:33 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/13 20:01:28 by rikeda           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../../inc/define.h"
+#include "../../../lib/libft/libft.h"
+// #include "define.h"
+// #include "libft.h"
+
+const char	*_skip_digit(const char *nptr, size_t *limit)
+{
+	size_t	size;
+
+	size = 0;
+	while (ft_isdigit(*nptr) && 0 < *limit)
+	{
+		nptr++;
+		*limit -= 1;
+	}
+	return (nptr);
+}
+
+int	_check_atof_limit(const char *nptr, size_t limit)
+{
+	nptr = ft_skip_charsets(nptr, "\t\n\r\v\f ");
+	nptr += (*nptr == '+' || *nptr == '-');
+	if (ft_is_equal_str(nptr, "."))
+		return (ERROR);
+	nptr = ft_skip_charsets(nptr, "0");
+	nptr = _skip_digit(nptr, &limit);
+	nptr += (*nptr == '.');
+	nptr = _skip_digit(nptr, &limit);
+	if (*nptr != '\0')
+		return (ERROR);
+	else
+		return (SUCCESS);
+}
+
+int	try_atof_limit(const char *nptr, double *dptr, size_t limit)
+{
+	if (_check_atof_limit(nptr, limit) == ERROR)
+		return (ERROR);
+	*dptr = ft_atof(nptr);
+	return (SUCCESS);
+}
