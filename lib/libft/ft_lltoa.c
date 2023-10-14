@@ -1,34 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ltoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:48:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:51:07 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/14 18:00:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	_get_digit(long int n)
-{
-	size_t	counter;
-
-	if (-10 < n && n < 10)
-		return (1);
-	n /= 10;
-	if (n < 0)
-		n = -n;
-	counter = 1;
-	while (0 < n)
-	{
-		counter++;
-		n /= 10;
-	}
-	return (counter);
-}
 
 long int	_get_div_number(size_t digit)
 {
@@ -42,12 +24,12 @@ long int	_get_div_number(size_t digit)
 	return (number);
 }
 
-void	_fill_str_long(char *str, long int n)
+void	_fill_str_long(char *str, long long int n)
 {
-	long int	div_number;
-	size_t		digit;
+	long long int	div_number;
+	size_t			digit;
 
-	digit = _get_digit(n);
+	digit = ft_count_digit(n);
 	while (digit != 0)
 	{
 		div_number = _get_div_number(digit--);
@@ -58,13 +40,13 @@ void	_fill_str_long(char *str, long int n)
 	}
 }
 
-char	*ft_ltoa(long int n)
+char	*ft_lltoa(long long int n)
 {
 	char	*str;
 	bool	minus_flag;
 
 	minus_flag = (n < 0);
-	str = (char *)ft_xcalloc(_get_digit(n) + minus_flag + 1, sizeof(char));
+	str = (char *)ft_xcalloc(ft_count_digit(n) + minus_flag + 1, sizeof(char));
 	if (minus_flag)
 	{
 		*str = '-';
