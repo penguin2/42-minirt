@@ -6,14 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 21:01:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/14 16:32:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_H
 # define PARSE_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 int		check_extention(const char *file, const char *extention);
 char	*del_commentout(const char *str, const char *commentout_str);
