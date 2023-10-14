@@ -6,15 +6,15 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:26:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:27:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_H
 # define PARSE_H
 
+# include "libft.h"
 # include <stddef.h>
-# include <libft.h>
 
 # define NOT_EQUAL_EXTENSITON "Error: File is not equal extension"
 # define NOT_JSON_FORMAT "Error: json format"
