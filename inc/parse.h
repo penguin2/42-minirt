@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:41:41 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:43:05 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,7 @@ void	dict_free(t_dict *dict, void (free_value)(void *));
 t_node	*node_new(void *content, t_node_type type);
 void	node_free(t_node *node, void (free_content)(void *));
 
-void	json_tokenizer(const char *str);
+char	*get_all_chars_in_file(int fd);
+t_vla	*json_tokenizer(const char *str);
 
 #endif
