@@ -6,7 +6,11 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/10/24 15:39:49 by rikeda           ###   ########.fr       */
+=======
+/*   Updated: 2023/10/16 00:48:50 by rikeda           ###   ########.fr       */
+>>>>>>> [fix] json_tokenizerでtokenが作られない状態を解消
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +19,7 @@
 
 # include <stddef.h>
 # include <libft.h>
+<<<<<<< HEAD
 
 # define NOT_JSON_EXTENSITON "Error: File is not json extension"
 
@@ -43,6 +48,8 @@ typedef struct s_node
 	void		*content;
 	t_node_type	type;
 }	t_node;
+=======
+>>>>>>> [fix] json_tokenizerでtokenが作られない状態を解消
 
 typedef struct s_dict
 {
@@ -93,6 +100,7 @@ void	dict_free(t_dict *dict, void (free_value)(void *));
 t_node	*node_new(void *content, t_node_type type);
 void	node_free(t_node *node, void (free_content)(void *));
 
-void	json_tokenizer(const char *str);
+char	*get_all_chars_in_file(int fd);
+t_vla	*json_tokenizer(const char *str);
 
 #endif

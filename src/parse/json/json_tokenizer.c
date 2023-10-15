@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:11:22 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/15 23:34:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 00:46:30 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_vla	*json_tokenizer(const char *str)
 {
 	t_vla	*token;
 
-	if (str == NULL || *ft_skip_charsets(str, " \t\n") == '\0')
+	if (str == NULL)
 		return (NULL);
 	token = (t_vla *)ft_xcalloc(1, sizeof(t_vla));
 	ft_vla_init(token);
