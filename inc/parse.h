@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/14 18:57:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/15 23:27:19 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_dict
 	void	*value;
 }	t_dict;
 
-enum
+typedef enum e_json_value_type
 {
 	NOT_SET,
 	NUMBER,
@@ -30,11 +30,26 @@ enum
 	STRING,
 	DICT,
 	LIST,
-};
+}	t_json_value_type;
 
-int		check_extention(const char *file, const char *extention);
+typedef enum e_json_stat
+{
+	START,
+	DICT_START,
+	LIST_END,
+	LIST_START,
+	DICT_END,
+	COLON,
+	COMMA,
+	KEY,
+	VALUE,
+}	t_json_stat;
+
+int		check_extension(const char *file, const char *extension);
 char	*del_commentout(const char *str, const char *commentout_str);
 int		try_atof_limit(const char *nptr, double *dptr, size_t limit);
 char	*try_ftoa_limit(double number, size_t limit);
+
+void	json_tokenizer(const char *str);
 
 #endif

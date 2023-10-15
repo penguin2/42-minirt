@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:15:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/15 18:09:25 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/15 21:00:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*del_commentout(char *str, const char *commentout_str)
 {
