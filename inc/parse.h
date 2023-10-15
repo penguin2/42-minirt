@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/15 23:27:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 00:48:50 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PARSE_H
 
 # include <stddef.h>
+# include <libft.h>
 
 typedef struct s_dict
 {
@@ -48,8 +49,8 @@ typedef enum e_json_stat
 int		check_extension(const char *file, const char *extension);
 char	*del_commentout(const char *str, const char *commentout_str);
 int		try_atof_limit(const char *nptr, double *dptr, size_t limit);
-char	*try_ftoa_limit(double number, size_t limit);
 
-void	json_tokenizer(const char *str);
+char	*get_all_chars_in_file(int fd);
+t_vla	*json_tokenizer(const char *str);
 
 #endif
