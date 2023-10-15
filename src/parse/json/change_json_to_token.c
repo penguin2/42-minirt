@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/15 23:38:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 00:49:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
+#include "parse.h"
 #include "libft.h"
 #include <unistd.h>
 #include <stdlib.h>
@@ -43,8 +44,8 @@ t_vla	*change_json_to_token(const char *file)
 		return (NULL);
 	all_chars = get_all_chars_in_file(fd);
 	close(fd);
-	free(all_chars);
 	token = json_tokenizer(all_chars);
+	free(all_chars);
 	if (check_json_token(token))
 	{
 		ft_vla_free(token, free);
@@ -53,3 +54,27 @@ t_vla	*change_json_to_token(const char *file)
 	}
 	return (token);
 }
+
+/* int main(int argc, char *argv[]) */
+/* { */
+/* 	t_vla	*token; */
+/* 	size_t	idx = 0; */
+
+/* 	if (argc != 2) */
+/* 		printf("argc != 2\n"); */
+/* 	else */
+/* 	{ */
+/* 		token = change_json_to_token(argv[1]); */
+/* 		if (token == NULL) */
+/* 		{ */
+/* 			printf("JSON ERROR\n"); */
+/* 			return (1); */
+/* 		} */
+/* 		while (idx < token->size) */
+/* 		{ */
+/* 			printf("token[%zu] = %s\n", idx, (char *)token->array[idx]); */
+/* 			idx++; */
+/* 		} */
+/* 	} */
+/* 	return (0); */
+/* } */

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:28:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:29:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <stddef.h>
+# include <libft.h>
 
 # define NOT_EQUAL_EXTENSITON "Error: File is not equal extension"
 # define NOT_JSON_FORMAT "Error: json format"
@@ -110,6 +111,7 @@ void	json_generator(t_vla *json_object, int fd);
 void	list_generator(t_vla *list, int fd, size_t nest_level);
 void	put_indent_fd(int fd, size_t nest_level);
 
-void	json_tokenizer(const char *str);
+char	*get_all_chars_in_file(int fd);
+t_vla	*json_tokenizer(const char *str);
 
 #endif
