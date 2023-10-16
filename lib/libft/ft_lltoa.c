@@ -6,13 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:48:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/14 18:00:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 18:54:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	_get_div_number(size_t digit)
+static long int	_get_div_number(size_t digit)
 {
 	long int	number;
 
@@ -24,7 +24,7 @@ long int	_get_div_number(size_t digit)
 	return (number);
 }
 
-void	_fill_str_long(char *str, long long int n)
+static void	_fill_str_long(char *str, long long int n)
 {
 	long long int	div_number;
 	size_t			digit;

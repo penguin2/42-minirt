@@ -6,13 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:03:16 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:50:17 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 18:53:37 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	_ft_strncmp(const char *s1, const char *s2, size_t n)
+static int	_ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	idx;
 

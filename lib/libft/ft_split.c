@@ -6,23 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:21:24 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:55:30 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 19:08:21 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-
-static const char	*_skip_non_charsets(const char *str, const char *charsets)
-{
-	while (*str != '\0')
-	{
-		if (ft_strchr(charsets, *str) != NULL)
-			break ;
-		str++;
-	}
-	return (str);
-}
+#include <stdlib.h>
 
 static size_t	_count_strings_size(const char *str, const char *set)
 {
@@ -35,7 +24,7 @@ static size_t	_count_strings_size(const char *str, const char *set)
 		if (*str == '\0')
 			break ;
 		strings_size++;
-		str = _skip_non_charsets(str, set);
+		str = ft_skip_non_charsets(str, set);
 	}
 	return (strings_size);
 }
@@ -50,7 +39,7 @@ static void	_fill_strings(const char *str, const char *set, char **strings)
 		if (*str == '\0')
 			break ;
 		start = str;
-		str = _skip_non_charsets(str, set);
+		str = ft_skip_non_charsets(str, set);
 		*(strings++) = ft_strdup_n(start, (str - start));
 	}
 }

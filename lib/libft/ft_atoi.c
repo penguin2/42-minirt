@@ -6,14 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:35:18 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 16:35:40 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 18:27:45 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-static long int	atoi_plus(const char *nptr)
+static long int	_atoi_plus(const char *nptr)
 {
 	long int	number;
 
@@ -30,7 +30,7 @@ static long int	atoi_plus(const char *nptr)
 	return (number);
 }
 
-static long int	atoi_minus(const char *nptr)
+static long int	_atoi_minus(const char *nptr)
 {
 	long int	number;
 
@@ -51,12 +51,12 @@ int	ft_atoi(const char *nptr)
 {
 	bool	minus_flag;
 
-	nptr = ft_skip_charsets(nptr, "\t\n\r\v\f ");
+	nptr = ft_skip_charsets(nptr, SPACE_CHARSETS);
 	minus_flag = (*nptr == '-');
 	if (*nptr == '-' || *nptr == '+')
 		nptr++;
 	if (minus_flag)
-		return ((int)atoi_minus(nptr));
+		return ((int)_atoi_minus(nptr));
 	else
-		return ((int)atoi_plus(nptr));
+		return ((int)_atoi_plus(nptr));
 }
