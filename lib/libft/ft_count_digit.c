@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_count_digit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:05:54 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:52:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 20:49:35 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/14 16:42:26 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+size_t	ft_count_digit(long long int n)
 {
-	unsigned char	*unsigned_b;
+	size_t	counter;
 
-	unsigned_b = (unsigned char *)b;
-	while (0 < len)
+	if (-10 < n && n < 10)
+		return (1);
+	n /= 10;
+	if (n < 0)
+		n = -n;
+	counter = 1;
+	while (0 < n)
 	{
-		*unsigned_b++ = c;
-		len--;
+		counter++;
+		n /= 10;
 	}
-	return (b);
+	return (counter);
 }

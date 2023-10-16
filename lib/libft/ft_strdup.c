@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:05:54 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:52:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 16:42:23 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/13 16:51:24 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*unsigned_b;
+	char	*new_str;
+	size_t	size;
 
-	unsigned_b = (unsigned char *)b;
-	while (0 < len)
-	{
-		*unsigned_b++ = c;
-		len--;
-	}
-	return (b);
+	size = ft_strlen(s1);
+	new_str = (char *)ft_xcalloc(size + 1, sizeof(char));
+	ft_strlcpy(new_str, s1, size + 1);
+	return (new_str);
 }

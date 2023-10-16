@@ -1,26 +1,28 @@
 /* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_is_equal_str.c                                  :+:      :+:    :+:   */
+/*   ft_is_equal_str.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:05:54 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:52:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 16:23:28 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/16 18:53:16 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+static int	_ft_strcmp(const char *s1, const char *s2)
 {
-	unsigned char	*unsigned_b;
-
-	unsigned_b = (unsigned char *)b;
-	while (0 < len)
+	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
 	{
-		*unsigned_b++ = c;
-		len--;
+		s1++;
+		s2++;
 	}
-	return (b);
+	return (*s1 - *s2);
+}
+
+bool	ft_is_equal_str(const char *s1, const char *s2)
+{
+	return (_ft_strcmp(s1, s2) == 0);
 }

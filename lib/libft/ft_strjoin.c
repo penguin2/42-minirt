@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:05:54 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:52:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 16:39:37 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/13 17:00:34 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char	*unsigned_b;
+	size_t	size;
+	char	*new_str;
 
-	unsigned_b = (unsigned char *)b;
-	while (0 < len)
+	if (s1 == NULL && s2 == NULL)
+		new_str = ft_xcalloc(1, sizeof(char));
+	else if (s1 == NULL)
+		new_str = ft_strdup(s2);
+	else if (s2 == NULL)
+		new_str = ft_strdup(s1);
+	else
 	{
-		*unsigned_b++ = c;
-		len--;
+		size = ft_strlen(s1) + ft_strlen(s2);
+		new_str = ft_xcalloc(size + 1, sizeof(char));
+		ft_strcat(new_str, s1);
+		ft_strcat(new_str, s2);
 	}
-	return (b);
+	return (new_str);
 }

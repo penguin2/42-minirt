@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_is_equal_str_n.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:05:54 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:52:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 17:03:16 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/16 18:53:37 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+static int	_ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	*unsigned_b;
+	size_t	idx;
 
-	unsigned_b = (unsigned char *)b;
-	while (0 < len)
+	if (n == 0)
+		return (0);
+	idx = 0;
+	while (idx < n)
 	{
-		*unsigned_b++ = c;
-		len--;
+		if ((s1[idx] != s2[idx]) || (s1[idx] == '\0' || s2[idx] == '\0'))
+			return (s1[idx] - s2[idx]);
+		idx++;
 	}
-	return (b);
+	return (0);
+}
+
+bool	ft_is_equal_str_n(const char *s1, const char *s2, size_t n)
+{
+	return (_ft_strncmp(s1, s2, n) == 0);
 }

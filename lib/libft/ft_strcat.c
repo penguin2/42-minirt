@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:05:54 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:52:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 16:54:54 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/13 16:57:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strcat(char *dst, const char *src)
 {
-	unsigned char	*unsigned_b;
+	size_t	idx;
 
-	unsigned_b = (unsigned char *)b;
-	while (0 < len)
-	{
-		*unsigned_b++ = c;
-		len--;
-	}
-	return (b);
+	if (dst == NULL)
+		return (NULL);
+	else if (src == NULL)
+		return (dst);
+	idx = 0;
+	while (dst[idx] != '\0')
+		idx++;
+	while (*src != '\0')
+		dst[idx++] = *src++;
+	return (dst);
 }

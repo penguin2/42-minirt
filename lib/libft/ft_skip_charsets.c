@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_skip_charsets.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:05:54 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:52:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/12 16:39:11 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/13 17:54:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+const char	*ft_skip_charsets(const char *str, const char *charsets)
 {
-	unsigned char	*unsigned_b;
-
-	unsigned_b = (unsigned char *)b;
-	while (0 < len)
+	while (*str != '\0')
 	{
-		*unsigned_b++ = c;
-		len--;
+		if (ft_strchr(charsets, *str) == NULL)
+			break ;
+		str++;
 	}
-	return (b);
+	return (str);
 }
