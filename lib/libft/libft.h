@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/14 16:45:06 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/16 19:17:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdbool.h>
 
 # define ERR_VLA_APPEND "Error: VLA allowances have been exceeded"
+
+# define SPACE_CHARSETS "\t\n\r\v\f "
+# define NUMBER_CHARSETS "0123456789"
 
 typedef struct s_vla
 {
@@ -45,6 +48,7 @@ char		*ft_ftoa(double number, size_t limit);
 
 char		**ft_split(const char *str, const char *delimiter);
 const char	*ft_skip_charsets(const char *str, const char *charsets);
+const char	*ft_skip_non_charsets(const char *str, const char *charsets);
 void		ft_free_strings(char **strings);
 
 void		*ft_calloc(size_t count, size_t size);
