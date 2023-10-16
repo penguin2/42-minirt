@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_main.c                                         :+:      :+:    :+:   */
+/*   image.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:47:38 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/11 18:12:56 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/16 18:58:19 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/16 20:29:13 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scene.h"
-#include "define.h"
-#include <mlx.h>
+#ifndef IMAGE_H
+# define IMAGE_H
 
-int	mlx_main(t_scene *scene)
-{
-	void	*mlx_ptr;
-	void	*mlx_wdw_ptr;
+# include "camera.h"
+# include "scene.h"
 
-	mlx_ptr = mlx_init();
-	mlx_wdw_ptr = mlx_new_window(mlx_ptr, WDW_WIDTH, WDW_HEIGHT, NAME);
-	mlx_loop(mlx_ptr);
-	(void)scene;
-	return (SUCCESS);
-}
+typedef struct s_image{
+	void		*ptr;
+	t_scene		*scene;
+	int			width;
+	int			height;
+}	t_image;
+
+int		image_init(t_image *image, t_camera *camera);
+int		image_render_scene(t_image *image, t_scene *scene);
+
+#endif

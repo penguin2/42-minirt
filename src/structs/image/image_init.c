@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   image_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: taekklee <taekklee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/16 20:24:42 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/16 20:18:06 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/16 20:35:12 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
-#include "minirt.h"
-#include "mlx_ptr.h"
-#include "scene.h"
-#include <stdlib.h>
+#include "image.h"
 
-int	main(int argc, char *argv[])
+int	image_init(t_image *image, t_camera *camera)
 {
-	t_scene	scene;
-
-	if (scene_init(&scene, argc, argv) == ERROR
-		|| mlx_ptr_main(&scene) == ERROR)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	image->ptr = NULL;
+	image->height = camera->viewport.height;
+	image->width = camera->viewport.width;
+	return (SUCCESS);
 }

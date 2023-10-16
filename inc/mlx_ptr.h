@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_ptr.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/16 20:24:42 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/16 18:30:40 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/16 20:38:49 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "minirt.h"
-#include "mlx_ptr.h"
-#include "scene.h"
-#include <stdlib.h>
+#ifndef MLX_PTR_H
+# define MLX_PTR_H
 
-int	main(int argc, char *argv[])
-{
-	t_scene	scene;
+# include "image.h"
+# include "scene.h"
+# include <stdbool.h>
 
-	if (scene_init(&scene, argc, argv) == ERROR
-		|| mlx_ptr_main(&scene) == ERROR)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
+typedef struct s_mlx_ptr{
+	void		*ptr;
+	void		*wdw_ptr;
+	bool		is_to_update;
+	t_image		*image;
+	t_scene		*scene;
+}	t_mlx_ptr;
+
+int	mlx_ptr_init(t_mlx_ptr *mlx_ptr, t_image *image, t_scene *scene);
+int	mlx_ptr_loop_hook_fn(t_mlx_ptr *mlx_ptr);
+int	mlx_ptr_main(t_scene *scene);
+
+#endif
