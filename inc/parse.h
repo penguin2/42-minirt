@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:29:57 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:30:19 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,21 @@ void	list_generator(t_vla *list, int fd, size_t nest_level);
 void	put_indent_fd(int fd, size_t nest_level);
 
 char	*get_all_chars_in_file(int fd);
+
+t_vla	*change_json_to_token(const char *file);
+int		check_json_token_nest(t_vla *token);
+int		check_json_token(t_vla *token);
 t_vla	*json_tokenizer(const char *str);
+
+int		stat_get(t_vla *stack);
+int		stat_check_end(t_vla *token, size_t idx);
+int		stat_dict_start(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_dict_end(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_list_start(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_list_end(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_comma(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_colon(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 
 #endif
