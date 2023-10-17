@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image_render_scene.c                               :+:      :+:    :+:   */
+/*   image_write_color.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 19:12:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/17 22:02:27 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/17 21:59:58 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/17 22:03:38 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "image.h"
-#include <mlx.h>
 
-// test rendering 100 x 100 blue box
-int	image_render_scene(void *mlx, t_image *image, t_scene *scene)
+void	image_write_color(
+			t_image *image, unsigned char *dst, unsigned int color)
 {
-	int	x;
-	int	y;
+	size_t	sz;
+	size_t	i;
 
-	(void)scene;
-	x = 100;
-	while (x < 200)
+	if (image->local_endian == image->endian)
+		*(unsigned int *)dst = color;
+	else
 	{
-		y = 100;
-		while (y < 200)
+		i = 0;
+		sz = image->byte_per_pixel;
+		while (i < sz)
 		{
-			image_write_color(image,
-				image->addr
-				+ x * image->size_line + y * image->byte_per_pixel,
-				mlx_get_color_value(mlx, 0x8080ff));
-			++y;
+			dst[i] = ((unsigned char *)&color)[sz - 1 - i];
+			++i;
 		}
-		++x;
 	}
-	return (0);
 }
