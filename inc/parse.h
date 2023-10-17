@@ -8,8 +8,8 @@
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
 /*   Updated: 2023/10/24 15:39:49 by rikeda           ###   ########.fr       */
 =======
-/*   Updated: 2023/10/17 21:30:34 by rikeda           ###   ########.fr       */
->>>>>>> [fix] parse.h のnorminette対応
+/*   Updated: 2023/10/18 01:12:35 by rikeda           ###   ########.fr       */
+>>>>>>> [fix] stat*.cを修正し、jsonファイル内のフォーマットチェックが完成
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int		check_json_token(t_vla *token);
 t_vla	*json_tokenizer(const char *str);
 
 int		stat_get(t_vla *stack);
-int		stat_check_end(t_vla *token, size_t idx);
+int		stat_check_end(t_vla *token, size_t idx, int stat);
 int		stat_dict_start(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_dict_end(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_list_start(t_vla *token, t_vla *stack, size_t idx, int stat);
@@ -118,5 +118,6 @@ int		stat_comma(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_colon(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
+bool	is_value_token(const char *str);
 
 #endif
