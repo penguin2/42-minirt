@@ -6,11 +6,10 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2023/10/24 15:39:49 by rikeda           ###   ########.fr       */
 =======
-/*   Updated: 2023/10/16 00:48:50 by rikeda           ###   ########.fr       */
->>>>>>> [fix] json_tokenizerでtokenが作られない状態を解消
+/*   Updated: 2023/10/17 21:11:12 by rikeda           ###   ########.fr       */
+>>>>>>> [add] jsonフォーマットに則っているかを判定するcheck_json_format関数を途中まで実装
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +18,6 @@
 
 # include <stddef.h>
 # include <libft.h>
-<<<<<<< HEAD
 
 # define NOT_JSON_EXTENSITON "Error: File is not json extension"
 
@@ -48,8 +46,11 @@ typedef struct s_node
 	void		*content;
 	t_node_type	type;
 }	t_node;
-=======
->>>>>>> [fix] json_tokenizerでtokenが作られない状態を解消
+
+# define NOT_JSON_EXTENSITON "Error: File is not json extension"
+
+#define DICT 0
+#define LIST 1
 
 typedef struct s_dict
 {
@@ -101,6 +102,21 @@ t_node	*node_new(void *content, t_node_type type);
 void	node_free(t_node *node, void (free_content)(void *));
 
 char	*get_all_chars_in_file(int fd);
+
+t_vla	*change_json_to_token(const char *file);
+int		check_json_token_nest(t_vla *token);
+int		check_json_token(t_vla *token);
 t_vla	*json_tokenizer(const char *str);
+
+int		stat_get(t_vla *stack);
+int		stat_check_end(t_vla *token, size_t idx);
+int		stat_dict_start(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_dict_end(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_list_start(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_list_end(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_comma(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_colon(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
+int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 
 #endif
