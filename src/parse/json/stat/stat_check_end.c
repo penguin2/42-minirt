@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vla_free.c                                      :+:      :+:    :+:   */
+/*   stat_check_end.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:06:31 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 16:56:31 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/17 20:24:11 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/17 20:25:50 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "parse.h"
+#include "define.h"
 
-void	ft_vla_free(t_vla *vla, void free_content(void *content))
+int	stat_check_end(t_vla *token, size_t idx)
 {
-	size_t	idx;
-
-	idx = 0;
-	while (idx < vla->size)
-	{
-		if (vla->array[idx] != NULL && free_content != NULL)
-			free_content(vla->array[idx]);
-		idx++;
-	}
-	free(vla->array);
+	if (token->size == idx)
+		return (SUCCESS);
+	return (ERROR);
 }

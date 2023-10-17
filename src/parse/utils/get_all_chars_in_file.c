@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 20:19:39 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/16 00:35:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/17 14:14:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,3 @@ char	*get_all_chars_in_file(int fd)
 	}
 	return (all_chars);
 }
-
-/* #include <fcntl.h> */
-/* #include <stdio.h> */
-/* int main(void) */
-/* { */
-/* 	int	fd = open("./del_commentout.c", O_RDONLY); */
-/* 	if (fd < 0) */
-/* 	{ */
-/* 		printf("ERROR\n"); */
-/* 		exit(1); */
-/* 	} */
-/* 	char *chars = get_all_chars_in_file(fd); */
-
-/* 	printf("%s\n", chars); */
-/* 	close(fd); */
-/* 	return (0); */
-/* } */

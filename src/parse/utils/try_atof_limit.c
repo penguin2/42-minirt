@@ -6,14 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:24:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/14 18:35:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/17 14:16:50 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "libft.h"
 
-const char	*_skip_digit(const char *nptr, size_t *limit)
+static const char	*_skip_digit(const char *nptr, size_t *limit)
 {
 	while (ft_isdigit(*nptr) && 0 < *limit)
 	{
@@ -23,17 +23,19 @@ const char	*_skip_digit(const char *nptr, size_t *limit)
 	return (nptr);
 }
 
-int	_check_atof_limit(const char *nptr, size_t limit)
+static int	_check_atof_limit(const char *nptr, size_t limit)
 {
 	nptr = ft_skip_charsets(nptr, "\t\n\r\v\f ");
-	nptr += (*nptr == '+' || *nptr == '-');
+	if (*nptr == '+' || *nptr == '-')
+		nptr++;
 	if (*nptr == '.')
 		return (ERROR);
 	nptr = ft_skip_charsets(nptr, "0");
 	nptr = _skip_digit(nptr, &limit);
 	if (ft_is_equal_str(nptr, "."))
 		return (ERROR);
-	nptr += (*nptr == '.');
+	if (*nptr == '.')
+		nptr++;
 	nptr = _skip_digit(nptr, &limit);
 	if (*nptr != '\0')
 		return (ERROR);

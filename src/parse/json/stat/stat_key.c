@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vla_free.c                                      :+:      :+:    :+:   */
+/*   stat_key.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:06:31 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 16:56:31 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/17 19:39:57 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/17 21:04:12 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "parse.h"
+#include "define.h"
 
-void	ft_vla_free(t_vla *vla, void free_content(void *content))
+int	stat_key(t_vla *token, t_vla *stack, size_t idx, int stat)
 {
-	size_t	idx;
+	char	*str;
 
-	idx = 0;
-	while (idx < vla->size)
-	{
-		if (vla->array[idx] != NULL && free_content != NULL)
-			free_content(vla->array[idx]);
-		idx++;
-	}
-	free(vla->array);
+	if (stat == END)
+		return (stat_check_end(token, idx));
+	str = (char *)token->array[idx];
+	if (stat == DICT && *str == ':')
+		return (stat_colon(token, stack, (idx + 1), DICT));
+	else
+		return (ERROR);
 }

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vla_free.c                                      :+:      :+:    :+:   */
+/*   ft_vla_pop.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 20:06:31 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 16:56:31 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/17 16:48:23 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/17 17:04:03 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_vla_free(t_vla *vla, void free_content(void *content))
+void	*ft_vla_pop(t_vla *vla)
 {
-	size_t	idx;
+	void	*ret;
 
-	idx = 0;
-	while (idx < vla->size)
+	if (vla->size == 0)
+		ret = NULL;
+	else
 	{
-		if (vla->array[idx] != NULL && free_content != NULL)
-			free_content(vla->array[idx]);
-		idx++;
+		vla->size -= 1;
+		ret = vla->array[vla->size];
+		vla->array[vla->size] = NULL;
 	}
-	free(vla->array);
+	return (ret);
 }
