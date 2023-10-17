@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:40:13 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 21:22:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 01:12:31 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	stat_value(t_vla *token, t_vla *stack, size_t idx, int stat)
 {
 	char	*str;
 
-	if (stat == END)
-		return (stat_check_end(token, idx));
+	if (idx == token->size || stat == END)
+		return (stat_check_end(token, idx, stat));
 	str = (char *)token->array[idx];
 	if (stat == DICT && *str == '}' && *(char *)ft_vla_pop(stack) == '{')
 		return (stat_dict_end(token, stack, (idx + 1), stat_get(stack)));

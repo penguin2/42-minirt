@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stat_key.c                                         :+:      :+:    :+:   */
+/*   is_value_token.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 19:39:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 01:12:07 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/18 00:35:26 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/18 01:01:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "define.h"
+#include "libft.h"
 
-int	stat_key(t_vla *token, t_vla *stack, size_t idx, int stat)
+bool	is_value_token(const char *str)
 {
-	char	*str;
-
-	if (idx == token->size || stat == END)
-		return (stat_check_end(token, idx, stat));
-	str = (char *)token->array[idx];
-	if (stat == DICT && *str == ':')
-		return (stat_colon(token, stack, (idx + 1), DICT));
+	if (ft_strchr("{}[]:,", *str) == NULL)
+		return (true);
 	else
-		return (ERROR);
+		return (false);
 }
