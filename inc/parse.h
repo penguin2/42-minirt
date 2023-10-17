@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 21:11:12 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/17 21:30:34 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 # define NOT_JSON_EXTENSITON "Error: File is not json extension"
 
-#define DICT 0
-#define LIST 1
+# define DICT 0
+# define LIST 1
 
 typedef struct s_dict
 {
