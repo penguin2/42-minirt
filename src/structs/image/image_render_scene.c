@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:12:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:23:15 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:49:08 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <mlx.h>
 #include <stddef.h>
 
-static int	_get_ray_color(t_scene *scene, t_vec3 from, t_vec3 to);
+static int	_get_ray_color(t_scene *scene, t_ray ray);
 
 void	image_render_scene(void *mlx, t_image *image, t_scene *scene)
 {
@@ -34,7 +34,7 @@ void	image_render_scene(void *mlx, t_image *image, t_scene *scene)
 	while (row_cnt < image->height)
 	{
 		image_write_color(mlx, image, addr,
-			_get_ray_color(scene, scene->camera.eye, pixel));
+			_get_ray_color(scene, ray_from_to(scene->camera.eye, pixel)));
 		++col_cnt;
 		addr += image->byte_per_pixel;
 		pixel = vec3_add(pixel, scene->camera.viewport.dw);
@@ -49,15 +49,23 @@ void	image_render_scene(void *mlx, t_image *image, t_scene *scene)
 	}
 }
 
-static int	_get_ray_color(t_scene *scene, t_vec3 from, t_vec3 to)
+/**
+ * @brief tracing the given ray,
+ * 		if the ray hits a certain object, it calculates the color of that hit.
+ *
+ * @param scene information of the scene
+ * @param ray given ray to trace
+ * @return color of the hit if the ray hits a certain object,
+ * 		otherwise the default color (black!?)
+ */
+static int	_get_ray_color(t_scene *scene, t_ray ray)
 {
-	const t_ray	ray = ray_create(from, vec3_sub(to, from));	
 	t_color		color;
 	t_hit		*hit;
 
 	hit = hit_new(ray, &scene->objects);
 	if (hit == NULL)
-		return (color_cast(color_create(0.0, 0.0, 0.0)));
+		return (color_cast(color_black()));
 	color = hit_get_color(hit, &scene->objects, &scene->lights);
 	hit_free(hit);
 	return (color_cast(color));

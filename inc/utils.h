@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.h                                              :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:56:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 20:25:32 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 20:50:38 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAY_H
-# define RAY_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include "libvec3.h"
+# include <stdbool.h>
 
-typedef struct s_ray{
-	t_vec3	origin;
-	t_vec3	dir;
-}	t_ray;
+# define NUM_QUADRATIC_EQUATION_ROOTS (2)
+# define LOWER_ROOT (0)
+# define HIGHER_ROOT (1)
 
-t_ray	ray_create(t_vec3 origin, t_vec3 dir);
-t_vec3	ray_at(t_ray ray, double t);
-t_ray	ray_from_to(t_vec3 from, t_vec3 to);
+bool	solve_quadratic_equation(
+			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
 
 #endif
