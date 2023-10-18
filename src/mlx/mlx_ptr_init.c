@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:37:54 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/16 20:40:17 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:02:34 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	mlx_ptr_init(t_mlx_ptr *mlx_ptr, t_image *image, t_scene *scene)
 		return (ERROR);
 	mlx_ptr->wdw_ptr = mlx_new_window(
 			mlx_ptr->ptr, WDW_WIDTH, WDW_HEIGHT, NAME);
+	if (mlx_ptr->wdw_ptr == NULL)
+		return (ERROR);
 	mlx_ptr->scene = scene;
 	mlx_ptr->image = image;
 	mlx_ptr->is_to_update = true;

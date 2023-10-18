@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:22:08 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 15:50:44 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:31:08 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	sphere_get_dist(const t_object *object, t_ray ray, double *dist)
 	return (true);
 }
 
-// for the following quadratic equation: ax^2 + 2bx + c = 0, 
+// for the following quadratic equation: x^2 + 2bx + c = 0, 
 // if the roots of the equation exist, it calculates the roots and returns true
 // else, it returns false
 //
