@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:45:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:46:02 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,10 +152,9 @@ void	node_free(t_node *node, void (free_content)(void *));
 
 char	*get_all_chars_in_file(int fd);
 
-t_vla	*change_json_to_token(const char *file);
-int		check_json_token_nest(t_vla *token);
+t_vla	*convert_json_to_token(const char *file);
 int		check_json_token(t_vla *token);
-t_vla	*json_tokenizer(const char *str);
+t_vla	*tokenize(const char *str);
 
 int		stat_get(t_vla *stack);
 int		stat_check_end(t_vla *token, size_t idx, int stat);
