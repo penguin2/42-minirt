@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 16:53:09 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 15:51:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ void		ft_putstr_fd(const char *s, int fd);
 void		ft_putendl_fd(const char *s, int fd);
 
 void		ft_vla_init(t_vla *vla);
+t_vla		*ft_vla_new(void);
 void		ft_vla_free(t_vla *vla, void free_content(void *content));
 void		ft_vla_append(t_vla *vla, void *content);
-void		*ft_vla_pop(t_vla *vla);
+void		*ft_vla_pop(t_vla *vla, size_t idx);
 
 #endif
