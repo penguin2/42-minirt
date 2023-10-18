@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:16:41 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:10:14 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "libft.h"
 #include "libvec3.h"
 #include "scene.h"
+#include "sphere.h"
 #include <math.h>
 #include <stdbool.h>
 
@@ -34,5 +35,13 @@ int	scene_init(t_scene *scene, int argc, char **argv)
 static void	_temp_objects_and_lights(t_vla *lights, t_vla *objects)
 {
 	(void)lights;
-	(void)objects;
+	ft_vla_append(
+		objects,
+		object_new(
+			sphere_new(vec3_create(0, 0, -10), 3),
+			sphere_get_dist,
+			sphere_get_normal,
+			sphere_free
+			)
+		);
 }

@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hit_get_color.c                                    :+:      :+:    :+:   */
+/*   sphere_get_normal.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 10:18:17 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 16:10:45 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 15:42:58 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 15:52:33 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hit.h"
-#include "libcolor.h"
+#include "libvec3.h"
+#include "sphere.h"
 
-t_color	hit_get_color(t_hit *hit, t_vla *objects, t_vla *lights)
+t_vec3	sphere_get_normal(const t_object *object, t_ray ray, t_vec3 pos)
 {
-	(void)objects;
-	(void)lights;
-	(void)hit;
-	return (color_create(0.5, 0.5, 0.5));
+	const t_sphere	*sphere = object->ptr;
+	const t_vec3	sphere_to_ray = vec3_sub(ray.origin, sphere->center);
+
+	if (vec3_len(sphere_to_ray) < sphere->radius)
+		return (vec3_unit(vec3_sub(sphere->center, pos)));
+	return (vec3_unit(vec3_sub(pos, sphere->center)));
 }
