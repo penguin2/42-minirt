@@ -8,8 +8,8 @@
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
 /*   Updated: 2023/10/24 15:39:49 by rikeda           ###   ########.fr       */
 =======
-/*   Updated: 2023/10/18 01:12:35 by rikeda           ###   ########.fr       */
->>>>>>> [fix] stat*.cを修正し、jsonファイル内のフォーマットチェックが完成
+/*   Updated: 2023/10/18 12:07:58 by rikeda           ###   ########.fr       */
+>>>>>>> ステートマシンとutilsのリファクタリング
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,6 @@ int		stat_colon(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 bool	is_value_token(const char *str);
+bool	is_closed(t_vla *stack, int open_char);
 
 #endif
