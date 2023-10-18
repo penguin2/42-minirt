@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   json_tokenizer.c                                   :+:      :+:    :+:   */
+/*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:11:22 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 16:43:00 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 14:33:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	_json_token_create(t_vla *token, const char *str)
 	}
 }
 
-t_vla	*json_tokenizer(const char *str)
+t_vla	*tokenize(const char *str)
 {
 	t_vla	*token;
 

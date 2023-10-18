@@ -8,8 +8,8 @@
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
 /*   Updated: 2023/10/24 15:39:49 by rikeda           ###   ########.fr       */
 =======
-/*   Updated: 2023/10/18 12:07:58 by rikeda           ###   ########.fr       */
->>>>>>> ステートマシンとutilsのリファクタリング
+/*   Updated: 2023/10/18 14:44:04 by rikeda           ###   ########.fr       */
+>>>>>>> [fix] ファイル構成の見直し、関数名の見直しを実施
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,9 @@ void	node_free(t_node *node, void (free_content)(void *));
 
 char	*get_all_chars_in_file(int fd);
 
-t_vla	*change_json_to_token(const char *file);
-int		check_json_token_nest(t_vla *token);
+t_vla	*convert_json_to_token(const char *file);
 int		check_json_token(t_vla *token);
-t_vla	*json_tokenizer(const char *str);
+t_vla	*tokenize(const char *str);
 
 int		stat_get(t_vla *stack);
 int		stat_check_end(t_vla *token, size_t idx, int stat);
