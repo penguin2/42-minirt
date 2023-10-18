@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 14:44:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 20:26:20 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 bool	is_value_token(const char *str);
 bool	is_closed(t_vla *stack, int open_char);
+
+t_dict	*dict_new(const char *key, void *value, int value_type);
+void	dict_free(t_dict *dict, void (free_value)(void *));
 
 #endif
