@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_create.c                                       :+:      :+:    :+:   */
+/*   hit_get_color.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:32:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 04:15:37 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 10:18:17 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 11:19:40 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ray.h"
+#include "hit.h"
+#include "libcolor.h"
 
-t_ray	ray_create(t_vec3 origin, t_vec3 dir)
+t_color	hit_get_color(t_hit *hit, t_vla *objects, t_vla *lights)
 {
-	t_ray	new;
-
-	new.origin = origin;
-	new.dir = vec3_unit(dir);
-	return (new);
+	(void)objects;
+	(void)lights;
+	(void)hit;
+	return (color_create(0.0, 0.0, 0.0));
 }

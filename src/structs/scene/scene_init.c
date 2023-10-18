@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:58:41 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:16:41 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	scene_init(t_scene *scene, int argc, char **argv)
 	(void)argc;
 	(void)argv;
 	camera_init(&scene->camera);
+	ft_vla_init(&scene->objects);
+	ft_vla_init(&scene->lights);
 	_temp_objects_and_lights(&scene->lights, &scene->objects);
 	return (SUCCESS);
 }

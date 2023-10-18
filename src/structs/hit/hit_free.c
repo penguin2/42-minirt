@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_create.c                                       :+:      :+:    :+:   */
+/*   hit_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:32:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 04:15:37 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 10:16:40 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 10:18:05 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ray.h"
+#include <stdlib.h>
 
-t_ray	ray_create(t_vec3 origin, t_vec3 dir)
+void	hit_free(void *hit)
 {
-	t_ray	new;
-
-	new.origin = origin;
-	new.dir = vec3_unit(dir);
-	return (new);
+	free(hit);
 }

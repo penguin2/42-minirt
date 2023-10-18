@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object_new.c                                       :+:      :+:    :+:   */
+/*   hit_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:02:49 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 10:15:07 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 11:21:49 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "hit.h"
 #include "libft.h"
-#include "material.h"
 #include "object.h"
-#include <stddef.h>
 
-t_object	*object_new(
-					void *ptr,
-					t_fn_get_dist get_dist,
-					t_fn_get_normal get_normal,
-					t_fn_free_ptr free_ptr)
+t_hit	*hit_new(t_ray incoming_ray, t_vla *objects)
 {
-	t_object	*new;
+	const t_object	*object;
+	t_hit			*new;
+	double			dist;
 
-	new = ft_xcalloc(1, sizeof(t_object));
-	new->ptr = ptr;
-	new->image_map = NULL;
-	new->bump_map = NULL;
-	new->material = material_create(1.0, 1.0, 1.0, 0.0);
-	new->get_dist = get_dist;
-	new->get_normal = get_normal;
-	new->free_ptr = free_ptr;
+	object = object_get_closest(incoming_ray, objects);
+	if (object == NULL)
+		return (NULL);
+	new = ft_xcalloc(1, sizeof(t_hit));
+	new->incoming_ray = incoming_ray;
+	new->object = object;
+	object->get_dist(object, incoming_ray, &dist);
+	new->pos = ray_at(incoming_ray, dist);
+	new->normal = object->get_normal(object, incoming_ray, new->pos);
 	return (new);
 }

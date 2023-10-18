@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:18:06 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/17 18:31:08 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 02:25:33 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ static int	_is_big_endian(void);
 
 int	image_init(t_image *image, t_camera *camera)
 {
+	image->scene = NULL;
 	image->width = camera->viewport.width;
 	image->height = camera->viewport.height;
-	image->scene = NULL;
-	image->ptr = NULL;
-	image->addr = NULL;
 	image->local_endian = _is_big_endian();
 	return (SUCCESS);
 }

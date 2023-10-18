@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_create.c                                       :+:      :+:    :+:   */
+/*   fn_type.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:32:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 04:15:37 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 10:53:57 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 11:00:40 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ray.h"
+#ifndef FN_TYPE_H
+# define FN_TYPE_H
 
-t_ray	ray_create(t_vec3 origin, t_vec3 dir)
-{
-	t_ray	new;
+# include "libvec3.h"
+# include "ray.h"
+# include <stdbool.h>
 
-	new.origin = origin;
-	new.dir = vec3_unit(dir);
-	return (new);
-}
+typedef struct s_object	t_object;
+typedef bool			(*t_fn_get_dist)(const t_object*, t_ray, double*);
+typedef t_vec3			(*t_fn_get_normal)(const t_object*, t_ray, t_vec3);
+typedef void			(*t_fn_free_ptr)(void *);
+
+#endif
