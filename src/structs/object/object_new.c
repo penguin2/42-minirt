@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object.h                                           :+:      :+:    :+:   */
+/*   object_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:00:58 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 11:02:49 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECT_H
-# define OBJECT_H
+#include "libft.h"
+#include "material.h"
+#include "object.h"
+#include <stddef.h>
 
-# include "fn_type.h"
-# include "libft.h"
-# include "material.h"
-# include "ray.h"
-
-typedef struct s_object{
-	void			*ptr;
-	void			*image_map;
-	void			*bump_map;
-	t_material		material;
-	t_fn_get_dist	get_dist;
-	t_fn_get_normal	get_normal;
-	t_fn_free_ptr	free_ptr;
-}	t_object;
-
-t_object		*object_new(
+t_object	*object_new(
 					void *ptr,
 					t_fn_get_dist get_dist,
 					t_fn_get_normal get_normal,
-					t_fn_free_ptr free_ptr);
-void			object_free(void *object);
-const t_object	*object_get_closest(t_ray ray, t_vla *objects);
+					t_fn_free_ptr free_ptr)
+{
+	t_object	*new;
 
-#endif
+	new = ft_xcalloc(1, sizeof(t_object));
+	new->ptr = ptr;
+	new->image_map = NULL;
+	new->bump_map = NULL;
+	new->material = material_create(1.0, 1.0, 1.0, 0.0);
+	new->get_dist = get_dist;
+	new->get_normal = get_normal;
+	new->free_ptr = free_ptr;
+	return (new);
+}

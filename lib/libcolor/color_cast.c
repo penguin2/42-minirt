@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:34:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/10 18:42:14 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:42:49 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	_double_to_8bit(double val);
 
-unsigned int	color_cast(t_color color)
+int	color_cast(t_color color)
 {
 	return ((_double_to_8bit(color.red) << 16)
 		| (_double_to_8bit(color.green) << 8)

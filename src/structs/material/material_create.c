@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_main.c                                         :+:      :+:    :+:   */
+/*   material_create.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:47:38 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/11 18:12:56 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/12 16:34:03 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/12 16:34:59 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scene.h"
-#include "define.h"
-#include <mlx.h>
+#include "material.h"
 
-int	mlx_main(t_scene *scene)
+t_material	material_create(
+				double k_ambient,
+				double k_diffuse,
+				double k_specular,
+				double shininess
+				)
 {
-	void	*mlx_ptr;
-	void	*mlx_wdw_ptr;
+	t_material	new;
 
-	mlx_ptr = mlx_init();
-	mlx_wdw_ptr = mlx_new_window(mlx_ptr, WDW_WIDTH, WDW_HEIGHT, NAME);
-	mlx_loop(mlx_ptr);
-	(void)scene;
-	return (SUCCESS);
+	new.k_ambient = k_ambient;
+	new.k_diffuse = k_diffuse;
+	new.k_specular = k_specular;
+	new.shininess = shininess;
+	return (new);
 }

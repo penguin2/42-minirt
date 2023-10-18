@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   image_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/16 20:24:42 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/16 20:18:06 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 20:48:09 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
-#include "minirt.h"
-#include "mlx_ptr.h"
-#include "scene.h"
-#include <stdlib.h>
+#include "image.h"
 
-int	main(int argc, char *argv[])
+static int	_is_big_endian(void);
+
+int	image_init(t_image *image, t_camera *camera)
 {
-	t_scene	scene;
+	image->scene = NULL;
+	image->width = camera->viewport.width;
+	image->height = camera->viewport.height;
+	image->local_endian = _is_big_endian();
+	return (SUCCESS);
+}
 
-	if (scene_init(&scene, argc, argv) == ERROR
-		|| mlx_ptr_main(&scene) == ERROR)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+static int	_is_big_endian(void)
+{
+	unsigned int	x;
+
+	x = 0xff;
+	if (*(unsigned char *)&x == 0xff)
+		return (0);
+	return (1);
 }

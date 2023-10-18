@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:56:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/11 16:09:44 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:25:32 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ typedef struct s_ray{
 
 t_ray	ray_create(t_vec3 origin, t_vec3 dir);
 t_vec3	ray_at(t_ray ray, double t);
+t_ray	ray_from_to(t_vec3 from, t_vec3 to);
 
 #endif

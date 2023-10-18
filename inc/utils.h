@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.h                                           :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:57:02 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 15:53:11 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 20:50:38 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPHERE_H
-# define SPHERE_H 
+#ifndef UTILS_H
+# define UTILS_H
 
-# include "object.h"
-# include "libvec3.h"
 # include <stdbool.h>
 
-typedef struct s_sphere{
-	t_vec3	center;
-	double	radius;
-}	t_sphere;
+# define NUM_QUADRATIC_EQUATION_ROOTS (2)
+# define LOWER_ROOT (0)
+# define HIGHER_ROOT (1)
 
-t_sphere	*sphere_new(t_vec3 center, double radius);
-void		sphere_free(void *sphere);
-bool		sphere_get_dist(const t_object *object, t_ray ray, double *dist);
-t_vec3		sphere_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
+bool	solve_quadratic_equation(
+			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
 
 #endif

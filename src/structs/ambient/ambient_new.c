@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ambient_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/16 20:24:42 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/12 16:30:47 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/15 20:40:22 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "minirt.h"
-#include "mlx_ptr.h"
-#include "scene.h"
-#include <stdlib.h>
+#include "ambient.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+t_ambient	*ambient_new(double brightness, t_color color)
 {
-	t_scene	scene;
+	t_ambient	*new;
 
-	if (scene_init(&scene, argc, argv) == ERROR
-		|| mlx_ptr_main(&scene) == ERROR)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	new = ft_xcalloc(1, sizeof(t_ambient));
+	new->brightness = brightness;
+	new->color = color;
+	return (new);
 }

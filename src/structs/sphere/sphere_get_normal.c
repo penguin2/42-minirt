@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sphere_get_normal.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/16 20:24:42 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/18 15:42:58 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/18 15:52:33 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "minirt.h"
-#include "mlx_ptr.h"
-#include "scene.h"
-#include <stdlib.h>
+#include "libvec3.h"
+#include "sphere.h"
 
-int	main(int argc, char *argv[])
+t_vec3	sphere_get_normal(const t_object *object, t_ray ray, t_vec3 pos)
 {
-	t_scene	scene;
+	const t_sphere	*sphere = object->ptr;
+	const t_vec3	sphere_to_ray = vec3_sub(ray.origin, sphere->center);
 
-	if (scene_init(&scene, argc, argv) == ERROR
-		|| mlx_ptr_main(&scene) == ERROR)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	if (vec3_len(sphere_to_ray) < sphere->radius)
+		return (vec3_unit(vec3_sub(sphere->center, pos)));
+	return (vec3_unit(vec3_sub(pos, sphere->center)));
 }
