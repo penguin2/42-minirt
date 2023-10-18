@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 01:12:35 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 12:07:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 
 # define NOT_JSON_EXTENSITON "Error: File is not json extension"
 
-# define DICT 0
-# define LIST 1
-
 typedef struct s_dict
 {
 	char	*key;
@@ -28,19 +25,12 @@ typedef struct s_dict
 	void	*value;
 }	t_dict;
 
-typedef enum e_json_stat
+enum e_stat
 {
-	START = 0,
-	DICT_START,
-	DICT_END,
-	LIST_START,
-	LIST_END,
-	COLON,
-	COMMA,
-	KEY,
-	VALUE,
+	IN_DICT,
+	IN_LIST,
 	END,
-}	t_json_stat;
+};
 
 int		check_extension(const char *file, const char *extension);
 char	*del_commentout(const char *str, const char *commentout_str);
@@ -64,5 +54,6 @@ int		stat_colon(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 bool	is_value_token(const char *str);
+bool	is_closed(t_vla *stack, int open_char);
 
 #endif

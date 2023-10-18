@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_extension.c                                  :+:      :+:    :+:   */
+/*   is_closed.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 18:24:02 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 12:27:56 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/18 12:05:04 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/18 12:07:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "libft.h"
+#include "parse.h"
 
-int	check_extension(const char *file, const char *extension)
+bool	is_closed(t_vla *stack, int open_char)
 {
-	char	*extension_start;
+	int	close_char;
 
-	if (ft_strlen(file) <= ft_strlen(extension))
-		return (ERROR);
-	extension_start = ft_strrstr(file, extension);
-	if (extension_start == NULL
-		|| !ft_is_equal_str(extension_start, extension)
-		|| *(--extension_start) == '/')
-		return (ERROR);
+	close_char = *(char *)ft_vla_pop(stack);
+	if (open_char == '{' && close_char == '}')
+		return (true);
+	else if (open_char == '[' && close_char == ']')
+		return (true);
 	else
-		return (SUCCESS);
+		return (false);
 }
