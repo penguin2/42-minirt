@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:53:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 12:01:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 15:29:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	stat_comma(t_vla *token, t_vla *stack, size_t idx, int stat)
 	else if (stat == IN_LIST && *str == '[')
 	{
 		ft_vla_append(stack, str);
-		return (stat_dict_start(token, stack, (idx + 1), IN_LIST));
+		return (stat_list_start(token, stack, (idx + 1), IN_LIST));
 	}
 	else if (stat == IN_LIST && is_value_token(str))
 		return (stat_value(token, stack, (idx + 1), IN_LIST));
