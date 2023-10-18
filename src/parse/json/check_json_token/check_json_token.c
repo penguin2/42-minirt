@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:47:07 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 19:44:15 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 14:37:46 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	check_json_token(t_vla *token)
 	if (*str == '{')
 	{
 		ft_vla_append(&stack, str);
-		success_or_error = stat_dict_start(token, &stack, 1, DICT);
+		success_or_error = stat_dict_start(token, &stack, 1, IN_DICT);
 	}
 	else if (*str == '[')
 	{
 		ft_vla_append(&stack, str);
-		success_or_error = stat_list_start(token, &stack, 1, LIST);
+		success_or_error = stat_list_start(token, &stack, 1, IN_LIST);
 	}
 	else
 		success_or_error = ERROR;
