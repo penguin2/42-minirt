@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stat_get.c                                         :+:      :+:    :+:   */
+/*   is_closed.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 19:50:55 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 12:02:15 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/18 12:05:04 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/18 12:07:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "parse.h"
 
-int	stat_get(t_vla *stack)
+bool	is_closed(t_vla *stack, int open_char)
 {
-	if (stack->size == 0)
-		return (END);
-	else if (*(char *)stack->array[stack->size - 1] == '{')
-		return (IN_DICT);
+	int	close_char;
+
+	close_char = *(char *)ft_vla_pop(stack);
+	if (open_char == '{' && close_char == '}')
+		return (true);
+	else if (open_char == '[' && close_char == ']')
+		return (true);
 	else
-		return (IN_LIST);
+		return (false);
 }

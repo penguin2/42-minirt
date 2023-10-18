@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:44:52 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:45:34 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,5 +168,6 @@ int		stat_colon(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 bool	is_value_token(const char *str);
+bool	is_closed(t_vla *stack, int open_char);
 
 #endif
