@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_json_to_token.c                             :+:      :+:    :+:   */
+/*   convert_json_to_token.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/17 21:28:36 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 14:42:03 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "parse.h"
 #include "libft.h"
-#include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -37,7 +36,7 @@ static int	_try_open_json_file(const char *json_file)
 	return (fd);
 }
 
-t_vla	*change_json_to_token(const char *file)
+t_vla	*convert_json_to_token(const char *file)
 {
 	int		fd;
 	char	*all_chars;
@@ -48,7 +47,7 @@ t_vla	*change_json_to_token(const char *file)
 		return (NULL);
 	all_chars = get_all_chars_in_file(fd);
 	close(fd);
-	token = json_tokenizer(all_chars);
+	token = tokenize(all_chars);
 	free(all_chars);
 	if (check_json_token(token) == ERROR)
 	{
