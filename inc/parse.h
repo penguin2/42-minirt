@@ -8,8 +8,8 @@
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
 /*   Updated: 2023/10/24 15:39:49 by rikeda           ###   ########.fr       */
 =======
-/*   Updated: 2023/10/18 14:44:04 by rikeda           ###   ########.fr       */
->>>>>>> [fix] ファイル構成の見直し、関数名の見直しを実施
+/*   Updated: 2023/10/18 20:26:20 by rikeda           ###   ########.fr       */
+>>>>>>> [add] dict関連の関数を追加
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,8 @@ int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
 int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 bool	is_value_token(const char *str);
 bool	is_closed(t_vla *stack, int open_char);
+
+t_dict	*dict_new(const char *key, void *value, int value_type);
+void	dict_free(t_dict *dict, void (free_value)(void *));
 
 #endif
