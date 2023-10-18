@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:53:24 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 12:09:33 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/18 15:10:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	stat_list_start(t_vla *token, t_vla *stack, size_t idx, int stat)
 	if (idx == token->size || stat == END)
 		return (stat_check_end(token, idx, stat));
 	str = (char *)token->array[idx];
-	if (stat == IN_LIST && *str == ']' && is_closed(stack, '['))
+	if (stat == IN_LIST && *str == ']' && is_closed(stack, ']'))
 		return (stat_list_end(token, stack, (idx + 1), stat_get(stack)));
 	else if (stat == IN_LIST && *str == '{')
 	{
