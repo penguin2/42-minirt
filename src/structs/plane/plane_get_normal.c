@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane.h                                            :+:      :+:    :+:   */
+/*   plane_get_normal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:59:52 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/19 22:48:08 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/19 23:14:00 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/19 23:27:42 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLANE_H
-# define PLANE_H
+#include "libvec3.h"
+#include "plane.h"
 
-# include "object.h"
-# include "libvec3.h"
-# include <stdbool.h>
+t_vec3	plane_get_normal(const t_object *object, t_ray ray, t_vec3 pos)
+{
+	const t_plane	*plane = object->ptr;
 
-typedef struct s_plane{
-	t_vec3	origin;
-	t_vec3	normal;
-}	t_plane;
-
-t_plane	*plane_new(t_vec3 origin, t_vec3 normal);
-void	plane_free(void *plane);
-bool	plane_get_dist(const t_object *object, t_ray ray, double *dist);
-t_vec3	plane_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
-
-#endif
+	(void)pos;
+	if (vec3_dot(ray.dir, plane->normal) > 0)
+		return (vec3_mul(plane->normal, -1.0));
+	return (plane->normal);
+}
