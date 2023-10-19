@@ -6,17 +6,17 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:19:52 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/19 23:23:08 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include "define.h"
+#include "utils.h"
 #include <math.h>
 #include <stdbool.h>
 
 static void		_set_viewport(t_viewport *viewport, t_camera *camera);
-static bool		_is_zero(double val);
 static t_vec3	_get_camera_up_vector(t_vec3 dir);
 
 int	camera_init(t_camera *camera)
@@ -52,21 +52,14 @@ static void	_set_viewport(t_viewport *viewport, t_camera *camera)
 		= vec3_add(viewport->upper_left, vec3_mul(viewport->dh, 1.0 / 2));
 }
 
-static bool	_is_zero(double val)
-{
-	if (fabs(val) < EPS)
-		return (true);
-	return (false);
-}
-
 // suppose dir is a unit vector
 static t_vec3	_get_camera_up_vector(t_vec3 dir)
 {
 	t_vec3	head;
 
-	if (_is_zero(1.0 - vec3_dot(vec3_create(0, 1, 0), dir)))
+	if (is_zero(1.0 - vec3_dot(vec3_create(0, 1, 0), dir)))
 		head = vec3_create(0, 0, 1);
-	else if (_is_zero(-1.0 - vec3_dot(vec3_create(0, 1, 0), dir)))
+	else if (is_zero(-1.0 - vec3_dot(vec3_create(0, 1, 0), dir)))
 		head = vec3_create(0, 0, -1);
 	else
 		head = vec3_create(0, 1, 0);

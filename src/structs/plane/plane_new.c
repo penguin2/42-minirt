@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane.h                                            :+:      :+:    :+:   */
+/*   plane_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:59:52 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/19 22:48:08 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/19 22:43:42 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/19 23:13:53 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLANE_H
-# define PLANE_H
+#include "libft.h"
+#include "libvec3.h"
+#include "plane.h"
 
-# include "object.h"
-# include "libvec3.h"
-# include <stdbool.h>
+t_plane	*plane_new(t_vec3 origin, t_vec3 normal)
+{
+	t_plane	*new;
 
-typedef struct s_plane{
-	t_vec3	origin;
-	t_vec3	normal;
-}	t_plane;
-
-t_plane	*plane_new(t_vec3 origin, t_vec3 normal);
-void	plane_free(void *plane);
-bool	plane_get_dist(const t_object *object, t_ray ray, double *dist);
-t_vec3	plane_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
-
-#endif
+	new = ft_xcalloc(1, sizeof(t_plane));
+	new->origin = origin;
+	new->normal = vec3_unit(normal);
+	return (new);
+}
