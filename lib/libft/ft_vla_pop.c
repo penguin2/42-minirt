@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:48:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 16:23:11 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/19 20:29:05 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	_vla_rearrange_array(t_vla *vla, size_t idx)
 {
-	void	*array;
+	void	**array;
 	size_t	move_size;
 
 	array = vla->array;
-	move_size = sizeof(void *) * (vla->size - 1 - idx);
+	move_size = sizeof(void *) * (vla->size - idx - 1);
 	if (move_size != 0)
 		ft_memcpy(&array[idx], &array[idx + 1], move_size);
 }

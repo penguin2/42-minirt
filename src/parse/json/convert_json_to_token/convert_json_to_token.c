@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 15:15:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/19 18:48:42 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_vla	*convert_json_to_token(const char *file)
 	close(fd);
 	token = tokenize(all_chars);
 	free(all_chars);
-	if (check_json_token(token) == ERROR)
+	if (check_token(token) == ERROR)
 	{
 		ft_putendl_fd("Error: json format", STDERR_FILENO);
 		ft_vla_free(token, free);
@@ -58,15 +58,3 @@ t_vla	*convert_json_to_token(const char *file)
 	}
 	return (token);
 }
-// int main(void)
-// {
-// 	size_t	idx = 0;
-// 	char *file = "./test.json";
-// 	t_vla *token = convert_json_to_token(file);
-// 	if (token != NULL)
-// 	{
-// 		while (token->size > idx)
-// 			printf("%s\n", (char *)token->array[idx++]);
-// 	}
-// 	return (0);
-// }

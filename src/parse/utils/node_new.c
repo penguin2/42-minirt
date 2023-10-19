@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_token_to_json_object.c                     :+:      :+:    :+:   */
+/*   node_new.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:46:40 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 20:40:40 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/19 14:18:19 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/19 14:24:45 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "parse.h"
 
-t_vla	*convert_token_to_json_object(t_vla *token)
+t_node	*node_new(void *content, t_node_type type)
 {
-	t_vla	*json_object;
+	t_node	*node;
 
-	json_object = ft_vla_new();
-	return (json_object);
+	node = (t_node *)ft_xcalloc(1, sizeof(t_node));
+	node->content = content;
+	node->type = type;
+	return (node);
 }

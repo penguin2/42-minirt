@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_json_token.c                                 :+:      :+:    :+:   */
+/*   check_token.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:47:07 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 15:01:36 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/19 16:47:56 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "parse.h"
 
-int	check_json_token(t_vla *token)
+int	check_token(t_vla *token)
 {
 	t_vla	stack;
 	int		success_or_error;
