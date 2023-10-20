@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:18:17 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 17:29:12 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:07:44 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,8 @@ t_color	hit_get_color(t_hit *hit, t_vla *objects, t_vla *lights)
 	(void)objects;
 	(void)lights;
 	(void)hit;
-	return (color_create(0.5, 0.5, 1.0));
+	return ((t_color){
+		0.5 + 0.5 * hit->normal.x,
+		0.5 + 0.5 * hit->normal.y,
+		0.5 + 0.5 * hit->normal.z});
 }
