@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:16:26 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/10 19:16:43 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/20 03:05:10 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ t_vec3	vec3_mul(t_vec3 vec, double scalar);
 t_vec3	vec3_unit(t_vec3 vec);
 double	vec3_len(t_vec3 vec);
 double	vec3_len_squared(t_vec3 vec);
+
+t_vec3	vec3_projected(t_vec3 vec, t_vec3 normal);
 
 #endif

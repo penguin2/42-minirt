@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane.h                                            :+:      :+:    :+:   */
+/*   cylinder_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:59:52 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/19 23:54:47 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/20 02:10:23 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/20 03:34:42 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLANE_H
-# define PLANE_H
+#include "cylinder.h"
+#include "libft.h"
 
-# include "object.h"
-# include "libvec3.h"
+t_cylinder	*cylinder_new(
+				t_vec3 center,
+				t_vec3 dir,
+				double radius,
+				double half_height)
+{
+	t_cylinder	*new;
 
-typedef struct s_plane{
-	t_vec3	origin;
-	t_vec3	normal;
-}	t_plane;
-
-t_plane	*plane_new(t_vec3 origin, t_vec3 normal);
-void	plane_free(void *plane);
-bool	plane_get_dist(const t_object *object, t_ray ray, double *dist);
-t_vec3	plane_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
-
-#endif
+	new = ft_xcalloc(1, sizeof(t_cylinder));
+	new->center = center;
+	new->dir = vec3_unit(dir);
+	new->radius = radius;
+	new->half_height = half_height;
+	return (new);
+}

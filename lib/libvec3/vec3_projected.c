@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane.h                                            :+:      :+:    :+:   */
+/*   vec3_projected.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:59:52 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/19 23:54:47 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/20 03:05:27 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/20 04:00:48 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLANE_H
-# define PLANE_H
+#include "libvec3.h"
 
-# include "object.h"
-# include "libvec3.h"
-
-typedef struct s_plane{
-	t_vec3	origin;
-	t_vec3	normal;
-}	t_plane;
-
-t_plane	*plane_new(t_vec3 origin, t_vec3 normal);
-void	plane_free(void *plane);
-bool	plane_get_dist(const t_object *object, t_ray ray, double *dist);
-t_vec3	plane_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
-
-#endif
+t_vec3	vec3_projected(t_vec3 vec, t_vec3 normal)
+{
+	return (vec3_sub(vec, vec3_mul(normal, vec3_dot(vec, normal))));
+}

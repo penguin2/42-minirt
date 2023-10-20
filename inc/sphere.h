@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:57:02 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 15:53:11 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/19 23:54:34 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "object.h"
 # include "libvec3.h"
-# include <stdbool.h>
 
 typedef struct s_sphere{
 	t_vec3	center;
