@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:59 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/19 20:44:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/20 16:45:23 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ static t_node	*_new_dict_node(t_vla *json_object, size_t base_idx)
 	key_node = ft_vla_pop(json_object, base_idx);
 	node_free(ft_vla_pop(json_object, base_idx), free);
 	value_node = ft_vla_pop(json_object, base_idx);
-	dict = dict_new(key_node->content, value_node->content);
+	if (value_node->type == NODE_NO_TYPE)
+		value_node->type = NODE_VALUE;
+	dict = dict_new(key_node->content, value_node);
 	node_free(key_node, free);
-	node_free(value_node, NULL);
 	return (node_new(dict, NODE_DICT));
 }
 

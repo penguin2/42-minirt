@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_closed.c                                        :+:      :+:    :+:   */
+/*   put_indent_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 12:05:04 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 15:56:37 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/20 15:30:31 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/20 15:38:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "parse.h"
 
-bool	is_closed(t_vla *stack, int close_char)
+void	put_indent_fd(size_t nest_level, int fd)
 {
-	int	open_char;
+	size_t	idx;
 
-	open_char = *(char *)ft_vla_pop(stack, (stack->size - 1));
-	if (open_char == '{' && close_char == '}')
-		return (true);
-	else if (open_char == '[' && close_char == ']')
-		return (true);
-	else
-		return (false);
+	idx = 0;
+	while (idx++ < nest_level)
+		ft_putstr_fd(INDENT_STR, fd);
 }

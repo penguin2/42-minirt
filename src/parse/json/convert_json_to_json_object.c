@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:42:21 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/19 20:43:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/20 21:20:45 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_vla	*convert_json_to_json_object(const char *file)
 	json_object = convert_token_to_json_object(token);
 	return (json_object);
 }
+
 // #include <stdio.h>
 // int main(void)
 // {
@@ -31,6 +32,6 @@ t_vla	*convert_json_to_json_object(const char *file)
 // 	t_vla		*json_object = convert_json_to_json_object(file);
 
 // 	if (json_object != NULL)
-// 		printf("SUCCESS\n");
+// 		json_generator(json_object, 1);
 // 	return (0);
 // }

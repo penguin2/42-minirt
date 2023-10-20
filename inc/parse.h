@@ -6,10 +6,14 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/10/24 15:39:49 by rikeda           ###   ########.fr       */
 =======
 /*   Updated: 2023/10/19 21:00:39 by rikeda           ###   ########.fr       */
 >>>>>>> [fix] norminette
+=======
+/*   Updated: 2023/10/20 16:46:27 by rikeda           ###   ########.fr       */
+>>>>>>> [add] json_generatorの追加、前回のコミットでコンフリクトを解消した時にファイルの重複が発生した物を削除した
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +24,7 @@
 # include <libft.h>
 
 # define NOT_JSON_EXTENSITON "Error: File is not json extension"
+# define INDENT_STR	"    "
 
 # define BRACKETS 2
 
