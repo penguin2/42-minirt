@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:35:11 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:51:26 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,4 @@ t_vla	*convert_json_to_token(const char *file)
 		free(token);
 		token = NULL;
 	}
-	return (token);
 }

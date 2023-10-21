@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:46:40 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:35:50 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:52:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 #include "parse.h"
 #include <stdbool.h>
 #include <stddef.h>
+
+static bool	_is_baracket_closed(int open_bracket, int closing_bracket)
+{
+	if (open_bracket == '{' && closing_bracket == '}')
+		return (true);
+	else if (open_bracket == '[' && closing_bracket == ']')
+		return (true);
+	else
+		return (false);
+}
+
+static int	_get_bracket_char(t_vla *json_object, size_t idx)
+{
+	t_node	*open_bracket_node;
+
+	open_bracket_node = json_object->array[idx];
+	return (*(char *)(open_bracket_node->content));
+}
 
 static bool	_is_baracket_closed(int open_bracket, int closing_bracket)
 {
