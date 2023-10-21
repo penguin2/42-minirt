@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/25 14:50:43 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:19:20 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@
 
 # define BUFFER_SIZE	(100)
 
-#define BUFFER_SIZE (100)
+# define BUFFER_SIZE	(100)
 
 #endif
