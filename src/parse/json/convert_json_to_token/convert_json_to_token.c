@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/19 18:48:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/21 16:08:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,23 @@ static int	_try_open_json_file(const char *json_file)
 
 t_vla	*convert_json_to_token(const char *file)
 {
-	int		fd;
-	char	*all_chars;
-	t_vla	*token;
+	t_vla		*token;
+	char		*all_chars;
+	const int	fd = _try_open_json_file(file);
 
-	fd = _try_open_json_file(file);
 	if (fd == ERROR)
 		return (NULL);
 	all_chars = get_all_chars_in_file(fd);
 	close(fd);
 	token = tokenize(all_chars);
 	free(all_chars);
-	if (check_token(token) == ERROR)
+	if (check_token(token) == SUCCESS)
+		return (token);
+	else
 	{
-		ft_putendl_fd("Error: json format", STDERR_FILENO);
+		ft_putendl_fd(NOT_JSON_FORMAT, STDERR_FILENO);
 		ft_vla_free(token, free);
 		free(token);
 		return (NULL);
 	}
-	return (token);
 }

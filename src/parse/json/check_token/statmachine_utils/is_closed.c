@@ -6,13 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:05:04 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 15:56:37 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/21 17:37:45 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-bool	is_closed(t_vla *stack, int close_char)
+bool	is_stat_closed(t_vla *stack, int close_char)
 {
 	int	open_char;
 

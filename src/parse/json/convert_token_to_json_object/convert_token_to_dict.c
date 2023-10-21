@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:59 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/20 16:45:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/21 17:31:02 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 static t_node	*_new_dict_node(t_vla *json_object, size_t base_idx)
 {
-	t_dict	*dict;
 	t_node	*key_node;
 	t_node	*value_node;
+	t_dict	*dict;
 
 	node_free(ft_vla_pop(json_object, base_idx), free);
 	key_node = ft_vla_pop(json_object, base_idx);
@@ -36,14 +36,14 @@ void	convert_token_to_dict(t_vla *json_object, size_t base_idx, size_t size)
 	t_node	*node;
 
 	list_of_dict = ft_vla_new();
-	while (4 <= size)
+	if (size == PATTERN_NO_CONTENT_IN_DICT)
+		node_free(ft_vla_pop(json_object, base_idx), free);
+	while (0 != size)
 	{
 		node = _new_dict_node(json_object, base_idx);
 		ft_vla_append(list_of_dict, node);
-		size -= 4;
+		size -= SIZE_OF_DICT_TOKEN;
 	}
-	if (size == 1)
-		node_free(ft_vla_pop(json_object, base_idx), free);
 	node_free(json_object->array[base_idx], free);
 	json_object->array[base_idx] = node_new(list_of_dict, NODE_DICT);
 }

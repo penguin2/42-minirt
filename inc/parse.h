@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 15:48:32 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:48:46 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@
 # include <libft.h>
 
 # define NOT_JSON_EXTENSITON "Error: File is not json extension"
+# define NOT_JSON_FORMAT "Error: json format"
 # define INDENT_STR	"    "
 
+# define JSON_SPACE_CHARSETS " \t\n"
+# define JSON_TOKEN_CHARSETS "{}[]:,"
+# define JSON_SPACE_AND_TOKEN_CHARSETS "{}[]:, \t\n\""
 # define BRACKETS 2
+# define SIZE_OF_DICT_TOKEN 4
 
 # define OPEN_BRACKETS 0
 # define CLOSING_BRACKETS 1
+# define PATTERN_NO_CONTENT_IN_DICT 1
 
 enum e_stat
 {
@@ -87,7 +93,7 @@ int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
 
 // statmachine utils
 bool	is_value_token(const char *str);
-bool	is_closed(t_vla *stack, int open_char);
+bool	is_stat_closed(t_vla *stack, int open_char);
 int		check_stat_end(t_vla *token, size_t idx, int stat);
 int		get_stat(t_vla *stack);
 

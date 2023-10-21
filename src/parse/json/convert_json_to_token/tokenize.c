@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:11:22 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 14:33:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/21 15:42:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "parse.h"
 
 static void	_vla_append_str(t_vla *token, const char *str, const char *charsets)
 {
@@ -30,10 +31,10 @@ static void	_vla_append_str(t_vla *token, const char *str, const char *charsets)
 
 static void	_json_token_create(t_vla *token, const char *str)
 {
-	str = ft_skip_charsets(str, " \t\n");
+	str = ft_skip_charsets(str, JSON_SPACE_CHARSETS);
 	while (*str != '\0')
 	{
-		if (ft_strchr("{}[]:,", *str))
+		if (ft_strchr(JSON_TOKEN_CHARSETS, *str))
 			ft_vla_append(token, ft_strdup_n(str++, 1));
 		else if (*str == '"')
 		{
@@ -43,10 +44,10 @@ static void	_json_token_create(t_vla *token, const char *str)
 		}
 		else
 		{
-			_vla_append_str(token, str, "{}[]:, \t\n\"");
-			str = ft_skip_non_charsets(str, "{}[]:, \t\n\"");
+			_vla_append_str(token, str, JSON_SPACE_AND_TOKEN_CHARSETS);
+			str = ft_skip_non_charsets(str, JSON_SPACE_AND_TOKEN_CHARSETS);
 		}
-		str = ft_skip_charsets(str, " \t\n");
+		str = ft_skip_charsets(str, JSON_SPACE_CHARSETS);
 	}
 }
 
@@ -56,8 +57,7 @@ t_vla	*tokenize(const char *str)
 
 	if (str == NULL)
 		return (NULL);
-	token = (t_vla *)ft_xcalloc(1, sizeof(t_vla));
-	ft_vla_init(token);
+	token = (t_vla *)ft_vla_new();
 	_json_token_create(token, str);
 	return (token);
 }

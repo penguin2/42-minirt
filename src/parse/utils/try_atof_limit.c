@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:24:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 15:41:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:49:09 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static const char	*_skip_digit(const char *nptr, size_t *limit)
 
 static int	_check_atof_limit(const char *nptr, size_t limit)
 {
-	nptr = ft_skip_charsets(nptr, "\t\n\r\v\f ");
+	nptr = ft_skip_charsets(nptr, SPACE_CHARSETS);
 	if (*nptr == '+' || *nptr == '-')
 		nptr++;
 	if (*nptr == '.')
