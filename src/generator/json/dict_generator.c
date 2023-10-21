@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:32:46 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/21 15:13:37 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/21 17:52:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	_put_key_and_colon(const char *key, int fd, size_t nest_level)
 {
-	put_indent_fd(nest_level + 1, fd);
+	put_indent_fd( fd, (nest_level + 1));
 	ft_putstr_fd(key, fd);
 	ft_putstr_fd(": ", fd);
 }
@@ -54,6 +54,6 @@ void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level)
 		idx++;
 		_put_comma_or_new_line(idx, list_of_dict->size, fd);
 	}
-	put_indent_fd(nest_level, fd);
+	put_indent_fd(fd, nest_level);
 	ft_putchar_fd('}', fd);
 }
