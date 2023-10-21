@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:32:46 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/21 17:52:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/21 17:56:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	_put_key_and_colon(const char *key, int fd, size_t nest_level)
 {
-	put_indent_fd( fd, (nest_level + 1));
+	put_indent_fd(fd, (nest_level + 1));
 	ft_putstr_fd(key, fd);
 	ft_putstr_fd(": ", fd);
 }
