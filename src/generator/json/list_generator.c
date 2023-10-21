@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:33:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/20 17:14:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/21 15:06:05 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	list_generator(t_vla *list, int fd, size_t nest_level)
 	idx = 0;
 	while (idx < list->size)
 	{
-		node = (t_node *)list->array[idx];
+		node = list->array[idx];
 		if (node->type == NODE_VALUE)
 			ft_putstr_fd(node->content, fd);
 		else if (node->type == NODE_DICT)
