@@ -1,0 +1,1 @@
+"ls -la" | (grep json) ; "cat" | sleep 1 && sleep 10 && (echo $? && tree)
