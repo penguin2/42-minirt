@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:59 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/21 17:31:02 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/23 15:12:26 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	convert_token_to_dict(t_vla *json_object, size_t base_idx, size_t size)
 	list_of_dict = ft_vla_new();
 	if (size == PATTERN_NO_CONTENT_IN_DICT)
 		node_free(ft_vla_pop(json_object, base_idx), free);
-	while (0 != size)
+	while (1 < size)
 	{
 		node = _new_dict_node(json_object, base_idx);
 		ft_vla_append(list_of_dict, node);

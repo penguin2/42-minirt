@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:11:22 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/21 15:42:25 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/23 15:45:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static void	_vla_append_str(t_vla *token, const char *str, const char *charsets)
 
 static void	_json_token_create(t_vla *token, const char *str)
 {
-	str = ft_skip_charsets(str, JSON_SPACE_CHARSETS);
 	while (*str != '\0')
 	{
 		if (ft_strchr(JSON_TOKEN_CHARSETS, *str))
@@ -56,6 +55,9 @@ t_vla	*tokenize(const char *str)
 	t_vla	*token;
 
 	if (str == NULL)
+		return (NULL);
+	str = ft_skip_charsets(str, JSON_SPACE_CHARSETS);
+	if (*str == '\0')
 		return (NULL);
 	token = (t_vla *)ft_vla_new();
 	_json_token_create(token, str);

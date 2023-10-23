@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 15:48:46 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:49:28 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 # define NOT_JSON_EXTENSITON "Error: File is not json extension"
 # define NOT_JSON_FORMAT "Error: json format"
+# define NO_TOKEN "Error: json token is None"
+
 # define INDENT_STR	"    "
 
 # define JSON_SPACE_CHARSETS " \t\n"
