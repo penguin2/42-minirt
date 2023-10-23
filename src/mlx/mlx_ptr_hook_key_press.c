@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_ptr_main.c                                     :+:      :+:    :+:   */
+/*   mlx_ptr_hook_key_press.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:47:38 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/23 14:15:34 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 14:33:35 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/23 14:57:31 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_ptr.h"
-#include "scene.h"
-#include "define.h"
-#include <mlx.h>
 
-int	mlx_ptr_main(t_scene *scene)
+int	mlx_ptr_key_press_hook(int keycode, t_mlx_ptr *mlx_ptr)
 {
-	t_image		image;
-	t_mlx_ptr	mlx_ptr;
+	int	i;
 
-	if (image_init(&image, &scene->camera) == ERROR
-		|| mlx_ptr_init(&mlx_ptr, &image, scene) == ERROR)
-		return (ERROR);
-	mlx_ptr_set_hook(&mlx_ptr);
-	mlx_loop_hook(mlx_ptr.ptr, mlx_ptr_loop_hook_fn, &mlx_ptr);
-	mlx_loop(mlx_ptr.ptr);
-	return (SUCCESS);
+	i = 0;
+	while (i < HOOK_KEY_PRESS_CNT)
+	{
+		if (keycode == ((t_mlx_ptr *)mlx_ptr)->mlx_hook_helper.key_press[i])
+		{
+			(*mlx_ptr->mlx_hook_helper.key_press_fn[i])(mlx_ptr->scene);
+			break ;
+		}
+		++i;
+	}
+	return (0);
 }

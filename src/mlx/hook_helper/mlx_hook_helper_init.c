@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_ptr_main.c                                     :+:      :+:    :+:   */
+/*   mlx_hook_helper_init.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:47:38 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/23 14:15:34 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 14:18:40 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/23 14:29:36 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_ptr.h"
-#include "scene.h"
 #include "define.h"
-#include <mlx.h>
+#include "mlx_hook_helper.h"
 
-int	mlx_ptr_main(t_scene *scene)
+int	mlx_hook_helper_init(t_mlx_hook_helper *mlx_hook_helper)
 {
-	t_image		image;
-	t_mlx_ptr	mlx_ptr;
-
-	if (image_init(&image, &scene->camera) == ERROR
-		|| mlx_ptr_init(&mlx_ptr, &image, scene) == ERROR)
-		return (ERROR);
-	mlx_ptr_set_hook(&mlx_ptr);
-	mlx_loop_hook(mlx_ptr.ptr, mlx_ptr_loop_hook_fn, &mlx_ptr);
-	mlx_loop(mlx_ptr.ptr);
+	mlx_hook_helper_init_key_press(mlx_hook_helper);
 	return (SUCCESS);
 }
