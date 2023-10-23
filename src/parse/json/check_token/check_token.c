@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:47:07 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/19 16:47:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/23 21:02:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include "libft.h"
 #include "parse.h"
 
+/**
+* @brief check json format by statmachine
+*
+* @param token json token
+*
+* @return SUCCESS or ERROR
+*/
 int	check_token(t_vla *token)
 {
 	t_vla	stack;

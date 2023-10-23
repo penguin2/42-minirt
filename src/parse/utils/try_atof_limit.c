@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:24:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 15:49:09 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:49:36 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ static int	_check_atof_limit(const char *nptr, size_t limit)
 		return (SUCCESS);
 }
 
+/**
+* @brief atof with limited number of digits
+*
+* @param nptr integer or decimal string
+* @param dptr double type pointer that stores the atofed value
+* @param limit Number of digits to limit
+*
+* @return SUCCESS or ERROR
+*/
 int	try_atof_limit(const char *nptr, double *dptr, size_t limit)
 {
 	if (_check_atof_limit(nptr, limit) == ERROR)
