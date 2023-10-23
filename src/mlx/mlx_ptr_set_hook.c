@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_ptr_main.c                                     :+:      :+:    :+:   */
+/*   mlx_ptr_set_hook.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:47:38 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/23 14:15:34 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 13:56:38 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/23 14:58:53 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_ptr.h"
-#include "scene.h"
-#include "define.h"
 #include <mlx.h>
+#include <X11/X.h>
+#include <X11/keysym.h>
 
-int	mlx_ptr_main(t_scene *scene)
+void	mlx_ptr_set_hook(t_mlx_ptr *mlx_ptr)
 {
-	t_image		image;
-	t_mlx_ptr	mlx_ptr;
-
-	if (image_init(&image, &scene->camera) == ERROR
-		|| mlx_ptr_init(&mlx_ptr, &image, scene) == ERROR)
-		return (ERROR);
-	mlx_ptr_set_hook(&mlx_ptr);
-	mlx_loop_hook(mlx_ptr.ptr, mlx_ptr_loop_hook_fn, &mlx_ptr);
-	mlx_loop(mlx_ptr.ptr);
-	return (SUCCESS);
+	mlx_hook(mlx_ptr->wdw_ptr, KeyPress, KeyPressMask,
+		mlx_ptr_key_press_hook, mlx_ptr);
 }
