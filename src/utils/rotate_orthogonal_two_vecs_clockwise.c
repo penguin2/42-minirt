@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   rotate_orthogonal_two_vecs_clockwise.c             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 16:56:52 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/24 16:54:00 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/24 18:00:21 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "libvec3.h"
+#include <math.h>
 
-# include "libvec3.h"
-# include <stdbool.h>
-
-# define NUM_QUADRATIC_EQUATION_ROOTS	(2)
-# define LOWER_ROOT						(0)
-# define HIGHER_ROOT					(1)
-
-# define EPS							(1e-9)
-
-int		int_abs(int x);
-bool	is_zero(double val);
-bool	solve_quadratic_equation(
-			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
 void	rotate_orthogonal_two_vecs_clockwise(
-			t_vec3 *u, t_vec3 *v, double theta);
+			t_vec3 *u, t_vec3 *v, double theta)
+{
+	const double	cos_theta = cos(theta);
+	const double	sin_theta = sin(theta);
+	const t_vec3	prev_u = *u;
+	const t_vec3	prev_v = *v;
 
-#endif
+	*u = vec3_add(vec3_mul(prev_u, cos_theta), vec3_mul(prev_v, sin_theta));
+	*v = vec3_add(vec3_mul(prev_u, -sin_theta), vec3_mul(prev_v, cos_theta));
+}

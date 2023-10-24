@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hook_helper_init.c                             :+:      :+:    :+:   */
+/*   mlx_hook_helper_init_button_release.c              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 14:18:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/23 17:47:34 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 17:31:35 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/23 17:32:24 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
 #include "mlx_hook_helper.h"
 
-int	mlx_hook_helper_init(t_mlx_hook_helper *mlx_hook_helper)
+static void	_init_button_release_fn(t_mlx_hook_helper *mlx_hook_helper);
+
+void	mlx_hook_helper_init_button_release(t_mlx_hook_helper *mlx_hook_helper)
 {
-	mlx_hook_helper_init_key_press(mlx_hook_helper);
-	mlx_hook_helper_init_button_press(mlx_hook_helper);
-	mlx_hook_helper_init_button_release(mlx_hook_helper);
-	return (SUCCESS);
+	mlx_hook_helper->button_release[HOOK_BR_BUTTON_LEFT] = BUTTON_LEFT_X;
+	_init_button_release_fn(mlx_hook_helper);
+}
+
+static void	_init_button_release_fn(t_mlx_hook_helper *mlx_hook_helper)
+{
+	mlx_hook_helper->button_release_fn[HOOK_BR_BUTTON_LEFT]
+		= hook_fn_set_button_left_off;
 }

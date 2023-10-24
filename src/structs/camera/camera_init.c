@@ -6,17 +6,15 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/20 16:31:29 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:12:51 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include "define.h"
 #include "utils.h"
-#include <math.h>
 #include <stdbool.h>
 
-static void		_set_viewport(t_viewport *viewport, t_camera *camera);
 static t_vec3	_get_camera_up_vector(t_vec3 dir);
 
 int	camera_init(t_camera *camera)
@@ -26,30 +24,8 @@ int	camera_init(t_camera *camera)
 	camera->up = _get_camera_up_vector(camera->dir);
 	camera->right = vec3_cross(camera->dir, camera->up);
 	camera->fov = 70 * (2.0 * PI / 360);
-	_set_viewport(&camera->viewport, camera);
+	camera_set_viewport(&camera->viewport, camera);
 	return (SUCCESS);
-}
-
-static void	_set_viewport(t_viewport *viewport, t_camera *camera)
-{
-	const double	len_to_viewport = 1.0;
-	const double	len_width = 2.0 * tan(camera->fov / 2) * len_to_viewport;
-	const double	len_height = len_width * WDW_HEIGHT / WDW_WIDTH;
-
-	viewport->width = WDW_WIDTH;
-	viewport->height = WDW_HEIGHT;
-	viewport->dw = vec3_mul(camera->right, len_width / WDW_WIDTH);
-	viewport->dh = vec3_mul(camera->up, -1.0 * len_height / WDW_HEIGHT);
-	viewport->upper_left
-		= vec3_add(
-			vec3_add(
-				vec3_add(camera->eye, camera->dir),
-				vec3_mul(camera->right, -len_width / 2)),
-			vec3_mul(camera->up, len_height / 2));
-	viewport->upper_left
-		= vec3_add(viewport->upper_left, vec3_mul(viewport->dw, 1.0 / 2));
-	viewport->upper_left
-		= vec3_add(viewport->upper_left, vec3_mul(viewport->dh, 1.0 / 2));
 }
 
 // suppose dir is a unit vector

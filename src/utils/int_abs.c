@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_fn_exit.c                                     :+:      :+:    :+:   */
+/*   int_abs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:00:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 17:13:45 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 16:42:53 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/23 16:43:23 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	hook_fn_exit(void *mlx_ptr, int keycode)
+int	int_abs(int x)
 {
-	(void)keycode;
-	(void)mlx_ptr;
-	exit(EXIT_SUCCESS);
+	if (x < 0)
+		return (-x);
+	return (x);
 }

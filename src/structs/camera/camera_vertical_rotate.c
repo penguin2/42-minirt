@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_fn_exit.c                                     :+:      :+:    :+:   */
+/*   camera_vertical_rotate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:00:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 17:13:45 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/24 16:50:25 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/24 17:41:52 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "camera.h"
+#include "utils.h"
 
-void	hook_fn_exit(void *mlx_ptr, int keycode)
+void	camera_vertical_rotate(t_camera *camera, double theta)
 {
-	(void)keycode;
-	(void)mlx_ptr;
-	exit(EXIT_SUCCESS);
+	rotate_orthogonal_two_vecs_clockwise(&camera->dir, &camera->up, theta);
+	camera_set_viewport(&camera->viewport, camera);
 }
