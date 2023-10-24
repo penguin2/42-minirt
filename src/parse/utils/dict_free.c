@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:23:25 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/18 20:25:48 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 16:54:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	dict_free(t_dict *dict, void (free_value)(void *))
 {
 	if (dict->key != NULL)
 		free(dict->key);
-	if (dict->value != NULL)
+	if (dict->value != NULL && free_value != NULL)
 		free_value(dict->value);
 	free(dict);
 }

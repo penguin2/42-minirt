@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 15:49:52 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 16:23:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ typedef struct s_node
 	t_node_type	type;
 }	t_node;
 
-# define NOT_JSON_EXTENSITON "Error: File is not json extension"
-
-#define DICT 0
-#define LIST 1
-
 typedef struct s_dict
 {
 	char	*key;
@@ -65,6 +60,7 @@ typedef struct s_dict
 }	t_dict;
 
 t_vla	*convert_json_to_json_object(const char *file);
+void	json_object_free(t_vla *json_object);
 
 // utils
 int		check_extension(const char *file, const char *extension);
@@ -108,26 +104,10 @@ void	dict_free(t_dict *dict, void (free_value)(void *));
 t_node	*node_new(void *content, t_node_type type);
 void	node_free(t_node *node, void (free_content)(void *));
 
-char	*get_all_chars_in_file(int fd);
-
-t_vla	*convert_json_to_token(const char *file);
-int		check_json_token(t_vla *token);
-t_vla	*tokenize(const char *str);
-
-int		stat_get(t_vla *stack);
-int		stat_check_end(t_vla *token, size_t idx, int stat);
-int		stat_dict_start(t_vla *token, t_vla *stack, size_t idx, int stat);
-int		stat_dict_end(t_vla *token, t_vla *stack, size_t idx, int stat);
-int		stat_list_start(t_vla *token, t_vla *stack, size_t idx, int stat);
-int		stat_list_end(t_vla *token, t_vla *stack, size_t idx, int stat);
-int		stat_comma(t_vla *token, t_vla *stack, size_t idx, int stat);
-int		stat_colon(t_vla *token, t_vla *stack, size_t idx, int stat);
-int		stat_key(t_vla *token, t_vla *stack, size_t idx, int stat);
-int		stat_value(t_vla *token, t_vla *stack, size_t idx, int stat);
-bool	is_value_token(const char *str);
-bool	is_closed(t_vla *stack, int open_char);
-
-t_dict	*dict_new(const char *key, void *value, int value_type);
-void	dict_free(t_dict *dict, void (free_value)(void *));
+// generator
+void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level);
+void	json_generator(t_vla *json_object, int fd);
+void	list_generator(t_vla *list, int fd, size_t nest_level);
+void	put_indent_fd(int fd, size_t nest_level);
 
 #endif

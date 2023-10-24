@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:32:46 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/21 17:56:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 17:02:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ static void	_put_comma_or_new_line(size_t idx, size_t list_of_dict_size, int fd)
 		ft_putendl_fd(",", fd);
 }
 
-static t_dict	*_get_dict_from_list_of_dict(t_node *node)
-{
-	return ((t_dict *)node->content);
-}
-
 void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level)
 {
 	t_node	*node;
@@ -42,7 +37,7 @@ void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level)
 	idx = 0;
 	while (idx < list_of_dict->size)
 	{
-		dict = _get_dict_from_list_of_dict(list_of_dict->array[idx]);
+		dict = list_of_dict->array[idx];
 		_put_key_and_colon(dict->key, fd, nest_level);
 		node = dict->value;
 		if (node->type == NODE_VALUE)
