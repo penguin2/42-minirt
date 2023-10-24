@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 15:32:27 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 17:58:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char *argv[])
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include "parse.h"
+// #include "generator.h"
 // int main(int argc, char **argv)
 // {
 // 	t_vla		*json_object;
@@ -43,6 +44,11 @@ int	main(int argc, char *argv[])
 // 	}
 // 	else {
 // 		json_generator(json_object, 1);
+// 		free_json_object(json_object);
 // 		return (atoi(argv[2]) == 1);
 // 	}
+// }
+// 	__attribute__((destructor)) static void destructor()
+// {
+//    system("leaks -q miniRT");
 // }
