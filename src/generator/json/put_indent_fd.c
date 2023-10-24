@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:30:31 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/21 15:17:36 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:22:06 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parse.h"
+#include <stddef.h>
 
 void	put_indent_fd(int fd, size_t nest_level)
 {
