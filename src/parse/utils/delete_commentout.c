@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_commentout.c                                   :+:      :+:    :+:   */
+/*   delete_commentout.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:15:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 15:49:02 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:49:43 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*del_commentout(char *str, const char *commentout_str)
+char	*delete_commentout(char *str, const char *commentout_str)
 {
 	const char	*commentout_start = ft_strstr(str, commentout_str);
 	char		*new_str;

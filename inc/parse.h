@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 15:49:28 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:49:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stddef.h>
 # include <libft.h>
 
-# define NOT_JSON_EXTENSITON "Error: File is not json extension"
+# define NOT_EQUAL_EXTENSITON "Error: File is not equal extension"
 # define NOT_JSON_FORMAT "Error: json format"
 # define NO_TOKEN "Error: json token is None"
 
@@ -64,20 +64,21 @@ typedef struct s_dict
 	void	*value;
 }	t_dict;
 
-// parse utils
+t_vla	*convert_json_to_json_object(const char *file);
+
+// utils
 int		check_extension(const char *file, const char *extension);
-char	*del_commentout(const char *str, const char *commentout_str);
+char	*delete_commentout(const char *str, const char *commentout_str);
 int		try_atof_limit(const char *nptr, double *dptr, size_t limit);
 char	*get_all_chars_in_file(int fd);
+int		try_open_file(const char *file, const char *extension);
 
-//// json parser
-
-// json file to token
+// json -> token
 t_vla	*convert_json_to_token(const char *file);
 int		check_token(t_vla *token);
 t_vla	*tokenize(const char *str);
 
-// token to json object
+// token -> json_object
 t_vla	*convert_token_to_json_object(t_vla *token);
 t_vla	*prepere_json_object(t_vla *token);
 void	convert_token_to_list(t_vla *json_object, size_t open_idx, size_t size);

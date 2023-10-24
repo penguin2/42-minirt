@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:46:40 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/21 17:39:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/24 15:09:06 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "parse.h"
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdlib.h>
 
 static bool	_is_baracket_closed(int open_bracket, int closing_bracket)
 {

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_json_to_json_object.c                      :+:      :+:    :+:   */
+/*   try_open_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 18:42:21 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/24 14:35:04 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/24 14:27:00 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/24 14:59:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "parse.h"
+#include "define.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <fcntl.h>
 
-t_vla	*convert_json_to_json_object(const char *file)
+int	try_open_file(const char *file, const char *extension)
 {
-	t_vla	*token;
-	t_vla	*json_object;
+	int	fd;
 
-	token = convert_json_to_token(file);
-	if (token == NULL)
-		return (NULL);
-	json_object = convert_token_to_json_object(token);
-	return (json_object);
+	if (check_extension(file, extension) == ERROR)
+	{
+		ft_putendl_fd(NOT_EQUAL_EXTENSITON, STDERR_FILENO);
+		return (ERROR);
+	}
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+	{
+		perror("open");
+		return (ERROR);
+	}
+	return (fd);
 }
