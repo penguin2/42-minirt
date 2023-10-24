@@ -6,11 +6,11 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:33:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:49:50 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:43:24 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "generator.h"
 
 void	list_generator(t_vla *list, int fd, size_t nest_level)
 {

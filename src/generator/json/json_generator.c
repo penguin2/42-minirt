@@ -6,11 +6,11 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:55:02 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:42:47 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:43:21 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "generator.h"
 
 void	json_generator(t_vla *json_object, int fd)
 {

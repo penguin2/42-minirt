@@ -6,11 +6,11 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:32:46 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:20:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:43:19 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "generator.h"
 
 static void	_put_key_and_colon(const char *key, int fd, size_t nest_level)
 {

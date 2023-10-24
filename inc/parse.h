@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:34:18 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:43:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_dict
 }	t_dict;
 
 t_vla	*convert_json_to_json_object(const char *file);
-void	json_object_free(t_vla *json_object);
 
 // utils
 int		check_extension(const char *file, const char *extension);
@@ -105,11 +104,6 @@ void	dict_free(t_dict *dict, void (free_value)(void *));
 t_node	*node_new(void *content, t_node_type type);
 void	node_free(t_node *node, void (free_content)(void *));
 
-// generator
-void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level);
-void	json_generator(t_vla *json_object, int fd);
-void	list_generator(t_vla *list, int fd, size_t nest_level);
-void	put_indent_fd(int fd, size_t nest_level);
 
 char	*get_all_chars_in_file(int fd);
 

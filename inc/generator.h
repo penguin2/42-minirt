@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_indent_fd.c                                    :+:      :+:    :+:   */
+/*   generator.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 15:30:31 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:43:26 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/24 17:24:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "generator.h"
-#include <stddef.h>
+#ifndef GENERATOR_H
+# define GENERATOR_H
 
-void	put_indent_fd(int fd, size_t nest_level)
-{
-	size_t	idx;
+#include "parse.h"
 
-	idx = 0;
-	while (idx < nest_level)
-	{
-		ft_putstr_fd(INDENT_STR, fd);
-		idx++;
-	}
-}
+// json
+void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level);
+void	json_generator(t_vla *json_object, int fd);
+void	list_generator(t_vla *list, int fd, size_t nest_level);
+void	put_indent_fd(int fd, size_t nest_level);
+
+#endif
