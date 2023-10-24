@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_fn_exit.c                                     :+:      :+:    :+:   */
+/*   mlx_ptr_hook_button_press.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:00:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 17:13:45 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 17:22:48 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/24 17:46:53 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "mlx_ptr.h"
 
-void	hook_fn_exit(void *mlx_ptr, int keycode)
+int	mlx_ptr_hook_button_press(int button, int x, int y, t_mlx_ptr *mlx_ptr)
 {
-	(void)keycode;
-	(void)mlx_ptr;
-	exit(EXIT_SUCCESS);
+	int	i;
+
+	i = 0;
+	while (i < HOOK_BUTTON_PRESS_CNT)
+	{
+		if (button == mlx_ptr->mlx_hook_helper.button_press[i])
+		{
+			mlx_ptr->mlx_hook_helper.button_press_fn[i](mlx_ptr, x, y);
+			break ;
+		}
+		++i;
+	}
+	return (0);
 }

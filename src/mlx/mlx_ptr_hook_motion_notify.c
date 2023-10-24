@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_fn_exit.c                                     :+:      :+:    :+:   */
+/*   mlx_ptr_hook_motion_notify.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:00:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 17:13:45 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 16:27:11 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/24 17:01:32 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "camera.h"
+#include "mlx_ptr.h"
+#include "utils.h"
 
-void	hook_fn_exit(void *mlx_ptr, int keycode)
+int	mlx_ptr_hook_motion_notify(int x, int y, t_mlx_ptr *mlx_ptr)
 {
-	(void)keycode;
 	(void)mlx_ptr;
-	exit(EXIT_SUCCESS);
+	(void)x;
+	(void)y;
+	return (0);
 }
