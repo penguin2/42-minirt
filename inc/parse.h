@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:45:18 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:56:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void	dict_free(t_dict *dict, void (free_value)(void *));
 // node
 t_node	*node_new(void *content, t_node_type type);
 void	node_free(t_node *node, void (free_content)(void *));
-
 
 char	*get_all_chars_in_file(int fd);
 
