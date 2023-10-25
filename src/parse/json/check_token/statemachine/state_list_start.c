@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stat_list_start.c                                  :+:      :+:    :+:   */
+/*   state_list_start.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:53:24 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:51:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 18:39:13 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 #include "define.h"
 
-int	stat_list_start(t_vla *token, t_vla *stack, size_t idx, int stat)
+int	state_list_start(t_vla *token, t_vla *stack, size_t idx, int state)
 {
 	char	*str;
 
-	if (idx == token->size || stat == END)
-		return (check_stat_end(token, idx, stat));
+	if (idx == token->size || state == END)
+		return (check_state_end(token, idx, state));
 	str = (char *)token->array[idx];
-	if (stat == IN_LIST && *str == ']' && is_stat_closed(stack, ']'))
-		return (stat_list_end(token, stack, (idx + 1), get_stat(stack)));
-	else if (stat == IN_LIST && *str == '{')
+	if (state == IN_LIST && *str == ']' && is_state_closed(stack, ']'))
+		return (state_list_end(token, stack, (idx + 1), get_state(stack)));
+	else if (state == IN_LIST && *str == '{')
 	{
 		ft_vla_append(stack, str);
-		return (stat_dict_start(token, stack, (idx + 1), IN_DICT));
+		return (state_dict_start(token, stack, (idx + 1), IN_DICT));
 	}
-	else if (stat == IN_LIST && *str == '[')
+	else if (state == IN_LIST && *str == '[')
 	{
 		ft_vla_append(stack, str);
-		return (stat_list_start(token, stack, (idx + 1), IN_LIST));
+		return (state_list_start(token, stack, (idx + 1), IN_LIST));
 	}
-	else if (stat == IN_LIST && is_value_token(str))
-		return (stat_value(token, stack, (idx + 1), IN_LIST));
+	else if (state == IN_LIST && is_value_token(str))
+		return (state_value(token, stack, (idx + 1), IN_LIST));
 	else
 		return (ERROR);
 }

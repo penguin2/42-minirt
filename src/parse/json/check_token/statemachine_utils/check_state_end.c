@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stat_key.c                                         :+:      :+:    :+:   */
+/*   check_state_end.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 19:39:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/19 16:51:31 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/17 20:24:11 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/25 18:39:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 #include "define.h"
 
-int	stat_key(t_vla *token, t_vla *stack, size_t idx, int stat)
+int	check_state_end(t_vla *token, size_t idx, int state)
 {
-	char	*str;
-
-	if (idx == token->size || stat == END)
-		return (check_stat_end(token, idx, stat));
-	str = (char *)token->array[idx];
-	if (stat == IN_DICT && *str == ':')
-		return (stat_colon(token, stack, (idx + 1), IN_DICT));
-	else
-		return (ERROR);
+	if (idx == token->size && state == END)
+		return (SUCCESS);
+	return (ERROR);
 }
