@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:32:46 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:43:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 20:04:47 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@ static void	_put_key_and_colon(const char *key, int fd, size_t nest_level)
 {
 	put_indent_fd(fd, (nest_level + 1));
 	ft_putstr_fd(key, fd);
-	ft_putstr_fd(": ", fd);
+	ft_putstr_fd(GENERATOR_KEY_VALUE_SEPARATOR, fd);
 }
 
 static void	_put_comma_or_new_line(size_t idx, size_t list_of_dict_size, int fd)
 {
-	if (idx == list_of_dict_size)
-		ft_putendl_fd("", fd);
-	else
-		ft_putendl_fd(",", fd);
+	if (idx != list_of_dict_size)
+		ft_putstr_fd(GENERATOR_COMMA, fd);
+	ft_putchar_fd('\n', fd);
 }
 
 void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level)
@@ -33,7 +32,7 @@ void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level)
 	t_dict	*dict;
 	size_t	idx;
 
-	ft_putendl_fd("{", fd);
+	ft_putendl_fd(GENERATOR_DICT_START, fd);
 	idx = 0;
 	while (idx < list_of_dict->size)
 	{
@@ -50,5 +49,5 @@ void	dict_generator(t_vla *list_of_dict, int fd, size_t nest_level)
 		_put_comma_or_new_line(idx, list_of_dict->size, fd);
 	}
 	put_indent_fd(fd, nest_level);
-	ft_putchar_fd('}', fd);
+	ft_putstr_fd(GENERATOR_DICT_END, fd);
 }

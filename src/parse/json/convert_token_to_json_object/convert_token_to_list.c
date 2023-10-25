@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:09 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/19 20:28:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 19:41:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 static bool	_is_comma_node(t_node *node)
 {
-	return (*((char *)(node->content)) == ',');
+	return (*((char *)(node->content)) == COMMA);
 }
 
 static bool	_is_list_start_node(t_node *node)
 {
-	return (*((char *)(node->content)) == '[');
+	return (*((char *)(node->content)) == LIST_START);
 }
 
 static void	_list_append_value(t_vla *list, t_node *node)

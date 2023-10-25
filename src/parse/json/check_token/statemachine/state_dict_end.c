@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:52:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 18:38:18 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 19:40:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	state_dict_end(t_vla *token, t_vla *stack, size_t idx, int state)
 	if (idx == token->size || state == END)
 		return (check_state_end(token, idx, state));
 	str = (char *)token->array[idx];
-	if (state == IN_DICT && *str == '}' && is_state_closed(stack, '}'))
+	if (state == IN_DICT && is_state_closed(stack, *str, DICT_END))
 		return (state_dict_end(token, stack, (idx + 1), get_state(stack)));
-	else if (state == IN_LIST && *str == ']' && is_state_closed(stack, ']'))
+	else if (state == IN_LIST && is_state_closed(stack, *str, LIST_END))
 		return (state_list_end(token, stack, (idx + 1), get_state(stack)));
-	else if (*str == ',')
+	else if (*str == COMMA)
 		return (state_comma(token, stack, (idx + 1), state));
 	else
 		return (ERROR);

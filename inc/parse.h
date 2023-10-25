@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 18:49:58 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 19:57:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define JSON_SPACE_CHARSETS " \t\n"
 # define JSON_TOKEN_CHARSETS "{}[]:,"
 # define JSON_SPACE_AND_TOKEN_CHARSETS "{}[]:, \t\n\""
+
 # define BRACKETS 2
 # define SIZE_OF_DICT_TOKEN 4
 
@@ -44,6 +45,17 @@ typedef enum e_node_type
 	NODE_DICT,
 	NODE_LIST,
 }	t_node_type;
+
+typedef enum e_json_token_initials
+{
+	DICT_START = '{',
+	LIST_START = '[',
+	DICT_END = '}',
+	LIST_END = ']',
+	COLON = ':',
+	COMMA = ',',
+	KEY = '"',
+}	t_json_token_initials;
 
 typedef struct s_node
 {
@@ -89,7 +101,7 @@ int		state_value(t_vla *token, t_vla *stack, size_t idx, int state);
 
 // statemachine utils
 bool	is_value_token(const char *str);
-bool	is_state_closed(t_vla *stack, int open_char);
+bool	is_state_closed(t_vla *stack, int c, int close_char);
 int		check_state_end(t_vla *token, size_t idx, int state);
 int		get_state(t_vla *stack);
 

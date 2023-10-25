@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:39:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 18:38:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 19:29:32 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	state_key(t_vla *token, t_vla *stack, size_t idx, int state)
 	if (idx == token->size || state == END)
 		return (check_state_end(token, idx, state));
 	str = (char *)token->array[idx];
-	if (state == IN_DICT && *str == ':')
+	if (state == IN_DICT && *str == COLON)
 		return (state_colon(token, stack, (idx + 1), IN_DICT));
 	else
 		return (ERROR);

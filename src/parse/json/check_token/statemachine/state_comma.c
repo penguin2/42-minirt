@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:53:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 18:37:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 19:39:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int	state_comma(t_vla *token, t_vla *stack, size_t idx, int state)
 	if (idx == token->size || state == END)
 		return (check_state_end(token, idx, state));
 	str = (char *)token->array[idx];
-	if (state == IN_DICT && *str == '\"')
+	if (state == IN_DICT && *str == KEY)
 		return (state_key(token, stack, (idx + 1), IN_DICT));
-	else if (state == IN_LIST && *str == '{')
+	else if (state == IN_LIST && *str == DICT_START)
 	{
 		ft_vla_append(stack, str);
 		return (state_dict_start(token, stack, (idx + 1), IN_DICT));
 	}
-	else if (state == IN_LIST && *str == '[')
+	else if (state == IN_LIST && *str == LIST_START)
 	{
 		ft_vla_append(stack, str);
 		return (state_list_start(token, stack, (idx + 1), IN_LIST));

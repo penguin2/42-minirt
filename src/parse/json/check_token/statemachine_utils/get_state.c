@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:50:55 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 18:36:31 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 19:39:02 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	get_state(t_vla *stack)
 {
 	if (stack->size == 0)
 		return (END);
-	else if (*(char *)stack->array[stack->size - 1] == '{')
+	else if (*(char *)stack->array[stack->size - 1] == DICT_START)
 		return (IN_DICT);
 	else
 		return (IN_LIST);

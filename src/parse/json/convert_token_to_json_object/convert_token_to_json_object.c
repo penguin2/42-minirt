@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:46:40 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:56:18 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 19:38:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 static bool	_is_baracket_closed(int open_bracket, int closing_bracket)
 {
-	if (open_bracket == '{' && closing_bracket == '}')
+	if (open_bracket == DICT_START && closing_bracket == DICT_END)
 		return (true);
-	else if (open_bracket == '[' && closing_bracket == ']')
+	else if (open_bracket == LIST_START && closing_bracket == LIST_END)
 		return (true);
 	else
 		return (false);
@@ -45,7 +45,7 @@ static void	_set_indexes(t_vla *json_object, size_t indexes[BRACKETS])
 		if (((t_node *)json_object->array[idx])->type == NODE_NO_TYPE)
 		{
 			token_initials = _get_bracket_char(json_object, idx);
-			if (token_initials == '{' || token_initials == '[')
+			if (token_initials == DICT_START || token_initials == LIST_START)
 			{
 				indexes[OPEN_BRACKETS] = idx;
 				open_bracket = token_initials;
@@ -71,11 +71,11 @@ t_vla	*convert_token_to_json_object(t_vla *token)
 	{
 		_set_indexes(json_object, indexes);
 		open_bracket = _get_bracket_char(json_object, indexes[OPEN_BRACKETS]);
-		if (open_bracket == '{')
+		if (open_bracket == DICT_START)
 			convert_token_to_dict(json_object,
 				indexes[OPEN_BRACKETS],
 				indexes[CLOSING_BRACKETS] - indexes[OPEN_BRACKETS]);
-		else if (open_bracket == '[')
+		else if (open_bracket == LIST_START)
 			convert_token_to_list(json_object,
 				indexes[OPEN_BRACKETS],
 				indexes[CLOSING_BRACKETS] - indexes[OPEN_BRACKETS]);
