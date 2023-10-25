@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:45:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:45:18 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include <stddef.h>
-# include <libft.h>
 
 # define NOT_EQUAL_EXTENSITON "Error: File is not equal extension"
 # define NOT_JSON_FORMAT "Error: json format"
