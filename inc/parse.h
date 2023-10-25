@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 18:33:16 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 18:49:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # define NOT_EQUAL_EXTENSITON "Error: File is not equal extension"
 # define NOT_JSON_FORMAT "Error: json format"
 # define NO_TOKEN "Error: json token is None"
-
-# define INDENT_STR	"    "
 
 # define JSON_SPACE_CHARSETS " \t\n"
 # define JSON_TOKEN_CHARSETS "{}[]:,"

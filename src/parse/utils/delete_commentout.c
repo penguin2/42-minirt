@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:15:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:42:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 18:46:08 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*delete_commentout(char *str, const char *commentout_str)
 
 	if (commentout_start != NULL)
 	{
-		new_str = ft_strdup_n(str, (commentout_start - str));
+		new_str = ft_strndup(str, (commentout_start - str));
 		free(str);
 		return (new_str);
 	}

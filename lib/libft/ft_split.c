@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:21:24 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/16 21:52:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 18:48:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	_fill_strings(const char *str, const char *set, char **strings)
 			break ;
 		start = str;
 		str = ft_skip_non_charsets(str, set);
-		*(strings++) = ft_strdup_n(start, (str - start));
+		*(strings++) = ft_strndup(start, (str - start));
 	}
 }
 

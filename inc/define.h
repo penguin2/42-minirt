@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/25 15:19:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 18:50:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # define NAME		("miniRT")
 
 # define PI			(3.14159265358979323846)
-
-# define BUFFER_SIZE	(100)
 
 # define BUFFER_SIZE	(100)
 

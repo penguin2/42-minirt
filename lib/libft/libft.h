@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:46:25 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/25 18:45:59 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		ft_free_strings(char **strings);
 void		*ft_calloc(size_t count, size_t size);
 void		*ft_xcalloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
-char		*ft_strdup_n(const char *str, size_t n);
+char		*ft_strndup(const char *str, size_t n);
 
 void		*ft_memset(void *b, int c, size_t len);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
