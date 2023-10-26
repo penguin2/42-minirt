@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:17:53 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 18:03:55 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:49:01 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,26 @@
 #include "mlx_hook_helper.h"
 #include "mlx_ptr.h"
 
-void	hook_fn_rotate_camera(void *mlx_ptr, int keycode)
+void	hook_fn_rotate_camera(void *_mlx_ptr, int keycode)
 {
-	const int	*key_press = ((t_mlx_ptr *)mlx_ptr)->mlx_hook_helper.key_press;
-	double		theta;
-	void		(*rotate_camera_fp)(t_camera *camera, double theta);
+	t_mlx_ptr			*mlx_ptr;
+	int					*key_press;
+	t_camera			*camera;
+	t_camera_rotation	camera_rotation;
 
-	theta = 2 * PI / COUNT_TO_ROTATE_ONCE;
-	if (keycode == key_press[HOOK_KP_RIGHT]
-		|| keycode == key_press[HOOK_KP_DOWN])
-		theta = -theta;
-	if (keycode == key_press[HOOK_KP_LEFT]
-		|| keycode == key_press[HOOK_KP_RIGHT])
-		rotate_camera_fp = camera_horizontal_rotate;
+	mlx_ptr = _mlx_ptr;
+	key_press = mlx_ptr->mlx_hook_helper.key_press;
+	camera = &mlx_ptr->scene->camera;
+	if (keycode == key_press[HOOK_KP_UP])
+		camera_rotation = CAMERA_ROTATION_UP;
+	else if (keycode == key_press[HOOK_KP_LEFT])
+		camera_rotation = CAMERA_ROTATION_LEFT;
+	else if (keycode == key_press[HOOK_KP_DOWN])
+		camera_rotation = CAMERA_ROTATION_DOWN;
+	else if (keycode == key_press[HOOK_KP_RIGHT])
+		camera_rotation = CAMERA_ROTATION_RIGHT;
 	else
-		rotate_camera_fp = camera_vertical_rotate;
-	rotate_camera_fp(&((t_mlx_ptr *)mlx_ptr)->scene->camera, theta);
-	((t_mlx_ptr *)mlx_ptr)->is_to_update = true;
+		return ;
+	if (camera_rotate(camera, camera_rotation) == SUCCESS)
+		mlx_ptr->is_to_update = true;
 }

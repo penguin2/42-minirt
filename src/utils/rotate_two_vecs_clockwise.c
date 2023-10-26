@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera_vertical_rotate.c                           :+:      :+:    :+:   */
+/*   rotate_two_vecs_clockwise.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:50:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 17:01:24 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/24 16:54:00 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/26 18:58:57 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include "utils.h"
+#include "libvec3.h"
+#include <math.h>
 
-void	camera_vertical_rotate(t_camera *camera, double theta)
+void	rotate_two_vecs_clockwise(
+			t_vec3 *u, t_vec3 *v, double theta)
 {
-	rotate_orthogonal_two_vecs_clockwise(&camera->dir, &camera->up, theta);
-	camera_set_viewport(camera, &camera->viewport);
+	const double	cos_theta = cos(theta);
+	const double	sin_theta = sin(theta);
+	const t_vec3	prev_u = *u;
+	const t_vec3	prev_v = *v;
+
+	*u = vec3_add(vec3_mul(prev_u, cos_theta), vec3_mul(prev_v, sin_theta));
+	*v = vec3_add(vec3_mul(prev_u, -sin_theta), vec3_mul(prev_v, cos_theta));
 }

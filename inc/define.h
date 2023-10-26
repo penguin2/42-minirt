@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 17:15:36 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:16:39 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 
 # define NAME	("miniRT")
 
-# define PI						(3.14159265358979323846)
-# define COUNT_TO_ROTATE_ONCE	(100)
+# define PI								(3.14159265358979323846)
+# define COUNT_TO_ROTATE_CAMERA_ONCE	(100)
+# define UNIT_LEN_CAMERA_MOVE			(1.0)
 
 # define BUFFER_SIZE	(100)
 
