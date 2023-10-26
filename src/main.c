@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/25 15:55:24 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/26 20:41:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char *argv[])
 
 // #include <stdio.h>
 // #include <stdlib.h>
+// #include <unistd.h>
 // #include "parse.h"
 // #include "generator.h"
 // int main(int argc, char **argv)
@@ -43,7 +44,7 @@ int	main(int argc, char *argv[])
 // 		return (atoi(argv[2]) == 0);
 // 	}
 // 	else {
-// 		json_generator(json_object, 1);
+// 		json_generator(json_object->array[0], 0, STDOUT_FILENO);
 // 		free_json_object(json_object);
 // 		return (atoi(argv[2]) == 1);
 // 	}

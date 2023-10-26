@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 19:57:14 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/26 20:23:11 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_dict
 }	t_dict;
 
 t_vla	*convert_json_to_json_object(const char *file);
+void	free_json_object(t_vla *json_object);
 
 // utils
 int		check_extension(const char *file, const char *extension);
@@ -112,10 +113,5 @@ void	dict_free(t_dict *dict, void (free_value)(void *));
 // node
 t_node	*node_new(void *content, t_node_type type);
 void	node_free(t_node *node, void (free_content)(void *));
-
-// free json object
-void	free_dict_of_json_object(t_vla *list_of_dict);
-void	free_json_object(t_vla *json_object);
-void	free_list_of_json_object(t_vla *list);
 
 #endif
