@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_indent_fd.c                                    :+:      :+:    :+:   */
+/*   put_key_and_colon.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 15:30:31 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:43:26 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/26 17:25:56 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/26 17:52:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "generator.h"
-#include <stddef.h>
 
-void	put_indent_fd(int fd, size_t nest_level)
+void	put_key_and_colon(t_dict *dict, int fd)
 {
-	size_t	idx;
-
-	idx = 0;
-	while (idx < nest_level)
-	{
-		ft_putstr_fd(INDENT_STR, fd);
-		idx++;
-	}
+	ft_putstr_fd(dict->key, fd);
+	ft_putstr_fd(GENERATOR_KEY_VALUE_SEPARATOR, fd);
 }
