@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/23 16:12:51 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:01:45 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	camera_init(t_camera *camera)
 	camera->up = _get_camera_up_vector(camera->dir);
 	camera->right = vec3_cross(camera->dir, camera->up);
 	camera->fov = 70 * (2.0 * PI / 360);
-	camera_set_viewport(&camera->viewport, camera);
+	camera_set_viewport(camera, &camera->viewport);
 	return (SUCCESS);
 }
 

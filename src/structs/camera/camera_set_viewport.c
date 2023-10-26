@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:11:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/23 16:13:17 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:01:03 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "camera.h"
 #include <math.h>
 
-void	camera_set_viewport(t_viewport *viewport, t_camera *camera)
+void	camera_set_viewport(t_camera *camera, t_viewport *viewport)
 {
 	const double	len_to_viewport = 1.0;
 	const double	len_width = 2.0 * tan(camera->fov / 2) * len_to_viewport;

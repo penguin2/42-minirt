@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:10:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 17:03:40 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:01:09 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ typedef struct s_viewport{
 	t_vec3	dh;
 }	t_viewport;
 
+typedef enum e_camera_direction{
+	CAMERA_DIRECTION_FRONT,
+	CAMERA_DIRECTION_LEFT,
+	CAMERA_DIRECTION_BACK,
+	CAMERA_DIRECTION_RIGHT,
+}	t_camera_direction;
+
 typedef struct s_camera{
 	t_vec3		eye;
 	t_vec3		dir;
@@ -35,6 +42,7 @@ typedef struct s_camera{
 int		camera_init(t_camera *camera);
 void	camera_horizontal_rotate(t_camera *camera, double theta);
 void	camera_vertical_rotate(t_camera *camera, double theta);
-void	camera_set_viewport(t_viewport *viewport, t_camera *camera);
+void	camera_set_viewport(t_camera *camera, t_viewport *viewport);
+void	camera_move(t_camera *camera, t_camera_direction camera_direction);
 
 #endif
