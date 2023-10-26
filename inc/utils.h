@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 16:56:52 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:59:27 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		int_abs(int x);
 bool	is_zero(double val);
 bool	solve_quadratic_equation(
 			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
-void	rotate_orthogonal_two_vecs_clockwise(
-			t_vec3 *u, t_vec3 *v, double theta);
+void	rotate_two_vecs_clockwise(t_vec3 *u, t_vec3 *v, double theta);
 
 #endif

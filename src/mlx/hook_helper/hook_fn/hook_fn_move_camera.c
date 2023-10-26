@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:54:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 17:04:28 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:48:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	hook_fn_move_camera(void *_mlx_ptr, int keycode)
 		camera_direction = CAMERA_DIRECTION_RIGHT;
 	else
 		return ;
-	camera_move(camera, camera_direction);
-	mlx_ptr->is_to_update = true;
+	if (camera_move(camera, camera_direction) == SUCCESS)
+		mlx_ptr->is_to_update = true;
 }

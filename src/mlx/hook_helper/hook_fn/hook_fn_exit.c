@@ -6,15 +6,15 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:00:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/24 17:13:45 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 19:13:03 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	hook_fn_exit(void *mlx_ptr, int keycode)
+void	hook_fn_exit(void *_mlx_ptr, int keycode)
 {
 	(void)keycode;
-	(void)mlx_ptr;
+	(void)_mlx_ptr;
 	exit(EXIT_SUCCESS);
 }

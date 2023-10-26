@@ -6,14 +6,15 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:51:37 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 17:00:48 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:47:23 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
+#include "define.h"
 #include "libvec3.h"
 
-void	camera_move(t_camera *camera, t_camera_direction camera_direction)
+int	camera_move(t_camera *camera, t_camera_direction camera_direction)
 {
 	t_vec3	move;
 
@@ -26,7 +27,8 @@ void	camera_move(t_camera *camera, t_camera_direction camera_direction)
 	else if (camera_direction == CAMERA_DIRECTION_RIGHT)
 		move = camera->right;
 	else
-		return ;
-	camera->eye = vec3_add(camera->eye, vec3_mul(move, 0.5));
+		return (ERROR);
+	camera->eye = vec3_add(camera->eye, vec3_mul(move, UNIT_LEN_CAMERA_MOVE));
 	camera_set_viewport(camera, &camera->viewport);
+	return (SUCCESS);
 }
