@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:51:37 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 20:47:23 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:26:19 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int	camera_move(t_camera *camera, t_camera_direction camera_direction)
 		move = vec3_mul(camera->dir, -1.0);
 	else if (camera_direction == CAMERA_DIRECTION_RIGHT)
 		move = camera->right;
+	else if (camera_direction == CAMERA_DIRECTION_UP)
+		move = camera->up;
+	else if (camera_direction == CAMERA_DIRECTION_DOWN)
+		move = vec3_mul(camera->up, -1.0);
 	else
 		return (ERROR);
 	camera->eye = vec3_add(camera->eye, vec3_mul(move, UNIT_LEN_CAMERA_MOVE));

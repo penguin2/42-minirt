@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hook_helper_init.c                             :+:      :+:    :+:   */
+/*   mlx_ptr_hook_key_release.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 14:18:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 22:13:49 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/23 14:33:35 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/26 22:00:13 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "mlx_hook_helper.h"
+#include "mlx_ptr.h"
 
-int	mlx_hook_helper_init(t_mlx_hook_helper *mlx_hook_helper)
+int	mlx_ptr_hook_key_release(int keycode, t_mlx_ptr *mlx_ptr)
 {
-	mlx_hook_helper_init_key_press(mlx_hook_helper);
-	mlx_hook_helper_init_key_release(mlx_hook_helper);
-	mlx_hook_helper_init_button_press(mlx_hook_helper);
-	mlx_hook_helper_init_button_release(mlx_hook_helper);
-	return (SUCCESS);
+	int	i;
+
+	i = 0;
+	while (i < HOOK_KEY_RELEASE_CNT)
+	{
+		if (keycode == mlx_ptr->mlx_hook_helper.key_release[i])
+		{
+			(*mlx_ptr->mlx_hook_helper.key_release_fn[i])(mlx_ptr, keycode);
+			break ;
+		}
+		++i;
+	}
+	return (0);
 }
