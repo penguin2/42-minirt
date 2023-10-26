@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:56:38 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/23 17:38:51 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:28:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	mlx_ptr_set_hook(t_mlx_ptr *mlx_ptr)
 {
 	mlx_hook(mlx_ptr->wdw_ptr, KeyPress, KeyPressMask,
 		mlx_ptr_hook_key_press, mlx_ptr);
+	mlx_hook(mlx_ptr->wdw_ptr, KeyRelease, KeyReleaseMask,
+		mlx_ptr_hook_key_release, mlx_ptr);
 	mlx_hook(mlx_ptr->wdw_ptr, ButtonPress, ButtonPressMask,
 		mlx_ptr_hook_button_press, mlx_ptr);
 	mlx_hook(mlx_ptr->wdw_ptr, ButtonRelease, ButtonReleaseMask,

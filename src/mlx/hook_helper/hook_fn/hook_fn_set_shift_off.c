@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hook_helper_init.c                             :+:      :+:    :+:   */
+/*   hook_fn_set_shift_off.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 14:18:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 22:13:49 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/26 22:13:15 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/26 22:13:23 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "mlx_hook_helper.h"
+#include "mlx_ptr.h"
 
-int	mlx_hook_helper_init(t_mlx_hook_helper *mlx_hook_helper)
+void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode)
 {
-	mlx_hook_helper_init_key_press(mlx_hook_helper);
-	mlx_hook_helper_init_key_release(mlx_hook_helper);
-	mlx_hook_helper_init_button_press(mlx_hook_helper);
-	mlx_hook_helper_init_button_release(mlx_hook_helper);
-	return (SUCCESS);
+	mlx_ptr->is_shift_pressed = false;
+	(void)keycode;
 }
