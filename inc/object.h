@@ -6,17 +6,22 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:00:58 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:40:15 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJECT_H
 # define OBJECT_H
 
-# include "fn_type.h"
 # include "libft.h"
 # include "material.h"
 # include "ray.h"
+# include <stdbool.h>
+
+typedef struct s_object	t_object;
+typedef bool			(*t_fn_get_dist)(const t_object*, t_ray, double*);
+typedef t_vec3			(*t_fn_get_normal)(const t_object*, t_ray, t_vec3);
+typedef void			(*t_fn_free_ptr)(void*);
 
 typedef struct s_object{
 	void			*ptr;
