@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:17:53 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 22:17:47 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:18:02 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	hook_fn_rotate_camera(t_mlx_ptr *mlx_ptr, int keycode)
 		camera_rotation = CAMERA_ROTATION_DOWN;
 	else if (keycode == key_press[HOOK_KP_RIGHT])
 		camera_rotation = CAMERA_ROTATION_RIGHT;
+	else if (keycode == key_press[HOOK_KP_Q])
+		camera_rotation = CAMERA_ROTATION_ROLL_LEFT;
+	else if (keycode == key_press[HOOK_KP_E])
+		camera_rotation = CAMERA_ROTATION_ROLL_RIGHT;
 	else
 		return ;
 	if (camera_rotate(camera, camera_rotation) == SUCCESS)

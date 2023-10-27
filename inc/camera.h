@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:10:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/27 02:51:03 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:18:21 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef enum e_camera_rotation{
 	CAMERA_ROTATION_LEFT,
 	CAMERA_ROTATION_DOWN,
 	CAMERA_ROTATION_RIGHT,
+	CAMERA_ROTATION_ROLL_LEFT,
+	CAMERA_ROTATION_ROLL_RIGHT,
 }	t_camera_rotation;
 
 typedef struct s_camera{

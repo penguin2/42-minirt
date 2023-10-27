@@ -6,27 +6,29 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:13:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/27 02:52:32 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:19:31 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_HOOK_HELPER_H
 # define MLX_HOOK_HELPER_H
 
-# define HOOK_KEY_PRESS_CNT			(13)
+# define HOOK_KEY_PRESS_CNT			(15)
 # define HOOK_KP_ESCAPE				(0)
 # define HOOK_KP_LEFT				(1)
 # define HOOK_KP_RIGHT				(2)
 # define HOOK_KP_UP					(3)
 # define HOOK_KP_DOWN				(4)
-# define HOOK_KP_W					(5)
-# define HOOK_KP_A					(6)
-# define HOOK_KP_S					(7)
-# define HOOK_KP_D					(8)
-# define HOOK_KP_SPACE				(9)
-# define HOOK_KP_SHIFT_L			(10)
-# define HOOK_KP_SHIFT_R			(11)
-# define HOOK_KP_Z					(12)
+# define HOOK_KP_Q					(5)
+# define HOOK_KP_E					(6)
+# define HOOK_KP_W					(7)
+# define HOOK_KP_A					(8)
+# define HOOK_KP_S					(9)
+# define HOOK_KP_D					(10)
+# define HOOK_KP_SPACE				(11)
+# define HOOK_KP_SHIFT_L			(12)
+# define HOOK_KP_SHIFT_R			(13)
+# define HOOK_KP_Z					(14)
 
 # define HOOK_KEY_RELEASE_CNT		(2)
 # define HOOK_KR_SHIFT_L			(0)
