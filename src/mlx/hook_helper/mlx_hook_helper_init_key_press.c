@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:22:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/27 02:53:36 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:20:22 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	mlx_hook_helper_init_key_press(t_mlx_hook_helper *mlx_hook_helper)
 	mlx_hook_helper->key_press[HOOK_KP_RIGHT] = XK_Right;
 	mlx_hook_helper->key_press[HOOK_KP_UP] = XK_Up;
 	mlx_hook_helper->key_press[HOOK_KP_DOWN] = XK_Down;
+	mlx_hook_helper->key_press[HOOK_KP_Q] = XK_q;
+	mlx_hook_helper->key_press[HOOK_KP_E] = XK_e;
 	mlx_hook_helper->key_press[HOOK_KP_W] = XK_w;
 	mlx_hook_helper->key_press[HOOK_KP_A] = XK_a;
 	mlx_hook_helper->key_press[HOOK_KP_S] = XK_s;
@@ -40,6 +42,8 @@ static void	_init_key_press_fn(t_mlx_hook_helper *mlx_hook_helper)
 	mlx_hook_helper->key_press_fn[HOOK_KP_RIGHT] = hook_fn_rotate_camera;
 	mlx_hook_helper->key_press_fn[HOOK_KP_UP] = hook_fn_rotate_camera;
 	mlx_hook_helper->key_press_fn[HOOK_KP_DOWN] = hook_fn_rotate_camera;
+	mlx_hook_helper->key_press_fn[HOOK_KP_Q] = hook_fn_rotate_camera;
+	mlx_hook_helper->key_press_fn[HOOK_KP_E] = hook_fn_rotate_camera;
 	mlx_hook_helper->key_press_fn[HOOK_KP_W] = hook_fn_move_camera;
 	mlx_hook_helper->key_press_fn[HOOK_KP_A] = hook_fn_move_camera;
 	mlx_hook_helper->key_press_fn[HOOK_KP_S] = hook_fn_move_camera;

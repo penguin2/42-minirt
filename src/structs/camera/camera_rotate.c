@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:51:09 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 20:46:25 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:21:18 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	camera_rotate(t_camera *camera, t_camera_rotation camera_rotation)
 		rotate_two_vecs_clockwise(&camera->dir, &camera->up, -theta);
 	else if (camera_rotation == CAMERA_ROTATION_RIGHT)
 		rotate_two_vecs_clockwise(&camera->right, &camera->dir, -theta);
+	else if (camera_rotation == CAMERA_ROTATION_ROLL_LEFT)
+		rotate_two_vecs_clockwise(&camera->right, &camera->up, theta);
+	else if (camera_rotation == CAMERA_ROTATION_ROLL_RIGHT)
+		rotate_two_vecs_clockwise(&camera->right, &camera->up, -theta);
 	else
 		return (ERROR);
 	camera_set_viewport(camera, &camera->viewport);
