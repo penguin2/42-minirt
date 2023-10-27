@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/26 20:23:11 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/27 14:58:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define JSON_SPACE_CHARSETS " \t\n"
 # define JSON_TOKEN_CHARSETS "{}[]:,"
 # define JSON_SPACE_AND_TOKEN_CHARSETS "{}[]:, \t\n\""
+# define JSON_KEY_CHARSETS "\""
 
 # define BRACKETS 2
 # define SIZE_OF_DICT_TOKEN 4
