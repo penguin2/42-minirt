@@ -6,14 +6,14 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:13:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 22:38:10 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:52:32 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_HOOK_HELPER_H
 # define MLX_HOOK_HELPER_H
 
-# define HOOK_KEY_PRESS_CNT			(12)
+# define HOOK_KEY_PRESS_CNT			(13)
 # define HOOK_KP_ESCAPE				(0)
 # define HOOK_KP_LEFT				(1)
 # define HOOK_KP_RIGHT				(2)
@@ -26,6 +26,7 @@
 # define HOOK_KP_SPACE				(9)
 # define HOOK_KP_SHIFT_L			(10)
 # define HOOK_KP_SHIFT_R			(11)
+# define HOOK_KP_Z					(12)
 
 # define HOOK_KEY_RELEASE_CNT		(2)
 # define HOOK_KR_SHIFT_L			(0)
@@ -40,6 +41,7 @@
 # define BUTTON_LEFT_X				(1)
 
 typedef struct s_mlx_ptr	t_mlx_ptr;
+
 typedef void				(*t_fn_key_hook)(t_mlx_ptr*, int);
 typedef void				(*t_fn_button_hook)(t_mlx_ptr*, int, int);
 
@@ -64,9 +66,10 @@ void	mlx_hook_helper_init_button_release(t_mlx_hook_helper *mlx_hook_helper);
 void	hook_fn_exit(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_rotate_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_move_camera(t_mlx_ptr *mlx_ptr, int keycode);
-
-//hook_fn: key_press
+void	hook_fn_zoom_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_set_shift_on(t_mlx_ptr *mlx_ptr, int keycode);
+
+//hook_fn: key_release
 void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode);
 
 //hook_fn: button_press 
