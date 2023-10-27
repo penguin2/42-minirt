@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   camera_zoom.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 17:22:16 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/27 02:26:51 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/27 02:59:30 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "camera.h"
+#include "define.h"
 
-# define SUCCESS	(0)
-# define ERROR		(-1)
+int	camera_zoom(t_camera *camera, double deg)
+{
+	const double	new_fov = camera->fov + deg * DEG_TO_RAD;
 
-# define WDW_WIDTH	(800)
-# define WDW_HEIGHT	(450)
-
-# define NAME		("miniRT")
-
-# define PI			(3.141592653589793238)
-# define DEG_TO_RAD	(0.017453292519943295)
-
-# define BUFFER_SIZE	(100)
-
-#endif
+	if (new_fov < FOV_LOWER_LIMIT * DEG_TO_RAD
+		|| new_fov > FOV_UPPER_LIMIT * DEG_TO_RAD)
+		return (ERROR);
+	camera->fov = new_fov;
+	camera_set_viewport(camera, &camera->viewport);
+	return (SUCCESS);
+}

@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:10:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 22:21:02 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:51:03 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 # define CAMERA_H
 
 # include "libvec3.h"
+
+# define COUNT_TO_ROTATE_CAMERA_ONCE	(100)
+# define UNIT_LEN_CAMERA_MOVE			(1.0)
+# define UNIT_FOV_CAMERA_ZOOM			(1.0)
+
+# define FOV_DEFAULT					(70.0)
+# define FOV_LOWER_LIMIT				(10.0)
+# define FOV_UPPER_LIMIT				(170.0)
 
 typedef struct s_viewport{
 	int		width;
@@ -53,5 +61,6 @@ void	camera_set_viewport(t_camera *camera, t_viewport *viewport);
 
 int		camera_move(t_camera *camera, t_camera_direction camera_direction);
 int		camera_rotate(t_camera *camera, t_camera_rotation camera_rotation);
+int		camera_zoom(t_camera *camera, double deg);
 
 #endif

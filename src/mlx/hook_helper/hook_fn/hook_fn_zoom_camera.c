@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   hook_fn_zoom_camera.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 17:22:16 by taekklee         ###   ########.fr       */
+/*   Created: 2023/10/27 02:11:42 by taekklee          #+#    #+#             */
+/*   Updated: 2023/10/27 02:51:43 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "mlx_ptr.h"
+#include "define.h"
 
-# define SUCCESS	(0)
-# define ERROR		(-1)
+void	hook_fn_zoom_camera(t_mlx_ptr *mlx_ptr, int keycode)
+{
+	double	unit_fov;
 
-# define WDW_WIDTH	(800)
-# define WDW_HEIGHT	(450)
-
-# define NAME		("miniRT")
-
-# define PI			(3.141592653589793238)
-# define DEG_TO_RAD	(0.017453292519943295)
-
-# define BUFFER_SIZE	(100)
-
-#endif
+	if (mlx_ptr->is_shift_pressed)
+		unit_fov = UNIT_FOV_CAMERA_ZOOM;
+	else
+		unit_fov = -UNIT_FOV_CAMERA_ZOOM;
+	if (camera_zoom(&mlx_ptr->scene->camera, unit_fov) == SUCCESS)
+		mlx_ptr->is_to_update = true;
+	(void)keycode;
+}
