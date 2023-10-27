@@ -6,12 +6,24 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:38:59 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:21:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/27 20:13:54 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
+#include <stddef.h>
 #include <stdlib.h>
+
+static char	*_remove_double_quotetion(char *quoted_str)
+{
+	char	*removed_str;
+	size_t	quoted_str_size;
+
+	quoted_str_size = ft_strlen(quoted_str) - 2;
+	removed_str = ft_strndup((quoted_str + 1), quoted_str_size);
+	free(quoted_str);
+	return (removed_str);
+}
 
 static t_dict	*_new_dict_node(t_vla *json_object, size_t base_idx)
 {
@@ -25,6 +37,7 @@ static t_dict	*_new_dict_node(t_vla *json_object, size_t base_idx)
 	value_node = ft_vla_pop(json_object, base_idx);
 	if (value_node->type == NODE_NO_TYPE)
 		value_node->type = NODE_VALUE;
+	key_node->content = _remove_double_quotetion(key_node->content);
 	dict = dict_new(key_node->content, value_node);
 	node_free(key_node, free);
 	return (dict);
