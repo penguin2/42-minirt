@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dict_free.c                                        :+:      :+:    :+:   */
+/*   json_node_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 20:23:25 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 14:46:48 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/19 14:18:19 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/27 20:28:50 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
-#include <stdlib.h>
 
-void	dict_free(t_dict *dict, void (free_value)(void *))
+t_json_node	*json_node_new(char *key, void *value, t_node_type type)
 {
-	if (dict->key != NULL)
-		free(dict->key);
-	if (dict->value != NULL && free_value != NULL)
-		free_value(dict->value);
-	free(dict);
+	t_json_node	*node;
+
+	node = (t_json_node *)ft_xcalloc(1, sizeof(t_json_node));
+	node->key = key;
+	node->value = value;
+	node->type = type;
+	return (node);
 }

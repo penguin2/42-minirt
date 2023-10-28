@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:02:02 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/26 19:33:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/28 18:15:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,18 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-static t_node	*_get_node(void *node, t_node_type type)
+/**
+* @brief Determine whether the types of all elements in list are NODE_VALUE
+*
+* @param list vla of value
+*
+* @return true if type of all elements of list are NODE_VALUE, otherwise false
+*/
+static bool	_is_only_value_node(t_vla *list)
 {
-	if (type == NODE_DICT)
-		return (((t_dict *)node)->value);
-	else
-		return ((t_node *)node);
-}
+	t_json_node	*node;
+	size_t		idx;
 
-static bool	_is_only_value_node(t_node *master_node)
-{
-	t_vla	*list;
-	t_node	*node;
-	size_t	idx;
-
-	if (master_node->type != NODE_LIST)
-		return (false);
-	list = master_node->content;
 	idx = 0;
 	while (idx < list->size)
 	{
@@ -43,28 +38,72 @@ static bool	_is_only_value_node(t_node *master_node)
 	return (true);
 }
 
-void	json_generator(t_node *master_node, size_t nest_level, int fd)
+/**
+* @brief output the list side by side
+*
+* @param master_node Node with type to identify list or dict or value
+* @param is_with_newline flag for whether to output newline
+* @param fd Output file descriptor
+*/
+static void	_generator_horizontal_list(t_json_node *master_node,
+				bool is_with_newline,
+				int fd)
 {
-	size_t	idx;
-	t_node	*node;
-	t_vla	*json_object;
-	bool	only_val_flag;
+	size_t		idx;
+	t_json_node	*node;
+	t_vla		*json_object;
 
-	only_val_flag = _is_only_value_node(master_node);
-	put_open_brackets(master_node, only_val_flag, fd);
-	json_object = master_node->content;
+	json_object = master_node->value;
+	ft_putstr_fd(GENERATOR_LIST_START, fd);
 	idx = 0;
 	while (idx < json_object->size)
 	{
-		put_indent((nest_level + 1), only_val_flag, fd);
+		node = json_object->array[idx];
+		ft_putstr_fd(node->value, fd);
+		idx++;
+		if (idx != json_object->size)
+			ft_putstr_fd(GENERATOR_VALUE_SEPARATOR, fd);
+	}
+	ft_putstr_fd(GENERATOR_LIST_END, fd);
+	if (is_with_newline)
+		ft_putchar_fd('\n', fd);
+}
+
+/**
+* @brief Format and output json_object
+*        If the elements of node of json_object are dict or list, recurse
+*        If node of json_object are list and
+*        type of value of list are NODE_VALUE, Output horizontally
+*
+* @param master_node Node with type to identify list or dict or value
+* @param nest_level Current nesting depth
+* @param fd Output file descriptor
+*/
+void	json_generator(t_json_node *master_node, size_t nest_level, int fd)
+{
+	size_t		idx;
+	t_json_node	*node;
+	t_vla		*json_object;
+
+	json_object = master_node->value;
+	if (master_node->type == NODE_LIST && _is_only_value_node(json_object))
+	{
+		_generator_horizontal_list(master_node, nest_level == 0, fd);
+		return ;
+	}
+	put_open_brackets(master_node, fd);
+	idx = 0;
+	while (idx < json_object->size)
+	{
+		put_indent((nest_level + 1), fd);
+		node = json_object->array[idx];
 		if (master_node->type == NODE_DICT)
-			put_key_and_colon(json_object->array[idx], fd);
-		node = _get_node(json_object->array[idx++], master_node->type);
+			put_key_and_colon(node, fd);
 		if (node->type == NODE_VALUE)
-			ft_putstr_fd(node->content, fd);
+			ft_putstr_fd(node->value, fd);
 		else
 			json_generator(node, (nest_level + 1), fd);
-		put_value_separator(idx == json_object->size, only_val_flag, fd);
+		put_value_separator(++idx != json_object->size, fd);
 	}
-	put_closing_brackets(master_node, nest_level, only_val_flag, fd);
+	put_closing_brackets(master_node, nest_level, fd);
 }

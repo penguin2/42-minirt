@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:46:40 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 19:38:25 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/28 17:25:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,19 @@ static bool	_is_baracket_closed(int open_bracket, int closing_bracket)
 
 static int	_get_bracket_char(t_vla *json_object, size_t idx)
 {
-	t_node	*open_bracket_node;
+	t_json_node	*open_bracket_node;
 
 	open_bracket_node = json_object->array[idx];
-	return (*(char *)(open_bracket_node->content));
+	return (*(char *)(open_bracket_node->value));
 }
 
+/**
+* @brief Find the open and closing brackets pair and store index in indexes
+*
+* @param json_object vla of token_node
+* Variables to store the index of opening and closing parentheses
+* @param indexes Variable to save the index of open and closing brackets
+*/
 static void	_set_indexes(t_vla *json_object, size_t indexes[BRACKETS])
 {
 	int		open_bracket;
@@ -42,7 +49,7 @@ static void	_set_indexes(t_vla *json_object, size_t indexes[BRACKETS])
 	idx = 0;
 	while (idx < json_object->size)
 	{
-		if (((t_node *)json_object->array[idx])->type == NODE_NO_TYPE)
+		if (((t_json_node *)json_object->array[idx])->type == NODE_NO_TYPE)
 		{
 			token_initials = _get_bracket_char(json_object, idx);
 			if (token_initials == DICT_START || token_initials == LIST_START)
@@ -60,6 +67,13 @@ static void	_set_indexes(t_vla *json_object, size_t indexes[BRACKETS])
 	}
 }
 
+/**
+* @brief Convert vla of tokens to vla with nested dict and list
+*
+* @param token vla of token_node
+*
+* @return vla with nested dict and list
+*/
 t_vla	*convert_token_to_json_object(t_vla *token)
 {
 	t_vla	*json_object;

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:11:22 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/27 14:59:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/10/28 14:50:11 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,25 @@
 #include <stddef.h>
 
 /**
+* @brief Skip strings enclosed in double quotes
+*		 If the double quotes is not closed, skip to the null-terminator
+*
+* @param str String beginning with a double quote
+*
+* @return Pointer to next character of closing double quote or null character
+*/
+static const char	*_skip_key_string(const char *str)
+{
+	str++;
+	str = ft_skip_non_charsets(str, JSON_KEY_CHARSETS);
+	if (*str == KEY)
+		str++;
+	return (str);
+}
+
+/**
 * @brief {}[]:, -> Allocate space for only one character
-*        KEY -> Allocate area from double quart to double quart
+*        KEY -> Allocate area from double quote to double quote
 *        VALUE -> Allocate space to other token or whitespace
 *
 * @param token Variable length array for storing json tokens
@@ -29,23 +46,13 @@ static const char	*_vla_append_str(t_vla *token, const char *str)
 	const char	*key_end;
 
 	if (ft_strchr(JSON_TOKEN_CHARSETS, *str))
-	{
-		ft_vla_append(token, ft_strndup(str, 1));
-		str = str + 1;
-	}
+		key_end = str + 1;
 	else if (*str == KEY)
-	{
-		key_end = ft_skip_non_charsets((str + 1), JSON_KEY_CHARSETS);
-		ft_vla_append(token, ft_strndup(str, key_end - str + 1));
-		str = key_end + 1;
-	}
+		key_end = _skip_key_string(str);
 	else
-	{
 		key_end = ft_skip_non_charsets(str, JSON_SPACE_AND_TOKEN_CHARSETS);
-		ft_vla_append(token, ft_strndup(str, key_end - str));
-		str = key_end;
-	}
-	return (ft_skip_charsets(str, JSON_SPACE_CHARSETS));
+	ft_vla_append(token, ft_strndup(str, key_end - str));
+	return (ft_skip_charsets(key_end, JSON_SPACE_CHARSETS));
 }
 
 t_vla	*tokenize(const char *str)
