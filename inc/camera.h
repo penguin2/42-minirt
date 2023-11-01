@@ -14,6 +14,7 @@
 # define CAMERA_H
 
 # include "libvec3.h"
+# include "parse.h"
 
 # define COUNT_TO_ROTATE_CAMERA_ONCE	(100)
 # define UNIT_LEN_CAMERA_MOVE			(1.0)

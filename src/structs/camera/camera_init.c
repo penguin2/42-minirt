@@ -16,11 +16,31 @@
 #include <stdbool.h>
 
 static t_vec3	_get_camera_up_vector(t_vec3 dir);
+static void		_set_camera_infomation(t_camera *camera, double fov);
 
-int	camera_init(t_camera *camera)
+int	camera_init(const t_json_node *node, t_camera *camera)
 {
-	camera->eye = vec3_create(0, 20, -10);
-	camera->dir = vec3_unit(vec3_create(0.0, -1.0, 0.0));
+	const t_vla			*object_list = get_list(node, ID_CAMERA, 1);
+	const t_json_node	*object = object_list->array[0];
+	double				fov;
+
+	if (object->type != NODE_DICT)
+		return (ERROR);
+	if (json_node_to_double(select_json_node(object, FOV),
+			&fov, 0, 180) == ERROR
+		|| list_to_vec3(get_list(object, COORDINATES, 3),
+			&camera->eye, UNLIMITED, UNLIMITED) == ERROR
+		|| list_to_vec3(get_list(object, DIRECTION, 3),
+			&camera->dir, -1, 1) == ERROR)
+		return (ERROR);
+	_set_camera_infomation(camera, fov);
+	return (SUCCESS);
+}
+
+static void	_set_camera_infomation(t_camera *camera, double fov)
+{
+	camera->dir = vec3_unit(camera->dir);
+	camera->fov = fov * (2.0 * PI / 360);
 	camera->up = _get_camera_up_vector(camera->dir);
 	camera->right = vec3_cross(camera->dir, camera->up);
 	camera->fov = FOV_DEFAULT * DEG_TO_RAD;
