@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup_n.c                                      :+:      :+:    :+:   */
+/*   json_node_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 15:27:16 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/13 17:58:24 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/19 16:21:00 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/27 20:29:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "parse.h"
+#include <stdlib.h>
 
-char	*ft_strdup_n(const char *str, size_t n)
+void	json_node_free(t_json_node *node, void (free_value)(void *))
 {
-	char	*new_str;
-
-	new_str = (char *)ft_xcalloc(n + 1, sizeof(char));
-	ft_strlcpy(new_str, str, n + 1);
-	return (new_str);
+	if (node->key != NULL)
+		free(node->key);
+	if (free_value != NULL && node->value != NULL)
+		free_value(node->value);
+	free(node);
 }

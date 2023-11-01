@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/19 23:00:10 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:50:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@
 # define NAME		("miniRT")
 
 # define PI			(3.14159265358979323846)
+
+# define BUFFER_SIZE	(100)
 
 #endif
