@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   append_lights.c                                    :+:      :+:    :+:   */
+/*   add_additional_parameters.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 19:08:22 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 19:42:59 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/01 18:08:10 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/01 19:05:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "generator.h"
 #include "define.h"
+#include "object.h"
+#include "generator.h"
 
-int	append_lights(const t_json_node *node, t_vla *lights)
+int	add_additional_parameters(const t_json_node *json_node, t_object *object)
 {
-	if (append_light_to_vla(node, lights, ID_AMBIENT, append_ambient) == ERROR
-		|| append_light_to_vla(node, lights, ID_SPOT, append_spot) == ERROR)
+	if (add_bump_map_parameter(json_node, object) == ERROR
+		|| add_image_map_parameter(json_node, object) == ERROR
+		|| add_material_parameter(json_node, object) == ERROR)
 		return (ERROR);
-	else
-		return (SUCCESS);
+	return (SUCCESS);
 }

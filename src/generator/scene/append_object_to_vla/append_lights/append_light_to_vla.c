@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   append_object_to_vla.c                             :+:      :+:    :+:   */
+/*   append_light_to_vla.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:50:19 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 14:12:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/01 19:48:41 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include "define.h"
 #include <stddef.h>
 
-int	append_object_to_vla(const t_json_node *node,
+int	append_light_to_vla(const t_json_node *node,
 					t_vla *vla,
 					const char *identifier,
 					int (*append_function)(const t_json_node *, t_vla *))
 {
 	const t_vla	*list = get_list(node, identifier, ACCEPT_1_OR_OVER);
-	t_json_node	*object_node;
+	t_json_node	*light_node;
 	size_t		idx;
 
 	if (list == NULL)
@@ -30,9 +30,9 @@ int	append_object_to_vla(const t_json_node *node,
 	idx = 0;
 	while (idx < list->size)
 	{
-		object_node = list->array[idx++];
+		light_node = list->array[idx++];
 		if (node->type != NODE_DICT
-			|| append_function(object_node, vla) == ERROR)
+			|| append_function(light_node, vla) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);

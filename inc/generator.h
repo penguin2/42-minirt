@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 14:04:27 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/01 20:08:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "scene.h"
 # include "libcolor.h"
 # include "light.h"
+# include "object.h"
 
 # define INDENT_STR	"    "
 
@@ -49,6 +50,12 @@
 # define HEIGHT "height"
 # define AXIS "vector-of-axis"
 
+# define COEFFICIENT_NOT_SET 1
+# define K_AMBIENT "coefficient-ambient"
+# define K_DIFFUSE "coefficient-diffuse"
+# define K_SPECULAR "coefficient-specular"
+# define K_SHININESS "coefficient-shininess"
+
 //// json
 void		json_generator(t_json_node *master_node, size_t nest_level, int fd);
 
@@ -67,6 +74,12 @@ int			convert_json_object_to_camera(
 				const t_json_node *node,
 				t_camera *camera);
 
+int			append_light_to_vla(
+				const t_json_node *node,
+				t_vla *vla,
+				const char *identifier,
+				int (*append_function)(const t_json_node *, t_vla *));
+
 int			append_object_to_vla(
 				const t_json_node *node,
 				t_vla *vla,
@@ -84,8 +97,15 @@ int			append_plane(const t_json_node *node, t_vla *objects);
 int			append_sphere(const t_json_node *node, t_vla *objects);
 int			append_cylinder(const t_json_node *node, t_vla *objects);
 
-// objects
-int			append_objects(const t_json_node *node, t_vla *objects);
+// add additional parameters
+int			add_additional_parameters(const t_json_node *json_node,
+				t_object *object);
+int			add_bump_map_parameter(const t_json_node *json_node,
+				t_object *object);
+int			add_image_map_parameter(const t_json_node *json_node,
+				t_object *object);
+int			add_material_parameter(const t_json_node *json_node,
+				t_object *object);
 
 // utils init scene 
 int			list_to_color(const t_vla *list, t_color *color);
