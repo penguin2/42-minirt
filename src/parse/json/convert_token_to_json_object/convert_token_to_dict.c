@@ -14,7 +14,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-static char	*_remove_double_quotetion(const char *quoted_str)
+static char	*_remove_double_quotation(const char *quoted_str)
 {
 	char	*removed_str;
 	size_t	quoted_str_size;
@@ -46,7 +46,7 @@ static t_json_node	*_new_key_value_node(t_vla *json_object, size_t base_idx)
 	value_node = ft_vla_pop(json_object, base_idx);
 	if (value_node->type == NODE_NO_TYPE)
 		value_node->type = NODE_VALUE;
-	value_node->key = _remove_double_quotetion(key_node->value);
+	value_node->key = _remove_double_quotation(key_node->value);
 	json_node_free(key_node, free);
 	return (value_node);
 }
