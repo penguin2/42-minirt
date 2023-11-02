@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 20:08:00 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/02 20:24:24 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@
 # define ID_PLANE "pl"
 
 # define COLORS "colors"
-# define BRIGHTNESS "brightness-ratio"
-# define DIRECTION "orientation-vector"
+# define BRIGHTNESS "brightness"
+# define DIRECTION "orientation"
 # define COORDINATES "coordinates"
-# define FOV "FOV"
-# define NORMAL "normal-vector"
+# define FOV "fov"
+# define NORMAL "normal"
 # define DIAMETER "diameter"
 # define HEIGHT "height"
-# define AXIS "vector-of-axis"
+# define AXIS "axis"
 
 # define COEFFICIENT_NOT_SET 1
 # define K_AMBIENT "coefficient-ambient"

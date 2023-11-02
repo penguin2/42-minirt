@@ -1,6 +1,6 @@
 #! /bin/bash
 
-cd .. && make
+cd ../../ && make
 
 ESC='\e['
 
@@ -28,8 +28,8 @@ _RESULT() {
 	echo ; echo "[$1] [$2]" ; echo
 	for json_file in $3
 	do
-		./miniRT ${json_file} $4 && echo 
-		if [ $? -eq 0 ] ; then
+		./miniRT ${json_file} && echo 
+		if [ $? -eq $4 ] ; then
 			PRINT_COLOR $GREEN $json_file OK
 		else
 			PRINT_COLOR $RED $json_file KO
@@ -41,21 +41,21 @@ _ONLY_KO() {
 	echo ; echo "[$1] [$2]" ; echo
 	for json_file in $3
 	do
-		./miniRT ${json_file} $4 > /dev/null 2>&1
-		if [ $? -ne 0 ] ; then
+		./miniRT ${json_file} > /dev/null 2>&1
+		if [ $? -ne $4 ] ; then
 			PRINT_COLOR $RED $json_file KO
 		fi
 	done
 }
 
 EXEC() {
-	$1 SUCCESS DICT './test_json/success_json/dict/*.json' 0
-	$1 SUCCESS LIST './test_json/success_json/list/*.json' 0
-	$1 SUCCESS MIXTURE './test_json/success_json/mixture/*.json' 0
-	$1 ERROR DICT './test_json/error_json/dict/*.json' 1
-	$1 ERROR LIST './test_json/error_json/list/*.json' 1
-	$1 ERROR MIXTURE './test_json/error_json/mixture/*.json' 1
+	$1 SUCCESS DICT './test/json_to_json_object/success/dict/*.json' 0
+	$1 SUCCESS LIST './test/json_to_json_object/success/list/*.json' 0
+	$1 SUCCESS MIXTURE './test/json_to_json_object/success/mixture/*.json' 0
+	$1 ERROR DICT './test/json_to_json_object/error/dict/*.json' 1
+	$1 ERROR LIST './test/json_to_json_object/error/list/*.json' 1
+	$1 ERROR MIXTURE './test/json_to_json_object/error/mixture/*.json' 1
 }
 
-# EXEC _RESULT
-EXEC _ONLY_KO
+EXEC _RESULT
+# EXEC _ONLY_KO

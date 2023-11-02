@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:50:19 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 20:02:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/02 19:49:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	append_object_to_vla(const t_json_node *node,
 	size_t		idx;
 
 	if (list == NULL)
-		return (ERROR);
+		return (SUCCESS);
 	idx = 0;
 	while (idx < list->size)
 	{

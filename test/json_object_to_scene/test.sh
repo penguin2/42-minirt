@@ -1,0 +1,57 @@
+#! /bin/bash
+
+cd ../../ && make
+
+ESC='\e['
+
+RED=31
+GREEN=32
+YELLOW=33
+BLUE=34
+
+
+PRINT_COLOR() {
+	if [ $1 -eq $RED ] ; then
+		printf "${ESC}${RED}m %s ... %s ${ESC}m\n" $2 $3
+	elif [ $1 -eq $GREEN ] ; then
+		printf "${ESC}${GREEN}m %s ... %s ${ESC}m\n" $2 $3
+	elif [ $1 -eq $BLUE ] ; then
+		printf "${ESC}${BLUE}m %s ... %s ${ESC}m\n" $2 $3
+	elif [ $1 -eq $YELLOW ] ; then
+		printf "${ESC}${YELLOW}m %s ... %s ${ESC}m\n" $2 $3
+	else
+		printf "%s ... %s\n" $2 $3
+	fi
+}
+
+_RESULT() { 
+	echo ; echo "[$1]" ; echo
+	for json_file in $2
+	do
+		./miniRT ${json_file} && echo 
+		if [ $? -eq $3 ] ; then
+			PRINT_COLOR $GREEN $json_file OK
+		else
+			PRINT_COLOR $RED $json_file KO
+		fi
+	done
+}
+
+_ONLY_KO() { 
+	echo ; echo "[$1]" ; echo
+	for json_file in $2
+	do
+		./miniRT ${json_file} > /dev/null 2>&1
+		if [ $? -ne $3 ] ; then
+			PRINT_COLOR $RED $json_file KO
+		fi
+	done
+}
+
+EXEC() {
+	$1 SUCCESS './test/json_object_to_scene/success/*.json' 0
+	$1 ERROR './test/json_object_to_scene/error/*/*.json' 1
+}
+
+EXEC _RESULT
+# EXEC _ONLY_KO
