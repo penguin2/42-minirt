@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   json_node_to_double.c                              :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 14:10:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 14:25:51 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/03 13:47:05 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/03 16:03:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "define.h"
-#include "generator.h"
-#include "utils.h"
+#include <unistd.h>
 
-int	json_node_to_double(const t_json_node *node,
-						double *dptr,
-						double min,
-						double max)
+void	print_error(const char *message1)
 {
-	if (node == NULL || node->type != NODE_VALUE)
-	{
-		print_error(INVALID_PARAMETERS);
-		return (ERROR);
-	}
-	else if (try_json_node_tof(node, dptr) == ERROR)
-		return (ERROR);
-	else if (is_between_min_to_max(*dptr, min, max))
-		return (SUCCESS);
-	else
-		return (ERROR);
+	ft_putendl_fd(PRINT_COLOR_RED, STDERR_FILENO);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	if (message1 != NULL)
+		ft_putendl_fd(message1, STDERR_FILENO);
+	ft_putendl_fd(PRINT_COLOR_END, STDERR_FILENO);
 }

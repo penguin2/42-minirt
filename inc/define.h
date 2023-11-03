@@ -13,6 +13,10 @@
 #ifndef DEFINE_H
 # define DEFINE_H
 
+# define PRINT_COLOR_RED "\e[31m "
+# define PRINT_COLOR_YELLOW "\e[33m "
+# define PRINT_COLOR_END "\e[m"
+
 # define SUCCESS	(0)
 # define ERROR		(-1)
 

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/02 20:24:24 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/03 16:18:50 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@
 # define GENERATOR_LIST_END "]"
 # define GENERATOR_COMMA ","
 
-# define ATOF_LIMIT 15
+# define DOUBLE_LIMIT 15
+
 # define ACCEPT_1_OR_OVER -1
 # define UNLIMITED 0
 
@@ -55,6 +56,16 @@
 # define K_DIFFUSE "coefficient-diffuse"
 # define K_SPECULAR "coefficient-specular"
 # define K_SHININESS "coefficient-shininess"
+
+# define WARNING_NORMALIZED "I normalized the vector as it wasn't already"
+
+# define INVALID_PARAMETERS "parameters are invalid"
+# define INVALID_VECTOR "The vector parameters are invalid"
+# define INVALID_COLORS "The colors parameters are invalid"
+# define NO_REQUIRED_OBJECT "The required object does not exist"
+# define OUTSIDE_THE_RANGE "Value is outside the range of upper or lower limit"
+# define ATOF_FAILD "Doesn't conform to atof format or exceeds precision limit"
+# define VECTOR_TOO_SMALL "The vector parameters are too small"
 
 //// json
 void		json_generator(t_json_node *master_node, size_t nest_level, int fd);
@@ -130,5 +141,6 @@ t_vla		*get_list(
 bool		is_between_min_to_max(double n, double min, double max);
 bool		is_only_value_node(const t_vla *list);
 int			try_json_node_tof(const t_json_node *node, double *dptr);
+int			try_vec3_unit(t_vec3 *vec);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 19:40:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/03 15:10:16 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	_append_cylinder_object(t_cylinder cylinder,
 
 	new_cylinder = cylinder_new(
 			cylinder.center,
-			vec3_unit(cylinder.dir),
+			cylinder.dir,
 			diameter / 2,
 			hight / 2);
 	cylinder_object = object_new(
@@ -49,9 +49,10 @@ int	append_cylinder(const t_json_node *node, t_vla *objects)
 			&cylinder.center,
 			UNLIMITED,
 			UNLIMITED) == ERROR
-		|| list_to_vec3(get_list(node, AXIS, 3), &cylinder.dir, -1, 1) == ERROR
 		|| json_node_to_double(dia_node, &dia, UNLIMITED, UNLIMITED) == ERROR
-		|| json_node_to_double(hi_node, &hi, UNLIMITED, UNLIMITED) == ERROR)
+		|| json_node_to_double(hi_node, &hi, UNLIMITED, UNLIMITED) == ERROR
+		|| list_to_vec3(get_list(node, AXIS, 3), &cylinder.dir, -1, 1) == ERROR
+		|| try_vec3_unit(&cylinder.dir) == ERROR)
 		return (ERROR);
 	_append_cylinder_object(cylinder, dia, hi, objects);
 	return (SUCCESS);

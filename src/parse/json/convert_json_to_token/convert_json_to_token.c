@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:45:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/03 14:25:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "parse.h"
+#include "utils.h"
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -38,6 +39,6 @@ t_vla	*convert_json_to_token(const char *file)
 	token = tokenize(all_chars);
 	free(all_chars);
 	if (token == NULL)
-		ft_putendl_fd(NO_TOKEN, STDERR_FILENO);
+		print_error(NO_TOKEN);
 	return (token);
 }

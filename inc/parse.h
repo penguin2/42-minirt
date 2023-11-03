@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/28 14:10:48 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/03 14:52:38 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include "libft.h"
 # include <stddef.h>
 
-# define NOT_EQUAL_EXTENSITON "Error: File is not equal extension"
-# define NOT_JSON_FORMAT "Error: json format"
-# define NO_TOKEN "Error: json token is None"
+# define INVALID_FILE_EXTENSION "The file extension is invalid"
+# define NOT_JSON_FORMAT "json format"
+# define NO_TOKEN "json token is None"
 
 # define JSON_SPACE_CHARSETS " \t\n"
 # define JSON_TOKEN_CHARSETS "{}[]:,"

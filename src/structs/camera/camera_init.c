@@ -31,7 +31,8 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 		|| list_to_vec3(get_list(object, COORDINATES, 3),
 			&camera->eye, UNLIMITED, UNLIMITED) == ERROR
 		|| list_to_vec3(get_list(object, DIRECTION, 3),
-			&camera->dir, -1, 1) == ERROR)
+			&camera->dir, -1, 1) == ERROR
+		|| try_vec3_unit(&camera->dir) == ERROR)
 		return (ERROR);
 	_set_camera_infomation(camera, fov);
 	return (SUCCESS);
@@ -39,7 +40,7 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 
 static void	_set_camera_infomation(t_camera *camera, double fov)
 {
-	camera->dir = vec3_unit(camera->dir);
+	camera->dir = camera->dir;
 	camera->fov = fov * (2.0 * PI / 360);
 	camera->up = _get_camera_up_vector(camera->dir);
 	camera->right = vec3_cross(camera->dir, camera->up);
