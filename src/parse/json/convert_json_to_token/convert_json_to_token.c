@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 14:25:33 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/04 15:10:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ t_vla	*convert_json_to_token(const char *file)
 
 	all_chars = _get_all_chars_in_json_file(file);
 	if (all_chars == NULL)
+	{
+		print_error(JSON_FILE_IS_EMPTY);
 		return (NULL);
+	}
 	token = tokenize(all_chars);
 	free(all_chars);
 	if (token == NULL)

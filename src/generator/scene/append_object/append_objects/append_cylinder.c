@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 15:10:16 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/04 14:42:46 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "define.h"
 #include "fn_type.h"
 #include "generator.h"
+#include "utils.h"
+#include <float.h>
 
 static void	_append_cylinder_object(t_cylinder cylinder,
 								double diameter,
@@ -39,21 +41,18 @@ static void	_append_cylinder_object(t_cylinder cylinder,
 int	append_cylinder(const t_json_node *node, t_vla *objects)
 {
 	t_cylinder			cylinder;
-	const t_json_node	*dia_node = select_json_node(node, DIAMETER);
-	const t_json_node	*hi_node = select_json_node(node, HEIGHT);
-	double				dia;
-	double				hi;
+	const t_json_node	*diameter_node = select_json_node(node, DIAMETER);
+	const t_json_node	*hight_node = select_json_node(node, HEIGHT);
+	double				diameter;
+	double				hight;
 
-	if (list_to_vec3(
-			get_list(node, COORDINATES, 3),
-			&cylinder.center,
-			UNLIMITED,
-			UNLIMITED) == ERROR
-		|| json_node_to_double(dia_node, &dia, UNLIMITED, UNLIMITED) == ERROR
-		|| json_node_to_double(hi_node, &hi, UNLIMITED, UNLIMITED) == ERROR
+	if (list_to_vec3(get_list(node, COORDINATES, 3),
+			&cylinder.center, NO_LIMIT, NO_LIMIT) == ERROR
+		|| json_node_to_double(diameter_node, &diameter, EPS, DBL_MAX) == ERROR
+		|| json_node_to_double(hight_node, &hight, EPS, DBL_MAX) == ERROR
 		|| list_to_vec3(get_list(node, AXIS, 3), &cylinder.dir, -1, 1) == ERROR
 		|| try_vec3_unit(&cylinder.dir) == ERROR)
 		return (ERROR);
-	_append_cylinder_object(cylinder, dia, hi, objects);
+	_append_cylinder_object(cylinder, diameter, hight, objects);
 	return (SUCCESS);
 }

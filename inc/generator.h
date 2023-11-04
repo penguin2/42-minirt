@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 16:18:50 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/04 15:38:16 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "libcolor.h"
 # include "light.h"
 # include "object.h"
+# include <float.h>
 
 # define INDENT_STR	"    "
 
@@ -29,10 +30,11 @@
 # define GENERATOR_LIST_END "]"
 # define GENERATOR_COMMA ","
 
-# define DOUBLE_LIMIT 15
+# define DOUBLE_LIMIT_DIGIT 15
+
+# define NO_LIMIT 0
 
 # define ACCEPT_1_OR_OVER -1
-# define UNLIMITED 0
 
 # define ID_AMBIENT "A"
 # define ID_CAMERA "C"
@@ -58,6 +60,8 @@
 # define K_SHININESS "coefficient-shininess"
 
 # define WARNING_NORMALIZED "I normalized the vector as it wasn't already"
+# define WARNING_FOV_IS_0 "Adjusted fov to 0.1 due to a 0 input"
+# define WARNING_FOV_IS_180 "Adjusted fov to 179.9 due to a 180 input"
 
 # define INVALID_PARAMETERS "parameters are invalid"
 # define INVALID_VECTOR "The vector parameters are invalid"
@@ -108,7 +112,8 @@ int			append_plane(const t_json_node *node, t_vla *objects);
 int			append_sphere(const t_json_node *node, t_vla *objects);
 int			append_cylinder(const t_json_node *node, t_vla *objects);
 
-// add additional parameters
+// add parameters
+int			add_color_parameter(const t_json_node *json_node, t_object *object);
 int			add_additional_parameters(const t_json_node *json_node,
 				t_object *object);
 int			add_bump_map_parameter(const t_json_node *json_node,

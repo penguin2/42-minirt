@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:43:31 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/01 20:08:12 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/04 15:13:32 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_material{
 	double	k_diffuse;
 	double	k_specular;
 	double	shininess;
-	t_color	color;
 }	t_material;
 
 t_material	material_create(

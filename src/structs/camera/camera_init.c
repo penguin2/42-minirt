@@ -14,6 +14,7 @@
 #include "define.h"
 #include "utils.h"
 #include <stdbool.h>
+#include <float.h>
 
 static t_vec3	_get_camera_up_vector(t_vec3 dir);
 static void		_set_camera_infomation(t_camera *camera, double fov);
@@ -29,7 +30,7 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 	if (json_node_to_double(select_json_node(object, FOV),
 			&fov, 0, 180) == ERROR
 		|| list_to_vec3(get_list(object, COORDINATES, 3),
-			&camera->eye, UNLIMITED, UNLIMITED) == ERROR
+			&camera->eye, NO_LIMIT, NO_LIMIT) == ERROR
 		|| list_to_vec3(get_list(object, DIRECTION, 3),
 			&camera->dir, -1, 1) == ERROR
 		|| try_vec3_unit(&camera->dir) == ERROR)
@@ -40,8 +41,18 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 
 static void	_set_camera_infomation(t_camera *camera, double fov)
 {
-	camera->dir = camera->dir;
+	if (fov == 0.0)
+	{
+		fov = 0.1;
+		print_warning(WARNING_FOV_IS_0);
+	}
+	else if (fov == 180.0)
+	{
+		fov = 179.9;
+		print_warning(WARNING_FOV_IS_180);
+	}
 	camera->fov = fov * (2.0 * PI / 360);
+	camera->dir = camera->dir;
 	camera->up = _get_camera_up_vector(camera->dir);
 	camera->right = vec3_cross(camera->dir, camera->up);
 	camera->fov = FOV_DEFAULT * DEG_TO_RAD;

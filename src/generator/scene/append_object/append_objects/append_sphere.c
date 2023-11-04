@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 19:40:53 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/04 14:43:20 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "sphere.h"
 #include "define.h"
 #include "generator.h"
+#include "utils.h"
+#include <float.h>
 
 static void	_append_sphere_object(t_sphere sphere,
 									double diameter,
@@ -38,13 +40,8 @@ int	append_sphere(const t_json_node *node, t_vla *objects)
 	double				diameter;
 
 	if (list_to_vec3(get_list(node, COORDINATES, 3),
-			&sphere.center,
-			UNLIMITED,
-			UNLIMITED) == ERROR
-		|| json_node_to_double(diameter_node,
-			&diameter,
-			UNLIMITED,
-			UNLIMITED) == ERROR)
+			&sphere.center, NO_LIMIT, NO_LIMIT) == ERROR
+		|| json_node_to_double(diameter_node, &diameter, EPS, DBL_MAX) == ERROR)
 		return (ERROR);
 	_append_sphere_object(sphere, diameter, objects);
 	return (SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 15:14:05 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/04 14:43:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "plane.h"
 #include "define.h"
 #include "generator.h"
+#include <float.h>
 
 static void	_append_plane_object(t_plane plane, t_vla *objects)
 {
@@ -36,11 +37,8 @@ int	append_plane(const t_json_node *node, t_vla *objects)
 	if (node->type != NODE_DICT)
 		return (ERROR);
 	if (list_to_vec3(get_list(node, NORMAL, 3), &plane.normal, -1, 1) == ERROR
-		|| list_to_vec3(
-			get_list(node, COORDINATES, 3),
-			&plane.origin,
-			UNLIMITED,
-			UNLIMITED) == ERROR
+		|| list_to_vec3(get_list(node, COORDINATES, 3),
+			&plane.origin, NO_LIMIT, NO_LIMIT) == ERROR
 		|| try_vec3_unit(&plane.normal) == ERROR)
 		return (ERROR);
 	_append_plane_object(plane, objects);
