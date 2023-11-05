@@ -28,6 +28,20 @@ OBJ_SUBDIRS 	=	$(sort $(dir $(OBJS)))
 
 RM				=	rm -rf 
 
+ifdef BONUS
+	CFLAGS	+=	-D MODE=1
+endif
+
+ifdef JSON
+	CFLAGS	+=	-D MODE=2
+endif
+
+ifdef SCENE
+	CFLAGS	+=	-D MODE=3
+endif
+
+
+
 $(OBJ_SUBDIRS) : % :
 	@mkdir -p $@
 
@@ -46,6 +60,21 @@ $(MINILIBX_DIR) :
 
 norm :
 	norminette $(SRC_DIR) $(INC_DIR) $(LIB_DIR)
+
+bonus :
+	make BONUS=1
+
+test_json :
+	make JSON=1
+
+test_scene :
+	make SCENE=1
+
+json :
+	./test/json_to_json_object/test.sh
+
+scene :
+	./test/json_object_to_scene/test.sh
 
 .DEFAULT_GOAL	=	all
 .PHONY	:	all

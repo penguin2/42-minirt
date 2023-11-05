@@ -6,12 +6,11 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:11:19 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 16:14:58 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:03:43 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvec3.h"
-#include "libft.h"
 #include "define.h"
 #include "utils.h"
 #include "generator.h"

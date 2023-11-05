@@ -14,25 +14,24 @@
 #include "define.h"
 #include "utils.h"
 #include <stdbool.h>
-#include <float.h>
 
 static t_vec3	_get_camera_up_vector(t_vec3 dir);
 static void		_set_camera_infomation(t_camera *camera, double fov);
 
 int	camera_init(const t_json_node *node, t_camera *camera)
 {
-	const t_vla			*object_list = get_list(node, ID_CAMERA, 1);
-	const t_json_node	*object = object_list->array[0];
+	const t_vla			*camera_list = get_list(node, ID_CAMERA, 1);
+	const t_json_node	*camera_dict = camera_list->array[0];
 	double				fov;
 
-	if (object->type != NODE_DICT)
+	if (camera_dict->type != NODE_DICT)
 		return (ERROR);
-	if (json_node_to_double(select_json_node(object, FOV),
-			&fov, 0, 180) == ERROR
-		|| list_to_vec3(get_list(object, COORDINATES, 3),
+	if (json_node_to_double(select_json_node(camera_dict, FOV),
+			&fov, 0.0, 180.0) == ERROR
+		|| list_to_vec3(get_list(camera_dict, COORDINATES, 3),
 			&camera->eye, NO_LIMIT, NO_LIMIT) == ERROR
-		|| list_to_vec3(get_list(object, DIRECTION, 3),
-			&camera->dir, -1, 1) == ERROR
+		|| list_to_vec3(get_list(camera_dict, DIRECTION, 3),
+			&camera->dir, -1.0, 1.0) == ERROR
 		|| try_vec3_unit(&camera->dir) == ERROR)
 		return (ERROR);
 	_set_camera_infomation(camera, fov);

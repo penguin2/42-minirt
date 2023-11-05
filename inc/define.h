@@ -30,4 +30,13 @@
 
 # define BUFFER_SIZE	(100)
 
+# ifndef MODE
+#  define MODE 0
+# endif
+
+# define MODE_MANDATORY 0
+# define MODE_BONUS 1
+# define MODE_JSON 2
+# define MODE_SCENE 3
+
 #endif

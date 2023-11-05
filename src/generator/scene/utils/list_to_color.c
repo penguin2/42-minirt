@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:50:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 16:19:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 14:59:18 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "generator.h"
 #include "define.h"
 #include "utils.h"
-#include <stdbool.h>
 
 int	list_to_color(const t_vla *list, t_color *color)
 {
@@ -27,9 +26,9 @@ int	list_to_color(const t_vla *list, t_color *color)
 		|| try_json_node_tof(list->array[1], &color->green) == ERROR
 		|| try_json_node_tof(list->array[2], &color->blue) == ERROR)
 		return (ERROR);
-	if (is_between_min_to_max(color->red, 0, 255)
-		&& is_between_min_to_max(color->green, 0, 255)
-		&& is_between_min_to_max(color->blue, 0, 255))
+	if (is_between_min_to_max(color->red, 0.0, 255.0)
+		&& is_between_min_to_max(color->green, 0.0, 255.0)
+		&& is_between_min_to_max(color->blue, 0.0, 255.0))
 		return (SUCCESS);
 	else
 		return (ERROR);

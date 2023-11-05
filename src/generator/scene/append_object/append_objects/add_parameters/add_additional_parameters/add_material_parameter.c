@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:15:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/04 15:14:50 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:10:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	_set_coefficient(const t_json_node *node,
 
 	if (coefficient_node == NULL)
 		return (SUCCESS);
-	else if (json_node_to_double(coefficient_node, dptr, 0, 1) == ERROR)
+	else if (json_node_to_double(coefficient_node, dptr, 0.0, 1.0) == ERROR)
 		return (ERROR);
 	else
 		return (SUCCESS);
@@ -40,7 +40,7 @@ static int	_set_shininess(const t_json_node *node,
 
 	if (shininess_node == NULL)
 		return (SUCCESS);
-	else if (json_node_to_double(shininess_node, dptr, 1, DBL_MAX) == ERROR)
+	else if (json_node_to_double(shininess_node, dptr, 1.0, DBL_MAX) == ERROR)
 		return (ERROR);
 	else
 		return (SUCCESS);

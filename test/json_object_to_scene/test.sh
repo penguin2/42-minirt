@@ -1,6 +1,6 @@
 #! /bin/bash
 
-cd ../../ && make
+make fclean && make test_scene
 
 ESC='\e['
 
@@ -9,6 +9,7 @@ GREEN=32
 YELLOW=33
 BLUE=34
 
+RESULT=0
 
 PRINT_COLOR() {
 	if [ $1 -eq $RED ] ; then
@@ -33,6 +34,7 @@ _RESULT() {
 			PRINT_COLOR $GREEN $json_file OK
 		else
 			PRINT_COLOR $RED $json_file KO
+			RESULT=1
 		fi
 	done
 }
@@ -44,6 +46,7 @@ _ONLY_KO() {
 		./miniRT ${json_file} > /dev/null 2>&1
 		if [ $? -ne $3 ] ; then
 			PRINT_COLOR $RED $json_file KO
+			RESULT=1
 		fi
 	done
 }
@@ -53,5 +56,6 @@ EXEC() {
 	$1 ERROR './test/json_object_to_scene/error/*/*.json' 1
 }
 
-EXEC _RESULT
-# EXEC _ONLY_KO
+# EXEC _RESULT
+EXEC _ONLY_KO
+exit $RESULT

@@ -6,12 +6,10 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:50:19 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/01 19:48:41 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:06:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "parse.h"
 #include "generator.h"
 #include "define.h"
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #! /bin/bash
 
-cd ../../ && make
+make fclean && make test_json
 
 ESC='\e['
 
@@ -57,5 +57,5 @@ EXEC() {
 	$1 ERROR MIXTURE './test/json_to_json_object/error/mixture/*.json' 1
 }
 
-EXEC _RESULT
-# EXEC _ONLY_KO
+# EXEC _RESULT
+EXEC _ONLY_KO

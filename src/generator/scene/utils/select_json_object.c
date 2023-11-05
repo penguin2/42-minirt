@@ -6,13 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:51:50 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/28 19:48:12 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:01:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
 #include "libft.h"
-#include "parse.h"
 #include <stddef.h>
 
 t_json_node	*select_json_node(const t_json_node *master_node, const char *key)

@@ -6,13 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/04 14:42:46 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:13:59 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cylinder.h"
 #include "define.h"
-#include "fn_type.h"
 #include "generator.h"
 #include "utils.h"
 #include <float.h>
@@ -28,8 +27,8 @@ static void	_append_cylinder_object(t_cylinder cylinder,
 	new_cylinder = cylinder_new(
 			cylinder.center,
 			cylinder.dir,
-			diameter / 2,
-			hight / 2);
+			diameter / 2.0,
+			hight / 2.0);
 	cylinder_object = object_new(
 			new_cylinder,
 			cylinder_get_dist,

@@ -6,16 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:50:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 14:41:00 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 14:59:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvec3.h"
 #include "generator.h"
 #include "define.h"
 #include "utils.h"
-#include <stdbool.h>
-#include <stddef.h>
 
 int	list_to_vec3(const t_vla *list, t_vec3 *vec3, double min, double max)
 {

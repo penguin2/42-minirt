@@ -6,16 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:04:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/04 14:42:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:46:40 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "spot.h"
 #include "generator.h"
 #include "define.h"
 #include "light.h"
-#include <float.h>
 
 static void	_append_spot_light(t_spot spot, t_vla *lights)
 {

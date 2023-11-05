@@ -6,15 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/04 14:43:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:15:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fn_type.h"
 #include "plane.h"
 #include "define.h"
 #include "generator.h"
-#include <float.h>
 
 static void	_append_plane_object(t_plane plane, t_vla *objects)
 {

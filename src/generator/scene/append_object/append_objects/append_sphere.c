@@ -6,11 +6,10 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/04 14:43:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/05 15:16:48 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fn_type.h"
 #include "sphere.h"
 #include "define.h"
 #include "generator.h"
