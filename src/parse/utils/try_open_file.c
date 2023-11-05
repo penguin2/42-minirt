@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-int	try_open_file(const char *file, const char *extension)
+int	try_open_file(const char *file, const char *extension, int flag)
 {
 	int	fd;
 
@@ -27,7 +27,10 @@ int	try_open_file(const char *file, const char *extension)
 		print_error(INVALID_FILE_EXTENSION);
 		return (ERROR);
 	}
-	fd = open(file, O_RDONLY);
+	if (flag == (O_CREAT | O_WRONLY))
+		fd = open(file, flag, OPEN_MODE);
+	else
+		fd = open(file, flag);
 	if (fd == -1)
 	{
 		perror("open");

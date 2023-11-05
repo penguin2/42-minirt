@@ -15,11 +15,12 @@
 #include "message_parse.h"
 #include "utils.h"
 #include <unistd.h>
+#include <fcntl.h>
 #include <stdlib.h>
 
 static char	*_get_all_chars_in_json_file(const char *file)
 {
-	const int	fd = try_open_file(file, ".json");
+	const int	fd = try_open_file(file, ".json", O_RDONLY);
 	char		*all_chars;
 
 	if (fd == ERROR)

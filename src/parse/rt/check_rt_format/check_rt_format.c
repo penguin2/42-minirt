@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_strings.c                                  :+:      :+:    :+:   */
+/*   check_rt_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 14:36:30 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 17:27:29 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/05 20:00:46 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
+#include "parse.h"
+#include "generator.h"
+#include "define.h"
+#include <stddef.h>
 
-void	ft_free_strings(void *ptr)
+int	check_rt_format(t_vla *rt_objects)
 {
 	size_t	idx;
-	char	**strings;
+	t_vla	*rt_object;
 
-	if (ptr == NULL)
-		return ;
-	strings = (char **)ptr;
 	idx = 0;
-	while (strings[idx] != NULL)
-		free(strings[idx++]);
-	free(strings);
+	while (idx < rt_objects->size)
+	{
+		rt_object = rt_objects->array[idx];
+		if (check_rt_object(rt_object) == ERROR)
+			return (ERROR);
+	}
+	return (SUCCESS);
 }

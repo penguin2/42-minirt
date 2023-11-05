@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_strings.c                                  :+:      :+:    :+:   */
+/*   convert_rt_object_to_json.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 14:36:30 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 17:27:29 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/05 17:56:58 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/05 20:01:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "parse.h"
+#include "define.h"
+#include "generator.h"
+#include <fcntl.h>
 
-void	ft_free_strings(void *ptr)
+int	convert_rt_object_to_json(t_vla *rt_objects, const char *file)
 {
-	size_t	idx;
-	char	**strings;
+	const int	fd = try_open_file(file, ".json", (O_CREAT | O_WRONLY));
 
-	if (ptr == NULL)
-		return ;
-	strings = (char **)ptr;
-	idx = 0;
-	while (strings[idx] != NULL)
-		free(strings[idx++]);
-	free(strings);
+	if (fd == ERROR)
+		return (ERROR);
+	ft_putstr_fd(GENERATOR_DICT_START, fd);
+	return (SUCCESS);
 }

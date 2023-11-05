@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_strings.c                                  :+:      :+:    :+:   */
+/*   convert_rt_to_rt_object.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 14:36:30 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 17:27:29 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/05 17:51:45 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/05 17:56:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "parse.h"
+#include "define.h"
 
-void	ft_free_strings(void *ptr)
+int	convert_rt_to_rt_object(t_vla *rt_object, int fd)
 {
-	size_t	idx;
-	char	**strings;
-
-	if (ptr == NULL)
-		return ;
-	strings = (char **)ptr;
-	idx = 0;
-	while (strings[idx] != NULL)
-		free(strings[idx++]);
-	free(strings);
+	return (SUCCESS);
 }

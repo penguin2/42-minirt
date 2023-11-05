@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_strings.c                                  :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 14:36:30 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 17:27:29 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/05 18:47:24 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/05 20:33:38 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	ft_free_strings(void *ptr)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t	idx;
-	char	**strings;
-
-	if (ptr == NULL)
-		return ;
-	strings = (char **)ptr;
-	idx = 0;
-	while (strings[idx] != NULL)
-		free(strings[idx++]);
-	free(strings);
+	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
 }
