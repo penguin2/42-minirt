@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:56:38 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 22:28:26 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/07 01:59:53 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ int	mlx_ptr_set_hook(t_mlx_ptr *mlx_ptr)
 	mlx_hook(mlx_ptr->wdw_ptr,
 		MotionNotify, ButtonMotionMask | PointerMotionMask,
 		mlx_ptr_hook_motion_notify, mlx_ptr);
+	mlx_hook(mlx_ptr->wdw_ptr, Expose, ExposureMask,
+		mlx_ptr_hook_expose, mlx_ptr);
+	mlx_hook(mlx_ptr->wdw_ptr, DestroyNotify, StructureNotifyMask,
+		mlx_ptr_hook_destroy_notify, mlx_ptr);
 	return (SUCCESS);
 }
