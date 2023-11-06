@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 18:59:27 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/07 00:19:06 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 # define EPS							(1e-9)
 
-int		int_abs(int x);
 bool	is_zero(double val);
 bool	solve_quadratic_equation(
 			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
