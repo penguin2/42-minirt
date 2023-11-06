@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_rt_format.c                                  :+:      :+:    :+:   */
+/*   put_key_and_colon.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 20:00:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/26 17:25:56 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/11 14:07:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "parse.h"
 #include "generator.h"
-#include "define.h"
-#include <stddef.h>
 
-int	check_rt_format(t_vla *rt_objects)
+void	put_key_and_colon(const char *key_string, int fd)
 {
-	size_t	idx;
-	t_vla	*rt_object;
-
-	idx = 0;
-	while (idx < rt_objects->size)
-	{
-		rt_object = rt_objects->array[idx];
-		if (check_rt_object(rt_object) == ERROR)
-			return (ERROR);
-	}
-	return (SUCCESS);
+	ft_putchar_fd(KEY, fd);
+	ft_putstr_fd(key_string, fd);
+	ft_putchar_fd(KEY, fd);
+	ft_putstr_fd(GENERATOR_KEY_VALUE_SEPARATOR, fd);
 }

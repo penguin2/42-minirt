@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_cylinder_parameter.c                         :+:      :+:    :+:   */
+/*   put_value_separator.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 20:06:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 20:23:31 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/26 17:24:39 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/28 15:14:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "define.h"
+#include "generator.h"
+#include <stdbool.h>
 
-int	check_cylinder_parameter(t_vla *rt_object)
+void	put_value_separator(bool is_with_comma, size_t fd)
 {
-	return (SUCCESS);
+	if (is_with_comma)
+		ft_putstr_fd(GENERATOR_COMMA, fd);
+	ft_putchar_fd('\n', fd);
 }

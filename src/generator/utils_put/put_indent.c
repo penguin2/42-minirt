@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_spot_parameter.c                             :+:      :+:    :+:   */
+/*   put_indent.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 20:07:00 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 20:23:52 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/20 15:30:31 by rikeda            #+#    #+#             */
+/*   Updated: 2023/10/27 21:08:42 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "define.h"
+#include "libft.h"
+#include "generator.h"
+#include <stddef.h>
 
-int	check_spot_parameter(t_vla *rt_object)
+void	put_indent(size_t nest_level, int fd)
 {
-	return (SUCCESS);
+	size_t	idx;
+
+	idx = 0;
+	while (idx < nest_level)
+	{
+		ft_putstr_fd(INDENT_STR, fd);
+		idx++;
+	}
 }
