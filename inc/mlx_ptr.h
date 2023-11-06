@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:30:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 22:28:41 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/07 02:03:35 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int	mlx_ptr_hook_key_release(int keycode, t_mlx_ptr *mlx_ptr);
 int	mlx_ptr_hook_button_press(int button, int x, int y, t_mlx_ptr *mlx_ptr);
 int	mlx_ptr_hook_button_release(int button, int x, int y, t_mlx_ptr *mlx_ptr);
 int	mlx_ptr_hook_motion_notify(int x, int y, t_mlx_ptr *mlx_ptr);
+int	mlx_ptr_hook_expose(t_mlx_ptr *mlx_ptr);
+int	mlx_ptr_hook_destroy_notify(t_mlx_ptr *mlx_ptr);
 
 #endif
