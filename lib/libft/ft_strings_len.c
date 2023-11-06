@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ambient_parameter.c                          :+:      :+:    :+:   */
+/*   ft_strings_len.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 20:05:04 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 20:23:24 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/06 13:35:18 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/06 13:35:31 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "define.h"
+#include <stddef.h>
 
-int	check_ambient_parameter(t_vla *rt_object)
+size_t	ft_strings_len(const char **strings)
 {
-	return (SUCCESS);
+	size_t	idx;
+
+	idx = 0;
+	while (strings[idx] != NULL)
+		idx++;
+	return (idx);
 }

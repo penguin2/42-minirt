@@ -135,6 +135,9 @@ char		*delete_commentout(const char *str, const char *commentout_str);
 int			try_atof_limit(const char *nptr, double *dptr, size_t limit);
 char		*get_all_chars_in_file(int fd);
 int			try_open_file(const char *file, const char *extension, int flag);
+char		*convert_extension(const char *file,
+				const char *old_extension,
+				const char *new_extension);
 
 // json -> token
 t_vla		*convert_json_to_token(const char *file);

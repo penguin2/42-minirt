@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   json_generator.c                                   :+:      :+:    :+:   */
+/*   json_generator_from_json_object.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -58,7 +58,9 @@ static void	_generator_horizontal_list(t_json_node *master_node,
 * @param nest_level Current nesting depth
 * @param fd Output file descriptor
 */
-void	json_generator(t_json_node *master_node, size_t nest_level, int fd)
+void	json_generator_from_json_object(t_json_node *master_node,
+										size_t nest_level,
+										int fd)
 {
 	size_t		idx;
 	t_json_node	*node;
@@ -81,7 +83,7 @@ void	json_generator(t_json_node *master_node, size_t nest_level, int fd)
 		if (node->type == NODE_VALUE)
 			ft_putstr_fd(node->value, fd);
 		else
-			json_generator(node, (nest_level + 1), fd);
+			json_generator_from_json_object(node, (nest_level + 1), fd);
 		put_value_separator(++idx != json_object->size, fd);
 	}
 	put_closing_brackets(master_node, nest_level, fd);

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 18:47:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/06 13:35:43 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char		**ft_split(const char *str, const char *delimiter);
 const char	*ft_skip_charsets(const char *str, const char *charsets);
 const char	*ft_skip_non_charsets(const char *str, const char *charsets);
 void		ft_free_strings(void *ptr);
+size_t		ft_strings_len(const char **strings);
 
 void		*ft_calloc(size_t count, size_t size);
 void		*ft_xcalloc(size_t count, size_t size);

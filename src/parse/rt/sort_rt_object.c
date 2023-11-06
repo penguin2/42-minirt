@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:42:45 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 20:22:57 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/06 13:44:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include "define.h"
 #include <stdbool.h>
 #include <stddef.h>
+
+static const char	*_get_identifer(t_vla *rt_object)
+{
+	return (rt_object->array[0]);
+}
 
 static void	_swap_rt_object(t_vla *rt_objects, size_t idx1, size_t idx2)
 {
@@ -27,20 +32,20 @@ static void	_swap_rt_object(t_vla *rt_objects, size_t idx1, size_t idx2)
 
 static size_t	_get_smallest_object_idx(t_vla *rt_objects, size_t idx)
 {
-	size_t	smallest_object_idx;
-	t_vla	*rt_object;
-	char	*smallest_object_identifer;
+	size_t		smallest_object_idx;
+	t_vla		*rt_object;
+	const char	*smallest_object_identifer;
 
 	smallest_object_idx = idx;
 	rt_object = rt_objects->array[idx];
-	smallest_object_identifer = rt_object->array[0];
+	smallest_object_identifer = _get_identifer(rt_object);
 	idx++;
 	while (idx < rt_objects->size)
 	{
 		rt_object = rt_objects->array[idx];
-		if (0 < ft_strcmp(smallest_object_identifer, rt_object->array[0]))
+		if (0 < ft_strcmp(smallest_object_identifer, _get_identifer(rt_object)))
 		{
-			smallest_object_identifer = rt_object->array[0];
+			smallest_object_identifer = _get_identifer(rt_object);
 			smallest_object_idx = idx;
 		}
 		idx++;
@@ -57,7 +62,8 @@ int	sort_rt_object(t_vla *rt_objects)
 	while (idx < rt_objects->size)
 	{
 		smallest_object_idx = _get_smallest_object_idx(rt_objects, idx);
-		_swap_rt_object(rt_objects, idx, smallest_object_idx);
+		if (idx != smallest_object_idx)
+			_swap_rt_object(rt_objects, idx, smallest_object_idx);
 		idx++;
 	}
 	return (SUCCESS);

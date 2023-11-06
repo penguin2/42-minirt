@@ -28,10 +28,11 @@
 # define GENERATOR_LIST_END "]"
 # define GENERATOR_COMMA ","
 
-//// json
-void	json_generator(t_json_node *master_node, size_t nest_level, int fd);
+void	json_generator_from_json_object(t_json_node *master_node,
+			size_t nest_level,
+			int fd);
 
-// utils json put fd
+// utils put
 void	put_key_and_colon(t_json_node *json_node, int fd);
 void	put_indent(size_t nest_level, int fd);
 void	put_open_brackets(t_json_node *master_node, int fd);
