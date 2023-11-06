@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hook_helper_init_button_press.c                :+:      :+:    :+:   */
+/*   mlx_hook_helper_set_hook.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 17:01:14 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/07 01:00:35 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/07 01:01:51 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/07 01:02:34 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_hook_helper.h"
 
-void	mlx_hook_helper_init_button_press(t_hook *hooks_bp)
+void	mlx_hook_helper_set_hook(t_hook *hook, int identifier, void *handler)
 {
-	mlx_hook_helper_set_hook(
-		hooks_bp++, BUTTON_LEFT_X, hook_fn_set_button_left_on);
+	hook->identifier = identifier;
+	hook->handler = handler;
 }
