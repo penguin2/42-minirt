@@ -1,0 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   spot_get_color.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 12:31:37 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/05 16:29:29 by taekklee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libcolor.h"
+#include "libvec3.h"
+#include "ray.h"
+#include "spot.h"
+#include "utils.h"
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+
+static bool	_is_spot_blocked(
+				t_vec3 hit_to_spot,
+				const t_hit *hit,
+				const t_vla *objects);
+
+t_color	spot_get_color(
+			const t_light *light,
+			const t_hit *hit,
+			const t_vla *objects)
+{
+	const t_spot	*spot = light->ptr;
+	t_vec3			hit_to_spot;
+	double			i_diffuse;
+	double			i_specular;
+
+	hit_to_spot = vec3_sub(spot->pos, hit->pos);
+	if (_is_spot_blocked(hit_to_spot, hit, objects))
+		return (color_black());
+	hit_to_spot = vec3_unit(hit_to_spot);
+	i_diffuse = hit->object->material.k_diffuse
+		* vec3_dot(hit->normal, hit_to_spot);
+	i_specular = hit->object->material.k_specular
+		* pow(vec3_dot(hit->normal, vec3_reflected(hit_to_spot, hit->normal)),
+			hit->object->material.shininess);
+	return (color_mul(color_composite(hit->object->color, spot->color),
+			spot->brightness * (i_diffuse + i_specular)));
+}
+
+static bool	_is_spot_blocked(
+				t_vec3 hit_to_spot,
+				const t_hit *hit,
+				const t_vla *objects)
+{
+	const double	dist_hit_to_spot = vec3_len(hit_to_spot);
+	double			dist_hit_to_object;
+	const t_object	*object;
+	size_t			object_idx;
+	t_ray			ray_hit_to_spot;
+
+	if (vec3_dot(hit->normal, hit_to_spot) < EPS)
+		return (true);
+	ray_hit_to_spot = ray_create(
+			vec3_add(hit->pos, vec3_mul(hit_to_spot, EPS)),
+			hit_to_spot);
+	object_idx = 0;
+	while (object_idx < objects->size)
+	{
+		object = objects->array[object_idx];
+		if (object->get_dist(object, ray_hit_to_spot, &dist_hit_to_object)
+			&& dist_hit_to_object < dist_hit_to_spot)
+			return (true);
+		++object_idx;
+	}
+	return (false);
+}

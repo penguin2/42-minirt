@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:06:05 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:19:02 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/02 01:17:28 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_hit{
 
 t_hit	*hit_new(t_ray incoming_ray, t_vla *objects);
 void	hit_free(void *hit);
-t_color	hit_get_color(t_hit *hit, t_vla *objects, t_vla *lights);
+t_color	hit_get_color(
+			const t_hit *hit,
+			const t_vla *objects,
+			const t_vla *lights);
 
 #endif

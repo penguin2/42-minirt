@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spot.h                                             :+:      :+:    :+:   */
+/*   vec3_reflected.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 16:03:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 16:24:26 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/05 15:46:28 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/05 15:49:17 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPOT_H
-# define SPOT_H
+#include "libvec3.h"
 
-# include "libcolor.h"
-# include "libvec3.h"
-# include "light.h"
-
-typedef struct s_spot{
-	t_vec3	pos;
-	double	brightness;
-	t_color	color;
-}	t_spot;
-
-t_spot	*spot_new(t_vec3 pos, double brightness, t_color color);
-t_color	spot_get_color(
-			const t_light *light,
-			const t_hit *hit,
-			const t_vla *objects);
-void	spot_free(void *spot);
-
-#endif
+t_vec3	vec3_reflected(t_vec3 vec, t_vec3 normal)
+{
+	return (vec3_sub(vec, vec3_mul(normal, 2.0 * vec3_dot(normal, vec))));
+}

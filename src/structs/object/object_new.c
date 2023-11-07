@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:02:49 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:11:21 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_object	*object_new(
 	new->ptr = ptr;
 	new->image_map = NULL;
 	new->bump_map = NULL;
-	new->material = material_create(1.0, 1.0, 1.0, 0.0);
+	new->color = color_white();
+	new->material = material_create(0.1, 0.4, 0.8, 16.0);
 	new->get_dist = get_dist;
 	new->get_normal = get_normal;
 	new->free_ptr = free_ptr;

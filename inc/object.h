@@ -6,13 +6,14 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/27 02:07:14 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:37:01 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJECT_H
 # define OBJECT_H
 
+# include "libcolor.h"
 # include "libft.h"
 # include "material.h"
 # include "ray.h"
