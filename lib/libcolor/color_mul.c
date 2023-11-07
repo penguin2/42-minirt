@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spot.h                                             :+:      :+:    :+:   */
+/*   color_mul.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 16:03:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 16:24:26 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/03 12:28:11 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/05 16:22:49 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPOT_H
-# define SPOT_H
+#include "libcolor.h"
 
-# include "libcolor.h"
-# include "libvec3.h"
-# include "light.h"
-
-typedef struct s_spot{
-	t_vec3	pos;
-	double	brightness;
-	t_color	color;
-}	t_spot;
-
-t_spot	*spot_new(t_vec3 pos, double brightness, t_color color);
-t_color	spot_get_color(
-			const t_light *light,
-			const t_hit *hit,
-			const t_vla *objects);
-void	spot_free(void *spot);
-
-#endif
+t_color	color_mul(t_color color, double scalar)
+{
+	return (color_create(
+			color.red * scalar,
+			color.green * scalar,
+			color.blue * scalar));
+}
