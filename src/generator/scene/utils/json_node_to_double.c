@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:10:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 14:25:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:38 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "generator.h"
+#include "message_generator.h"
 #include "utils.h"
 
 int	json_node_to_double(const t_json_node *node,

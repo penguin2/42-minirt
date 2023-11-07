@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 19:28:24 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 15:27:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:18 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
+#include "message_generator.h"
 #include "scene.h"
 #include "define.h"
 #include "utils.h"

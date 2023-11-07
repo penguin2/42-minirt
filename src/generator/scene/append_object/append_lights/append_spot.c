@@ -6,14 +6,16 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:04:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 15:46:40 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:42:37 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "spot.h"
 #include "generator.h"
+#include "message_generator.h"
 #include "define.h"
 #include "light.h"
+#include "utils.h"
 
 static void	_append_spot_light(t_spot spot, t_vla *lights)
 {
@@ -32,9 +34,16 @@ int	append_spot(const t_json_node *node, t_vla *lights)
 	const t_vla			*list_pos = get_list(node, COORDINATES, 3);
 
 	if (json_node_to_double(brightness_node, &spot.brightness, 0, 1) == ERROR
-		|| list_to_vec3(list_pos, &spot.pos, NO_LIMIT, NO_LIMIT) == ERROR
-		|| list_to_color(get_list(node, COLORS, 3), &spot.color) == ERROR)
+		|| list_to_vec3(list_pos, &spot.pos, NO_LIMIT, NO_LIMIT) == ERROR)
 		return (ERROR);
+	if (MODE == MODE_MANDATORY)
+		spot.color = color_create(255, 255, 255);
+	else if (MODE == MODE_BONUS
+		&& list_to_color(get_list(node, COLORS, 3), &spot.color) == ERROR)
+	{
+		print_warning(WARNING_SPOT_COLORS);
+		spot.color = color_create(255, 255, 255);
+	}
 	_append_spot_light(spot, lights);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:11:19 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 15:03:43 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:29 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "define.h"
 #include "utils.h"
 #include "generator.h"
+#include "message_generator.h"
 #include <math.h>
 #include <stdbool.h>
 

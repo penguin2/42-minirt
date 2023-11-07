@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 15:13:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:36:41 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	append_cylinder(const t_json_node *node, t_vla *objects)
 	double				diameter;
 	double				hight;
 
-	if (list_to_vec3(get_list(node, COORDINATES, 3),
+	if (json_node_to_double(diameter_node, &diameter, VAL_MIN, DBL_MAX) == ERROR
+		|| json_node_to_double(hight_node, &hight, VAL_MIN, DBL_MAX) == ERROR
+		|| list_to_vec3(get_list(node, COORDINATES, 3),
 			&cylinder.center, NO_LIMIT, NO_LIMIT) == ERROR
-		|| json_node_to_double(diameter_node, &diameter, EPS, DBL_MAX) == ERROR
-		|| json_node_to_double(hight_node, &hight, EPS, DBL_MAX) == ERROR
 		|| list_to_vec3(get_list(node, AXIS, 3), &cylinder.dir, -1, 1) == ERROR
 		|| try_vec3_unit(&cylinder.dir) == ERROR)
 		return (ERROR);

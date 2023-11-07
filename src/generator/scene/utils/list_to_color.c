@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:50:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 14:59:18 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:40 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcolor.h"
 #include "generator.h"
+#include "message_generator.h"
 #include "define.h"
 #include "utils.h"
 

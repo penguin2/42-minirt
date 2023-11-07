@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:10:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/04 15:42:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
+#include "message_generator.h"
 #include "utils.h"
 #include <stdbool.h>
 

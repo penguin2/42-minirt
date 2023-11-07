@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 15:16:48 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:44:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int	append_sphere(const t_json_node *node, t_vla *objects)
 
 	if (list_to_vec3(get_list(node, COORDINATES, 3),
 			&sphere.center, NO_LIMIT, NO_LIMIT) == ERROR
-		|| json_node_to_double(diameter_node, &diameter, EPS, DBL_MAX) == ERROR)
+		|| json_node_to_double(
+			diameter_node, &diameter, VAL_MIN, DBL_MAX
+		) == ERROR)
 		return (ERROR);
 	_append_sphere_object(sphere, diameter, objects);
 	return (SUCCESS);

@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:27:00 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/03 14:51:28 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:47 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
+#include "message_parse.h"
 #include "define.h"
 #include "utils.h"
 #include <unistd.h>

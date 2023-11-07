@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 15:27:47 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:33:45 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <float.h>
 
 # define INDENT_STR	"    "
-
 # define GENERATOR_KEY_VALUE_SEPARATOR ": "
 # define GENERATOR_VALUE_SEPARATOR ", "
 # define GENERATOR_DICT_START "{"
@@ -33,6 +32,7 @@
 # define DOUBLE_LIMIT_DIGIT 15
 
 # define NO_LIMIT 0
+# define VAL_MIN (1e-5)
 
 # define ACCEPT_1_OR_OVER -1
 
@@ -58,18 +58,6 @@
 # define K_DIFFUSE "coefficient-diffuse"
 # define K_SPECULAR "coefficient-specular"
 # define K_SHININESS "coefficient-shininess"
-
-# define WARNING_NORMALIZED "I normalized the vector as it wasn't already"
-# define WARNING_FOV_IS_0 "Adjusted fov to 0.1 due to a 0 input"
-# define WARNING_FOV_IS_180 "Adjusted fov to 179.9 due to a 180 input"
-
-# define INVALID_PARAMETERS "parameters are invalid"
-# define INVALID_VECTOR "The vector parameters are invalid"
-# define INVALID_COLORS "The colors parameters are invalid"
-# define INVALID_REQUIRED_OBJECT "The number of required objects is invalid"
-# define OUTSIDE_THE_RANGE "Value is outside the range of upper or lower limit"
-# define ATOF_FAILD "Doesn't conform to atof format or exceeds precision limit"
-# define VECTOR_TOO_SMALL "The vector parameters are too small"
 
 //// json
 void		json_generator(t_json_node *master_node, size_t nest_level, int fd);
