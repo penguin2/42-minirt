@@ -27,6 +27,8 @@ bool	solve_quadratic_equation(
 			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
 void	rotate_two_vecs_clockwise(t_vec3 *u, t_vec3 *v, double theta);
 
+bool	is_only_value_node(const t_vla *list);
+
 void	print_error(const char *message1);
 void	print_warning(const char *message1);
 
