@@ -1,6 +1,6 @@
 #! /bin/bash
 
-make fclean && make test_scene
+make test_scene
 
 ESC='\e['
 

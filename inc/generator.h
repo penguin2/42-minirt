@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/07 20:33:45 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/08 11:12:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # define DOUBLE_LIMIT_DIGIT 15
 
 # define NO_LIMIT 0
-# define VAL_MIN (1e-5)
 
 # define ACCEPT_1_OR_OVER -1
 

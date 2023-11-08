@@ -61,13 +61,13 @@ $(MINILIBX_DIR) :
 norm :
 	norminette $(SRC_DIR) $(INC_DIR) $(LIB_DIR)
 
-bonus :
+bonus : fclean
 	make BONUS=1
 
-test_json :
+test_json : fclean
 	make JSON=1
 
-test_scene :
+test_scene : fclean
 	make SCENE=1
 
 json :

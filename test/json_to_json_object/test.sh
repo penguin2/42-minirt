@@ -1,6 +1,6 @@
 #! /bin/bash
 
-make fclean && make test_json
+make test_json
 
 ESC='\e['
 
