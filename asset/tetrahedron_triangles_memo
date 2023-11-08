@@ -1,0 +1,17 @@
+//double	unit_len = 12.0;
+//t_vec3	tetrahedron[4] = (t_vec3[4]){(t_vec3){0, 0, 0},
+//	(t_vec3){unit_len, 0, 0},
+//	(t_vec3){unit_len / 2 , 0, unit_len * sqrt(3) / 2},
+//	(t_vec3){unit_len / 2 , unit_len * sqrt(6) / 3, unit_len * sqrt(3) / 6}
+//	};
+//t_vec3	tetrahedron_triangles[4][3] = 
+//{
+//	{(t_vec3)tetrahedron[0], (t_vec3)tetrahedron[1], (t_vec3)tetrahedron[2]},
+//	{(t_vec3)tetrahedron[0], (t_vec3)tetrahedron[2], (t_vec3)tetrahedron[3]},
+//	{(t_vec3)tetrahedron[2], (t_vec3)tetrahedron[1], (t_vec3)tetrahedron[3]},
+//	{(t_vec3)tetrahedron[1], (t_vec3)tetrahedron[0], (t_vec3)tetrahedron[3]}
+//};
+//for(size_t	i = 0; i < 4; ++i)
+//	ft_vla_append(objects, object_new(
+//			triangle_new(tetrahedron_triangles[i]),
+//			triangle_get_dist, triangle_get_normal, triangle_free));
