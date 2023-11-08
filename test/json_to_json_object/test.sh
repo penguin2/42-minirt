@@ -52,9 +52,9 @@ EXEC() {
 	$1 SUCCESS DICT './test/json_to_json_object/success/dict/*.json' 0
 	$1 SUCCESS LIST './test/json_to_json_object/success/list/*.json' 0
 	$1 SUCCESS MIXTURE './test/json_to_json_object/success/mixture/*.json' 0
-	$1 ERROR DICT './test/json_to_json_object/error/dict/*.json' 1
-	$1 ERROR LIST './test/json_to_json_object/error/list/*.json' 1
-	$1 ERROR MIXTURE './test/json_to_json_object/error/mixture/*.json' 1
+	$1 FAILED DICT './test/json_to_json_object/error/dict/*.json' 1
+	$1 FAILED LIST './test/json_to_json_object/error/list/*.json' 1
+	$1 FAILED MIXTURE './test/json_to_json_object/error/mixture/*.json' 1
 }
 
 # EXEC _RESULT

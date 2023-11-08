@@ -53,7 +53,7 @@ _ONLY_KO() {
 
 EXEC() {
 	$1 SUCCESS './test/json_object_to_scene/success/*.json' 0
-	$1 ERROR './test/json_object_to_scene/error/*/*.json' 1
+	$1 FAILED './test/json_object_to_scene/error/*/*.json' 1
 }
 
 # EXEC _RESULT
