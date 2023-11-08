@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/07 00:19:06 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:21:24 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 
 # include "libvec3.h"
+# include "libft.h"
 # include <stdbool.h>
 
 # define NUM_QUADRATIC_EQUATION_ROOTS	(2)

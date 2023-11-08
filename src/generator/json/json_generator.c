@@ -6,13 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:02:02 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/30 15:39:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:19:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
 #include "libft.h"
 #include "parse.h"
+#include "utils.h"
 #include <stdbool.h>
 #include <stddef.h>
 

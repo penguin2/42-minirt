@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:58:26 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:35:02 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,22 @@ t_vla		*get_list(
 				int accept_size);
 
 bool		is_between_min_to_max(double n, double min, double max);
+int			try_json_node_tof(const t_json_node *node, double *dptr);
+int			try_vec3_unit(t_vec3 *vec);
+t_vla		*get_list(const t_json_node *node,
+				const char *key,
+				int accept_size);
+bool		is_between_min_to_max(double n, double min, double max);
+int			json_node_to_double(const t_json_node *node,
+				double *dptr,
+				double min,
+				double max);
+int			list_to_color(const t_vla *list, t_color *color);
+int			list_to_vec3(const t_vla *list,
+				t_vec3 *vec3,
+				double min,
+				double max);
+t_json_node	*select_json_node(const t_json_node *master_node, const char *key);
 int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
 

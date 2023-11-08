@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:10:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/27 10:18:21 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:34:20 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,10 @@ typedef struct s_camera{
 	t_viewport	viewport;
 }	t_camera;
 
-int		camera_init(t_camera *camera);
+int		camera_init(const t_json_node *node, t_camera *camera);
 void	camera_set_viewport(t_camera *camera, t_viewport *viewport);
 
 int		camera_move(t_camera *camera, t_camera_direction camera_direction);
 int		camera_rotate(t_camera *camera, t_camera_rotation camera_rotation);
 int		camera_zoom(t_camera *camera, double deg);
-
 #endif

@@ -6,13 +6,15 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/27 02:48:53 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:25:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
 #include "define.h"
 #include "utils.h"
+#include "parse.h"
+#include "message_parse.h"
 #include <stdbool.h>
 
 static t_vec3	_get_camera_up_vector(t_vec3 dir);
@@ -56,7 +58,6 @@ static void	_set_camera_infomation(t_camera *camera, double fov)
 	camera->right = vec3_cross(camera->dir, camera->up);
 	camera->fov = FOV_DEFAULT * DEG_TO_RAD;
 	camera_set_viewport(camera, &camera->viewport);
-	return (SUCCESS);
 }
 
 // suppose dir is a unit vector
