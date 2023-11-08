@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_rt_to_rt_object.c                          :+:      :+:    :+:   */
+/*   get_identifer_from_rt_objects.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 17:51:45 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/05 17:56:07 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/09 19:19:41 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/09 19:19:50 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
-#include "define.h"
 
-int	convert_rt_to_rt_object(t_vla *rt_object, int fd)
+const char	*get_identifer_from_rt_objects(t_vla *rt_objects, size_t idx)
 {
-	return (SUCCESS);
+	const t_vla	*rt_object = rt_objects->array[idx];
+	const char	**strings = rt_object->array[0];
+
+	return (*strings);
 }

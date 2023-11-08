@@ -91,6 +91,9 @@
 # define PATTERN_NO_CONTENT_IN_DICT 1
 
 # define MAX_COLOR_8BIT (255)
+# define OPTION_START "--"
+# define COMMENTOUT_STRING "#"
+# define RT_SPACE_STR " \n	"
 
 typedef enum e_state
 {
@@ -241,5 +244,19 @@ int			list_to_vec3(
 t_json_node	*select_json_node(const t_json_node *master_node, const char *key);
 int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
+//// rt 
+int			convert_rt_to_json(const char *file);
+int			convert_rt_to_rt_object(t_vla *rt_object, int fd);
+void		convert_rt_to_object_vla(t_vla *rt_object, int fd);
+// int			convert_rt_object_to_json(t_vla *rt_object, const char *file);
+void		grouping_same_objects(t_vla *rt_object);
+
+// utils
+void		sort_rt_objects(t_vla *rt_object);
+void		sort_rt_object_options(t_vla *rt_object);
+int			check_rt_object_format(t_vla *rt_objects);
+int			check_rt_object_option_format(t_vla *rt_objects);
+bool		is_dupulicate(const char *str1, const char *str2);
+const char	*get_identifer_from_rt_objects(t_vla *rt_objects, size_t idx);
 
 #endif
