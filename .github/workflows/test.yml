@@ -19,3 +19,25 @@ jobs:
 
     - name: norm check
       run: norminette
+
+  test_json:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test json
+      run: |
+        make json
+
+  test_scene:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test scene
+      run: |
+        make scene
