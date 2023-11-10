@@ -1,7 +1,5 @@
 #! /bin/bash
 
-make test_json
-
 ESC='\e['
 
 RED=31

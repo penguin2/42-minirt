@@ -29,7 +29,7 @@ jobs:
 
     - name: test json
       run: |
-        make json
+        make test_json
 
   test_scene:
 
@@ -40,4 +40,4 @@ jobs:
 
     - name: test scene
       run: |
-        make scene
+        make test_scene

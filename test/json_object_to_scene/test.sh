@@ -1,7 +1,5 @@
 #! /bin/bash
 
-make test_scene
-
 ESC='\e['
 
 RED=31

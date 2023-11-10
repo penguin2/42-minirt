@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_json.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 16:35:20 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/10 16:33:47 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/10 16:34:52 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,26 @@
 #include "mlx_ptr.h"
 #include "scene.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include "generator.h"
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	t_scene	scene;
+	t_vla		*json_object;
 
-	if (scene_init(&scene, argc, argv) == ERROR
-		|| mlx_ptr_main(&scene) == ERROR)
+	if (argc != 2)
+	{
+		printf("argc != 2\n");
 		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	}
+	json_object = convert_json_to_json_object(argv[1]);
+	if (json_object == NULL)
+		exit (1);
+	else
+	{
+		json_generator(json_object->array[0], 0, STDOUT_FILENO);
+		free_json_object(json_object);
+		exit (0);
+	}
 }
-// 	__attribute__((destructor)) static void destructor()
-// {
-//    system("leaks -q miniRT");
-// }
