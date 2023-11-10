@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/08 19:21:24 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 18:23:34 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define HIGHER_ROOT					(1)
 
 # define EPS							(1e-9)
+
+# define PRINT_COLOR_RED "\e[31m "
+# define PRINT_COLOR_YELLOW "\e[33m "
+# define PRINT_COLOR_END "\e[m"
 
 bool	is_zero(double val);
 bool	solve_quadratic_equation(

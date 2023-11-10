@@ -6,16 +6,12 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 17:22:16 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:02:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
-
-# define PRINT_COLOR_RED "\e[31m "
-# define PRINT_COLOR_YELLOW "\e[33m "
-# define PRINT_COLOR_END "\e[m"
 
 # define SUCCESS	(0)
 # define ERROR		(-1)

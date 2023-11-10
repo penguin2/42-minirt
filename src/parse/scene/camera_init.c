@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/08 19:25:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 18:52:59 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,20 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 
 static void	_set_camera_infomation(t_camera *camera, double fov)
 {
-	if (fov == 0.0)
+	if (fov < FOV_LOWER_LIMIT)
 	{
-		fov = 0.1;
+		fov = FOV_LOWER_LIMIT;
 		print_warning(WARNING_FOV_IS_0);
 	}
-	else if (fov == 180.0)
+	else if (FOV_UPPER_LIMIT < fov)
 	{
-		fov = 179.9;
+		fov = FOV_UPPER_LIMIT;
 		print_warning(WARNING_FOV_IS_180);
 	}
 	camera->fov = fov * (2.0 * PI / 360);
 	camera->dir = camera->dir;
 	camera->up = _get_camera_up_vector(camera->dir);
 	camera->right = vec3_cross(camera->dir, camera->up);
-	camera->fov = FOV_DEFAULT * DEG_TO_RAD;
 	camera_set_viewport(camera, &camera->viewport);
 }
 

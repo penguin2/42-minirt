@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:51:50 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:47:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 21:29:15 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 #include "libft.h"
 #include <stddef.h>
 
+/**
+* @brief Find node in dict that have the same string as the key
+*
+* @param master_node Node with dict as value with the node
+*					 to be retrieved as value.
+* @param key String that is the key to the dict
+*			 containing the list you want to retrieve.
+*
+* @return return the node to be retrieved if found, otherwise return NULL.
+*/
 t_json_node	*select_json_node(const t_json_node *master_node, const char *key)
 {
 	size_t		idx;

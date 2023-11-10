@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:10:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:47:00 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 21:10:26 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 #include "message_parse.h"
 #include "utils.h"
 
+/**
+* @brief Convert a number of string-type to double type
+*		 by atof and check if the value is between the upper and lower limits.
+*
+* @param node Node with string-type numbers as value
+* @param dptr Pointer to double type to store value.
+* @param min Lower limit of value.
+* @param max Upper limit of value.
+*
+* @return SUCCESS if the conversion of the value
+*		  to a double type is successful, otherwise return ERROR
+*/
 int	json_node_to_double(const t_json_node *node,
 						double *dptr,
 						double min,

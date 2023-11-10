@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/01 17:32:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:14:56 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 int	scene_init(t_scene *scene, int argc, char **argv)
 {
 	t_vla	*json_object;
+	int		success_or_error;
 
 	if (argc != 2)
 	{
@@ -33,8 +34,7 @@ int	scene_init(t_scene *scene, int argc, char **argv)
 		return (ERROR);
 	ft_vla_init(&scene->objects);
 	ft_vla_init(&scene->lights);
-	if (json_object_to_scene(json_object, scene) == ERROR)
-		return (ERROR);
-	else
-		return (SUCCESS);
+	success_or_error = json_object_to_scene(json_object, scene);
+	free_json_object(json_object);
+	return (success_or_error);
 }

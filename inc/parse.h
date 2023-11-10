@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 19:35:02 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 18:23:21 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ void		json_node_free(t_json_node *node, void (free_value)(void *));
 
 //// json_object -> scene
 int			json_object_to_scene(t_vla *json_object, t_scene *scene);
+int			camera_init(const t_json_node *node, t_camera *camera);
 int			convert_json_object_to_camera(
 				const t_json_node *node,
 				t_camera *camera);
@@ -187,38 +188,20 @@ int			add_material_parameter(const t_json_node *json_node,
 				t_object *object);
 
 // utils init scene 
-int			list_to_color(const t_vla *list, t_color *color);
-
-int			list_to_vec3(const t_vla *list,
-				t_vec3 *vec3,
-				double min,
-				double max);
-
-int			json_node_to_double(
-				const t_json_node *node,
-				double *dptr,
-				double min,
-				double max);
-
-t_json_node	*select_json_node(const t_json_node *master_node, const char *key);
 t_vla		*get_list(
 				const t_json_node *node,
 				const char *key,
 				int accept_size);
 
 bool		is_between_min_to_max(double n, double min, double max);
-int			try_json_node_tof(const t_json_node *node, double *dptr);
-int			try_vec3_unit(t_vec3 *vec);
-t_vla		*get_list(const t_json_node *node,
-				const char *key,
-				int accept_size);
-bool		is_between_min_to_max(double n, double min, double max);
-int			json_node_to_double(const t_json_node *node,
+int			json_node_to_double(
+				const t_json_node *node,
 				double *dptr,
 				double min,
 				double max);
 int			list_to_color(const t_vla *list, t_color *color);
-int			list_to_vec3(const t_vla *list,
+int			list_to_vec3(
+				const t_vla *list,
 				t_vec3 *vec3,
 				double min,
 				double max);

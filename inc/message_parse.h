@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:46:16 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 18:54:15 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 // WARNING
 # define WARNING_NORMALIZED "I normalized the vector as it wasn't already"
-# define WARNING_FOV_IS_0 "Adjusted fov to 0.1 due to a 0 input"
-# define WARNING_FOV_IS_180 "Adjusted fov to 179.9 due to a 180 input"
+# define WARNING_FOV_IS_0 "Adjusted fov to 1 due to a 0 input"
+# define WARNING_FOV_IS_180 "Adjusted fov to 179 due to a 180 input"
 # define WARNING_SPOT_COLORS "Light color is invalid, so I set white color"
 
 // ERROR
