@@ -248,15 +248,16 @@ int			try_vec3_unit(t_vec3 *vec);
 int			convert_rt_to_json(const char *file);
 int			convert_rt_to_rt_object(t_vla *rt_object, int fd);
 void		convert_rt_to_object_vla(t_vla *rt_object, int fd);
-// int			convert_rt_object_to_json(t_vla *rt_object, const char *file);
 void		grouping_same_objects(t_vla *rt_object);
 
 // utils
 void		sort_rt_objects(t_vla *rt_object);
-void		sort_rt_object_options(t_vla *rt_object);
+void		sort_rt_object_options(const t_vla *rt_object);
+
 int			check_rt_object_format(t_vla *rt_objects);
-int			check_rt_object_option_format(t_vla *rt_objects);
+int			check_rt_object_option_format(const t_vla *rt_object);
+
 bool		is_dupulicate(const char *str1, const char *str2);
-const char	*get_identifer_from_rt_objects(t_vla *rt_objects, size_t idx);
+const char	*get_identifer_from_rt_objects(const t_vla *rt_objects, size_t idx);
 
 #endif

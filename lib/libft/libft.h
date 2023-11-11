@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/09 16:26:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/11 14:00:28 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ t_vla		*ft_vla_new(void);
 void		ft_vla_free(t_vla *vla, void free_content(void *content));
 void		ft_vla_append(t_vla *vla, void *content);
 void		*ft_vla_pop(t_vla *vla, size_t idx);
-void		ft_vla_sort(t_vla *vla, size_t (*get_smallest)(t_vla *, size_t));
+void		ft_vla_sort(const t_vla *vla,
+				size_t (*get_smallest)(const t_vla *, size_t));
 
 #endif

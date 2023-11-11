@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_identifer_from_rt_objects.c                    :+:      :+:    :+:   */
+/*   put_key_and_colon.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 19:19:41 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/11 14:02:00 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/26 17:25:56 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/11 14:07:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "generator.h"
 
-const char	*get_identifer_from_rt_objects(const t_vla *rt_objects, size_t idx)
+void	put_key_and_colon(const char *key_string, int fd)
 {
-	const t_vla	*rt_object = rt_objects->array[idx];
-	const char	**strings = rt_object->array[0];
-
-	return (*strings);
+	ft_putchar_fd(KEY, fd);
+	ft_putstr_fd(key_string, fd);
+	ft_putchar_fd(KEY, fd);
+	ft_putstr_fd(GENERATOR_KEY_VALUE_SEPARATOR, fd);
 }

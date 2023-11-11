@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:42:45 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/09 20:17:27 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/11 14:01:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-static size_t	_get_smallest_object_idx(t_vla *rt_objects, size_t idx)
+static size_t	_get_smallest_object_idx(const t_vla *rt_objects, size_t idx)
 {
 	size_t		smallest_idx;
 	const char	*identifer;

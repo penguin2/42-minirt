@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:02:02 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 19:19:57 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/11 14:06:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	json_generator_from_json_object(t_json_node *master_node,
 		put_indent((nest_level + 1), fd);
 		node = json_object->array[idx];
 		if (master_node->type == NODE_DICT)
-			put_key_and_colon(node, fd);
+			put_key_and_colon(node->key, fd);
 		if (node->type == NODE_VALUE)
 			ft_putstr_fd(node->value, fd);
 		else

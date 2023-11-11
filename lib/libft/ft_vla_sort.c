@@ -6,14 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:16:38 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/09 16:25:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/11 20:13:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-void	_swap(t_vla *vla, size_t idx1, size_t idx2)
+void	_swap(const t_vla *vla, size_t idx1, size_t idx2)
 {
 	t_vla	*tmp;
 
@@ -22,7 +22,8 @@ void	_swap(t_vla *vla, size_t idx1, size_t idx2)
 	vla->array[idx2] = tmp;
 }
 
-void	ft_vla_sort(t_vla *vla, size_t (*get_smallest)(t_vla *, size_t))
+void	ft_vla_sort(const t_vla *vla,
+			size_t (*get_smallest)(const t_vla *, size_t))
 {
 	size_t	idx;
 	size_t	smallest_idx;

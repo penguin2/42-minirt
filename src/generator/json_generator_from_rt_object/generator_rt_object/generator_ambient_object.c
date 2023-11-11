@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_rt_to_rt_object.c                          :+:      :+:    :+:   */
+/*   generator_ambient_object.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 17:51:45 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/11 17:42:13 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/10 14:30:47 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/11 16:37:13 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "parse.h"
-#include "define.h"
+#include "generator.h"
 #include <stdbool.h>
+#include <stddef.h>
 
-int	convert_rt_to_rt_object(t_vla *rt_object, int fd)
+bool	generator_ambient_object(t_vla *ambient, int fd)
 {
-	(void)fd;
-	convert_rt_to_object_vla(rt_object, fd);
-	if (check_rt_object_format(rt_object) == ERROR)
-		return (ERROR);
-	sort_rt_objects(rt_object);
-	grouping_same_objects(rt_object);
-	return (SUCCESS);
+	const char		**strings = ambient->array[0];
+	const size_t	strings_size = ft_strings_len(strings);
+
+	if (1 == strings_size)
+		return (false);
+	if (2 <= strings_size)
+		put_key_and_value("brightness", strings[1], false, fd);
+	if (3 <= strings_size)
+		put_key_and_list("colors", strings[2], true, fd);
+	return (true);
 }
