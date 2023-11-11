@@ -22,17 +22,15 @@
 static void	_free_content_of_rt_object(t_vla *rt_object)
 {
 	size_t	idx;
-	size_t	idx2;
-	t_vla	*rt_object;
 
 	idx = 0;
 	while (idx < rt_objects->size)
 	{
-		rt_object = rt_objects->array[idx++];
-		idx2 = 0;
-		while (idx2 < rt_object->size)
-			ft_vla_free(rt_object->array[idx2++], ft_free_strings);
+		_free_content_of_rt_object(rt_objects->array[idx]);
+		free(rt_objects->array[idx]);
+		idx++;
 	}
+	free(rt_objects->array);
 }
 
 int	convert_rt_to_json(const char *file)

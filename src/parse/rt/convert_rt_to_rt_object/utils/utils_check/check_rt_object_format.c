@@ -43,8 +43,9 @@ static int	_check_size_of_parameters(const t_vla *rt_object,
 	return (SUCCESS);
 }
 
-static int	_check_rt_object(t_vla *rt_object)
+static int	_check_rt_object(void *ptr)
 {
+	const t_vla	*rt_object = (t_vla *)ptr;
 	const char	**strings = rt_object->array[0];
 	const char	*identifer = strings[0];
 
@@ -67,13 +68,13 @@ static int	_check_rt_object(t_vla *rt_object)
 int	check_rt_object_format(t_vla *rt_objects)
 {
 	size_t	idx;
-	t_vla	*rt_object;
+	void	*content;
 
 	idx = 0;
 	while (idx < rt_objects->size)
 	{
-		rt_object = rt_objects->array[idx++];
-		if (_check_rt_object(rt_object) == ERROR)
+		content = rt_objects->array[idx++];
+		if (_check_rt_object(content) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);
