@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/12 20:39:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 22:46:04 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,4 @@ int	scene_init(t_scene *scene, int argc, char **argv)
 	success_or_error = json_object_to_scene(json_object, scene);
 	free_json_object(json_object);
 	return (success_or_error);
-}
-
-static void	_temp_lights(t_vla *lights)
-{
-	ft_vla_append(lights, light_new(
-			ambient_new(0.1, color_white()),
-			ambient_get_color, ambient_free));
-	ft_vla_append(lights, light_new(
-			spot_new(vec3_create(0, 30, -30), 1.0, color_white()),
-			spot_get_color, spot_free));
 }
