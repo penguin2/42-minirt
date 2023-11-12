@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 21:27:09 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:48:37 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 23:52:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	_append_ambient_light(t_ambient ambient, t_vla *lights)
 	t_light		*light;
 
 	new_ambient = ambient_new(ambient.brightness, ambient.color);
-	light = light_new(new_ambient, ambient_free);
+	light = light_new(new_ambient, ambient_get_color, ambient_free);
 	ft_vla_append(lights, light);
 }
 
