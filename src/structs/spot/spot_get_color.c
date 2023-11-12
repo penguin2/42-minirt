@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:31:37 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 16:29:29 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/13 00:38:01 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,14 @@ t_color	spot_get_color(
 	hit_to_spot = vec3_unit(hit_to_spot);
 	i_diffuse = hit->object->material.k_diffuse
 		* vec3_dot(hit->normal, hit_to_spot);
-	i_specular = hit->object->material.k_specular
-		* pow(vec3_dot(hit->normal, vec3_reflected(hit_to_spot, hit->normal)),
-			hit->object->material.shininess);
+	i_specular = -vec3_dot(
+			hit->incoming_ray.dir,
+			vec3_reflected(hit_to_spot, hit->normal));
+	if (i_specular > 0)
+		i_specular = hit->object->material.k_specular
+			* pow(i_specular, hit->object->material.shininess);
+	else
+		i_specular = 0;
 	return (color_mul(color_composite(hit->object->color, spot->color),
 			spot->brightness * (i_diffuse + i_specular)));
 }
