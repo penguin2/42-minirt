@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:11:19 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/10 18:55:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 20:36:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ static bool	_is_normalized(t_vec3 vec)
 	const double	pow_z = pow(vec.z, 2.0);
 	const double	sum = pow_x + pow_y + pow_z;
 
-	if (is_zero(sum))
-		return (false);
-	else
-		return (is_zero(sqrt(sum) - 1.0));
+	return (is_zero(sqrt(sum) - 1.0));
 }
 
 int	try_vec3_unit(t_vec3 *vec)

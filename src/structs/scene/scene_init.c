@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 19:14:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 20:39:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "scene.h"
 #include "parse.h"
 #include "generator.h"
+#include "utils.h"
+#include "message_parse.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,7 +28,7 @@ int	scene_init(t_scene *scene, int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("argc != 2\n");
+		print_error(ARGC_IS_NOT_EQUAL_2);
 		return (ERROR);
 	}
 	json_object = convert_json_to_json_object(argv[1]);

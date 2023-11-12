@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/10 18:54:15 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 20:33:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define WARNING_SPOT_COLORS "Light color is invalid, so I set white color"
 
 // ERROR
+# define ARGC_IS_NOT_EQUAL_2 "argc != 2"
 # define INVALID_FILE_EXTENSION "The file extension is invalid"
 # define NOT_JSON_FORMAT "json format"
 # define NO_TOKEN "json token is None"
