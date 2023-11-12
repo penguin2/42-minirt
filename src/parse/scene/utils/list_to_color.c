@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:50:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:47:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 23:55:39 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ int	list_to_color(const t_vla *list, t_color *color)
 	if (is_between_min_to_max(color->red, 0.0, 255.0)
 		&& is_between_min_to_max(color->green, 0.0, 255.0)
 		&& is_between_min_to_max(color->blue, 0.0, 255.0))
+	{
+		color->red /= 255.0;
+		color->green /= 255.0;
+		color->blue /= 255.0;
 		return (SUCCESS);
+	}
 	else
 		return (ERROR);
 }
