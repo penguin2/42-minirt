@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:04:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:48:57 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 23:52:15 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	_append_spot_light(t_spot spot, t_vla *lights)
 	t_light	*light;
 
 	new_spot = spot_new(spot.pos, spot.brightness, spot.color);
-	light = light_new(new_spot, spot_free);
+	light = light_new(new_spot, spot_get_color, spot_free);
 	ft_vla_append(lights, light);
 }
 
