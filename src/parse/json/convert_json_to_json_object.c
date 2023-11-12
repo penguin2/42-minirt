@@ -6,13 +6,15 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:42:21 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/25 15:45:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:50 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "define.h"
 #include "parse.h"
+#include "message_parse.h"
+#include "utils.h"
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -25,7 +27,7 @@ t_vla	*convert_json_to_json_object(const char *file)
 		return (NULL);
 	else if (check_token(token) == ERROR)
 	{
-		ft_putendl_fd(NOT_JSON_FORMAT, STDERR_FILENO);
+		print_error(NOT_JSON_FORMAT);
 		ft_vla_free(token, free);
 		free(token);
 		return (NULL);

@@ -6,12 +6,14 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:43:31 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/12 16:34:18 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/04 15:13:32 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIAL_H
 # define MATERIAL_H
+
+# include "libcolor.h"
 
 typedef struct s_material{
 	double	k_ambient;

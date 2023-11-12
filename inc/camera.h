@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:10:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/27 10:18:21 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:02:24 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define UNIT_FOV_CAMERA_ZOOM			(1.0)
 
 # define FOV_DEFAULT					(70.0)
-# define FOV_LOWER_LIMIT				(10.0)
-# define FOV_UPPER_LIMIT				(170.0)
+# define FOV_LOWER_LIMIT				(1.0)
+# define FOV_UPPER_LIMIT				(179.0)
 
 typedef struct s_viewport{
 	int		width;
@@ -58,11 +58,9 @@ typedef struct s_camera{
 	t_viewport	viewport;
 }	t_camera;
 
-int		camera_init(t_camera *camera);
 void	camera_set_viewport(t_camera *camera, t_viewport *viewport);
 
 int		camera_move(t_camera *camera, t_camera_direction camera_direction);
 int		camera_rotate(t_camera *camera, t_camera_rotation camera_rotation);
 int		camera_zoom(t_camera *camera, double deg);
-
 #endif

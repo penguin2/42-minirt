@@ -19,3 +19,25 @@ jobs:
 
     - name: norm check
       run: norminette
+
+  test_json:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test json
+      run: |
+        make test_json
+
+  test_scene:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test scene
+      run: |
+        make test_scene

@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/07 00:19:06 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:23:34 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 
 # include "libvec3.h"
+# include "libft.h"
 # include <stdbool.h>
 
 # define NUM_QUADRATIC_EQUATION_ROOTS	(2)
@@ -22,9 +23,18 @@
 
 # define EPS							(1e-9)
 
+# define PRINT_COLOR_RED "\e[31m "
+# define PRINT_COLOR_YELLOW "\e[33m "
+# define PRINT_COLOR_END "\e[m"
+
 bool	is_zero(double val);
 bool	solve_quadratic_equation(
 			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
 void	rotate_two_vecs_clockwise(t_vec3 *u, t_vec3 *v, double theta);
+
+bool	is_only_value_node(const t_vla *list);
+
+void	print_error(const char *message1);
+void	print_warning(const char *message1);
 
 #endif

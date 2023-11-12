@@ -1,0 +1,29 @@
+{
+    "A": [
+		{
+        "brightness": 0.2,
+        "colors": [255, 255, 0]
+    }
+	],
+    "C": [
+		{
+        "coordinates": [1.0, 0, 20],
+        "orientation": [1.00001, 0, 0],
+        "fov": 70
+    }
+	],
+    "L": [
+		{
+        "coordinates": [-40.0, 0, 30],
+        "brightness": 0.7,
+        "colors": [255, 255, 255]
+    }
+	],
+    "pl": [
+		{
+        "coordinates": [0, 0, 0],
+        "normal": [0, 1.0, 0],
+        "colors": [255, 0, 255]
+	}
+	]
+}

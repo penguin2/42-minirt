@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/26 20:41:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/10 16:35:20 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,6 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
-
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <unistd.h>
-// #include "parse.h"
-// #include "generator.h"
-// int main(int argc, char **argv)
-// {
-// 	t_vla		*json_object;
-
-// 	if (argc != 3) {
-// 		printf("argc != 3\n");
-// 		return (EXIT_FAILURE);
-// 	}
-// 	json_object = convert_json_to_json_object(argv[1]);
-// 	if (json_object == NULL) {
-// 		return (atoi(argv[2]) == 0);
-// 	}
-// 	else {
-// 		json_generator(json_object->array[0], 0, STDOUT_FILENO);
-// 		free_json_object(json_object);
-// 		return (atoi(argv[2]) == 1);
-// 	}
-// }
 // 	__attribute__((destructor)) static void destructor()
 // {
 //    system("leaks -q miniRT");

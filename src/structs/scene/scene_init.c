@@ -6,53 +6,37 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/20 16:24:20 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/12 20:39:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "camera.h"
-#include "cylinder.h"
 #include "define.h"
 #include "libft.h"
-#include "libvec3.h"
-#include "plane.h"
 #include "scene.h"
-#include "sphere.h"
-#include <math.h>
+#include "parse.h"
+#include "generator.h"
+#include "utils.h"
+#include "message_parse.h"
 #include <stdbool.h>
-
-static void	_temp_objects_and_lights(t_vla *lights, t_vla *objects);
+#include <stdio.h>
+#include <stdlib.h>
 
 int	scene_init(t_scene *scene, int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
-	camera_init(&scene->camera);
+	t_vla	*json_object;
+	int		success_or_error;
+
+	if (argc != 2)
+	{
+		print_error(ARGC_IS_NOT_EQUAL_2);
+		return (ERROR);
+	}
+	json_object = convert_json_to_json_object(argv[1]);
+	if (json_object == NULL)
+		return (ERROR);
 	ft_vla_init(&scene->objects);
 	ft_vla_init(&scene->lights);
-	_temp_objects_and_lights(&scene->lights, &scene->objects);
-	return (SUCCESS);
-}
-
-static void	_temp_objects_and_lights(t_vla *lights, t_vla *objects)
-{
-	(void)lights;
-	ft_vla_append(objects, object_new(
-			plane_new(vec3_create(0, -10, -10), vec3_create(0, 1, 0)),
-			plane_get_dist, plane_get_normal, plane_free));
-	ft_vla_append(objects, object_new(
-			cylinder_new(vec3_create(-10, 0, -10), vec3_create(1, 1, 1), 1, 3),
-			cylinder_get_dist, cylinder_get_normal, cylinder_free));
-	ft_vla_append(objects, object_new(
-			sphere_new(vec3_create(-5, 0, -10), 2),
-			sphere_get_dist, sphere_get_normal, sphere_free));
-	ft_vla_append(objects, object_new(
-			cylinder_new(vec3_create(5, 0, -10), vec3_create(-1, 0, 1), 1, 3),
-			cylinder_get_dist, cylinder_get_normal, cylinder_free));
-	ft_vla_append(objects, object_new(
-			cylinder_new(vec3_create(0, 0, -10), vec3_create(0, 0, 1), 1, 3),
-			cylinder_get_dist, cylinder_get_normal, cylinder_free));
-	ft_vla_append(objects, object_new(
-			sphere_new(vec3_create(10, 0, -10), 2),
-			sphere_get_dist, sphere_get_normal, sphere_free));
+	success_or_error = json_object_to_scene(json_object, scene);
+	free_json_object(json_object);
+	return (success_or_error);
 }

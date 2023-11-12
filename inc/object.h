@@ -28,6 +28,7 @@ typedef struct s_object{
 	void			*ptr;
 	void			*image_map;
 	void			*bump_map;
+	t_color			color;
 	t_material		material;
 	t_fn_get_dist	get_dist;
 	t_fn_get_normal	get_normal;

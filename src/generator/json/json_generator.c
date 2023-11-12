@@ -6,37 +6,16 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:02:02 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/28 18:15:39 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:19:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
 #include "libft.h"
 #include "parse.h"
+#include "utils.h"
 #include <stdbool.h>
 #include <stddef.h>
-
-/**
-* @brief Determine whether the types of all elements in list are NODE_VALUE
-*
-* @param list vla of value
-*
-* @return true if type of all elements of list are NODE_VALUE, otherwise false
-*/
-static bool	_is_only_value_node(t_vla *list)
-{
-	t_json_node	*node;
-	size_t		idx;
-
-	idx = 0;
-	while (idx < list->size)
-	{
-		node = list->array[idx++];
-		if (node->type != NODE_VALUE)
-			return (false);
-	}
-	return (true);
-}
 
 /**
 * @brief output the list side by side
@@ -86,7 +65,7 @@ void	json_generator(t_json_node *master_node, size_t nest_level, int fd)
 	t_vla		*json_object;
 
 	json_object = master_node->value;
-	if (master_node->type == NODE_LIST && _is_only_value_node(json_object))
+	if (master_node->type == NODE_LIST && is_only_value_node(json_object))
 	{
 		_generator_horizontal_list(master_node, nest_level == 0, fd);
 		return ;

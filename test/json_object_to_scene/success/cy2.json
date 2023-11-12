@@ -1,0 +1,37 @@
+{
+    "A": [
+		{
+        "brightness": 0.2,
+        "colors": [255, 255, 255]
+    }
+	],
+    "C": [
+		{
+        "coordinates": [0, 0, -20],
+        "orientation": [0, 0, 1],
+        "fov": 70
+    }
+	],
+    "L": [
+		{
+        "coordinates": [-40.0, 0, 30],
+        "brightness": 0.7,
+        "colors": [255, 255, 255]
+    }
+	],
+    "cy": [
+		{
+        "coordinates": [0.0, 0.0, 20.6],
+        "axis": [0, 0, 1.0],
+        "diameter": 14.2,
+        "height": 21.42,
+        "colors": [10, 0, 255]
+    }, {
+        "coordinates": [0.0, 0.0, 10.0],
+        "axis": [1, 0, 0.0],
+        "diameter": 1.0,
+        "height": 2.0,
+        "colors": [0, 255, 0]
+    }
+	]
+}

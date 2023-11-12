@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 17:22:16 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:02:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,14 @@
 # define DEG_TO_RAD	(0.017453292519943295)
 
 # define BUFFER_SIZE	(100)
+
+# ifndef MODE
+#  define MODE 0
+# endif
+
+# define MODE_MANDATORY 0
+# define MODE_BONUS 1
+# define MODE_JSON 2
+# define MODE_SCENE 3
 
 #endif
