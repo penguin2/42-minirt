@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.h                                              :+:      :+:    :+:   */
+/*   color_mix.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:56:20 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/12 22:19:00 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/12 22:05:54 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/12 22:10:00 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAY_H
-# define RAY_H
+#include "libcolor.h"
 
-# include "libcolor.h"
-# include "libvec3.h"
-# include "scene.h"
-
-# define RT_MAX_RECURSION_DEPTH (3)
-
-typedef struct s_ray{
-	t_vec3	origin;
-	t_vec3	dir;
-}	t_ray;
-
-t_ray	ray_create(t_vec3 origin, t_vec3 dir);
-t_vec3	ray_at(t_ray ray, double t);
-t_ray	ray_from_to(t_vec3 from, t_vec3 to);
-t_color	ray_convert_to_color(t_ray ray, t_scene *scene, int recursion_depth);
-
-#endif
+t_color	color_mix(t_color color1, t_color color2, double t)
+{
+	return (color_create(
+			t * color1.red + (1 - t) * color2.red,
+			t * color1.blue + (1 - t) * color2.blue,
+			t * color1.green + (1 - t) * color2.green));
+}
