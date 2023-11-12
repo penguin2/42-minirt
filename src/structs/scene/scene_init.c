@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:39:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/12 22:46:04 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/13 00:41:10 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include "utils.h"
 #include "message_parse.h"
 #include <stdbool.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 int	scene_init(t_scene *scene, int argc, char **argv)
