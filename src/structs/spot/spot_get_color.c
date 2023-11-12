@@ -65,9 +65,7 @@ static bool	_is_spot_blocked(
 
 	if (vec3_dot(hit->normal, hit_to_spot) < EPS)
 		return (true);
-	ray_hit_to_spot = ray_create(
-			vec3_add(hit->pos, vec3_mul(hit_to_spot, EPS)),
-			hit_to_spot);
+	ray_hit_to_spot = ray_create(hit->pos, hit_to_spot);
 	object_idx = 0;
 	while (object_idx < objects->size)
 	{
