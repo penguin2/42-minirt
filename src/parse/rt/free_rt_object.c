@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generator_camera_object.c                          :+:      :+:    :+:   */
+/*   free_rt_object.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 14:30:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 22:31:12 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/12 21:31:18 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/12 21:33:38 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "generator.h"
+#include "parse.h"
+#include "libft.h"
 #include <stdbool.h>
+#include <stddef.h>
+#include <stdlib.h>
 
-void	generator_camera_object(t_vla *camera, int fd)
+void	free_rt_object(t_vla *rt_object, bool one_step_deep)
 {
-	const char		**strings = camera->array[0];
-	const size_t	strings_size = ft_strings_len(strings);
+	size_t	idx;
 
-	if (2 <= strings_size)
-		put_key_and_list("coordinates", strings[1], false, fd);
-	if (3 <= strings_size)
-		put_key_and_list("orientation", strings[2], true, fd);
-	if (4 <= strings_size)
-		put_key_and_value("fov", strings[3], true, fd);
+	idx = 0;
+	while (idx < rt_object->size)
+	{
+		if (one_step_deep)
+			free_rt_object(rt_object->array[idx], false);
+		else
+			ft_vla_free(rt_object->array[idx], ft_free_strings);
+		free(rt_object->array[idx]);
+		idx++;
+	}
+	free(rt_object->array);
 }

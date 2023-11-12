@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:33:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 20:07:36 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 23:01:30 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		exit (1);
 	else
 	{
-		json_generator(json_object->array[0], 0, STDOUT_FILENO);
+		json_generator_from_json_object(json_object->array[0], 0, 1);
 		free_json_object(json_object);
 		exit (0);
 	}

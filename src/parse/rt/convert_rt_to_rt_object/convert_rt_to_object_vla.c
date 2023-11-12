@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/09 20:10:26 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 21:51:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,9 @@
 #include "parse.h"
 #include <stdlib.h>
 
-static char	*_get_next_removed_comment_line(int fd)
-{
-	char	*line;
-
-	line = get_next_line(fd);
-	if (line == NULL)
-		return (NULL);
-	line = delete_commentout(line, COMMENTOUT_STRING);
-	return (line);
-}
-
-static t_vla	*_line_empty_case(t_vla *rt_object, t_vla *vla)
-{
-	if (vla != NULL)
-		ft_vla_append(rt_object, vla);
-	return (NULL);
-}
-
-static t_vla	*_line_exist_case(t_vla *rt_object, t_vla *vla, char *line)
+static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
+												t_vla *vla,
+												char *line)
 {
 	char	**strings;
 
@@ -68,13 +52,10 @@ void	convert_rt_to_object_vla(t_vla *rt_object, int fd)
 	vla = NULL;
 	while (true)
 	{
-		line = _get_next_removed_comment_line(fd);
+		line = get_next_removed_comment_line(fd);
 		if (line == NULL)
 			break ;
-		else if (*line == '\0' || *line == '\n')
-			vla = _line_empty_case(rt_object, vla);
-		else
-			vla = _line_exist_case(rt_object, vla, line);
+		vla = _append_strings_to_object_vla(rt_object, vla, line);
 		free(line);
 	}
 	if (vla != NULL)

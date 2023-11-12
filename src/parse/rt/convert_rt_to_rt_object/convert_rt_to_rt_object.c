@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:51:45 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/11 17:42:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 21:35:06 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 int	convert_rt_to_rt_object(t_vla *rt_object, int fd)
 {
-	(void)fd;
 	convert_rt_to_object_vla(rt_object, fd);
 	if (check_rt_object_format(rt_object) == ERROR)
 		return (ERROR);

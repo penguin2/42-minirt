@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/11 14:04:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 22:04:56 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	check_rt_object_option_format(const t_vla *rt_object)
 	char		**strings;
 	const char	*prev_option_key;
 
+	sort_rt_object_options(rt_object);
 	prev_option_key = NULL;
 	idx = 1;
 	while (idx < rt_object->size)

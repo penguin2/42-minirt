@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:41:13 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/09 20:15:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 21:37:34 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 static void	_prepere_rt_object(t_vla *rt_objects, size_t idx)
 {
-	t_vla	*tmp;
+	t_vla	*tmp_rt_object;
 
-	tmp = rt_objects->array[idx];
+	tmp_rt_object = rt_objects->array[idx];
 	rt_objects->array[idx] = ft_vla_new();
-	ft_vla_append(rt_objects->array[idx], tmp);
+	ft_vla_append(rt_objects->array[idx], tmp_rt_object);
 }
 
 void	grouping_same_objects(t_vla *rt_objects)

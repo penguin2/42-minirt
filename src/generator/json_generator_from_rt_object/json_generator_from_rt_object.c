@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:09:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/11 20:20:12 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 22:20:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ void	json_generator_from_rt_object(t_vla *rt_objects, int fd)
 		if (idx != rt_objects->size)
 			ft_putendl_fd(GENERATOR_COMMA, fd);
 		else
-		{
-			put_indent(1, fd);
 			ft_putchar_fd('\n', fd);
-		}
 	}
 	ft_putendl_fd(GENERATOR_DICT_END, fd);
 }

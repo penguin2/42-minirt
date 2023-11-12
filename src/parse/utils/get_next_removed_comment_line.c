@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_duplicate.c                                     :+:      :+:    :+:   */
+/*   get_next_removed_comment_line.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 19:09:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 21:53:09 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/12 21:42:45 by rikeda            #+#    #+#             */
+/*   Updated: 2023/11/12 21:43:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "parse.h"
-#include <stdbool.h>
+#include <stddef.h>
 
-bool	is_dupulicate(const char *str1, const char *str2)
+char	*get_next_removed_comment_line(int fd)
 {
-	if (str1 == NULL || str2 == NULL)
-		return (false);
-	return (ft_is_equal_str(str1, str2));
+	char	*line;
+
+	line = get_next_line(fd);
+	if (line == NULL)
+		return (NULL);
+	line = delete_commentout(line, COMMENTOUT_STRING);
+	return (line);
 }

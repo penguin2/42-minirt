@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/11 20:34:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/12 22:06:46 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,15 @@ static int	_check_size_of_parameters(const t_vla *rt_object,
 		if (ft_strings_len(optional_parameters) != 3
 			|| !ft_is_equal_str(optional_parameters[0], OPTION_START))
 			return (ERROR);
-		sort_rt_object_options(rt_object);
-		if (check_rt_object_option_format(rt_object))
-			return (ERROR);
 	}
-	return (SUCCESS);
+	if (check_rt_object_option_format(rt_object) == ERROR)
+		return (ERROR);
+	else
+		return (SUCCESS);
 }
 
-static int	_check_rt_object(void *ptr)
+static int	_check_rt_object(const t_vla *rt_object)
 {
-	const t_vla	*rt_object = (t_vla *)ptr;
 	const char	**strings = rt_object->array[0];
 	const char	*identifer = strings[0];
 
@@ -68,13 +67,13 @@ static int	_check_rt_object(void *ptr)
 int	check_rt_object_format(t_vla *rt_objects)
 {
 	size_t	idx;
-	void	*content;
+	t_vla	*rt_object;
 
 	idx = 0;
 	while (idx < rt_objects->size)
 	{
-		content = rt_objects->array[idx++];
-		if (_check_rt_object(content) == ERROR)
+		rt_object = rt_objects->array[idx++];
+		if (_check_rt_object(rt_object) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);

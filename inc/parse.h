@@ -137,6 +137,7 @@ int			check_extension(const char *file, const char *extension);
 char		*delete_commentout(const char *str, const char *commentout_str);
 int			try_atof_limit(const char *nptr, double *dptr, size_t limit);
 char		*get_all_chars_in_file(int fd);
+char		*get_next_removed_comment_line(int fd);
 int			try_open_file(const char *file, const char *extension, int flag);
 char		*convert_extension(const char *file,
 				const char *old_extension,
@@ -246,6 +247,7 @@ int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
 //// rt 
 int			convert_rt_to_json(const char *file);
+void		free_rt_object(t_vla *rt_object, bool one_step_deep);
 int			convert_rt_to_rt_object(t_vla *rt_object, int fd);
 void		convert_rt_to_object_vla(t_vla *rt_object, int fd);
 void		grouping_same_objects(t_vla *rt_object);
