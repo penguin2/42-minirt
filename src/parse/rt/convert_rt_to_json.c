@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:17:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 18:20:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 19:57:29 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+/**
+* @brief Convert from the rt extension to the json extension
+*		 and open the file.
+*
+* @param rt_file rt extension file.
+*
+* @return if true if the file is opened successfully,
+*		  false otherwise.
+*/
 static int	_try_open_converted_extension_json_file(const char *rt_file)
 {
 	char	*json_file;

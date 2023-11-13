@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 21:51:52 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 20:39:03 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 #include "parse.h"
 #include <stdlib.h>
 
+/**
+* @brief 
+*
+* @param rt_object VLA of rt_object pointer.
+* @param vla VLA containing the strings created before
+*			 this function
+* @param line string of deleted comments read from rt file.
+*
+* @return 
+*/
 static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
 												t_vla *vla,
 												char *line)
@@ -44,6 +54,14 @@ static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
 	return (vla);
 }
 
+/**
+* @brief Read the rt file line by line,
+*		 remove comments from the read string and append the split string
+*		 with blanks to the VLA.
+*
+* @param rt_object VLA of rt_object pointer.
+* @param fd file descriptor of rt file.
+*/
 void	convert_rt_to_object_vla(t_vla *rt_object, int fd)
 {
 	char	*line;
