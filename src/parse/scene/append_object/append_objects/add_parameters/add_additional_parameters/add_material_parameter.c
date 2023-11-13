@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:15:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:50:25 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 17:41:17 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	add_material_parameter(const t_json_node *json_node, t_object *object)
 	t_material	*mat;
 
 	mat = &object->material;
-	if (_set_shininess(json_node, K_SHININESS, &mat->shininess) == ERROR
+	if (_set_shininess(json_node, K_SHININESS, &mat->k_shininess) == ERROR
 		|| _set_coefficient(json_node, K_AMBIENT, &mat->k_ambient) == ERROR
 		|| _set_coefficient(json_node, K_DIFFUSE, &mat->k_diffuse) == ERROR
 		|| _set_coefficient(json_node, K_SPECULAR, &mat->k_specular) == ERROR)
