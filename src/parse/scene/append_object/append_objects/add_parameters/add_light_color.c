@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spot_new.c                                         :+:      :+:    :+:   */
+/*   add_light_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:28:16 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/13 20:19:51 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/13 20:28:29 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/13 21:40:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libcolor.h"
-#include "libft.h"
-#include "libvec3.h"
-#include "spot.h"
+#include "parse.h"
+#include "define.h"
 
-t_spot	*spot_new(t_vec3 pos, double brightness)
+int	add_light_color(const t_json_node *light_node, t_light *light)
 {
-	t_spot	*new;
-
-	new = ft_xcalloc(1, sizeof(t_spot));
-	new->pos = pos;
-	new->brightness = brightness;
-	return (new);
+	if (select_json_node(light_node, COLORS) == NULL)
+	{
+		light->color = color_white();
+		return (SUCCESS);
+	}
+	return (list_to_color(get_list(light_node, COLORS, 3), &light->color));
 }

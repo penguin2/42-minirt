@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:03:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 16:24:26 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:18:50 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@
 typedef struct s_spot{
 	t_vec3	pos;
 	double	brightness;
-	t_color	color;
 }	t_spot;
 
-t_spot	*spot_new(t_vec3 pos, double brightness, t_color color);
+t_spot	*spot_new(t_vec3 pos, double brightness);
 t_color	spot_get_color(
 			const t_light *light,
 			const t_hit *hit,

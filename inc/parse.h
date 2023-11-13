@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 18:02:45 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:27:34 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "camera.h"
+# include "light.h"
 # include "scene.h"
 # include "object.h"
 # include <stddef.h>
@@ -179,7 +180,9 @@ int			append_sphere(const t_json_node *node, t_vla *objects);
 int			append_cylinder(const t_json_node *node, t_vla *objects);
 
 // add parameters
-int			add_color_parameter(const t_json_node *json_node, t_object *object);
+int			add_object_color(const t_json_node *json_node, t_object *object);
+int			add_light_color(const t_json_node *json_node, t_light *light);
+
 int			add_additional_parameters(const t_json_node *json_node,
 				t_object *object);
 int			add_bump_map_parameter(const t_json_node *json_node,

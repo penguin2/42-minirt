@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:50:19 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:48:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 21:04:04 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	append_light_to_vla(const t_json_node *node,
 	{
 		light_node = list->array[idx++];
 		if (node->type != NODE_DICT
-			|| append_function(light_node, vla) == ERROR)
+			|| append_function(light_node, vla) == ERROR
+			|| add_light_color(light_node, vla->array[vla->size - 1]) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);
