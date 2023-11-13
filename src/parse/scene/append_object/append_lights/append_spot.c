@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:04:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 23:52:15 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:34:28 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int	append_spot(const t_json_node *node, t_vla *lights)
 		|| list_to_vec3(list_pos, &spot.pos, NO_LIMIT, NO_LIMIT) == ERROR)
 		return (ERROR);
 	if (MODE == MODE_MANDATORY)
-		spot.color = color_create(255, 255, 255);
+		spot.color = color_create(1, 1, 1);
 	else if (MODE == MODE_BONUS
 		&& list_to_color(get_list(node, COLORS, 3), &spot.color) == ERROR)
 	{
 		print_warning(WARNING_SPOT_COLORS);
-		spot.color = color_create(255, 255, 255);
+		spot.color = color_create(1, 1, 1);
 	}
 	_append_spot_light(spot, lights);
 	return (SUCCESS);

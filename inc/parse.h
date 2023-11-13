@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/10 18:23:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 18:02:45 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@
 # define CLOSING_BRACKETS 1
 
 # define PATTERN_NO_CONTENT_IN_DICT 1
+
+# define MAX_COLOR_8BIT (255)
 
 typedef enum e_state
 {
