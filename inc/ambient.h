@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:05:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 16:23:52 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:19:13 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@
 
 typedef struct s_ambient{
 	double	brightness;
-	t_color	color;
 }	t_ambient;
 
-t_ambient	*ambient_new(double brightness, t_color color);
+t_ambient	*ambient_new(double brightness);
 t_color		ambient_get_color(
 				const t_light *light,
 				const t_hit *hit,

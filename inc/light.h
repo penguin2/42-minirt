@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:43:23 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/05 17:08:54 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:18:14 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef void			(*t_fn_free_light)(void *light_ptr);
 
 typedef struct s_light{
 	void			*ptr;
+	t_color			color;
 	t_fn_get_color	get_color;
 	t_fn_free_light	free_light;
 }	t_light;
