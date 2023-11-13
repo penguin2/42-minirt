@@ -20,57 +20,15 @@
 # include "object.h"
 # include <stddef.h>
 
+// extension
+# define RT_EXTENSION ".rt"
+# define JSON_EXTENSION ".json"
+
 // tokenize
 # define JSON_SPACE_CHARSETS " \t\n"
 # define JSON_TOKEN_CHARSETS "{}[]:,"
 # define JSON_SPACE_AND_TOKEN_CHARSETS "{}[]:, \t\n\""
 # define JSON_KEY_CHARSETS "\""
-
-# define TRUE_STRING "true"
-# define FALSE_STRING "false"
-# define TRUE_NUMBER "1"
-# define FALSE_NUMBER "0"
-
-// identifer
-# define ID_AMBIENT "A"
-# define ID_CAMERA "C"
-# define ID_SPOT "L"
-# define ID_CYLINDER "cy"
-# define ID_SPHERE "sp"
-# define ID_PLANE "pl"
-# define ID_TRIANGLE "tr"
-# define ID_QUADRIC "qd"
-
-// parameters
-# define COLORS "colors"
-# define BRIGHTNESS "brightness"
-# define DIRECTION "orientation"
-# define COORDINATES "coordinates"
-# define FOV "fov"
-# define NORMAL "normal"
-# define DIAMETER "diameter"
-# define HEIGHT "height"
-# define AXIS "axis"
-
-// triangle
-# define VERTEX1 "vertex1"
-# define VERTEX2 "vertex2"
-# define VERTEX3 "vertex3"
-
-// quadric
-# define K_A "coefficient-a"
-# define K_B "coefficient-b"
-# define K_C "coefficient-c"
-# define K_D "coefficient-d"
-# define K_E "coefficient-e"
-
-// option parameters
-# define K_AMBIENT "coefficient-ambient"
-# define K_DIFFUSE "coefficient-diffuse"
-# define K_SPECULAR "coefficient-specular"
-# define K_SHININESS "coefficient-shininess"
-# define K_REFLECT "coefficient-reflect"
-# define IS_REFLECTIVE "is-reflective"
 
 // atof limit digit
 # define DOUBLE_LIMIT_DIGIT 15

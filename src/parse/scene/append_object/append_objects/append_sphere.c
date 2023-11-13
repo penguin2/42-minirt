@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:49:30 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 14:22:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sphere.h"
+#include "identifer_and_parameter.h"
 #include "define.h"
 #include "parse.h"
 #include "utils.h"

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:17:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 21:31:02 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 18:20:08 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,54 @@
 #include "parse.h"
 #include "generator.h"
 #include "define.h"
+#include "utils.h"
+#include "message_parse.h"
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <fcntl.h>
+
+static int	_try_open_converted_extension_json_file(const char *rt_file)
+{
+	char	*json_file;
+	int		json_fd;
+
+	json_file = convert_extension(rt_file, RT_EXTENSION, JSON_EXTENSION);
+	json_fd = try_open_file(json_file, JSON_EXTENSION, O_CREAT | O_WRONLY);
+	if (json_fd == ERROR)
+		print_error(INVALID_FILE_EXTENSION);
+	free(json_file);
+	return (json_fd);
+}
+
+static int	_try_generate_json(t_vla *rt_objects, const char *file)
+{
+	const int	json_fd = _try_open_converted_extension_json_file(file);
+
+	if (json_fd == ERROR)
+		return (ERROR);
+	json_generator_from_rt_object(rt_objects, json_fd);
+	close(json_fd);
+	return (SUCCESS);
+}
 
 int	convert_rt_to_json(const char *file)
 {
-	const int	fd = try_open_file(file, ".rt", O_RDONLY);
+	const int	rt_fd = try_open_file(file, RT_EXTENSION, O_RDONLY);
 	t_vla		rt_objects;
 	int			success_or_error;
 
-	if (fd == ERROR)
+	if (rt_fd == ERROR)
 		return (ERROR);
 	ft_vla_init(&rt_objects);
-	success_or_error = convert_rt_to_rt_object(&rt_objects, fd);
-	close(fd);
-	if (success_or_error == SUCCESS)
-		json_generator_from_rt_object(&rt_objects, STDOUT_FILENO);
-	free_rt_object(&rt_objects, success_or_error == SUCCESS);
+	success_or_error = convert_rt_to_rt_object(&rt_objects, rt_fd);
+	close(rt_fd);
+	if (success_or_error == ERROR)
+		free_rt_object(&rt_objects, false);
+	else
+	{
+		success_or_error = _try_generate_json(&rt_objects, file);
+		free_rt_object(&rt_objects, true);
+	}
 	return (success_or_error);
 }

@@ -6,13 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 22:06:46 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 14:59:29 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parse.h"
 #include "generator.h"
+#include "identifer_and_parameter.h"
 #include "define.h"
 #include <stdbool.h>
 #include <stddef.h>
@@ -48,17 +49,17 @@ static int	_check_rt_object(const t_vla *rt_object)
 	const char	**strings = rt_object->array[0];
 	const char	*identifer = strings[0];
 
-	if (ft_is_equal_str(identifer, "A"))
+	if (ft_is_equal_str(identifer, ID_AMBIENT))
 		return (_check_size_of_parameters(rt_object, 3, 0));
-	else if (ft_is_equal_str(identifer, "C"))
+	else if (ft_is_equal_str(identifer, ID_CAMERA))
 		return (_check_size_of_parameters(rt_object, 4, 0));
-	else if (ft_is_equal_str(identifer, "L"))
+	else if (ft_is_equal_str(identifer, ID_SPOT))
 		return (_check_size_of_parameters(rt_object, 4, 0));
-	else if (ft_is_equal_str(identifer, "cy"))
+	else if (ft_is_equal_str(identifer, ID_CYLINDER))
 		return (_check_size_of_parameters(rt_object, 6, 6));
-	else if (ft_is_equal_str(identifer, "pl"))
+	else if (ft_is_equal_str(identifer, ID_PLANE))
 		return (_check_size_of_parameters(rt_object, 4, 6));
-	else if (ft_is_equal_str(identifer, "sp"))
+	else if (ft_is_equal_str(identifer, ID_SPHERE))
 		return (_check_size_of_parameters(rt_object, 4, 6));
 	else
 		return (ERROR);

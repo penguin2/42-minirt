@@ -6,11 +6,16 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:59:11 by rikeda            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/11/14 14:51:11 by rikeda           ###   ########.fr       */
+=======
+/*   Updated: 2023/11/13 14:22:11 by rikeda           ###   ########.fr       */
+>>>>>>> [add]rtファイルとjsonファイルの識別子とパラメータ名をidentifer_and_parameter.hにまとめ、そこからインクルードするように変更。rt-to-jsonとjson-to-sceneを繋げ、rtファイルの情報から描画出来るところまで完成
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
+#include "identifer_and_parameter.h"
 #include "define.h"
 
 int	append_objects(const t_json_node *node, t_vla *objects)

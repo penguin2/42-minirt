@@ -6,24 +6,25 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:04:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 22:36:55 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 16:27:16 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "generator.h"
+#include "identifer_and_parameter.h"
 #include <stddef.h>
 
 static const char	*_get_formal_option_key(const char *simplified_option_key)
 {
-	if (ft_is_equal_str(simplified_option_key, "amb"))
-		return ("coefficient-ambient");
-	else if (ft_is_equal_str(simplified_option_key, "dif"))
-		return ("coefficient-diffuse");
-	else if (ft_is_equal_str(simplified_option_key, "spc"))
-		return ("coefficient-specular");
-	else if (ft_is_equal_str(simplified_option_key, "shi"))
-		return ("shininess");
+	if (ft_is_equal_str(simplified_option_key, K_AMBIENT_OMITTED))
+		return (K_AMBIENT);
+	else if (ft_is_equal_str(simplified_option_key, K_DIFFUSE_OMITTED))
+		return (K_DIFFUSE);
+	else if (ft_is_equal_str(simplified_option_key, K_SPECULAR_OMITTED))
+		return (K_SPECULAR);
+	else if (ft_is_equal_str(simplified_option_key, K_SHININESS_OMITTED))
+		return (K_SHININESS);
 	else
 		return (simplified_option_key);
 }

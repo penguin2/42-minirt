@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "parse.h"
+#include "identifer_and_parameter.h"
 #include "define.h"
 
 int	add_object_color(const t_json_node *json_node, t_object *object)

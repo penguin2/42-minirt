@@ -13,6 +13,7 @@
 #include "ambient.h"
 #include "parse.h"
 #include "define.h"
+#include "identifer_and_parameter.h"
 #include "light.h"
 
 static void	_append_ambient_light(t_ambient ambient, t_vla *lights)

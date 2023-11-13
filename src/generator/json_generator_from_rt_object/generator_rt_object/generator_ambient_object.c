@@ -6,21 +6,23 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:30:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 22:32:32 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 16:35:40 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
+#include "identifer_and_parameter.h"
 #include <stdbool.h>
 #include <stddef.h>
 
 void	generator_ambient_object(t_vla *ambient, int fd)
 {
-	const char		**strings = ambient->array[0];
-	const size_t	strings_size = ft_strings_len(strings);
+	const char	**strings = ambient->array[0];
+	size_t		idx;
 
-	if (2 <= strings_size)
-		put_key_and_value("brightness", strings[1], false, fd);
-	if (3 <= strings_size)
-		put_key_and_list("colors", strings[2], true, fd);
+	idx = 1;
+	if (strings[idx] != NULL)
+		put_key_and_value(BRIGHTNESS, strings[idx++], false, fd);
+	if (strings[idx] != NULL)
+		put_key_and_list(COLORS, strings[idx++], true, fd);
 }
