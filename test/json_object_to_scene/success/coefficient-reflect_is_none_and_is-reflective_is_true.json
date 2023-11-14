@@ -26,7 +26,7 @@
         "diameter": 5.5,
         "height": 12.42,
         "colors": [0, 255, 0],
-		"is-reflective": false
+		"is-reflective": true
     }
 	]
 }

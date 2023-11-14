@@ -1,0 +1,24 @@
+{
+    "A": [{
+        "brightness": 0.5,
+        "colors": [255, 0, 0]
+    }],
+    "C": [{
+        "coordinates": [0, 0, 100],
+        "orientation": [0, 0, -1],
+        "fov": 70
+    }],
+    "L": [{
+        "coordinates": [10, 0, 0],
+        "brightness": 0.5,
+        "colors": [0, 0, 255]
+    }],
+	"qd": [{
+		"coordinates": [5, 5, 20.0],
+		"coefficient-a": 1.0,
+		"coefficient-c": -1.0,
+		"coefficient-d": 0.0,
+		"coefficient-e": 1.0,
+		"colors": [0, 255, 0]
+	}]
+}
