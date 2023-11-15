@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 20:33:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/14 19:06:11 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@
 # define OUTSIDE_THE_RANGE "Value is outside the range of upper or lower limit"
 # define ATOF_FAILD "Doesn't conform to atof format or exceeds precision limit"
 # define VECTOR_TOO_SMALL "The vector parameters are too small"
+# define INVALID_BOOLEAN "parameter is not boolean"
+# define VERTEXES_IS_STRAIGHT_LINE "triangle Vertexes is straight line"
 
 #endif

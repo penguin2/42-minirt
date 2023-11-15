@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 01:09:50 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/08 02:45:23 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:06:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ static bool	_solve_quadric_ray_equation(
 {
 	const t_vec3	quadric_to_ray = vec3_sub(ray.origin, quadric->center);
 	const double	a
-		= quadric_dot(quadric->coeff_quadratic, ray.dir, ray.dir);
+		= quadric_dot(quadric->coeff_array, ray.dir, ray.dir);
 	const double	b
-		= 2 * quadric_dot(quadric->coeff_quadratic, ray.dir, quadric_to_ray)
-		+ quadric->coeff_z * ray.dir.z;
+		= 2 * quadric_dot(quadric->coeff_array, ray.dir, quadric_to_ray)
+		+ quadric->coeff_array[COEFF_D] * ray.dir.z;
 	const double	c
-		= quadric_dot(quadric->coeff_quadratic, quadric_to_ray, quadric_to_ray)
-		+ quadric->coeff_z * quadric_to_ray.z - quadric->coeff_c;
+		= quadric_dot(quadric->coeff_array, quadric_to_ray, quadric_to_ray)
+		+ quadric->coeff_array[COEFF_D]
+		* quadric_to_ray.z - quadric->coeff_array[COEFF_E];
 
 	if (is_zero(a))
 	{

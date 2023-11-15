@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:59:11 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:49:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/14 14:51:11 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,17 @@ int	append_objects(const t_json_node *node, t_vla *objects)
 			node,
 			objects,
 			ID_CYLINDER,
-			append_cylinder) == ERROR)
+			append_cylinder) == ERROR
+		|| append_object_to_vla(
+			node,
+			objects,
+			ID_TRIANGLE,
+			append_triangle) == ERROR
+		|| append_object_to_vla(
+			node,
+			objects,
+			ID_QUADRIC,
+			append_quadric) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
 }
