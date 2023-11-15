@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 00:17:49 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/15 18:05:30 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/15 19:55:01 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ typedef enum e_quadric_coefficient
 	COEFF_E = 4,
 }	t_quadric_coefficient;
 
-//   (coeff_quadratic.x)x^2
-// + (coeff_quadratic.y)y^2
-// + (coeff_quadratic.z)z^2
-// + (coeff_z)z
-// = coeff_c
+//   coeff_a(x-center.x)^2
+// + coeff_b(y-center.y)^2
+// + coeff_c(z-center.z)^2
+// + coeff_d(z-center.z)
+// = coeff_e
 typedef struct s_quadric{
 	t_vec3	center;
 	double	coeff_array[QUADRIC_COEFFICIENT_SIZE];
