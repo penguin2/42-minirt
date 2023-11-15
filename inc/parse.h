@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 20:27:34 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:20:23 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 # define JSON_SPACE_AND_TOKEN_CHARSETS "{}[]:, \t\n\""
 # define JSON_KEY_CHARSETS "\""
 
+# define TRUE_STRING "true"
+# define FALSE_STRING "false"
+# define TRUE_NUMBER "1"
+# define FALSE_NUMBER "0"
+
 // identifer
 # define ID_AMBIENT "A"
 # define ID_CAMERA "C"
@@ -33,6 +38,8 @@
 # define ID_CYLINDER "cy"
 # define ID_SPHERE "sp"
 # define ID_PLANE "pl"
+# define ID_TRIANGLE "tr"
+# define ID_QUADRIC "qd"
 
 // parameters
 # define COLORS "colors"
@@ -45,11 +52,25 @@
 # define HEIGHT "height"
 # define AXIS "axis"
 
+// triangle
+# define VERTEX1 "vertex1"
+# define VERTEX2 "vertex2"
+# define VERTEX3 "vertex3"
+
+// quadric
+# define K_A "coefficient-a"
+# define K_B "coefficient-b"
+# define K_C "coefficient-c"
+# define K_D "coefficient-d"
+# define K_E "coefficient-e"
+
 // option parameters
 # define K_AMBIENT "coefficient-ambient"
 # define K_DIFFUSE "coefficient-diffuse"
 # define K_SPECULAR "coefficient-specular"
 # define K_SHININESS "coefficient-shininess"
+# define K_REFLECT "coefficient-reflect"
+# define IS_REFLECTIVE "is-reflective"
 
 // atof limit digit
 # define DOUBLE_LIMIT_DIGIT 15
@@ -178,6 +199,8 @@ int			append_objects(const t_json_node *node, t_vla *lights);
 int			append_plane(const t_json_node *node, t_vla *objects);
 int			append_sphere(const t_json_node *node, t_vla *objects);
 int			append_cylinder(const t_json_node *node, t_vla *objects);
+int			append_triangle(const t_json_node *node, t_vla *objects);
+int			append_quadric(const t_json_node *node, t_vla *objects);
 
 // add parameters
 int			add_object_color(const t_json_node *json_node, t_object *object);
@@ -199,6 +222,7 @@ t_vla		*get_list(
 				int accept_size);
 
 bool		is_between_min_to_max(double n, double min, double max);
+int			json_node_to_bool(const t_json_node *node, bool *ptr);
 int			json_node_to_double(
 				const t_json_node *node,
 				double *dptr,

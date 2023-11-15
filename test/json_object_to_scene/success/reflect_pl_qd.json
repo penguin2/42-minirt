@@ -1,0 +1,61 @@
+{
+    "A": [
+		{
+        "brightness": 1.0,
+        "colors": [255, 255, 255]
+    }
+	],
+    "C": [
+		{
+        "coordinates": [0, 0, 50],
+        "orientation": [0, 0, -1],
+        "fov": 70
+    }
+	],
+    "L": [
+		{
+        "coordinates": [0, 0, 10],
+        "brightness": 1.0,
+        "colors": [255, 255, 255]
+    }
+	],
+    "qd": [
+    {
+        "coordinates": [0, 0, -20.0],
+        "coefficient-a": 1.0,
+        "coefficient-b": 1.0,
+        "coefficient-c": 1.0,
+        "coefficient-d": 0.0,
+        "coefficient-e": 1.0,
+        "colors": [255, 0, 0],
+        "coefficient-ambient": 0.0,
+        "coefficient-diffuse": 0.5,
+        "coefficient-specular": 0.5,
+        "coefficient-shininess": 3.0,
+		"coefficient-reflect":1.0,
+		"is-reflective": false
+    }
+	],
+    "pl": [
+		{
+        "coordinates": [0, 0, -100],
+        "normal": [0, 0.0, 1],
+        "colors": [0, 0, 255],
+        "coefficient-ambient": 0.0,
+        "coefficient-diffuse": 0.2,
+        "coefficient-specular": 0.8,
+        "coefficient-shininess": 3.0,
+		"coefficient-reflect":1.0,
+		"is-reflective": false
+    }, 	{
+        "coordinates": [0, 0, 100],
+        "normal": [0, 0.0, 1],
+        "colors": [0, 255, 0],
+        "coefficient-ambient": 0.0,
+        "coefficient-diffuse": 0.2,
+        "coefficient-specular": 0.8,
+        "coefficient-shininess": 3.0,
+		"coefficient-reflect":1.0,
+		"is-reflective": false
+    }]
+}
