@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 00:17:49 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/08 02:01:07 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:05:30 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 # include "libvec3.h"
 # include "object.h"
 
+# define QUADRIC_COEFFICIENT_SIZE 5
+
+typedef enum e_quadric_coefficient
+{
+	COEFF_A = 0,
+	COEFF_B = 1,
+	COEFF_C = 2,
+	COEFF_D = 3,
+	COEFF_E = 4,
+}	t_quadric_coefficient;
+
 //   (coeff_quadratic.x)x^2
 // + (coeff_quadratic.y)y^2
 // + (coeff_quadratic.z)z^2
@@ -23,19 +34,17 @@
 // = coeff_c
 typedef struct s_quadric{
 	t_vec3	center;
-	t_vec3	coeff_quadratic;
-	double	coeff_z;
-	double	coeff_c;
+	double	coeff_array[QUADRIC_COEFFICIENT_SIZE];
 }	t_quadric;
 
 t_quadric	*quadric_new(
 				t_vec3 center,
-				t_vec3 coeff_quadratic,
-				double coeff_z,
-				double constant);
+				double coeff[QUADRIC_COEFFICIENT_SIZE]);
 void		quadric_free(void *quadric);
 bool		quadric_get_dist(const t_object *object, t_ray ray, double *dist);
 t_vec3		quadric_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
-double		quadric_dot(t_vec3 coeff, t_vec3 vec1, t_vec3 vec2);
+double		quadric_dot(const double coeff_array[QUADRIC_COEFFICIENT_SIZE],
+				t_vec3 vec1,
+				t_vec3 vec2);
 
 #endif
