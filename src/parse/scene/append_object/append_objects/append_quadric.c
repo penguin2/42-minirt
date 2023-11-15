@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/15 18:11:06 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:26:45 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "quadric.h"
 #include "define.h"
 #include "parse.h"
+#include "identifer_and_parameter.h"
 
 static void	_append_quadric_object(t_quadric quadric, t_vla *objects)
 {

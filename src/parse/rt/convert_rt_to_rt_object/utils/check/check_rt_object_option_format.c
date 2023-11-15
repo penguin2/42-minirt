@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 15:02:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/15 19:54:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static bool	_is_option_key(const char *option_key)
 		|| ft_is_equal_str(option_key, K_DIFFUSE_OMITTED)
 		|| ft_is_equal_str(option_key, K_SPECULAR_OMITTED)
 		|| ft_is_equal_str(option_key, K_SHININESS_OMITTED)
+		|| ft_is_equal_str(option_key, K_REFLECT_OMITTED)
 		|| ft_is_equal_str(option_key, BUMP_MAP_OMITTED)
 		|| ft_is_equal_str(option_key, IMAGE_MAP_OMITTED))
 		return (true);

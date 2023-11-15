@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:10:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/14 17:08:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:27:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "message_parse.h"
 #include "utils.h"
 #include "libft.h"
+#include "object.h"
 #include <stdbool.h>
 
 static int	_print_and_return_error(void)

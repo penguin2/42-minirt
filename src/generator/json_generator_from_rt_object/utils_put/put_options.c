@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:04:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 16:27:16 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 16:02:13 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static const char	*_get_formal_option_key(const char *simplified_option_key)
 		return (K_SPECULAR);
 	else if (ft_is_equal_str(simplified_option_key, K_SHININESS_OMITTED))
 		return (K_SHININESS);
+	else if (ft_is_equal_str(simplified_option_key, K_REFLECT_OMITTED))
+		return (K_REFLECT);
 	else
 		return (simplified_option_key);
 }
@@ -44,5 +46,10 @@ void	put_options(t_vla *rt_object, int fd)
 		option = rt_object->array[idx++];
 		formal_option_key = _get_formal_option_key(option[1]);
 		put_key_and_value(formal_option_key, option[2], false, fd);
+		if (ft_is_equal_str(formal_option_key, K_REFLECT))
+		{
+			ft_putendl_fd(GENERATOR_COMMA, fd);
+			put_key_and_value(IS_REFLECTIVE, TRUE_STRING, false, fd);
+		}
 	}
 }

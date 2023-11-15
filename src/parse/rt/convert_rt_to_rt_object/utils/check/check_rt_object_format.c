@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 14:59:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 16:08:45 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ static int	_check_size_of_parameters(const t_vla *rt_object,
 			|| !ft_is_equal_str(optional_parameters[0], OPTION_START))
 			return (ERROR);
 	}
-	if (check_rt_object_option_format(rt_object) == ERROR)
-		return (ERROR);
-	else
-		return (SUCCESS);
+	return (check_rt_object_option_format(rt_object));
 }
 
 static int	_check_rt_object(const t_vla *rt_object)
@@ -56,11 +53,15 @@ static int	_check_rt_object(const t_vla *rt_object)
 	else if (ft_is_equal_str(identifer, ID_SPOT))
 		return (_check_size_of_parameters(rt_object, 4, 0));
 	else if (ft_is_equal_str(identifer, ID_CYLINDER))
-		return (_check_size_of_parameters(rt_object, 6, 6));
+		return (_check_size_of_parameters(rt_object, 6, 7));
 	else if (ft_is_equal_str(identifer, ID_PLANE))
-		return (_check_size_of_parameters(rt_object, 4, 6));
+		return (_check_size_of_parameters(rt_object, 4, 7));
 	else if (ft_is_equal_str(identifer, ID_SPHERE))
-		return (_check_size_of_parameters(rt_object, 4, 6));
+		return (_check_size_of_parameters(rt_object, 4, 7));
+	else if (ft_is_equal_str(identifer, ID_TRIANGLE))
+		return (_check_size_of_parameters(rt_object, 5, 7));
+	else if (ft_is_equal_str(identifer, ID_QUADRIC))
+		return (_check_size_of_parameters(rt_object, 8, 7));
 	else
 		return (ERROR);
 }

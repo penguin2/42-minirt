@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:21:12 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 16:30:17 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:38:42 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,8 @@ void	generator_rt_object(t_vla *rt_object, int fd)
 		generator_plane_object(rt_object, fd);
 	else if (ft_is_equal_str(identifer, ID_SPHERE))
 		generator_sphere_object(rt_object, fd);
+	else if (ft_is_equal_str(identifer, ID_TRIANGLE))
+		generator_triangle_object(rt_object, fd);
+	else if (ft_is_equal_str(identifer, ID_QUADRIC))
+		generator_quadric_object(rt_object, fd);
 }

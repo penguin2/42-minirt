@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/14 17:20:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 17:22:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@
 # define JSON_TOKEN_CHARSETS "{}[]:,"
 # define JSON_SPACE_AND_TOKEN_CHARSETS "{}[]:, \t\n\""
 # define JSON_KEY_CHARSETS "\""
+
+// bool
+# define TRUE_STRING "true"
+# define TRUE_NUMBER "1"
+# define FALSE_STRING "false"
+# define FALSE_NUMBER "0"
 
 // atof limit digit
 # define DOUBLE_LIMIT_DIGIT 15
@@ -216,6 +222,7 @@ void		sort_rt_object_options(const t_vla *rt_object);
 
 int			check_rt_object_format(t_vla *rt_objects);
 int			check_rt_object_option_format(const t_vla *rt_object);
+int			check_duplicate_spot_light(t_vla *rt_objects);
 
 bool		is_dupulicate(const char *str1, const char *str2);
 const char	*get_identifer_from_rt_objects(const t_vla *rt_objects, size_t idx);

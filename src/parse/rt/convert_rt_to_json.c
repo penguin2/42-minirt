@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:17:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 19:57:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 17:29:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ int	convert_rt_to_json(const char *file)
 	ft_vla_init(&rt_objects);
 	success_or_error = convert_rt_to_rt_object(&rt_objects, rt_fd);
 	close(rt_fd);
-	if (success_or_error == ERROR)
-		free_rt_object(&rt_objects, false);
-	else
+	if (success_or_error == SUCCESS)
 	{
 		success_or_error = _try_generate_json(&rt_objects, file);
 		free_rt_object(&rt_objects, true);

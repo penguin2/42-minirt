@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 23:02:16 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:41:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	generator_spot_object(t_vla *rt_object, int fd);
 void	generator_cylinder_object(t_vla *rt_object, int fd);
 void	generator_plane_object(t_vla *rt_object, int fd);
 void	generator_sphere_object(t_vla *rt_object, int fd);
+void	generator_triangle_object(t_vla *triangle, int fd);
+void	generator_quadric_object(t_vla *quadric, int fd);
 
 void	put_key_and_list(const char *key,
 			const char *value,

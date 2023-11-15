@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/15 17:44:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:25:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "utils.h"
 #include "message_parse.h"
 #include "parse.h"
+#include "identifer_and_parameter.h"
 
 static int	_append_triangle_object(t_vec3 vertex[3], t_vla *objects)
 {

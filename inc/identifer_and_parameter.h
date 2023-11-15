@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:24:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 15:02:32 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:59:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define ID_CYLINDER "cy"
 # define ID_SPHERE "sp"
 # define ID_PLANE "pl"
+# define ID_TRIANGLE "tr"
+# define ID_QUADRIC "qd"
 
 // parameters
 # define COLORS "colors"
@@ -31,12 +33,16 @@
 # define DIAMETER "diameter"
 # define HEIGHT "height"
 # define AXIS "axis"
+# define VERTEX1 "vertex1"
+# define VERTEX2 "vertex2"
+# define VERTEX3 "vertex3"
 
 // option parameters
 # define K_AMBIENT_OMITTED "amb"
 # define K_DIFFUSE_OMITTED "dif"
 # define K_SPECULAR_OMITTED "spc"
 # define K_SHININESS_OMITTED "shi"
+# define K_REFLECT_OMITTED "rfl"
 # define BUMP_MAP_OMITTED "bmp"
 # define IMAGE_MAP_OMITTED "imp"
 
@@ -44,5 +50,13 @@
 # define K_DIFFUSE "coefficient-diffuse"
 # define K_SPECULAR "coefficient-specular"
 # define K_SHININESS "coefficient-shininess"
+# define K_REFLECT "coefficient-reflect"
+# define IS_REFLECTIVE "is-reflective"
+
+# define K_A "coefficient-a"
+# define K_B "coefficient-b"
+# define K_C "coefficient-c"
+# define K_D "coefficient-d"
+# define K_E "coefficient-e"
 
 #endif
