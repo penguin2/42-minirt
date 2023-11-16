@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/15 17:44:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 02:07:32 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,14 @@
 #include "message_parse.h"
 #include "parse.h"
 
-static int	_append_triangle_object(t_vec3 vertex[3], t_vla *objects)
+static int	_is_vertex_aligned(t_vec3 vertex[3])
 {
-	t_triangle	*new_triangle;
-	t_object	*triangle_object;
+	double	area;
 
-	new_triangle = triangle_new(vertex);
-	if (is_zero(new_triangle->area))
-	{
-		print_error(VERTEXES_IS_STRAIGHT_LINE);
-		return (ERROR);
-	}
-	triangle_object = object_new(
-			new_triangle,
-			triangle_get_dist,
-			triangle_get_normal,
-			triangle_free);
-	ft_vla_append(objects, triangle_object);
-	return (SUCCESS);
+	area = vec3_len(vec3_cross(
+				vec3_sub(vertex[1], vertex[0]),
+				vec3_sub(vertex[2], vertex[0])));
+	return (is_zero(area));
 }
 
 int	append_triangle(const t_json_node *node, t_vla *objects)
@@ -47,7 +37,8 @@ int	append_triangle(const t_json_node *node, t_vla *objects)
 			&vertex[1], NO_LIMIT, NO_LIMIT) == ERROR
 		|| list_to_vec3(get_list(node, VERTEX3, 3),
 			&vertex[2], NO_LIMIT, NO_LIMIT) == ERROR
-		|| _append_triangle_object(vertex, objects) == ERROR)
+		|| _is_vertex_aligned(vertex))
 		return (ERROR);
+	ft_vla_append(objects, triangle_object_new(vertex));
 	return (SUCCESS);
 }

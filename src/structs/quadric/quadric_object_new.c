@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_free.c                                       :+:      :+:    :+:   */
+/*   quadric_object_new.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:55:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 02:11:24 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/17 01:25:08 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/17 01:26:52 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light.h"
-#include <stdlib.h>
+#include "quadric.h"
 
-void	light_free(void *_light)
+t_object	*quadric_object_new(
+				t_vec3 center,
+				double coeff[QUADRIC_COEFFICIENT_SIZE])
 {
-	const t_light	*light = _light;
+	t_object	*new_object;
 
-	light->free_ptr(light->ptr);
-	free(_light);
+	new_object = object_new(quadric_new(center, coeff));
+	new_object->get_color = quadric_get_color;
+	new_object->get_dist = quadric_get_dist;
+	new_object->get_normal = quadric_get_normal;
+	new_object->free_ptr = quadric_free;
+	return (new_object);
 }

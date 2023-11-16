@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:49:30 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 01:54:06 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,6 @@
 #include "parse.h"
 #include "utils.h"
 #include <float.h>
-
-static void	_append_sphere_object(t_sphere sphere,
-									double diameter,
-									t_vla *objects)
-{
-	t_sphere	*new_sphere;
-	t_object	*sphere_object;
-
-	new_sphere = sphere_new(sphere.center, diameter / 2);
-	sphere_object = object_new(
-			new_sphere,
-			sphere_get_dist,
-			sphere_get_normal,
-			sphere_free);
-	ft_vla_append(objects, sphere_object);
-}
 
 int	append_sphere(const t_json_node *node, t_vla *objects)
 {
@@ -44,6 +28,6 @@ int	append_sphere(const t_json_node *node, t_vla *objects)
 			diameter_node, &diameter, DBL_MIN, DBL_MAX
 		) == ERROR)
 		return (ERROR);
-	_append_sphere_object(sphere, diameter, objects);
+	ft_vla_append(objects, sphere_object_new(sphere.center, diameter / 2));
 	return (SUCCESS);
 }

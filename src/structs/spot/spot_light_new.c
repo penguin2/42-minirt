@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_free.c                                       :+:      :+:    :+:   */
+/*   spot_light_new.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:55:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 02:11:24 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/17 01:47:36 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/17 01:48:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light.h"
-#include <stdlib.h>
+#include "spot.h"
 
-void	light_free(void *_light)
+t_light	*spot_light_new(t_vec3 pos, double brightness)
 {
-	const t_light	*light = _light;
+	t_light	*new_light;
 
-	light->free_ptr(light->ptr);
-	free(_light);
+	new_light = light_new(spot_new(pos, brightness));
+	new_light->get_color = spot_get_color;
+	new_light->free_ptr = spot_free;
+	return (new_light);
 }

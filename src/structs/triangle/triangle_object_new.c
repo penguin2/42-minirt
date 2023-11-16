@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_free.c                                       :+:      :+:    :+:   */
+/*   triangle_object_new.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:55:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 02:11:24 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/17 01:28:36 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/17 01:29:22 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light.h"
-#include <stdlib.h>
+#include "triangle.h"
 
-void	light_free(void *_light)
+t_object	*triangle_object_new(t_vec3 vertex[3])
 {
-	const t_light	*light = _light;
+	t_object	*new_object;
 
-	light->free_ptr(light->ptr);
-	free(_light);
+	new_object = object_new(triangle_new(vertex));
+	new_object->get_color = triangle_get_color;
+	new_object->get_dist = triangle_get_dist;
+	new_object->get_normal = triangle_get_normal;
+	new_object->free_ptr = triangle_free;
+	return (new_object);
 }

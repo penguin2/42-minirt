@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/15 18:11:06 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 02:09:25 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 #include "quadric.h"
 #include "define.h"
 #include "parse.h"
-
-static void	_append_quadric_object(t_quadric quadric, t_vla *objects)
-{
-	t_quadric	*new_quadric;
-	t_object	*quadric_object;
-
-	new_quadric = quadric_new(quadric.center, quadric.coeff_array);
-	quadric_object = object_new(
-			new_quadric,
-			quadric_get_dist,
-			quadric_get_normal,
-			quadric_free);
-	ft_vla_append(objects, quadric_object);
-}
 
 static int	_try_json_node_to_quadric_coefficient(const t_json_node *node,
 													t_quadric *quadric)
@@ -61,6 +47,7 @@ int	append_quadric(const t_json_node *node, t_vla *objects)
 			&quadric.center, NO_LIMIT, NO_LIMIT) == ERROR
 		|| _try_json_node_to_quadric_coefficient(node, &quadric) == ERROR)
 		return (ERROR);
-	_append_quadric_object(quadric, objects);
+	ft_vla_append(
+		objects, quadric_object_new(quadric.center, quadric.coeff_array));
 	return (SUCCESS);
 }

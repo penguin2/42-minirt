@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_free.c                                       :+:      :+:    :+:   */
+/*   triangle_get_color.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:55:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 02:11:24 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/17 01:30:00 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/17 01:30:25 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light.h"
-#include <stdlib.h>
+#include "triangle.h"
 
-void	light_free(void *_light)
+t_color	triangle_get_color(const t_object *object, const t_hit *hit)
 {
-	const t_light	*light = _light;
-
-	light->free_ptr(light->ptr);
-	free(_light);
+	(void)object;
+	(void)hit;
+	return (object->color);
 }
