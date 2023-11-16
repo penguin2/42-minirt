@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/14 17:20:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 03:39:56 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@
 # define K_SHININESS "coefficient-shininess"
 # define K_REFLECT "coefficient-reflect"
 # define IS_REFLECTIVE "is-reflective"
+
+// checkerboard
+# define IS_CHECKERBOARD "checkerboard"
 
 // atof limit digit
 # define DOUBLE_LIMIT_DIGIT 15
@@ -210,7 +213,7 @@ int			add_additional_parameters(const t_json_node *json_node,
 				t_object *object);
 int			add_bump_map_parameter(const t_json_node *json_node,
 				t_object *object);
-int			add_image_map_parameter(const t_json_node *json_node,
+int			add_checkerboard_parameter(const t_json_node *json_node,
 				t_object *object);
 int			add_material_parameter(const t_json_node *json_node,
 				t_object *object);
