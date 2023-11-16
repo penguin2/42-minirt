@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 16:08:45 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 19:43:37 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static int	_check_rt_object(const t_vla *rt_object)
 		return (_check_size_of_parameters(rt_object, 4, 7));
 	else if (ft_is_equal_str(identifer, ID_SPHERE))
 		return (_check_size_of_parameters(rt_object, 4, 7));
-	else if (ft_is_equal_str(identifer, ID_TRIANGLE))
+	else if (MODE != MODE_MANDATORY && ft_is_equal_str(identifer, ID_TRIANGLE))
 		return (_check_size_of_parameters(rt_object, 5, 7));
-	else if (ft_is_equal_str(identifer, ID_QUADRIC))
+	else if (MODE != MODE_MANDATORY && ft_is_equal_str(identifer, ID_QUADRIC))
 		return (_check_size_of_parameters(rt_object, 8, 7));
 	else
 		return (ERROR);

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 17:22:22 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:52:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "scene.h"
 # include "object.h"
 # include <stddef.h>
+# include <fcntl.h>
 
 // extension
 # define RT_EXTENSION ".rt"
@@ -58,6 +59,12 @@
 # define OPTION_START "--"
 # define COMMENTOUT_STRING "#"
 # define RT_SPACE_STR " \n	"
+
+typedef enum e_open_flag
+{
+	O_WRITE = O_CREAT | O_WRONLY | O_TRUNC,
+	O_READ = O_RDONLY,
+}	t_open_flag;
 
 typedef enum e_state
 {

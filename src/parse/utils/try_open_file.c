@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:27:00 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/07 20:41:47 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:52:41 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	try_open_file(const char *file, const char *extension, int flag)
 		print_error(INVALID_FILE_EXTENSION);
 		return (ERROR);
 	}
-	if (flag == (O_CREAT | O_WRONLY))
+	if (flag == O_WRITE)
 		fd = open(file, flag, OPEN_MODE);
 	else
 		fd = open(file, flag);

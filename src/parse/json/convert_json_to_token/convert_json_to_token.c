@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 18:21:05 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:59:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static char	*_get_all_chars_in_json_file(const char *file)
 {
-	const int	fd = try_open_file(file, JSON_EXTENSION, O_RDONLY);
+	const int	fd = try_open_file(file, JSON_EXTENSION, O_READ);
 	char		*all_chars;
 
 	if (fd == ERROR)
