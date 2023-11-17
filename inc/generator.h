@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 15:41:07 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:35:28 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	put_closing_brackets(t_json_node *master_node,
 			int fd);
 
 //// rt_object -> json
-void	json_generator_from_rt_object(t_vla *rt_objects, int fd);
+void	json_generator_from_rt_objects(t_vla *rt_objects, int fd);
 
 // utils rt_object -> json
 void	generator_rt_object(t_vla *rt_object, int fd);

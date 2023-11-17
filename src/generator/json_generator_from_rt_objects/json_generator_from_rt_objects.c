@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   json_generator_from_rt_object.c                    :+:      :+:    :+:   */
+/*   json_generator_from_rt_objects.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:09:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 17:41:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:36:13 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	_generator_rt_object_array(t_vla *rt_object_array, int fd)
 * @param rt_objects vla of rt_object array.
 * @param fd Output destination file descriptor.
 */
-void	json_generator_from_rt_object(t_vla *rt_objects, int fd)
+void	json_generator_from_rt_objects(t_vla *rt_objects, int fd)
 {
 	size_t	idx;
 	t_vla	*rt_object_array;

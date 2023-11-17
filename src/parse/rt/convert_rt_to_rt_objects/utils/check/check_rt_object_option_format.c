@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 14:51:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:45:38 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,23 @@
 #include "identifer_and_parameter.h"
 #include "define.h"
 #include "parse.h"
+#include "utils.h"
+#include "message_parse.h"
 #include <stdbool.h>
 #include <stddef.h>
+
+static bool	_is_bonus_option_key(const char *option_key)
+{
+	if (ft_is_equal_str(option_key, K_REFLECT_OMITTED)
+		|| ft_is_equal_str(option_key, BUMP_MAP_OMITTED)
+		|| ft_is_equal_str(option_key, IMAGE_MAP_OMITTED))
+		return (MODE != MODE_MANDATORY);
+	else
+	{
+		print_error(RT_OPTION_IDENTIFER_INVALID);
+		return (false);
+	}
+}
 
 static bool	_is_option_key(const char *option_key)
 {
@@ -24,15 +39,8 @@ static bool	_is_option_key(const char *option_key)
 		|| ft_is_equal_str(option_key, K_SPECULAR_OMITTED)
 		|| ft_is_equal_str(option_key, K_SHININESS_OMITTED))
 		return (true);
-	else if (MODE != MODE_MANDATORY)
-	{
-		if (ft_is_equal_str(option_key, K_REFLECT_OMITTED)
-			|| ft_is_equal_str(option_key, BUMP_MAP_OMITTED)
-			|| ft_is_equal_str(option_key, IMAGE_MAP_OMITTED))
-			return (true);
-	}
 	else
-		return (false);
+		return (_is_bonus_option_key(option_key));
 }
 
 /**
@@ -57,9 +65,13 @@ int	check_rt_object_option_format(const t_vla *rt_object)
 	while (idx < rt_object->size)
 	{
 		strings = rt_object->array[idx++];
-		if (!_is_option_key(strings[1])
-			|| is_dupulicate(prev_option_key, strings[1]))
+		if (!_is_option_key(strings[1]))
 			return (ERROR);
+		else if (is_dupulicate(prev_option_key, strings[1]))
+		{
+			print_error(RT_OPTION_DUPLICATE);
+			return (ERROR);
+		}
 		prev_option_key = strings[1];
 	}
 	return (SUCCESS);

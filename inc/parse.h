@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 20:52:14 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:37:30 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,9 +218,9 @@ int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
 //// rt 
 int			convert_rt_to_json(const char *file);
-void		free_rt_object(t_vla *rt_object, bool one_step_deep);
-int			convert_rt_to_rt_object(t_vla *rt_object, int fd);
-void		convert_rt_to_object_vla(t_vla *rt_object, int fd);
+void		free_rt_objects(t_vla *rt_objects, bool one_step_deep);
+int			convert_rt_to_rt_objects(t_vla *rt_objects, int fd);
+void		convert_rt_to_object_vla(t_vla *rt_objects, int fd);
 void		grouping_same_objects(t_vla *rt_object);
 
 // utils
@@ -229,7 +229,10 @@ void		sort_rt_object_options(const t_vla *rt_object);
 
 int			check_rt_object_format(t_vla *rt_objects);
 int			check_rt_object_option_format(const t_vla *rt_object);
-int			check_duplicate_spot_light(t_vla *rt_objects);
+int			check_duplicate_spot(t_vla *rt_objects);
+int			check_size_of_parameters(const t_vla *rt_object,
+				size_t required_parameters_max_size,
+				size_t optional_parameters_max_size);
 
 bool		is_dupulicate(const char *str1, const char *str2);
 const char	*get_identifer_from_rt_objects(const t_vla *rt_objects, size_t idx);

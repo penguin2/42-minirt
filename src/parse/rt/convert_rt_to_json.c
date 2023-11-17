@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:17:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 20:57:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:35:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	_try_generate_json(t_vla *rt_objects, const char *file)
 
 	if (json_fd == ERROR)
 		return (ERROR);
-	json_generator_from_rt_object(rt_objects, json_fd);
+	json_generator_from_rt_objects(rt_objects, json_fd);
 	close(json_fd);
 	return (SUCCESS);
 }
@@ -63,12 +63,12 @@ int	convert_rt_to_json(const char *file)
 	if (rt_fd == ERROR)
 		return (ERROR);
 	ft_vla_init(&rt_objects);
-	success_or_error = convert_rt_to_rt_object(&rt_objects, rt_fd);
+	success_or_error = convert_rt_to_rt_objects(&rt_objects, rt_fd);
 	close(rt_fd);
 	if (success_or_error == SUCCESS)
 	{
 		success_or_error = _try_generate_json(&rt_objects, file);
-		free_rt_object(&rt_objects, true);
+		free_rt_objects(&rt_objects, true);
 	}
 	return (success_or_error);
 }

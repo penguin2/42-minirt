@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 14:34:49 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:37:09 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 * @return NULL if no strings remains after ft_split line with whitespace,
 *			   otherwise, VLA
 */
-static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
+static t_vla	*_append_strings_to_object_vla(t_vla *rt_objects,
 												t_vla *vla,
 												char *line)
 {
@@ -39,7 +39,7 @@ static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
 	{
 		ft_free_strings(strings);
 		if (vla != NULL)
-			ft_vla_append(rt_object, vla);
+			ft_vla_append(rt_objects, vla);
 		vla = NULL;
 	}
 	else if (vla == NULL)
@@ -51,7 +51,7 @@ static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
 		ft_vla_append(vla, strings);
 	else
 	{
-		ft_vla_append(rt_object, vla);
+		ft_vla_append(rt_objects, vla);
 		vla = ft_vla_new();
 		ft_vla_append(vla, strings);
 	}
@@ -66,7 +66,7 @@ static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
 * @param rt_object VLA of rt_object pointer.
 * @param fd file descriptor of rt file.
 */
-void	convert_rt_to_object_vla(t_vla *rt_object, int fd)
+void	convert_rt_to_object_vla(t_vla *rt_objects, int fd)
 {
 	char	*line;
 	t_vla	*vla;
@@ -77,9 +77,9 @@ void	convert_rt_to_object_vla(t_vla *rt_object, int fd)
 		line = get_next_removed_comment_line(fd);
 		if (line == NULL)
 			break ;
-		vla = _append_strings_to_object_vla(rt_object, vla, line);
+		vla = _append_strings_to_object_vla(rt_objects, vla, line);
 		free(line);
 	}
 	if (vla != NULL)
-		ft_vla_append(rt_object, vla);
+		ft_vla_append(rt_objects, vla);
 }
