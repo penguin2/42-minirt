@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:33:41 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/13 18:47:37 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 20:59:40 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,3 @@ int	main(int argc, char *argv[])
 	else
 		exit(0);
 }
-// 	__attribute__((destructor)) static void destructor()
-// {
-//    system("leaks -q miniRT");
-// }

@@ -25,12 +25,14 @@ LIB_SRCS		=	$(shell find $(LIB_DIR)/* -name "*.c")
 LIB_OBJS		=	$(patsubst %.o, $(OBJ_DIR)/%.o, $(LIB_SRCS:.c=.o))
 LIB_OBJS_BONUS	=	$(patsubst %.o, $(OBJ_BONUS_DIR)/%.o, $(LIB_SRCS:.c=.o))
 
-SRCS			=	$(shell cd $(SRC_DIR) && find * -name "*.c" -and ! -name "main*.c")
+SRCS			=	$(shell cd $(SRC_DIR) && find * -name "*.c" -and ! -name "main*.c" -and ! -name "leaks.c")
 
 ifeq ($(MAKECMDGOALS), test_json)
 	SRCS += main_json.c
 else ifeq ($(MAKECMDGOALS), test_scene)
 	SRCS += main_scene.c
+else ifeq ($(MAKECMDGOALS), test_rt)
+	SRCS += main_rt.c
 else
 	SRCS += main.c
 endif
@@ -79,15 +81,24 @@ $(MINILIBX_DIR) :
 
 $(BONUS) : $(NAME_BONUS)
 
-
+OK_OR_KO	=	"OK"
+TEST_SH		=	"./test/test.sh"
+JSON		=	"json"
+SCENE		=	"scene"
+RT			=	"rt"
+# SRCS 		+= leaks.c
 
 test_json : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) $(LINKER_OPT) -ominiRT
-	./test/json_to_json_object/test.sh
+	$(TEST_SH) $(OK_OR_KO) $(JSON)
 
 test_scene : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) $(LINKER_OPT) -ominiRT
-	./test/json_object_to_scene/test.sh
+	$(TEST_SH) $(OK_OR_KO) $(SCENE)
+
+test_rt : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) $(LINKER_OPT) -ominiRT
+	$(TEST_SH) $(OK_OR_KO) $(RT)
 
 .PHONY	:	norm
 norm :
