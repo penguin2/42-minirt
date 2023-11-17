@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 01:11:13 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 20:44:52 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:23:32 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
  * @param cylinder given cylinder
  * @param pos given position
  * @return white if the position is on the white part, otherwise black
- 
  */
 t_color	plane_get_checkerboard_color(const t_plane *plane, t_vec3 pos)
 {
