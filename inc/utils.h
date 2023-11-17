@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 18:23:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:16:08 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ bool	is_only_value_node(const t_vla *list);
 
 void	print_error(const char *message1);
 void	print_warning(const char *message1);
+
+bool	is_odd_2d(double u, double v);
 
 #endif

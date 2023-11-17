@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:59:52 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 01:38:44 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:01:54 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 typedef struct s_plane{
 	t_vec3	origin;
 	t_vec3	normal;
+	t_vec3	axis_u;
+	t_vec3	axis_v;
 }	t_plane;
 
 t_plane		*plane_new(t_vec3 origin, t_vec3 normal);
