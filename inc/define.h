@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 18:02:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 20:28:10 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define DEG_TO_RAD	(0.017453292519943295)
 
 # define BUFFER_SIZE	(100)
+
+# define CHECKERBOARD_SIZE_PLANE		(100)
+# define CHECKERBOARD_FREQUENCY_CYCLE	(6)
 
 # ifndef MODE
 #  define MODE 0
