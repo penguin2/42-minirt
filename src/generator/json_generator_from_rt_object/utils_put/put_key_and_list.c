@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:44:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/11 18:03:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 17:09:42 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@ static void	_put_list(char **list, int fd)
 	}
 }
 
+/**
+* @brief Split the second argument value with a comma
+*		 and generate the string in the format "KEY: [VALUES]".
+*		 if nothing remains after ft_split the value,
+*		 output the value before the split in the form "KEY: VALUE".
+*
+* @param key Key string
+* @param value Value string
+* @param is_with_comma Flag whether comma is output or not.
+* @param fd Output destination file descriptor.
+*/
 void	put_key_and_list(const char *key,
 						const char *value,
 						bool is_with_comma,

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:04:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 16:02:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 17:18:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 #include "identifer_and_parameter.h"
 #include <stddef.h>
 
+/**
+* @brief Convert from object identifer determined as rt file specification
+*		 to option identifer determined as json file specification.
+*
+* @param simplified_option_key identifer defined in the rt file specification.
+*
+* @return identifer defined in the json file specification.
+*/
 static const char	*_get_formal_option_key(const char *simplified_option_key)
 {
 	if (ft_is_equal_str(simplified_option_key, K_AMBIENT_OMITTED))
@@ -31,6 +39,13 @@ static const char	*_get_formal_option_key(const char *simplified_option_key)
 		return (simplified_option_key);
 }
 
+/**
+* @brief Convert rt file option identifer to json file option identifer
+*		 and output option records to file.
+*
+* @param rt_object vla of required parameters and optional parameters.
+* @param fd Output destination file descriptor.
+*/
 void	put_options(t_vla *rt_object, int fd)
 {
 	size_t		idx;

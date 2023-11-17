@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:41:13 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/12 21:37:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 17:43:05 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 #include "parse.h"
 #include <stddef.h>
 
+/**
+* @brief Create a new vla between vla
+*		 and vla of rt_objects structure and insert it.
+*
+* @param rt_objects vla with string as content vla with string as content.
+* @param idx Index of the vla where the object you want to summarize
+*			 the identifer in rt_objects is stored.
+*/
 static void	_prepere_rt_object(t_vla *rt_objects, size_t idx)
 {
 	t_vla	*tmp_rt_object;
@@ -23,6 +31,12 @@ static void	_prepere_rt_object(t_vla *rt_objects, size_t idx)
 	ft_vla_append(rt_objects->array[idx], tmp_rt_object);
 }
 
+/**
+* @brief rt_objects is interspersed with vla, a grouping of objects
+*		 with the same identifer.
+*
+* @param rt_objects vla with string as content vla with string as content.
+*/
 void	grouping_same_objects(t_vla *rt_objects)
 {
 	size_t		idx;

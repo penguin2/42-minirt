@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 19:40:22 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 14:51:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ static bool	_is_option_key(const char *option_key)
 		return (false);
 }
 
+/**
+* @brief Sort the option parameters in ascii order, looking for
+*		 the first non-option object identifer, and check that the option
+*		 is a proprietary option and that there are no duplicate options.
+*
+* @param rt_objects vla with string as content vla with string as content.
+*
+* @return SUCCESS if rt_objects follows the format of the rt file,
+*				  otherwise ERROR.
+*/
 int	check_rt_object_option_format(const t_vla *rt_object)
 {
 	size_t		idx;

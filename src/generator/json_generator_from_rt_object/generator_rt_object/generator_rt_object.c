@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:21:12 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 15:38:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 17:25:59 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 #include "libft.h"
 #include <stdbool.h>
 
+/**
+* @brief Call the generator function corresponding to the object.
+*		 The called function takes each object and fd as arguments,
+*		 determines the KEY to output from the sequence define in the rt file,
+*		 and outputs the record.
+*		 The first parameter does not output a comma,
+*		 the second and subsequent parameters output comma,
+*		 and then the record is output.
+*
+* @param rt_object vla of required parameters and optional parameters.
+* @param fd Output destination file descriptor.
+*/
 void	generator_rt_object(t_vla *rt_object, int fd)
 {
 	const char	**strings = rt_object->array[0];

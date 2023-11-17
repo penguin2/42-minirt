@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 20:39:03 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/17 14:34:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,18 @@
 #include <stdlib.h>
 
 /**
-* @brief 
+* @brief Split line into rt_objects with vla as an content with string
+*		 as an content, dividing the process by whether the string split
+*		 by split is NULL or not, whether the second argument vla is NULL
+*		 or not, and whether the string is an optional parameter or not.
 *
 * @param rt_object VLA of rt_object pointer.
-* @param vla VLA containing the strings created before
-*			 this function
+* @param vla if a VLA was created before this function runs,
+*			 its VLA, otherwise NULL.
 * @param line string of deleted comments read from rt file.
 *
-* @return 
+* @return NULL if no strings remains after ft_split line with whitespace,
+*			   otherwise, VLA
 */
 static t_vla	*_append_strings_to_object_vla(t_vla *rt_object,
 												t_vla *vla,
