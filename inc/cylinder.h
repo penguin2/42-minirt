@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:00:54 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 01:38:48 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/17 19:34:22 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 typedef struct s_cylinder{
 	t_vec3	center;
 	t_vec3	dir;
+	t_vec3	axis_u;
+	t_vec3	axis_v;
 	double	radius;
 	double	half_height;
 }	t_cylinder;
