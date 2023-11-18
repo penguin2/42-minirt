@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:47:06 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:02:19 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static int	_check_bonus_rt_object(const t_vla *rt_object,
 		return (ERROR);
 	}
 	else if (ft_is_equal_str(identifer, ID_TRIANGLE))
-		return (check_size_of_parameters(rt_object, 5, 7));
+		return (check_size_of_parameters(rt_object, 5, 8));
 	else if (ft_is_equal_str(identifer, ID_QUADRIC))
-		return (check_size_of_parameters(rt_object, 8, 7));
+		return (check_size_of_parameters(rt_object, 8, 8));
 	else
 	{
 		print_error(RT_IDENTIFER);
@@ -51,11 +51,11 @@ static int	_check_rt_object(const t_vla *rt_object)
 	else if (ft_is_equal_str(identifer, ID_SPOT))
 		return (check_size_of_parameters(rt_object, 4, 0));
 	else if (ft_is_equal_str(identifer, ID_CYLINDER))
-		return (check_size_of_parameters(rt_object, 6, 7));
+		return (check_size_of_parameters(rt_object, 6, 8));
 	else if (ft_is_equal_str(identifer, ID_PLANE))
-		return (check_size_of_parameters(rt_object, 4, 7));
+		return (check_size_of_parameters(rt_object, 4, 8));
 	else if (ft_is_equal_str(identifer, ID_SPHERE))
-		return (check_size_of_parameters(rt_object, 4, 7));
+		return (check_size_of_parameters(rt_object, 4, 8));
 	else
 		return (_check_bonus_rt_object(rt_object, identifer));
 }

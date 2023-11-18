@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:24:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 15:59:07 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:11:37 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # define K_REFLECT_OMITTED "rfl"
 # define BUMP_MAP_OMITTED "bmp"
 # define IMAGE_MAP_OMITTED "imp"
+# define CHECKERBOARD_OMITTED "chk"
 
 # define K_AMBIENT "coefficient-ambient"
 # define K_DIFFUSE "coefficient-diffuse"
@@ -52,6 +53,7 @@
 # define K_SHININESS "coefficient-shininess"
 # define K_REFLECT "coefficient-reflect"
 # define IS_REFLECTIVE "is-reflective"
+# define IS_CHECKERBOARD "checkerboard"
 
 # define K_A "coefficient-a"
 # define K_B "coefficient-b"

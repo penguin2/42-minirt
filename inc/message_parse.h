@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:23:03 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:07:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 // rt parse
 # define SPOT_LIGHT_DUPLICATE "[mandatory only] Light are duplicate"
 # define RT_TR_OR_QD "[mandatory only] tr or qd identifer is invalid"
+# define RT_OMITTED_KEY "[mandatory only] Option is invalid in the mandatory"
 # define RT_IDENTIFER "Object identifier does not match rt file format"
 # define RT_PARAMETER_SIZE "Object parameter size is invalid"
 # define RT_OPTION_PARAMETER_FMT "Optional parameters format is [-- ID PARAM]"

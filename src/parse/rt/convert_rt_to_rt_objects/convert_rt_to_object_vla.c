@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:37:09 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:30:19 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,7 @@ static t_vla	*_append_strings_to_object_vla(t_vla *rt_objects,
 
 	strings = ft_split(line, RT_SPACE_STR);
 	if (*strings == NULL)
-	{
 		ft_free_strings(strings);
-		if (vla != NULL)
-			ft_vla_append(rt_objects, vla);
-		vla = NULL;
-	}
 	else if (vla == NULL)
 	{
 		vla = ft_vla_new();

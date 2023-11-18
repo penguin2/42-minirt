@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:45:38 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:08:26 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,17 @@ static bool	_is_bonus_option_key(const char *option_key)
 {
 	if (ft_is_equal_str(option_key, K_REFLECT_OMITTED)
 		|| ft_is_equal_str(option_key, BUMP_MAP_OMITTED)
-		|| ft_is_equal_str(option_key, IMAGE_MAP_OMITTED))
-		return (MODE != MODE_MANDATORY);
+		|| ft_is_equal_str(option_key, IMAGE_MAP_OMITTED)
+		|| ft_is_equal_str(option_key, CHECKERBOARD_OMITTED))
+	{
+		if (MODE != MODE_MANDATORY)
+			return (true);
+		else
+		{
+			print_error(RT_OMITTED_KEY);
+			return (false);
+		}
+	}
 	else
 	{
 		print_error(RT_OPTION_IDENTIFER_INVALID);
