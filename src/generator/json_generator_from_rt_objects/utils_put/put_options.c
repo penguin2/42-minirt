@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:04:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:12:07 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:49:30 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	put_options(t_vla *rt_object, int fd)
 	{
 		ft_putendl_fd(GENERATOR_COMMA, fd);
 		option = rt_object->array[idx++];
-		formal_option_key = _get_formal_option_key(option[1]);
-		put_key_and_value(formal_option_key, option[2], false, fd);
+		formal_option_key = _get_formal_option_key(option[OPTION_KEY_IDX]);
+		put_key_and_value(formal_option_key, option[OPTION_VAL_IDX], false, fd);
 		if (ft_is_equal_str(formal_option_key, K_REFLECT))
 		{
 			ft_putendl_fd(GENERATOR_COMMA, fd);

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:21:12 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 17:25:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 16:00:55 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 void	generator_rt_object(t_vla *rt_object, int fd)
 {
 	const char	**strings = rt_object->array[0];
-	const char	*identifer = strings[0];
+	const char	*identifer = strings[IDENTIFER_IDX];
 
 	if (ft_is_equal_str(identifer, ID_AMBIENT))
 		generator_ambient_object(rt_object, fd);

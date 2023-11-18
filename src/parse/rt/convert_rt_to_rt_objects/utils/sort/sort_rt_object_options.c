@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:09:50 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:41:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:54:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static const char	*_get_option_key(const t_vla *rt_object, size_t idx)
 {
 	const char	**strings = rt_object->array[idx];
 
-	return (strings[1]);
+	return (strings[OPTION_KEY_IDX]);
 }
 
 /**

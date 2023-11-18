@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:44:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 17:09:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:47:32 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void	put_key_and_list(const char *key,
 
 	if (is_with_comma)
 		ft_putendl_fd(GENERATOR_COMMA, fd);
-	list = ft_split(value, RT_VECTOR_SEPARATOR);
 	put_indent(2, fd);
 	put_key_and_colon(key, fd);
 	ft_putstr_fd(GENERATOR_LIST_START, fd);
+	list = ft_split(value, RT_VECTOR_SEPARATOR);
 	if (ft_strings_len((const char **)list) == 0)
 		ft_putstr_fd(value, fd);
 	else

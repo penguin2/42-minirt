@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:21:44 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:22:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:56:59 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	check_size_of_parameters(const t_vla *rt_object,
 	{
 		optional_parameters = rt_object->array[idx++];
 		if (ft_strings_len(optional_parameters) != 3
-			|| !ft_is_equal_str(optional_parameters[0], OPTION_START))
+			|| !ft_is_equal_str(
+				optional_parameters[OPTION_START_IDX], OPTION_START))
 		{
 			print_error(RT_OPTION_PARAMETER_FMT);
 			return (ERROR);

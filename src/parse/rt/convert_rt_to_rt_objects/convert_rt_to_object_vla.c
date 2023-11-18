@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:30:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:52:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parse.h"
+#include "generator.h"
 #include <stdlib.h>
 
 /**
@@ -42,7 +43,7 @@ static t_vla	*_append_strings_to_object_vla(t_vla *rt_objects,
 		vla = ft_vla_new();
 		ft_vla_append(vla, strings);
 	}
-	else if (ft_is_equal_str(strings[0], OPTION_START))
+	else if (ft_is_equal_str(strings[OPTION_START_IDX], OPTION_START))
 		ft_vla_append(vla, strings);
 	else
 	{

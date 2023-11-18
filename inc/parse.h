@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:12:05 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:59:06 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@
 # define OPTION_START "--"
 # define COMMENTOUT_STRING "#"
 # define RT_SPACE_STR " \n	"
+
+# define IDENTIFER_IDX 0
+// option
+# define OPTION_START_IDX 0
+# define OPTION_KEY_IDX 1
+# define OPTION_VAL_IDX 2
 
 typedef enum e_open_flag
 {

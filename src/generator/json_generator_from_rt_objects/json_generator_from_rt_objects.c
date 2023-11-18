@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:09:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:36:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/18 15:45:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ static void	_generator_rt_object_array(t_vla *rt_object_array, int fd)
 	size_t		idx;
 	t_vla		*rt_object;
 
-	idx = 0;
 	put_indent(1, fd);
 	put_key_and_colon(identifer, fd);
 	ft_putstr_fd(GENERATOR_LIST_START, fd);
+	idx = 0;
 	while (idx < rt_object_array->size)
 	{
-		rt_object = rt_object_array->array[idx++];
 		ft_putendl_fd(GENERATOR_DICT_START, fd);
+		rt_object = rt_object_array->array[idx++];
 		generator_rt_object(rt_object, fd);
 		ft_putchar_fd('\n', fd);
 		put_indent(1, fd);
@@ -62,8 +62,8 @@ void	json_generator_from_rt_objects(t_vla *rt_objects, int fd)
 	size_t	idx;
 	t_vla	*rt_object_array;
 
-	idx = 0;
 	ft_putendl_fd(GENERATOR_DICT_START, fd);
+	idx = 0;
 	while (idx < rt_objects->size)
 	{
 		rt_object_array = rt_objects->array[idx++];
