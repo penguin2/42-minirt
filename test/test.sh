@@ -26,7 +26,7 @@ _RESULT() {
 	echo ; echo "[$1]" ; echo
 	for json_file in $2
 	do
-		./miniRT ${json_file} && echo 
+		$4 ${json_file} && echo 
 		if [ $? -eq $3 ] ; then
 			PRINT_COLOR $GREEN $json_file OK
 		else
@@ -40,7 +40,7 @@ _ONLY_KO() {
 	echo ; echo "[$1]" ; echo
 	for json_file in $2
 	do
-		./miniRT ${json_file} > /dev/null 2>&1
+		$4 ${json_file} > /dev/null 2>&1
 		if [ $? -ne $3 ] ; then
 			PRINT_COLOR $RED $json_file KO
 			RESULT=1
@@ -49,18 +49,27 @@ _ONLY_KO() {
 }
 
 EXEC_JSON() {
-	$1 SUCCESS './test/json_to_json_object/success/*.json' 0
-	$1 FAILED './test/json_to_json_object/error/*.json' 1
+	$1 SUCCESS './test/json_to_json_object/success/*.json' 0 "./miniRT"
+	$1 FAILED './test/json_to_json_object/error/*.json' 1 "./miniRT"
 }
 
 EXEC_SCENE() {
-	$1 SUCCESS './test/json_object_to_scene/success/*.json' 0
-	$1 FAILED './test/json_object_to_scene/error/*/*.json' 1
+	$1 SUCCESS './test/json_object_to_scene/success/*.json' 0 "./miniRT"
+	$1 FAILED './test/json_object_to_scene/error/*/*.json' 1 "./miniRT"
 }
 
 EXEC_RT() {
-	$1 SUCCESS './test/rt_to_json/success/*.rt' 0
-	$1 FAILED './test/rt_to_json/error/*.rt' 1
+	$1 SUCCESS './test/rt_to_json/success/*/*.rt' 0 "./miniRT"
+	rm ./test/rt_to_json/success/*.json
+	$1 FAILED './test/rt_to_json/error/*/*.rt' 1 "./miniRT"
+	rm ./test/rt_to_json/error/*.json
+}
+
+EXEC_RT_BONUS() {
+	$1 SUCCESS './test/rt_to_json/success_bonus/*/*.rt' 0 "./miniRT_bonus"
+	rm ./test/rt_to_json/success_bonus/*/*.json
+	$1 FAILED './test/rt_to_json/error_bonus/*/*.rt' 1 "./miniRT_bonus"
+	rm ./test/rt_to_json/error_bonus/*/*.json
 }
 
 if [ $# != 2 ] ; then
@@ -81,6 +90,8 @@ elif [ $2 == 'scene' ] ; then
 	EXEC_SCENE $FUNC
 elif [ $2 == 'rt' ] ; then
 	EXEC_RT $FUNC
+elif [ $2 == 'rt_bonus' ] ; then
+	EXEC_RT_BONUS $FUNC
 else
 	echo "please enter argument2 [json, scene, rt]"
 	exit 1

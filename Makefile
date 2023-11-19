@@ -33,6 +33,8 @@ else ifeq ($(MAKECMDGOALS), test_scene)
 	SRCS += main_scene.c
 else ifeq ($(MAKECMDGOALS), test_rt)
 	SRCS += main_rt.c
+else ifeq ($(MAKECMDGOALS), test_rt_bonus)
+	SRCS += main_rt.c
 else
 	SRCS += main.c
 endif
@@ -86,6 +88,7 @@ TEST_SH		=	"./test/test.sh"
 JSON		=	"json"
 SCENE		=	"scene"
 RT			=	"rt"
+RT_BONUS	=	"rt_bonus"
 # SRCS 		+= leaks.c
 
 test_json : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
@@ -99,6 +102,10 @@ test_scene : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
 test_rt : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) $(LINKER_OPT) -ominiRT
 	$(TEST_SH) $(OK_OR_KO) $(RT)
+
+test_rt_bonus : $(MINILIBX_DIR) $(OBJ_BONUS_SUBDIRS) $(OBJS_BONUS)
+	$(CC) $(CFLAGS_BONUS) $(OBJS_BONUS) $(INCLUDE) $(LINKER_OPT) -ominiRT_bonus
+	$(TEST_SH) $(OK_OR_KO) $(RT_BONUS)
 
 .PHONY	:	norm
 norm :
