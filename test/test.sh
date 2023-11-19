@@ -60,9 +60,9 @@ EXEC_SCENE() {
 
 EXEC_RT() {
 	$1 SUCCESS './test/rt_to_json/success/*/*.rt' 0 "./miniRT"
-	rm ./test/rt_to_json/success/*.json
+	rm ./test/rt_to_json/success/*/*.json
 	$1 FAILED './test/rt_to_json/error/*/*.rt' 1 "./miniRT"
-	rm ./test/rt_to_json/error/*.json
+	rm ./test/rt_to_json/error/*/*.json
 }
 
 EXEC_RT_BONUS() {

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 15:25:53 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/19 19:10:09 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "message_parse.h"
 #include "parse.h"
 #include "identifer_and_parameter.h"
+#include <stdlib.h>
 
 static int	_append_triangle_object(t_vec3 vertex[3], t_vla *objects)
 {
@@ -27,6 +28,7 @@ static int	_append_triangle_object(t_vec3 vertex[3], t_vla *objects)
 	if (is_zero(new_triangle->area))
 	{
 		print_error(VERTEXES_IS_STRAIGHT_LINE);
+		free(new_triangle);
 		return (ERROR);
 	}
 	triangle_object = object_new(

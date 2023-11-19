@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/19 13:57:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/19 19:05:13 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	main(int argc, char *argv[])
 	t_scene	scene;
 
 	if (scene_init(&scene, argc, argv) == ERROR)
-		return (EXIT_FAILURE);
+		exit (EXIT_FAILURE);
 	else
 	{
 		_print_json_file(argv[1]);
-		return (EXIT_SUCCESS);
+		exit (EXIT_SUCCESS);
 	}
 }

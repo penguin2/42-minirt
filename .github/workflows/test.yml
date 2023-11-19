@@ -41,3 +41,25 @@ jobs:
     - name: test scene
       run: |
         make test_scene
+
+  test_rt:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test rt
+      run: |
+        make test_rt
+
+  test_rt_bonus:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test rt bonus
+      run: |
+        make test_rt_bonus

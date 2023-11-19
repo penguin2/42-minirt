@@ -83,7 +83,7 @@ $(MINILIBX_DIR) :
 
 $(BONUS) : $(NAME_BONUS)
 
-OK_OR_KO	=	"OK"
+OK_OR_KO	=	"KO"
 TEST_SH		=	"./test/test.sh"
 JSON		=	"json"
 SCENE		=	"scene"
