@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 23:49:55 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:44:43 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "parse.h"
 #include <math.h>
 #include <stdbool.h>
+#include <float.h>
 
 static bool	_is_two_vecs_aligned(t_vec3 vec1, t_vec3 vec2)
 {
@@ -46,11 +47,11 @@ int	append_triangle(const t_json_node *node, t_vla *objects)
 	t_vec3		vertex[3];
 
 	if (list_to_vec3(get_list(node, VERTEX1, 3),
-			&vertex[0], NO_LIMIT, NO_LIMIT) == ERROR
+			&vertex[0], -DBL_MAX, DBL_MAX) == ERROR
 		|| list_to_vec3(get_list(node, VERTEX2, 3),
-			&vertex[1], NO_LIMIT, NO_LIMIT) == ERROR
+			&vertex[1], -DBL_MAX, DBL_MAX) == ERROR
 		|| list_to_vec3(get_list(node, VERTEX3, 3),
-			&vertex[2], NO_LIMIT, NO_LIMIT) == ERROR
+			&vertex[2], -DBL_MAX, DBL_MAX) == ERROR
 		|| _check_triangle_vertex_valid(vertex) == ERROR)
 		return (ERROR);
 	ft_vla_append(objects, triangle_object_new(vertex));

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:10:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/14 17:08:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/20 22:51:11 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,22 @@ static int	_print_and_return_error(void)
 	return (ERROR);
 }
 
-int	json_node_to_bool(const t_json_node *node, bool *ptr)
+int	json_node_to_bool(const t_json_node *node, bool *val)
 {
-	const char	*boolean;
+	const char	*boolean_str;
+	bool		boolean_val;
 
 	if (node == NULL || node->type != NODE_VALUE)
 		return (_print_and_return_error());
-	boolean = node->value;
-	if (ft_is_equal_str(boolean, TRUE_STRING)
-		|| ft_is_equal_str(boolean, TRUE_NUMBER))
-	{
-		*ptr = true;
-		return (SUCCESS);
-	}
-	else if (ft_is_equal_str(boolean, FALSE_STRING)
-		|| ft_is_equal_str(boolean, FALSE_NUMBER))
-	{
-		*ptr = false;
-		return (SUCCESS);
-	}
+	boolean_str = node->value;
+	if (ft_is_equal_str(boolean_str, TRUE_STRING)
+		|| ft_is_equal_str(boolean_str, TRUE_NUMBER))
+		boolean_val = true;
+	else if (ft_is_equal_str(boolean_str, FALSE_STRING)
+		|| ft_is_equal_str(boolean_str, FALSE_NUMBER))
+		boolean_val = false;
 	else
 		return (_print_and_return_error());
+	*val = boolean_val;
+	return (SUCCESS);
 }

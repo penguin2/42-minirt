@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 18:52:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/20 21:42:17 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "parse.h"
 #include "message_parse.h"
 #include <stdbool.h>
+#include <float.h>
 
 static t_vec3	_get_camera_up_vector(t_vec3 dir);
 static void		_set_camera_infomation(t_camera *camera, double fov);
@@ -28,10 +29,11 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 
 	if (camera_dict->type != NODE_DICT)
 		return (ERROR);
-	if (json_node_to_double(select_json_node(camera_dict, FOV),
-			&fov, 0.0, 180.0) == ERROR
+	if (query_set_double(
+			query_create(camera_dict, FOV, &fov, true),
+			range_create(0.0, 180.0)) == ERROR
 		|| list_to_vec3(get_list(camera_dict, COORDINATES, 3),
-			&camera->eye, NO_LIMIT, NO_LIMIT) == ERROR
+			&camera->eye, -DBL_MAX, DBL_MAX) == ERROR
 		|| list_to_vec3(get_list(camera_dict, DIRECTION, 3),
 			&camera->dir, -1.0, 1.0) == ERROR
 		|| try_vec3_unit(&camera->dir) == ERROR)
