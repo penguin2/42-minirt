@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/19 19:05:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/20 21:33:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static void	_print_json_file(const char *rt_file)
+static void	_print_json_file(const char *file)
 {
 	char	*json_file;
 	int		fd;
 	char	*line;
 
-	json_file = convert_extension(rt_file, RT_EXTENSION, JSON_EXTENSION);
-	fd = try_open_file(json_file, JSON_EXTENSION, O_READ);
-	free(json_file);
+	if (check_extension(file, RT_EXTENSION) == SUCCESS)
+	{
+		json_file = convert_extension(file, RT_EXTENSION, JSON_EXTENSION);
+		fd = try_open_file(json_file, JSON_EXTENSION, O_READ);
+		free(json_file);
+	}
+	else
+		fd = try_open_file(file, JSON_EXTENSION, O_READ);
 	if (fd == ERROR)
 		return ;
 	while (1)

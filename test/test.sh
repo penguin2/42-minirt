@@ -67,8 +67,10 @@ EXEC_RT() {
 
 EXEC_RT_BONUS() {
 	$1 SUCCESS './test/rt_to_json/success_bonus/*/*.rt' 0 "./miniRT_bonus"
+	$1 SUCCESS_JSON './test/rt_to_json/success_bonus/*/*.json' 0 "./miniRT_bonus"
 	rm ./test/rt_to_json/success_bonus/*/*.json
 	$1 FAILED './test/rt_to_json/error_bonus/*/*.rt' 1 "./miniRT_bonus"
+	$1 FAILED_JSON './test/rt_to_json/error_bonus/*/*.json' 1 "./miniRT_bonus"
 	rm ./test/rt_to_json/error_bonus/*/*.json
 }
 
