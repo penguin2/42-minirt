@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:59:06 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/20 18:17:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,6 +241,7 @@ int			check_size_of_parameters(const t_vla *rt_object,
 				size_t optional_parameters_max_size);
 
 bool		is_dupulicate(const char *str1, const char *str2);
+bool		is_option_key(const char *option_key, const char *identifer);
 const char	*get_identifer_from_rt_objects(const t_vla *rt_objects, size_t idx);
 
 #endif

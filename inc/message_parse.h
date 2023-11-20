@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:07:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/20 18:07:38 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@
 # define RT_OPTION_PARAMETER_FMT "Optional parameters format is [-- ID PARAM]"
 # define RT_OPTION_IDENTIFER_INVALID "Optional parameter is invalid"
 # define RT_OPTION_DUPLICATE "Optional parameters are duplicate"
+# define RT_CHECKERBOARD "Checkerboard is only [sphere, plane, cylinder]"
 
 #endif
