@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/20 21:42:17 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:52:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 	if (query_set_double(
 			query_create(camera_dict, FOV, &fov, true),
 			range_create(0.0, 180.0)) == ERROR
-		|| list_to_vec3(get_list(camera_dict, COORDINATES, 3),
-			&camera->eye, -DBL_MAX, DBL_MAX) == ERROR
-		|| list_to_vec3(get_list(camera_dict, DIRECTION, 3),
-			&camera->dir, -1.0, 1.0) == ERROR
+		|| query_set_vec3(
+			query_create(camera_dict, COORDINATES, &camera->eye, true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
+		|| query_set_vec3(
+			query_create(camera_dict, DIRECTION, &camera->dir, true),
+			range_create(-1.0, 1.0)) == ERROR
 		|| try_vec3_unit(&camera->dir) == ERROR)
 		return (ERROR);
 	_set_camera_infomation(camera, fov);

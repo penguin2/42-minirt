@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 21:46:24 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:10:11 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ int	append_cylinder(const t_json_node *node, t_vla *objects)
 	double				diameter;
 	double				height;
 
-	if (list_to_vec3(get_list(node, COORDINATES, 3),
-			&cylinder.center, -DBL_MAX, DBL_MAX) == ERROR
-		|| list_to_vec3(get_list(node, AXIS, 3),
-			&cylinder.dir, -1, 1) == ERROR
+	if (query_set_vec3(
+			query_create(node, COORDINATES, &cylinder.center, true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
+		|| query_set_vec3(
+			query_create(node, AXIS, &cylinder.dir, true),
+			range_create(-1.0, 1.0)) == ERROR
 		|| try_vec3_unit(&cylinder.dir) == ERROR
 		|| query_set_double(
 			query_create(node, DIAMETER, &diameter, true),
