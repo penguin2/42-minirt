@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 22:00:29 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:05:26 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ int	append_quadric(const t_json_node *node, t_vla *objects)
 {
 	t_quadric	quadric;
 
-	if (list_to_vec3(get_list(node, COORDINATES, 3),
-			&quadric.center, -DBL_MAX, DBL_MAX) == ERROR
+	if (query_set_vec3(
+			query_create(node, COORDINATES, &quadric.center, true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
 		|| _try_json_node_to_quadric_coefficient(node, &quadric) == ERROR)
 		return (ERROR);
 	ft_vla_append(

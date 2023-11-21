@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 21:45:45 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:59:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,12 +233,6 @@ t_vla		*get_list(
 				int accept_size);
 
 bool		is_between_min_to_max(double n, double min, double max);
-int			list_to_color(const t_vla *list, t_color *color);
-int			list_to_vec3(
-				const t_vla *list,
-				t_vec3 *vec3,
-				double min,
-				double max);
 t_json_node	*select_json_node(const t_json_node *master_node, const char *key);
 int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
@@ -248,6 +242,10 @@ int			json_node_to_bool(
 				const t_json_node *json_node, bool *val);
 int			json_node_to_double(
 				const t_json_node *node, t_range range, double *val);
+int			json_node_to_vec3(
+				const t_json_node *node, t_range range, t_vec3 *val);
+int			json_node_to_color(
+				const t_json_node *node, t_color *val);
 // query
 t_query		query_create(
 				const t_json_node *json_node,
@@ -256,5 +254,7 @@ t_query		query_create(
 				bool is_required);
 int			query_set_double(t_query query, t_range range);
 int			query_set_boolean(t_query query);
+int			query_set_vec3(t_query query, t_range range);
+int			query_set_color(t_query query);
 
 #endif

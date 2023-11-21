@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 21:44:43 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:05:48 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,15 @@ int	append_triangle(const t_json_node *node, t_vla *objects)
 {
 	t_vec3		vertex[3];
 
-	if (list_to_vec3(get_list(node, VERTEX1, 3),
-			&vertex[0], -DBL_MAX, DBL_MAX) == ERROR
-		|| list_to_vec3(get_list(node, VERTEX2, 3),
-			&vertex[1], -DBL_MAX, DBL_MAX) == ERROR
-		|| list_to_vec3(get_list(node, VERTEX3, 3),
-			&vertex[2], -DBL_MAX, DBL_MAX) == ERROR
+	if (query_set_vec3(
+			query_create(node, VERTEX1, &vertex[0], true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
+		|| query_set_vec3(
+			query_create(node, VERTEX2, &vertex[1], true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
+		|| query_set_vec3(
+			query_create(node, VERTEX3, &vertex[2], true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
 		|| _check_triangle_vertex_valid(vertex) == ERROR)
 		return (ERROR);
 	ft_vla_append(objects, triangle_object_new(vertex));

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:04:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 21:37:11 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:34:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ int	append_spot(const t_json_node *node, t_vla *lights)
 {
 	t_spot				spot;
 
-	if (list_to_vec3(get_list(node, COORDINATES, 3),
-			&spot.pos, -DBL_MAX, DBL_MAX) == ERROR
+	if (query_set_vec3(
+			query_create(node, COORDINATES, &spot.pos, true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
 		|| query_set_double(
 			query_create(node, BRIGHTNESS, &spot.brightness, true),
 			range_create(0.0, 1.0)) == ERROR)
