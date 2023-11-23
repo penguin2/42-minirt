@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 20:28:29 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/21 16:27:45 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 02:06:33 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,9 @@
 
 int	add_light_color(const t_json_node *light_node, t_light *light)
 {
-	if (select_json_node(light_node, COLORS) == NULL)
-	{
-		light->color = color_white();
-		return (SUCCESS);
-	}
 	return (
 		query_set_color(
-			query_create(light_node, COLORS, &light->color, true)
-		));
+			query_create(light_node, COLORS, &light->color, false)
+		)
+	);
 }

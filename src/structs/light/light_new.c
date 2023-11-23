@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:53:12 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 01:44:36 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/24 02:03:31 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ t_light	*light_new(void *ptr)
 
 	new = ft_xcalloc(1, sizeof(t_light));
 	new->ptr = ptr;
+	new->color = color_white();
 	return (new);
 }
