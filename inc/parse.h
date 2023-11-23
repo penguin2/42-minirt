@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/21 15:59:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 00:01:10 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,8 @@ char		*delete_commentout(const char *str, const char *commentout_str);
 int			try_atof_limit(const char *nptr, double *dptr, size_t limit);
 char		*get_all_chars_in_file(int fd);
 int			try_open_file(const char *file, const char *extension);
+bool		is_list_with_value_nodes(const t_json_node *node, size_t size);
+bool		is_only_value_node(const t_vla *list);
 
 // json -> token
 t_vla		*convert_json_to_token(const char *file);
