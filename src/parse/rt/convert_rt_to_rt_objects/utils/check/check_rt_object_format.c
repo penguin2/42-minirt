@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:02:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/23 22:22:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ static int	_check_bonus_rt_object(const t_vla *rt_object,
 		return (ERROR);
 	}
 	else if (ft_is_equal_str(identifer, ID_TRIANGLE))
-		return (check_size_of_parameters(rt_object, 5, 8));
+		return (check_size_of_parameters(
+				rt_object, TRIANGLE_MAX_SIZE, OBJECTS_OPTION_MAX_SIZE));
 	else if (ft_is_equal_str(identifer, ID_QUADRIC))
-		return (check_size_of_parameters(rt_object, 8, 8));
+		return (check_size_of_parameters(
+				rt_object, QUADRIC_MAX_SIZE, OBJECTS_OPTION_MAX_SIZE));
 	else
 	{
 		print_error(RT_IDENTIFER);
@@ -45,17 +47,23 @@ static int	_check_rt_object(const t_vla *rt_object)
 	const char	*identifer = strings[0];
 
 	if (ft_is_equal_str(identifer, ID_AMBIENT))
-		return (check_size_of_parameters(rt_object, 3, 0));
+		return (check_size_of_parameters(
+				rt_object, AMBIENT_MAX_SIZE, LIGHTS_OPTION_MAX_SIZE));
 	else if (ft_is_equal_str(identifer, ID_CAMERA))
-		return (check_size_of_parameters(rt_object, 4, 0));
+		return (check_size_of_parameters(
+				rt_object, CAMERA_MAX_SIZE, LIGHTS_OPTION_MAX_SIZE));
 	else if (ft_is_equal_str(identifer, ID_SPOT))
-		return (check_size_of_parameters(rt_object, 4, 0));
+		return (check_size_of_parameters(
+				rt_object, SPOT_MAX_SIZE, LIGHTS_OPTION_MAX_SIZE));
 	else if (ft_is_equal_str(identifer, ID_CYLINDER))
-		return (check_size_of_parameters(rt_object, 6, 8));
+		return (check_size_of_parameters(
+				rt_object, CYLINDER_MAX_SIZE, OBJECTS_OPTION_MAX_SIZE));
 	else if (ft_is_equal_str(identifer, ID_PLANE))
-		return (check_size_of_parameters(rt_object, 4, 8));
+		return (check_size_of_parameters(
+				rt_object, PLANE_MAX_SIZE, OBJECTS_OPTION_MAX_SIZE));
 	else if (ft_is_equal_str(identifer, ID_SPHERE))
-		return (check_size_of_parameters(rt_object, 4, 8));
+		return (check_size_of_parameters(
+				rt_object, SPHERE_MAX_SIZE, OBJECTS_OPTION_MAX_SIZE));
 	else
 		return (_check_bonus_rt_object(rt_object, identifer));
 }

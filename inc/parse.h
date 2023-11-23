@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 18:17:22 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/23 22:19:08 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 
 # define BRACKETS 2
 # define SIZE_OF_DICT_TOKEN 4
-# define OPEN_MODE 0666
+# define OPEN_MODE 0644
 
 # define OPEN_BRACKETS 0
 # define CLOSING_BRACKETS 1
@@ -65,6 +65,24 @@
 # define OPTION_START_IDX 0
 # define OPTION_KEY_IDX 1
 # define OPTION_VAL_IDX 2
+
+typedef enum e_required_max_size
+{
+	AMBIENT_MAX_SIZE = 3,
+	CAMERA_MAX_SIZE = 4,
+	SPOT_MAX_SIZE = 4,
+	CYLINDER_MAX_SIZE = 6,
+	PLANE_MAX_SIZE = 4,
+	SPHERE_MAX_SIZE = 4,
+	TRIANGLE_MAX_SIZE = 5,
+	QUADRIC_MAX_SIZE = 8,
+}	t_required_max_size;
+
+typedef enum e_optional_max_size
+{
+	LIGHTS_OPTION_MAX_SIZE = 0,
+	OBJECTS_OPTION_MAX_SIZE = 8,
+}	t_optional_max_size;
 
 typedef enum e_open_flag
 {
@@ -237,8 +255,8 @@ int			check_rt_object_format(t_vla *rt_objects);
 int			check_rt_object_option_format(const t_vla *rt_object);
 int			check_duplicate_spot(t_vla *rt_objects);
 int			check_size_of_parameters(const t_vla *rt_object,
-				size_t required_parameters_max_size,
-				size_t optional_parameters_max_size);
+				t_required_max_size required_parameters_max_size,
+				t_optional_max_size optional_parameters_max_size);
 
 bool		is_dupulicate(const char *str1, const char *str2);
 bool		is_option_key(const char *option_key, const char *identifer);

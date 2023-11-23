@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:21:44 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:56:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/23 22:16:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 * @return SUCCESS if the rt file format is followed, otherwise ERROR.
 */
 int	check_size_of_parameters(const t_vla *rt_object,
-								size_t required_parameters_max_size,
-								size_t optional_parameters_max_size)
+							t_required_max_size required_parameters_max_size,
+							t_optional_max_size optional_parameters_max_size)
 {
 	const char	**required_parameters = rt_object->array[0];
 	const char	**optional_parameters;

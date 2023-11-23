@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:16:38 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 14:12:35 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/23 22:20:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	_swap(const t_vla *vla, size_t idx1, size_t idx2)
 {
-	t_vla	*tmp;
+	void	*tmp;
 
 	tmp = vla->array[idx1];
 	vla->array[idx1] = vla->array[idx2];
