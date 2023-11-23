@@ -6,22 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:10:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 22:51:11 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/24 00:15:03 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
-#include "parse.h"
 #include "message_parse.h"
+#include "parse.h"
 #include "utils.h"
-#include "libft.h"
-#include <stdbool.h>
-
-static int	_print_and_return_error(void)
-{
-	print_error(INVALID_BOOLEAN);
-	return (ERROR);
-}
 
 int	json_node_to_bool(const t_json_node *node, bool *val)
 {
@@ -29,7 +21,7 @@ int	json_node_to_bool(const t_json_node *node, bool *val)
 	bool		boolean_val;
 
 	if (node == NULL || node->type != NODE_VALUE)
-		return (_print_and_return_error());
+		return (error_with_message_if(true, INVALID_BOOLEAN));
 	boolean_str = node->value;
 	if (ft_is_equal_str(boolean_str, TRUE_STRING)
 		|| ft_is_equal_str(boolean_str, TRUE_NUMBER))
@@ -38,7 +30,7 @@ int	json_node_to_bool(const t_json_node *node, bool *val)
 		|| ft_is_equal_str(boolean_str, FALSE_NUMBER))
 		boolean_val = false;
 	else
-		return (_print_and_return_error());
+		return (error_with_message_if(true, INVALID_BOOLEAN));
 	*val = boolean_val;
 	return (SUCCESS);
 }
