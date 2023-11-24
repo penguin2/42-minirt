@@ -6,12 +6,11 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 19:19:52 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:31:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 18:19:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
-#include "libft.h"
 #include "parse.h"
 #include "identifer_and_parameter.h"
 #include "utils.h"
@@ -27,8 +26,8 @@ int	check_duplicate_spot(t_vla *rt_objects)
 	idx = 0;
 	while (idx < rt_objects->size)
 	{
-		rt_object = rt_objects->array[idx++];
-		identifer = get_identifer_from_rt_objects(rt_object, 0);
+		identifer = get_identifer_from_rt_objects(rt_objects, idx);
+		rt_object = rt_objects->array[idx];
 		if (ft_is_equal_str(identifer, ID_SPOT))
 		{
 			if (rt_object->size <= 1)
@@ -39,6 +38,7 @@ int	check_duplicate_spot(t_vla *rt_objects)
 				return (ERROR);
 			}
 		}
+		idx++;
 	}
 	return (SUCCESS);
 }

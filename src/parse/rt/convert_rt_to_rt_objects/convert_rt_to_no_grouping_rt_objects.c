@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_rt_to_object_vla.c                         :+:      :+:    :+:   */
+/*   convert_rt_to_no_grouping_rt_objects.c             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:52:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 18:04:21 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,15 @@
 *		 by split is NULL or not, whether the second argument vla is NULL
 *		 or not, and whether the string is an optional parameter or not.
 *
-* @param rt_object VLA of rt_object pointer.
-* @param vla if a VLA was created before this function runs,
+* @param no_grouping_rt_objects VLA of rt_object pointer.
+* @param rt_object if a VLA was created before this function runs,
 *			 its VLA, otherwise NULL.
 * @param line string of deleted comments read from rt file.
 *
-* @return NULL if no strings remains after ft_split line with whitespace,
-*			   otherwise, VLA
+* @return Return rt_object in the process of creation.
 */
-static t_vla	*_append_strings_to_object_vla(t_vla *rt_objects,
-												t_vla *vla,
+static t_vla	*_append_strings_to_rt_object(t_vla *no_grouping_rt_objects,
+												t_vla *rt_object,
 												char *line)
 {
 	char	**strings;
@@ -38,44 +37,47 @@ static t_vla	*_append_strings_to_object_vla(t_vla *rt_objects,
 	strings = ft_split(line, RT_SPACE_STR);
 	if (*strings == NULL)
 		ft_free_strings(strings);
-	else if (vla == NULL)
+	else if (rt_object == NULL)
 	{
-		vla = ft_vla_new();
-		ft_vla_append(vla, strings);
+		rt_object = ft_vla_new();
+		ft_vla_append(rt_object, strings);
 	}
 	else if (ft_is_equal_str(strings[OPTION_START_IDX], OPTION_START))
-		ft_vla_append(vla, strings);
+		ft_vla_append(rt_object, strings);
 	else
 	{
-		ft_vla_append(rt_objects, vla);
-		vla = ft_vla_new();
-		ft_vla_append(vla, strings);
+		ft_vla_append(no_grouping_rt_objects, rt_object);
+		rt_object = ft_vla_new();
+		ft_vla_append(rt_object, strings);
 	}
-	return (vla);
+	return (rt_object);
 }
 
 /**
 * @brief Read the rt file line by line,
-*		 remove comments from the read string and append the split string
-*		 with blanks to the VLA.
+*		 remove comments from the read string
+*		 and append the splitted strings to the VLA(rt_object)
+*		 and append that VLA(rt_object) to no_grouping_rt_objects.
 *
-* @param rt_object VLA of rt_object pointer.
+* @param no_grouping_rt_object VLA of rt_object pointer.
 * @param fd file descriptor of rt file.
 */
-void	convert_rt_to_object_vla(t_vla *rt_objects, int fd)
+void	convert_rt_to_no_grouping_rt_objects(t_vla *no_grouping_rt_objects,
+												int fd)
 {
 	char	*line;
-	t_vla	*vla;
+	t_vla	*rt_object;
 
-	vla = NULL;
+	rt_object = NULL;
 	while (true)
 	{
 		line = get_next_removed_comment_line(fd);
 		if (line == NULL)
 			break ;
-		vla = _append_strings_to_object_vla(rt_objects, vla, line);
+		rt_object = _append_strings_to_rt_object(
+				no_grouping_rt_objects, rt_object, line);
 		free(line);
 	}
-	if (vla != NULL)
-		ft_vla_append(rt_objects, vla);
+	if (rt_object != NULL)
+		ft_vla_append(no_grouping_rt_objects, rt_object);
 }

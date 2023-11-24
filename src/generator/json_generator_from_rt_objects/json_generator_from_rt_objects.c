@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:09:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:45:25 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 18:05:47 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@
 * @param rt_object_array vla of rt_object.
 * @param fd Output destination file descriptor.
 */
-static void	_generator_rt_object_array(t_vla *rt_object_array, int fd)
+static void	_generator_rt_object_array(t_vla *rt_object_array,
+										const char *identifer,
+										int fd)
 {
-	const char	*identifer = get_identifer_from_rt_objects(rt_object_array, 0);
 	size_t		idx;
 	t_vla		*rt_object;
 
@@ -60,14 +61,16 @@ static void	_generator_rt_object_array(t_vla *rt_object_array, int fd)
 void	json_generator_from_rt_objects(t_vla *rt_objects, int fd)
 {
 	size_t	idx;
-	t_vla	*rt_object_array;
 
 	ft_putendl_fd(GENERATOR_DICT_START, fd);
 	idx = 0;
 	while (idx < rt_objects->size)
 	{
-		rt_object_array = rt_objects->array[idx++];
-		_generator_rt_object_array(rt_object_array, fd);
+		_generator_rt_object_array(
+			rt_objects->array[idx],
+			get_identifer_from_rt_objects(rt_objects, idx),
+			fd);
+		idx++;
 		if (idx != rt_objects->size)
 			ft_putendl_fd(GENERATOR_COMMA, fd);
 		else

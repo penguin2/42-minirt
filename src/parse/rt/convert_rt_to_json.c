@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:17:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/17 18:35:07 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 16:30:18 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	convert_rt_to_json(const char *file)
 	if (success_or_error == SUCCESS)
 	{
 		success_or_error = _try_generate_json(&rt_objects, file);
-		free_rt_objects(&rt_objects, true);
+		free_rt_objects(&rt_objects);
 	}
 	return (success_or_error);
 }

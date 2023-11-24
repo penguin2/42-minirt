@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:32:27 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/23 22:22:52 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 16:43:29 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,17 @@ static int	_check_rt_object(const t_vla *rt_object)
 		return (_check_bonus_rt_object(rt_object, identifer));
 }
 
-int	check_rt_object_format(t_vla *rt_objects)
+int	check_rt_object_format(t_vla *no_grouping_rt_objects)
 {
 	size_t	idx;
 	t_vla	*rt_object;
 
 	idx = 0;
-	while (idx < rt_objects->size)
+	while (idx < no_grouping_rt_objects->size)
 	{
-		rt_object = rt_objects->array[idx++];
-		if (_check_rt_object(rt_object) == ERROR)
+		rt_object = no_grouping_rt_objects->array[idx++];
+		if (_check_rt_object(rt_object) == ERROR
+			|| check_rt_object_option_format(rt_object) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);

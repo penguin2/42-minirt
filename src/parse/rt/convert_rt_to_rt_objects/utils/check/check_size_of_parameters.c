@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:21:44 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/23 22:16:58 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 16:41:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ int	check_size_of_parameters(const t_vla *rt_object,
 			return (ERROR);
 		}
 	}
-	return (check_rt_object_option_format(rt_object));
+	return (SUCCESS);
 }

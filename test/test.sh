@@ -49,27 +49,27 @@ _ONLY_KO() {
 }
 
 EXEC_JSON() {
-	$1 SUCCESS './test/json_to_json_object/success/*.json' 0 "./miniRT"
-	$1 FAILED './test/json_to_json_object/error/*.json' 1 "./miniRT"
+	$1 SUCCESS './test/json_to_json_object/success/*' 0 "./miniRT"
+	$1 FAILED './test/json_to_json_object/error/*' 1 "./miniRT"
 }
 
 EXEC_SCENE() {
-	$1 SUCCESS './test/json_object_to_scene/success/*.json' 0 "./miniRT"
-	$1 FAILED './test/json_object_to_scene/error/*/*.json' 1 "./miniRT"
+	$1 SUCCESS './test/json_object_to_scene/success/*' 0 "./miniRT"
+	$1 FAILED './test/json_object_to_scene/error/*/*' 1 "./miniRT"
 }
 
 EXEC_RT() {
-	$1 SUCCESS './test/rt_to_json/success/*/*.rt' 0 "./miniRT"
+	$1 SUCCESS './test/rt_to_json/success/*/*' 0 "./miniRT"
 	rm ./test/rt_to_json/success/*/*.json
-	$1 FAILED './test/rt_to_json/error/*/*.rt' 1 "./miniRT"
+	$1 FAILED './test/rt_to_json/error/*/*' 1 "./miniRT"
 	rm ./test/rt_to_json/error/*/*.json
 }
 
 EXEC_RT_BONUS() {
-	$1 SUCCESS './test/rt_to_json/success_bonus/*/*.rt' 0 "./miniRT_bonus"
+	$1 SUCCESS './test/rt_to_json/success_bonus/*/*' 0 "./miniRT_bonus"
 	$1 SUCCESS_JSON './test/rt_to_json/success_bonus/*/*.json' 0 "./miniRT_bonus"
 	rm ./test/rt_to_json/success_bonus/*/*.json
-	$1 FAILED './test/rt_to_json/error_bonus/*/*.rt' 1 "./miniRT_bonus"
+	$1 FAILED './test/rt_to_json/error_bonus/*/*' 1 "./miniRT_bonus"
 	$1 FAILED_JSON './test/rt_to_json/error_bonus/*/*.json' 1 "./miniRT_bonus"
 	rm ./test/rt_to_json/error_bonus/*/*.json
 }
@@ -98,5 +98,5 @@ else
 	echo "please enter argument2 [json, scene, rt]"
 	exit 1
 fi
-
 exit $RESULT
+
