@@ -6,13 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:21:12 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 16:00:55 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:20:37 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
 #include "identifer_and_parameter.h"
-#include "libft.h"
 #include <stdbool.h>
 
 /**

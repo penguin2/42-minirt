@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:53:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:17:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ void	put_closing_brackets(t_json_node *master_node,
 			int fd);
 
 //// rt_object -> json
-void	json_generator_from_rt_objects(t_vla *rt_objects, int fd);
+void	json_generator_from_rt_objects_array(t_vla *rt_objects, int fd);
 
 // utils rt_object -> json
 void	generator_rt_object(t_vla *rt_object, int fd);
-void	generator_ambient_object(t_vla *rt_object, int fd);
-void	generator_camera_object(t_vla *rt_object, int fd);
-void	generator_spot_object(t_vla *rt_object, int fd);
-void	generator_cylinder_object(t_vla *rt_object, int fd);
-void	generator_plane_object(t_vla *rt_object, int fd);
-void	generator_sphere_object(t_vla *rt_object, int fd);
+void	generator_ambient_object(t_vla *ambient, int fd);
+void	generator_camera_object(t_vla *camera, int fd);
+void	generator_spot_object(t_vla *spot, int fd);
+void	generator_cylinder_object(t_vla *cylinder, int fd);
+void	generator_plane_object(t_vla *plane, int fd);
+void	generator_sphere_object(t_vla *sphere, int fd);
 void	generator_triangle_object(t_vla *triangle, int fd);
 void	generator_quadric_object(t_vla *quadric, int fd);
 

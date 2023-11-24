@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generator_cylinder_object.c                        :+:      :+:    :+:   */
+/*   generator_camera_object.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:30:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 16:38:02 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:20:05 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,16 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-void	generator_cylinder_object(t_vla *cylinder, int fd)
+void	generator_camera_object(t_vla *camera, int fd)
 {
-	const char	**strings = cylinder->array[0];
+	const char	**strings = camera->array[0];
 	size_t		idx;
 
 	idx = 1;
 	if (strings[idx] != NULL)
 		put_key_and_list(COORDINATES, strings[idx++], false, fd);
 	if (strings[idx] != NULL)
-		put_key_and_list(AXIS, strings[idx++], true, fd);
+		put_key_and_list(DIRECTION, strings[idx++], true, fd);
 	if (strings[idx] != NULL)
-		put_key_and_value(DIAMETER, strings[idx++], true, fd);
-	if (strings[idx] != NULL)
-		put_key_and_value(HEIGHT, strings[idx++], true, fd);
-	if (strings[idx] != NULL)
-		put_key_and_list(COLORS, strings[idx++], true, fd);
-	put_options(cylinder, fd);
+		put_key_and_value(FOV, strings[idx++], true, fd);
 }

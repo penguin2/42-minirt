@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:21:44 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/24 16:41:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:41:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ int	check_size_of_parameters(const t_vla *rt_object,
 							t_required_max_size required_parameters_max_size,
 							t_optional_max_size optional_parameters_max_size)
 {
-	const char	**required_parameters = rt_object->array[0];
-	const char	**optional_parameters;
-	size_t		idx;
+	char	**required_parameters;
+	char	**optional_parameters;
+	size_t	idx;
 
+	required_parameters = rt_object->array[0];
 	if (1 == ft_strings_len(required_parameters)
 		|| required_parameters_max_size < ft_strings_len(required_parameters)
 		|| optional_parameters_max_size < rt_object->size - 1)

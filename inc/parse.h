@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/24 17:19:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:14:17 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,31 +240,36 @@ int			list_to_vec3(
 t_json_node	*select_json_node(const t_json_node *master_node, const char *key);
 int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
+
 //// rt 
 int			convert_rt_to_json(const char *file);
-void		free_rt_objects(t_vla *rt_objects);
-void		free_no_grouping_rt_objects(t_vla *no_grouping_rt_objects);
-int			convert_rt_to_rt_objects(t_vla *rt_objects, int fd);
+int			convert_rt_to_rt_objects_array(t_vla *rt_objects_array, int fd);
 void		convert_rt_to_no_grouping_rt_objects(t_vla *no_grouping_rt_objects,
 				int fd);
 void		grouping_same_rt_objects(t_vla *no_grouping_rt_objects);
+
+void		free_rt_objects_array(t_vla *rt_objects_array);
+void		free_no_grouping_rt_objects(t_vla *no_grouping_rt_objects);
 
 // utils
 void		sort_no_grouping_rt_objects(t_vla *no_grouping_rt_objects);
 void		sort_rt_object_options(const t_vla *rt_object);
 
-int			check_rt_object_format(t_vla *rt_objects);
+int			check_rt_object_format(t_vla *no_grouping_rt_objects);
 int			check_rt_object_option_format(const t_vla *rt_object);
-int			check_duplicate_spot(t_vla *rt_objects);
+int			check_duplicate_spot(t_vla *rt_objects_array);
 int			check_size_of_parameters(const t_vla *rt_object,
 				t_required_max_size required_parameters_max_size,
 				t_optional_max_size optional_parameters_max_size);
 
 bool		is_dupulicate(const char *str1, const char *str2);
 bool		is_option_key(const char *option_key, const char *identifer);
+
 const char	*get_identifer_from_no_grouping_rt_objects(
 				const t_vla *no_grouping_rt_objects,
 				size_t idx);
-const char	*get_identifer_from_rt_objects(const t_vla *rt_objects, size_t idx);
+const char	*get_identifer_from_rt_objects_array(
+				const t_vla *rt_objects,
+				size_t idx);
 
 #endif
