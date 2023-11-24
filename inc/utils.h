@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/24 01:59:49 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/24 21:13:43 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ void	print_warning(const char *message1);
 int		error_with_message_if(bool is_error, const char *err_msg);
 
 bool	is_odd_2d(double u, double v);
+
+int		convert_str_to_positive_int(const char *str, int *val);
 
 #endif
