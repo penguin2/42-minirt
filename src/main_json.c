@@ -6,18 +6,17 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:33:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 20:07:36 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/23 22:31:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
-#include "minirt.h"
-#include "mlx_ptr.h"
-#include "scene.h"
+#include "utils.h"
+#include "generator.h"
+#include "message_parse.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "generator.h"
 
 int	main(int argc, char **argv)
 {
@@ -25,20 +24,19 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("argc != 2\n");
-		return (EXIT_FAILURE);
+		print_error(ARGC_IS_NOT_EQUAL_2);
+		exit (EXIT_FAILURE);
 	}
 	json_object = convert_json_to_json_object(argv[1]);
 	if (json_object == NULL)
-		exit (1);
+		exit (EXIT_FAILURE);
 	else
 	{
-		json_generator(json_object->array[0], 0, STDOUT_FILENO);
+		json_generator_from_json_object(
+			json_object->array[0],
+			0,
+			STDOUT_FILENO);
 		free_json_object(json_object);
-		exit (0);
+		exit (EXIT_SUCCESS);
 	}
 }
-// 	__attribute__((destructor)) static void destructor()
-// {
-//    system("leaks -q miniRT");
-// }

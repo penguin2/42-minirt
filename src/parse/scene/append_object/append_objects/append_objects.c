@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "parse.h"
+#include "identifer_and_parameter.h"
 #include "define.h"
 
 int	append_objects(const t_json_node *node, t_vla *objects)

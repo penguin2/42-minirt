@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "define.h"
+#include "identifer_and_parameter.h"
 #include "parse.h"
 #include "libcolor.h"
 #include "material.h"

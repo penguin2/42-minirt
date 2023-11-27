@@ -6,10 +6,11 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/21 16:05:26 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/27 17:57:25 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "identifer_and_parameter.h"
 #include "libvec3.h"
 #include "quadric.h"
 #include "define.h"

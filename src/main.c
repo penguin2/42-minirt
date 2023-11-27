@@ -6,14 +6,15 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 16:35:20 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/23 22:28:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
-#include "minirt.h"
 #include "mlx_ptr.h"
 #include "scene.h"
+#include "parse.h"
+#include <stddef.h>
 #include <stdlib.h>
 
 int	main(int argc, char *argv[])
@@ -25,7 +26,3 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
-// 	__attribute__((destructor)) static void destructor()
-// {
-//    system("leaks -q miniRT");
-// }

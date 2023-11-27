@@ -13,6 +13,7 @@
 #include "ambient.h"
 #include "parse.h"
 #include "define.h"
+#include "identifer_and_parameter.h"
 #include "light.h"
 
 int	append_ambient(const t_json_node *node, t_vla *lights)

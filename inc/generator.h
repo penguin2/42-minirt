@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:46:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:17:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,46 @@
 # define GENERATOR_LIST_END "]"
 # define GENERATOR_COMMA ","
 
-//// json
-void	json_generator(t_json_node *master_node, size_t nest_level, int fd);
+# define RT_VECTOR_SEPARATOR ","
 
-// utils json put fd
-void	put_key_and_colon(t_json_node *json_node, int fd);
-void	put_indent(size_t nest_level, int fd);
+//// json_object -> json
+void	json_generator_from_json_object(t_json_node *master_node,
+			size_t nest_level,
+			int fd);
+
+// utils json_object -> json
 void	put_open_brackets(t_json_node *master_node, int fd);
-void	put_value_separator(bool is_with_comma, size_t fd);
 void	put_closing_brackets(t_json_node *master_node,
 			size_t nest_level,
 			int fd);
+
+//// rt_object -> json
+void	json_generator_from_rt_objects_array(t_vla *rt_objects, int fd);
+
+// utils rt_object -> json
+void	generator_rt_object(t_vla *rt_object, int fd);
+void	generator_ambient_object(t_vla *ambient, int fd);
+void	generator_camera_object(t_vla *camera, int fd);
+void	generator_spot_object(t_vla *spot, int fd);
+void	generator_cylinder_object(t_vla *cylinder, int fd);
+void	generator_plane_object(t_vla *plane, int fd);
+void	generator_sphere_object(t_vla *sphere, int fd);
+void	generator_triangle_object(t_vla *triangle, int fd);
+void	generator_quadric_object(t_vla *quadric, int fd);
+
+void	put_key_and_list(const char *key,
+			const char *value,
+			bool is_with_comma,
+			int fd);
+void	put_key_and_value(const char *key,
+			const char *value,
+			bool is_with_comma,
+			int fd);
+void	put_options(t_vla *rt_object, int fd);
+
+// utils put
+void	put_indent(size_t nest_level, int fd);
+void	put_key_and_colon(const char *key_string, int fd);
+void	put_value_separator(bool is_with_comma, size_t fd);
 
 #endif
