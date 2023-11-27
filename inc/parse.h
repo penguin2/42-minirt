@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/24 20:14:17 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/27 17:54:49 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include "libft.h"
 # include "camera.h"
 # include "light.h"
+# include "range.h"
 # include "scene.h"
 # include "object.h"
+# include <stdbool.h>
 # include <stddef.h>
 # include <fcntl.h>
 
@@ -39,8 +41,6 @@
 
 // atof limit digit
 # define DOUBLE_LIMIT_DIGIT 15
-
-# define NO_LIMIT 0
 
 # define ACCEPT_1_OR_OVER -1
 
@@ -123,6 +123,14 @@ typedef struct s_json_node
 	void		*value;
 }	t_json_node;
 
+typedef struct s_query
+{
+	const t_json_node	*json_node;
+	const char			*key;
+	void				*value;
+	bool				is_required;
+}	t_query;
+
 //// json -> json_object
 t_vla		*convert_json_to_json_object(const char *file);
 void		free_json_object(t_vla *json_object);
@@ -137,6 +145,8 @@ int			try_open_file(const char *file, const char *extension, int flag);
 char		*convert_extension(const char *file,
 				const char *old_extension,
 				const char *new_extension);
+bool		is_list_with_value_nodes(const t_json_node *node, size_t size);
+bool		is_only_value_node(const t_vla *list);
 
 // json -> token
 t_vla		*convert_json_to_token(const char *file);
@@ -213,7 +223,7 @@ int			add_additional_parameters(const t_json_node *json_node,
 				t_object *object);
 int			add_bump_map_parameter(const t_json_node *json_node,
 				t_object *object);
-int			add_image_map_parameter(const t_json_node *json_node,
+int			add_checkerboard_parameter(const t_json_node *json_node,
 				t_object *object);
 int			add_material_parameter(const t_json_node *json_node,
 				t_object *object);
@@ -225,21 +235,29 @@ t_vla		*get_list(
 				int accept_size);
 
 bool		is_between_min_to_max(double n, double min, double max);
-int			json_node_to_bool(const t_json_node *node, bool *ptr);
-int			json_node_to_double(
-				const t_json_node *node,
-				double *dptr,
-				double min,
-				double max);
-int			list_to_color(const t_vla *list, t_color *color);
-int			list_to_vec3(
-				const t_vla *list,
-				t_vec3 *vec3,
-				double min,
-				double max);
 t_json_node	*select_json_node(const t_json_node *master_node, const char *key);
 int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
+
+// json_node -> bool, double ...
+int			json_node_to_bool(
+				const t_json_node *json_node, bool *val);
+int			json_node_to_double(
+				const t_json_node *node, t_range range, double *val);
+int			json_node_to_vec3(
+				const t_json_node *node, t_range range, t_vec3 *val);
+int			json_node_to_color(
+				const t_json_node *node, t_color *val);
+// query
+t_query		query_create(
+				const t_json_node *json_node,
+				const char *key,
+				void *value,
+				bool is_required);
+int			query_set_double(t_query query, t_range range);
+int			query_set_boolean(t_query query);
+int			query_set_vec3(t_query query, t_range range);
+int			query_set_color(t_query query);
 
 //// rt 
 int			convert_rt_to_json(const char *file);

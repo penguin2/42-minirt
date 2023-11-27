@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 14:22:18 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/27 17:56:08 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,7 @@
 #include "identifer_and_parameter.h"
 #include "define.h"
 #include "parse.h"
-
-static void	_append_plane_object(t_plane plane, t_vla *objects)
-{
-	t_plane		*new_plane;
-	t_object	*plane_object;
-
-	new_plane = plane_new(plane.origin, plane.normal);
-	plane_object = object_new(
-			new_plane,
-			plane_get_dist,
-			plane_get_normal,
-			plane_free);
-	ft_vla_append(objects, plane_object);
-}
+#include <float.h>
 
 int	append_plane(const t_json_node *node, t_vla *objects)
 {
@@ -35,11 +22,14 @@ int	append_plane(const t_json_node *node, t_vla *objects)
 
 	if (node->type != NODE_DICT)
 		return (ERROR);
-	if (list_to_vec3(get_list(node, NORMAL, 3), &plane.normal, -1, 1) == ERROR
-		|| list_to_vec3(get_list(node, COORDINATES, 3),
-			&plane.origin, NO_LIMIT, NO_LIMIT) == ERROR
+	if (query_set_vec3(
+			query_create(node, NORMAL, &plane.normal, true),
+			range_create(-1.0, 1.0)) == ERROR
+		|| query_set_vec3(
+			query_create(node, COORDINATES, &plane.origin, true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
 		|| try_vec3_unit(&plane.normal) == ERROR)
 		return (ERROR);
-	_append_plane_object(plane, objects);
+	ft_vla_append(objects, plane_object_new(plane.origin, plane.normal));
 	return (SUCCESS);
 }

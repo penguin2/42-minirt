@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:04:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/13 21:03:40 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:34:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,19 @@
 #include "define.h"
 #include "light.h"
 #include "utils.h"
-
-static void	_append_spot_light(t_spot spot, t_vla *lights)
-{
-	t_spot	*new_spot;
-	t_light	*light;
-
-	new_spot = spot_new(spot.pos, spot.brightness);
-	light = light_new(new_spot, spot_get_color, spot_free);
-	ft_vla_append(lights, light);
-}
+#include <float.h>
 
 int	append_spot(const t_json_node *node, t_vla *lights)
 {
 	t_spot				spot;
-	const t_json_node	*brightness_node = select_json_node(node, BRIGHTNESS);
-	const t_vla			*list_pos = get_list(node, COORDINATES, 3);
 
-	if (json_node_to_double(brightness_node, &spot.brightness, 0, 1) == ERROR
-		|| list_to_vec3(list_pos, &spot.pos, NO_LIMIT, NO_LIMIT) == ERROR)
+	if (query_set_vec3(
+			query_create(node, COORDINATES, &spot.pos, true),
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR
+		|| query_set_double(
+			query_create(node, BRIGHTNESS, &spot.brightness, true),
+			range_create(0.0, 1.0)) == ERROR)
 		return (ERROR);
-	_append_spot_light(spot, lights);
+	ft_vla_append(lights, spot_light_new(spot.pos, spot.brightness));
 	return (SUCCESS);
 }

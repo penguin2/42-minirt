@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:31:37 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/13 20:18:00 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/17 03:51:59 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ t_color	spot_get_color(
 			* pow(i_specular, hit->object->material.k_shininess);
 	else
 		i_specular = 0;
-	return (color_mul(color_composite(hit->object->color, light->color),
+	return (color_mul(
+			color_composite(
+				hit->object->get_color(hit->object, hit),
+				light->color),
 			spot->brightness * (i_diffuse + i_specular)));
 }
 

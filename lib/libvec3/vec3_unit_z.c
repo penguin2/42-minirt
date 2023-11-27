@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_image_map_parameter.c                          :+:      :+:    :+:   */
+/*   vec3_unit_z.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 18:15:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:50:07 by rikeda           ###   ########.fr       */
+/*   Created: 2023/11/17 18:08:42 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/17 18:08:53 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "parse.h"
-#include "object.h"
+#include "libvec3.h"
 
-int	add_image_map_parameter(const t_json_node *json_node, t_object *object)
+t_vec3	vec3_unit_z(void)
 {
-	(void)json_node;
-	(void)object;
-	return (SUCCESS);
+	return (vec3_create(0.0, 0.0, 1.0));
 }
