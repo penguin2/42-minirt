@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:05:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/24 21:05:22 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/25 19:57:01 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@
 # define PPM_P6_FORMAT_STR ("P6")
 # define PPM_P6_SPACE_STR (" ")
 # define PPM_P6_MAX_COLOR_VALUE_STR ("255")
+# define PPM_P6_BYTES_PER_COLOR (3)
 
 typedef struct s_ppm_reader{
-	char	*data;
-	int		width;
-	int		height;
+	unsigned char	*data;
+	int				width;
+	int				height;
 }	t_ppm_reader;
 
 t_ppm_reader	*ppm_reader_new(const char *filename);
 void			ppm_reader_free(t_ppm_reader *ppm_reader);
 int				ppm_reader_check_header(t_ppm_reader *new, int fd);
-t_color			ppm_reader_get_color(t_ppm_reader *reader, double u, double v);
+t_color			ppm_reader_get_color(
+					const t_ppm_reader *reader, double u, double v);
 char			*ppm_reader_get_next_line(int fd);
 
 #endif

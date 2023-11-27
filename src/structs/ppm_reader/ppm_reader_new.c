@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 17:37:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/24 21:07:03 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:08:32 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,42 @@
 #include "ppm_reader.h"
 #include "libgnl.h"
 #include <fcntl.h>
+#include <stdio.h>
 #include <unistd.h>
 
-static void	*_free_close_return_null(void *ptr, int fd);
+static void	*_free_close_return_null(void *new_ptr, void *data, int fd);
 
 t_ppm_reader	*ppm_reader_new(const char *filename)
 {
 	int				fd;
-	char			*data;
+	unsigned char	*data;
+	size_t			data_size;
 	t_ppm_reader	*new;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
+	{
+		perror(filename);
 		return (NULL);
+	}
 	new = ft_xcalloc(1, sizeof(t_ppm_reader));
 	if (ppm_reader_check_header(new, fd) == ERROR)
-		return (_free_close_return_null(new, fd));
-	data = get_next_line(fd, GNL_MODE_ALL);
-	if (data == NULL)
-		return (_free_close_return_null(new, fd));
+		return (_free_close_return_null(new, NULL, fd));
+	data = (unsigned char *)get_next_line(fd, &data_size, GNL_MODE_ALL);
+	if (!(data != NULL && new->width > 0 && new->height > 0
+			&& data_size == (size_t)new->width * new->height * 3))
+		return (_free_close_return_null(new, data, fd));
 	new->data = data;
+	close(fd);
 	return (new);
 }
 
-static void	*_free_close_return_null(void *ptr, int fd)
+static void	*_free_close_return_null(void *new_ptr, void *data, int fd)
 {
-	free(ptr);
+	if (new_ptr != NULL)
+		free(new_ptr);
+	if (data != NULL)
+		free(data);
 	close(fd);
 	return (NULL);
 }

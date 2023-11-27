@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object_new.c                                       :+:      :+:    :+:   */
+/*   sphere_get_texture_color.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/25 15:51:45 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/25 19:09:59 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/27 10:01:56 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "material.h"
-#include "object.h"
-#include <stddef.h>
+#include "ppm_reader.h"
+#include "sphere.h"
+#include "utils.h"
 
-t_object	*object_new(void *ptr)
+t_color	sphere_get_texture_color(
+			const t_sphere *sphere,
+			const t_ppm_reader *texture_map,
+			t_vec3 pos)
 {
-	t_object	*new;
+	double	u;
+	double	v;
 
-	new = ft_xcalloc(1, sizeof(t_object));
-	new->ptr = ptr;
-	new->is_checkerboard = false;
-	new->texture_map = NULL;
-	new->bump_map = NULL;
-	new->color = color_white();
-	new->material = material_create();
-	return (new);
+	map_3d_to_spherical(&u, &v, vec3_sub(pos, sphere->center), sphere->radius);
+	return (ppm_reader_get_color(texture_map, u, v));
 }

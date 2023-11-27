@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/30 16:14:52 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:06:34 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libcolor.h"
 # include "libft.h"
 # include "material.h"
+# include "ppm_reader.h"
 # include "ray.h"
 # include <stdbool.h>
 
@@ -40,7 +41,8 @@ typedef t_object_id		(*t_fn_obj_get_id)(void);
 typedef struct s_object{
 	void				*ptr;
 	bool				is_checkerboard;
-	void				*bump_map;
+	t_ppm_reader		*texture_map;
+	t_ppm_reader		*bump_map;
 	t_color				color;
 	t_material			material;
 	t_fn_obj_get_color	get_color;

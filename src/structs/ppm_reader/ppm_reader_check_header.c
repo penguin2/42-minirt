@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:24:30 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/24 21:09:24 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:41:47 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "ppm_reader.h"
 #include "utils.h"
+#include <limits.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -54,7 +55,9 @@ static int	_check_width_height(int fd, int *pwidth, int *pheight)
 	free(line);
 	if (ft_strings_len(splits) != 2
 		|| convert_str_to_positive_int(splits[0], &width) == ERROR
-		|| convert_str_to_positive_int(splits[1], &height) == ERROR)
+		|| convert_str_to_positive_int(splits[1], &height) == ERROR
+		|| !(width > 0 && height > 0
+			&& width <= INT_MAX / PPM_P6_BYTES_PER_COLOR / height))
 		return (_free_strings_return(splits, ERROR));
 	*pwidth = width;
 	*pheight = height;

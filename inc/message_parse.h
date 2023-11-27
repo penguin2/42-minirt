@@ -34,6 +34,7 @@
 # define INVALID_VECTOR "The vector parameters are invalid"
 # define INVALID_COLORS "The colors parameters are invalid"
 # define INVALID_REQUIRED_OBJECT "The number of required objects is invalid"
+# define INVALID_FILENAME "Error on handling some files"
 # define OUTSIDE_THE_RANGE "Value is outside the range of upper or lower limit"
 # define ATOF_FAILD "Doesn't conform to atof format or exceeds precision limit"
 # define VECTOR_TOO_SMALL "The vector parameters are too small"

@@ -16,6 +16,7 @@
 # include "libft.h"
 # include "camera.h"
 # include "light.h"
+# include "ppm_reader.h"
 # include "range.h"
 # include "scene.h"
 # include "object.h"
@@ -55,7 +56,6 @@
 
 # define PATTERN_NO_CONTENT_IN_DICT 1
 
-# define MAX_COLOR_8BIT (255)
 # define OPTION_START "--"
 # define COMMENTOUT_STRING "#"
 # define RT_SPACE_STR " \n	"
@@ -223,6 +223,8 @@ int			add_light_color(const t_json_node *json_node, t_light *light);
 
 int			add_additional_parameters(const t_json_node *json_node,
 				t_object *object);
+int			add_texture_map_parameter(const t_json_node *json_node,
+				t_object *object);
 int			add_bump_map_parameter(const t_json_node *json_node,
 				t_object *object);
 int			add_checkerboard_parameter(const t_json_node *json_node,
@@ -250,6 +252,8 @@ int			json_node_to_vec3(
 				const t_json_node *node, t_range range, t_vec3 *val);
 int			json_node_to_color(
 				const t_json_node *node, t_color *val);
+int			json_node_to_ppm_reader(
+				const t_json_node *node, t_ppm_reader **ptr);
 // query
 t_query		query_create(
 				const t_json_node *json_node,
@@ -260,6 +264,7 @@ int			query_set_double(t_query query, t_range range);
 int			query_set_boolean(t_query query);
 int			query_set_vec3(t_query query, t_range range);
 int			query_set_color(t_query query);
+int			query_set_ppm_reader(t_query query);
 
 //// rt 
 int			convert_rt_to_json(const char *file);

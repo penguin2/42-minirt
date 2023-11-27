@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object_new.c                                       :+:      :+:    :+:   */
+/*   query_set_ppm_reader.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/25 15:51:45 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/25 15:57:19 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/25 16:00:57 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "material.h"
-#include "object.h"
-#include <stddef.h>
+#include "message_parse.h"
+#include "parse.h"
+#include "utils.h"
 
-t_object	*object_new(void *ptr)
+int	query_set_ppm_reader(t_query query)
 {
-	t_object	*new;
+	const t_json_node	*filename_node;
 
-	new = ft_xcalloc(1, sizeof(t_object));
-	new->ptr = ptr;
-	new->is_checkerboard = false;
-	new->texture_map = NULL;
-	new->bump_map = NULL;
-	new->color = color_white();
-	new->material = material_create();
-	return (new);
+	filename_node = select_json_node(query.json_node, query.key);
+	if (filename_node == NULL)
+		return (error_with_message_if(query.is_required, INVALID_PARAMETERS));
+	return (json_node_to_ppm_reader(filename_node, query.value));
 }
