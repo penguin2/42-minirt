@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/14 17:20:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/24 20:14:17 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 # include "scene.h"
 # include "object.h"
 # include <stddef.h>
+# include <fcntl.h>
+
+// extension
+# define RT_EXTENSION ".rt"
+# define JSON_EXTENSION ".json"
 
 // tokenize
 # define JSON_SPACE_CHARSETS " \t\n"
@@ -26,51 +31,11 @@
 # define JSON_SPACE_AND_TOKEN_CHARSETS "{}[]:, \t\n\""
 # define JSON_KEY_CHARSETS "\""
 
+// bool
 # define TRUE_STRING "true"
-# define FALSE_STRING "false"
 # define TRUE_NUMBER "1"
+# define FALSE_STRING "false"
 # define FALSE_NUMBER "0"
-
-// identifer
-# define ID_AMBIENT "A"
-# define ID_CAMERA "C"
-# define ID_SPOT "L"
-# define ID_CYLINDER "cy"
-# define ID_SPHERE "sp"
-# define ID_PLANE "pl"
-# define ID_TRIANGLE "tr"
-# define ID_QUADRIC "qd"
-
-// parameters
-# define COLORS "colors"
-# define BRIGHTNESS "brightness"
-# define DIRECTION "orientation"
-# define COORDINATES "coordinates"
-# define FOV "fov"
-# define NORMAL "normal"
-# define DIAMETER "diameter"
-# define HEIGHT "height"
-# define AXIS "axis"
-
-// triangle
-# define VERTEX1 "vertex1"
-# define VERTEX2 "vertex2"
-# define VERTEX3 "vertex3"
-
-// quadric
-# define K_A "coefficient-a"
-# define K_B "coefficient-b"
-# define K_C "coefficient-c"
-# define K_D "coefficient-d"
-# define K_E "coefficient-e"
-
-// option parameters
-# define K_AMBIENT "coefficient-ambient"
-# define K_DIFFUSE "coefficient-diffuse"
-# define K_SPECULAR "coefficient-specular"
-# define K_SHININESS "coefficient-shininess"
-# define K_REFLECT "coefficient-reflect"
-# define IS_REFLECTIVE "is-reflective"
 
 // atof limit digit
 # define DOUBLE_LIMIT_DIGIT 15
@@ -83,6 +48,7 @@
 
 # define BRACKETS 2
 # define SIZE_OF_DICT_TOKEN 4
+# define OPEN_MODE 0644
 
 # define OPEN_BRACKETS 0
 # define CLOSING_BRACKETS 1
@@ -90,6 +56,39 @@
 # define PATTERN_NO_CONTENT_IN_DICT 1
 
 # define MAX_COLOR_8BIT (255)
+# define OPTION_START "--"
+# define COMMENTOUT_STRING "#"
+# define RT_SPACE_STR " \n	"
+
+# define IDENTIFER_IDX 0
+// option
+# define OPTION_START_IDX 0
+# define OPTION_KEY_IDX 1
+# define OPTION_VAL_IDX 2
+
+typedef enum e_required_max_size
+{
+	AMBIENT_MAX_SIZE = 3,
+	CAMERA_MAX_SIZE = 4,
+	SPOT_MAX_SIZE = 4,
+	CYLINDER_MAX_SIZE = 6,
+	PLANE_MAX_SIZE = 4,
+	SPHERE_MAX_SIZE = 4,
+	TRIANGLE_MAX_SIZE = 5,
+	QUADRIC_MAX_SIZE = 8,
+}	t_required_max_size;
+
+typedef enum e_optional_max_size
+{
+	LIGHTS_OPTION_MAX_SIZE = 0,
+	OBJECTS_OPTION_MAX_SIZE = 8,
+}	t_optional_max_size;
+
+typedef enum e_open_flag
+{
+	O_WRITE = O_CREAT | O_WRONLY | O_TRUNC,
+	O_READ = O_RDONLY,
+}	t_open_flag;
 
 typedef enum e_state
 {
@@ -133,7 +132,11 @@ int			check_extension(const char *file, const char *extension);
 char		*delete_commentout(const char *str, const char *commentout_str);
 int			try_atof_limit(const char *nptr, double *dptr, size_t limit);
 char		*get_all_chars_in_file(int fd);
-int			try_open_file(const char *file, const char *extension);
+char		*get_next_removed_comment_line(int fd);
+int			try_open_file(const char *file, const char *extension, int flag);
+char		*convert_extension(const char *file,
+				const char *old_extension,
+				const char *new_extension);
 
 // json -> token
 t_vla		*convert_json_to_token(const char *file);
@@ -237,5 +240,36 @@ int			list_to_vec3(
 t_json_node	*select_json_node(const t_json_node *master_node, const char *key);
 int			try_json_node_tof(const t_json_node *node, double *dptr);
 int			try_vec3_unit(t_vec3 *vec);
+
+//// rt 
+int			convert_rt_to_json(const char *file);
+int			convert_rt_to_rt_objects_array(t_vla *rt_objects_array, int fd);
+void		convert_rt_to_no_grouping_rt_objects(t_vla *no_grouping_rt_objects,
+				int fd);
+void		grouping_same_rt_objects(t_vla *no_grouping_rt_objects);
+
+void		free_rt_objects_array(t_vla *rt_objects_array);
+void		free_no_grouping_rt_objects(t_vla *no_grouping_rt_objects);
+
+// utils
+void		sort_no_grouping_rt_objects(t_vla *no_grouping_rt_objects);
+void		sort_rt_object_options(const t_vla *rt_object);
+
+int			check_rt_object_format(t_vla *no_grouping_rt_objects);
+int			check_rt_object_option_format(const t_vla *rt_object);
+int			check_duplicate_spot(t_vla *rt_objects_array);
+int			check_size_of_parameters(const t_vla *rt_object,
+				t_required_max_size required_parameters_max_size,
+				t_optional_max_size optional_parameters_max_size);
+
+bool		is_dupulicate(const char *str1, const char *str2);
+bool		is_option_key(const char *option_key, const char *identifer);
+
+const char	*get_identifer_from_no_grouping_rt_objects(
+				const t_vla *no_grouping_rt_objects,
+				size_t idx);
+const char	*get_identifer_from_rt_objects_array(
+				const t_vla *rt_objects,
+				size_t idx);
 
 #endif

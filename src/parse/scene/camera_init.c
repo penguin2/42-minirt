@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 18:52:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/13 14:20:08 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "utils.h"
 #include "parse.h"
 #include "message_parse.h"
+#include "identifer_and_parameter.h"
 #include <stdbool.h>
 
 static t_vec3	_get_camera_up_vector(t_vec3 dir);

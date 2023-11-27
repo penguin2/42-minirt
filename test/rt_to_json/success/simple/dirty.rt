@@ -1,0 +1,15 @@
+				# 改行、空白、タブが多用され、読みずらい
+
+
+
+
+
+		A				0.5		 			255,255,255 # sdfnaorjifgnredbfgljsfa
+									C	0,0,100		0,0,-1		70 #anoo
+sp 0,0,20 20 255,0,0 # sphereのパラメータ
+-- amb 1.0
+
+	--  dif 0.1
+			--				 shi			 3.14
+# oooooooooooooooooooooooooooo
+L 0,100,100 0.5 255,255,255

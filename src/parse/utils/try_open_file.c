@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:27:00 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/07 20:41:47 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:52:41 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-int	try_open_file(const char *file, const char *extension)
+int	try_open_file(const char *file, const char *extension, int flag)
 {
 	int	fd;
 
@@ -27,7 +27,10 @@ int	try_open_file(const char *file, const char *extension)
 		print_error(INVALID_FILE_EXTENSION);
 		return (ERROR);
 	}
-	fd = open(file, O_RDONLY);
+	if (flag == O_WRITE)
+		fd = open(file, flag, OPEN_MODE);
+	else
+		fd = open(file, flag);
 	if (fd == -1)
 	{
 		perror("open");

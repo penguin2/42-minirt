@@ -13,6 +13,7 @@
 #include "spot.h"
 #include "parse.h"
 #include "message_parse.h"
+#include "identifer_and_parameter.h"
 #include "define.h"
 #include "light.h"
 #include "utils.h"
