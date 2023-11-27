@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:33:26 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/24 21:10:01 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:25:40 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ppm_reader_get_next_line(int fd)
 
 	while (true)
 	{
-		line = get_next_line(fd, GNL_MODE_NEWLINE);
+		line = get_next_line(fd, NULL, GNL_MODE_NEWLINE);
 		if (line == NULL || !_is_startswith(line, PPM_P6_COMMENT_STR))
 			break ;
 		free(line);
