@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 20:28:10 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/29 01:48:56 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define NAME		("miniRT")
 
 # define PI			(3.141592653589793238)
+# define DIV_PI		(0.3183098861837907)
 # define DEG_TO_RAD	(0.017453292519943295)
 
 # define BUFFER_SIZE	(100)

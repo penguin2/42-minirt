@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 01:35:24 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 20:44:36 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/29 01:45:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ t_color	cylinder_get_checkerboard_color(
 	if (x < 0)
 		theta = -theta;
 	if (is_odd_2d(
-			theta * CHECKERBOARD_FREQUENCY_CYCLE / PI,
-			y * CHECKERBOARD_FREQUENCY_CYCLE / PI / cylinder->radius))
+			theta * CHECKERBOARD_FREQUENCY_CYCLE * DIV_PI,
+			y * CHECKERBOARD_FREQUENCY_CYCLE * DIV_PI / cylinder->radius))
 		return (color_white());
 	return (color_black());
 }

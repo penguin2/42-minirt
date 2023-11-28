@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:31:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/29 01:40:00 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/29 01:45:46 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	map_3d_to_spherical(double *u, double *v, t_vec3 pos, double radius)
 		theta = acos(pos.z / radius_proj);
 	if (pos.x < 0)
 		theta = -theta;
-	*u = phi / PI;
-	*v = 0.5 * (1 + theta / PI);
+	*u = phi * DIV_PI;
+	*v = 0.5 * (1 + theta * DIV_PI);
 }
