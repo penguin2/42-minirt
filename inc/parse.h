@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 18:33:53 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/28 22:05:04 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,8 @@ char		*convert_extension(const char *file,
 				const char *new_extension);
 bool		is_list_with_value_nodes(const t_json_node *node, size_t size);
 bool		is_only_value_node(const t_vla *list);
+bool		is_with_double_quotes(const char *str);
+char		*remove_double_quotes(const char *double_quoted_str);
 
 // json -> token
 t_vla		*convert_json_to_token(const char *file);
@@ -252,6 +254,7 @@ int			json_node_to_vec3(
 				const t_json_node *node, t_range range, t_vec3 *val);
 int			json_node_to_color(
 				const t_json_node *node, t_color *val);
+int			json_node_to_string(const t_json_node *node, char **str);
 int			json_node_to_ppm_reader(
 				const t_json_node *node, t_ppm_reader **ptr);
 // query
