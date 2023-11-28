@@ -6,12 +6,13 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:31:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/25 23:58:10 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/29 01:40:00 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "libvec3.h"
+#include "utils.h"
 #include <math.h>
 
 void	map_3d_to_spherical(double *u, double *v, t_vec3 pos, double radius)
@@ -21,7 +22,10 @@ void	map_3d_to_spherical(double *u, double *v, t_vec3 pos, double radius)
 	double			theta;
 
 	phi = acos(pos.y / radius);
-	theta = acos(pos.z / radius_proj);
+	if (is_zero(radius_proj))
+		theta = 0;
+	else
+		theta = acos(pos.z / radius_proj);
 	if (pos.x < 0)
 		theta = -theta;
 	*u = phi / PI;
