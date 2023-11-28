@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:06:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/30 14:36:08 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/28 23:10:46 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(const char *s, int fd);
 void		ft_putendl_fd(const char *s, int fd);
-
-char		*get_next_line(int fd);
 
 void		ft_vla_init(t_vla *vla);
 t_vla		*ft_vla_new(void);
