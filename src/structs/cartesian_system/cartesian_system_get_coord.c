@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere_get_texture_color.c                         :+:      :+:    :+:   */
+/*   cartesian_system_get_coord.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 19:09:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/29 19:43:43 by taekklee         ###   ########.fr       */
+/*   Created: 2023/11/29 16:58:10 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/29 19:50:29 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cartesian_system.h"
-#include "ppm_reader.h"
-#include "sphere.h"
-#include "utils.h"
 
-t_color	sphere_get_texture_color(
-			const t_sphere *sphere,
-			const t_ppm_reader *texture_map,
-			t_vec3 pos)
+t_vec3	cartesian_system_map_from_standard(
+			const t_cartesian_system *system,
+			t_vec3 standard_vec)
 {
-	const t_vec3	local_pos = cartesian_system_map_from_standard(
-			&sphere->system,
-			vec3_sub(pos, sphere->center));
-	double			u;
-	double			v;
-
-	map_3d_to_spherical(&u, &v, local_pos, sphere->radius);
-	return (ppm_reader_get_color(texture_map, u, v));
+	return (vec3_create(
+			vec3_dot(system->axis_x, standard_vec),
+			vec3_dot(system->axis_y, standard_vec),
+			vec3_dot(system->axis_z, standard_vec)));
 }

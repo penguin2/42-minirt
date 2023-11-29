@@ -6,19 +6,21 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:57:02 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/25 19:08:09 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:35:25 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPHERE_H
 # define SPHERE_H 
 
+# include "cartesian_system.h"
 # include "libvec3.h"
 # include "object.h"
 
 typedef struct s_sphere{
-	t_vec3	center;
-	double	radius;
+	t_vec3				center;
+	double				radius;
+	t_cartesian_system	system;
 }	t_sphere;
 
 t_sphere	*sphere_new(t_vec3 center, double radius);
@@ -34,5 +36,10 @@ t_color		sphere_get_texture_color(
 				const t_sphere *sphere,
 				const t_ppm_reader *texture_map,
 				t_vec3 pos);
+t_vec3		sphere_get_bump_normal(
+				const t_sphere *sphere,
+				const t_ppm_reader *bump_map,
+				t_vec3 pos,
+				t_vec3 normal);
 
 #endif
