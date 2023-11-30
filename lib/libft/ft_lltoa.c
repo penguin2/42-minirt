@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 13:48:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/16 21:50:49 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/11/21 18:44:39 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char	*ft_lltoa(long long int n)
 		*str = '-';
 		_fill_str_long(&str[1], n);
 	}
+	if (n == 0)
+		str[0] = '0';
 	else
 		_fill_str_long(str, n);
 	return (str);

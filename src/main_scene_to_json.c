@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane_object_new.c                                 :+:      :+:    :+:   */
+/*   main_scene_to_json.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 01:15:15 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/30 17:22:23 by rikeda           ###   ########.fr       */
+/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
+/*   Updated: 2023/11/30 18:35:08 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "plane.h"
+#include "define.h"
+#include "mlx_ptr.h"
+#include "scene.h"
+#include "generator.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-t_object	*plane_object_new(t_vec3 origin, t_vec3 normal)
+int	main(int argc, char *argv[])
 {
-	t_object	*new_object;
+	t_scene	scene;
 
-	new_object = object_new(plane_new(origin, normal));
-	new_object->get_color = plane_get_color;
-	new_object->get_dist = plane_get_dist;
-	new_object->get_normal = plane_get_normal;
-	new_object->get_id = plane_get_id;
-	new_object->free_ptr = plane_free;
-	return (new_object);
+	if (scene_init(&scene, argc, argv) == ERROR
+		|| json_generator_from_scene(&scene))
+		exit (EXIT_FAILURE);
+	exit (EXIT_SUCCESS);
 }

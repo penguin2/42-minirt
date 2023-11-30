@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:05:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 01:45:42 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:13:23 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_color		ambient_get_color(
 				const t_light *light,
 				const t_hit *hit,
 				const t_vla *objects);
+t_light_id	ambient_get_id(void);
 void		ambient_free(void *ambient);
 
 #endif

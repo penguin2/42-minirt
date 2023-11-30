@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 00:17:49 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 01:39:18 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:25:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void		quadric_free(void *quadric);
 t_color		quadric_get_color(const t_object *object, const t_hit *hit);
 bool		quadric_get_dist(const t_object *object, t_ray ray, double *dist);
 t_vec3		quadric_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
+t_object_id	quadric_get_id(void);
 
 double		quadric_dot(const double coeff_array[QUADRIC_COEFFICIENT_SIZE],
 				t_vec3 vec1,
