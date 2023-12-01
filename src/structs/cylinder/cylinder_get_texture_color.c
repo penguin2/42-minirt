@@ -1,46 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_get_checkerboard_color.c                  :+:      :+:    :+:   */
+/*   cylinder_get_texture_color.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 01:35:24 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 17:13:17 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/01 16:47:14 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/01 17:14:54 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
 #include "cylinder.h"
+#include "define.h"
+#include "plane.h"
+#include "ppm_reader.h"
 #include "utils.h"
-#include <math.h>
 
-/**
- * @brief  given the specific position in the cylinder,
- * 			calculate the color of its position
- * 
- * 		the white/black part of the checkerboard is defined such that
- * 		1. white/black is alternating 'CYLINDER_CYCLE' times
- * 			per one cycle along the surface of the cylinder
- * 		2. every part should be square-shaped
- * @param cylinder given cylinder
- * @param pos given position
- * @return white if the position is on the white part, otherwise black
- */
-t_color	cylinder_get_checkerboard_color(
-				const t_cylinder *cylinder,
-				t_vec3 pos)
+t_color	cylinder_get_texture_color(
+			const t_cylinder *cylinder,
+			const t_ppm_reader *texture_map,
+			t_vec3 pos)
 {
 	const t_vec3	coord = vec3_sub(pos, cylinder->center);
 	const double	z = vec3_dot(coord, cylinder->system.axis_z)
-		/ (2.0 * cylinder->radius * PI) * CYLINDER_CYCLE;
+		/ cylinder->radius * DIV_PI * CYLINDER_CYCLE;
 	const double	x = vec3_dot(coord, cylinder->system.axis_x);
 	const double	y = vec3_dot(coord, cylinder->system.axis_y);
 	double			theta;
 
 	map_2d_to_spherical(&theta, x, y, cylinder->radius);
 	theta *= CYLINDER_CYCLE;
-	if (is_odd_2d(theta, z))
-		return (color_white());
-	return (color_black());
+	return (ppm_reader_get_color(
+			texture_map,
+			mod_double(theta),
+			mod_double(z)));
 }
