@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 18:07:38 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/01 17:45:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define NOT_JSON_FORMAT "json format"
 # define NO_TOKEN "json token is None"
 # define JSON_FILE_IS_EMPTY "Json file is empty"
+# define JSON_DICT_KEY_DUPLICATE "Json dict key is duplicate"
 
 // json parse
 # define INVALID_PARAMETERS "parameters are invalid"
