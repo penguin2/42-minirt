@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 01:11:13 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 12:42:06 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:52:55 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ t_color	plane_get_checkerboard_color(const t_plane *plane, t_vec3 pos)
 {
 	const t_vec3	coord = vec3_sub(pos, plane->origin);
 	const double	u = vec3_dot(coord, plane->system.axis_x)
-		/ CHECKERBOARD_SIZE_PLANE;
+		/ UNIT_TEXTURE_SIZE;
 	const double	v = vec3_dot(coord, plane->system.axis_y)
-		/ CHECKERBOARD_SIZE_PLANE;
+		/ UNIT_TEXTURE_SIZE;
 
 	if (is_odd_2d(u, v))
 		return (color_white());

@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:57:02 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/29 19:35:25 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:09:52 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ typedef struct s_sphere{
 	double				radius;
 	t_cartesian_system	system;
 }	t_sphere;
+
+# define SPHERE_LATITUDE_CYCLE (12)
+# define SPHERE_LONGITUDE_CYCLE (6)
 
 t_sphere	*sphere_new(t_vec3 center, double radius);
 t_object	*sphere_object_new(t_vec3 center, double radius);
