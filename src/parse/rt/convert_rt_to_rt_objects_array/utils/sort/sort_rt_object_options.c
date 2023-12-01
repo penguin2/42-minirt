@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:09:50 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/30 14:28:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/01 16:51:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,20 @@ static bool	_cmp_option_string(const void *ptr1, const void *ptr2)
 	return (ft_strcmp(option_string1, option_string2) < 0);
 }
 
+/**
+* @brief Sort rt_object option parameter.
+*		 [Warning]: rt_object[0] is not an optional parameter,
+*		 but a required parameter,
+*		 and this function sorts by excluding the required parameters,
+*		 since this function sorts only optional parameters.
+*
+* @param rt_object vla of parameters include option parameters
+*/
 void	sort_rt_object_options(const t_vla *rt_object)
 {
 	ft_sort(
-		rt_object->array,
-		rt_object->size,
+		&rt_object->array[1],
+		rt_object->size - 1,
 		_cmp_option_string
 		);
 }
