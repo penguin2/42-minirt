@@ -6,14 +6,14 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:13:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/07 01:49:35 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:06:55 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_HOOK_HELPER_H
 # define MLX_HOOK_HELPER_H
 
-# define HOOK_KEY_PRESS_CNT			(15)
+# define HOOK_KEY_PRESS_CNT			(16)
 # define HOOK_KEY_RELEASE_CNT		(2)
 # define HOOK_BUTTON_PRESS_CNT		(1)
 # define HOOK_BUTTON_RELEASE_CNT	(1)
@@ -50,6 +50,7 @@ void	hook_fn_rotate_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_move_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_zoom_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_set_shift_on(t_mlx_ptr *mlx_ptr, int keycode);
+void	hook_fn_save_scene(t_mlx_ptr *mlx_ptr, int keycode);
 
 //hook_fn: key_release
 void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode);
