@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/25 18:23:33 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:28:59 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ bool	is_odd_2d(double u, double v);
 
 int		convert_str_to_positive_int(const char *str, int *val);
 void	map_3d_to_spherical(double *u, double *v, t_vec3 pos_3d, double radius);
+double	mod_double(double x);
 
 #endif

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane_get_normal.c                                 :+:      :+:    :+:   */
+/*   mod_double.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 23:14:00 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 01:10:27 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/01 01:03:02 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/01 12:29:11 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libvec3.h"
-#include "plane.h"
+#include <math.h>
 
-t_vec3	plane_get_normal(const t_object *object, t_ray ray, t_vec3 pos)
+double	mod_double(double x)
 {
-	const t_plane	*plane = object->ptr;
-	t_vec3			normal;
+	double	tmp;
 
-	normal = plane->normal;
-	if (object->bump_map != NULL)
-		normal = plane_get_bump_normal(
-				object->ptr, object->bump_map, pos, normal);
-	if (vec3_dot(ray.dir, plane->normal) > 0)
-		return (vec3_mul(normal, -1.0));
-	return (normal);
+	x = modf(x, &tmp);
+	if (x < 0)
+		return (x + 1);
+	return (x);
 }
