@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/30 19:45:43 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/01 19:45:06 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void		put_key_and_colon(const char *key_string, int fd);
 void		put_value_separator(bool is_with_comma, size_t fd);
 
 //// scene -> json_object
-t_vla		*json_generator_from_scene(t_scene *scene);
+t_vla		*json_generator_from_scene(t_scene *scene, int fd);
 void		json_dict_generator_from_camera(t_camera *camera, t_vla *dict);
 void		json_dict_generator_from_lights(t_vla *lights, t_vla *dict);
 void		json_dict_generator_from_objects(t_vla *objects, t_vla *dict);
@@ -99,5 +99,6 @@ t_vla		*quadric_generator(t_object *object);
 t_json_node	*color_to_json_list(const t_color *color, const char *key);
 t_json_node	*vec3_to_json_list(const t_vec3 *vec, const char *key);
 t_json_node	*double_to_json_list(double n, const char *key);
+char		*ftoa_auto_adjust_when_over_limit(double n);
 
 #endif

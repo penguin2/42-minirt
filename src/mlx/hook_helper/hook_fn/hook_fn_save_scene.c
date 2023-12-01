@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:56:38 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/01 14:06:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/01 18:35:08 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "mlx_hook_helper.h"
 #include "mlx_ptr.h"
 #include "generator.h"
+#include <unistd.h>
 #include <X11/keysym.h>
 
 void	hook_fn_save_scene(t_mlx_ptr *mlx_ptr, int keycode)
@@ -23,7 +24,7 @@ void	hook_fn_save_scene(t_mlx_ptr *mlx_ptr, int keycode)
 
 	scene = mlx_ptr->scene;
 	if (keycode == XK_F1)
-		json_generator_from_scene(scene);
+		json_generator_from_scene(scene, STDOUT_FILENO);
 	else
 		return ;
 }
