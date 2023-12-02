@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/27 17:54:49 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:33:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ typedef struct s_query
 
 //// json -> json_object
 t_vla		*convert_json_to_json_object(const char *file);
+void		sort_json_object(t_json_node *master_node);
+int			check_duplicate_dict_key(t_json_node *master_node);
 void		free_json_object(t_vla *json_object);
 
 // utils
@@ -280,7 +282,7 @@ int			check_size_of_parameters(const t_vla *rt_object,
 				t_required_max_size required_parameters_max_size,
 				t_optional_max_size optional_parameters_max_size);
 
-bool		is_dupulicate(const char *str1, const char *str2);
+bool		is_duplicate(const char *str1, const char *str2);
 bool		is_option_key(const char *option_key, const char *identifer);
 
 const char	*get_identifer_from_no_grouping_rt_objects(
