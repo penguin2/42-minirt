@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:54:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/01 17:52:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/02 19:04:21 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	_check_duplicate(t_vla *dict)
 	while (idx < dict->size)
 	{
 		node = (t_json_node *)dict->array[idx++];
-		if (is_dupulicate(prev_key, node->key))
+		if (is_duplicate(prev_key, node->key))
 			return (ERROR);
 		prev_key = node->key;
 	}

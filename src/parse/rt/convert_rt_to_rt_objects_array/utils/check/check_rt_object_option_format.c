@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 18:21:55 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/02 19:04:28 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_rt_object_option_format(const t_vla *rt_object)
 		strings = rt_object->array[idx++];
 		if (!is_option_key(strings[OPTION_KEY_IDX], identifer))
 			return (ERROR);
-		else if (is_dupulicate(prev_option_key, strings[OPTION_KEY_IDX]))
+		else if (is_duplicate(prev_option_key, strings[OPTION_KEY_IDX]))
 		{
 			print_error(RT_OPTION_DUPLICATE);
 			return (ERROR);

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:41:13 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/24 18:03:56 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/02 18:33:43 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	grouping_same_rt_objects(t_vla *no_grouping_rt_objects)
 		identifer = get_identifer_from_no_grouping_rt_objects(
 				no_grouping_rt_objects, idx);
 		tmp = no_grouping_rt_objects->array[idx];
-		if (!is_dupulicate(prev_identifer, identifer))
+		if (!is_duplicate(prev_identifer, identifer))
 			no_grouping_rt_objects->array[group_count++] = ft_vla_new();
 		ft_vla_append(no_grouping_rt_objects->array[group_count - 1], tmp);
 		prev_identifer = identifer;
