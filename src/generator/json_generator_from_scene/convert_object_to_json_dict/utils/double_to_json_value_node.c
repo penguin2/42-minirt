@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec3_to_json_list.c                                :+:      :+:    :+:   */
+/*   double_to_json_value.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 18:23:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/01 19:49:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/02 14:21:17 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
 #include "generator.h"
 
-t_json_node	*vec3_to_json_list(const t_vec3 *vec, const char *key)
+t_json_node	*double_to_json_value_node(double n, const char *key)
 {
-	t_json_node	*list_node;
-	t_vla		*list;
+	char		*copy_key;
 
-	list_node = json_node_new(ft_strdup(key), ft_vla_new(), NODE_LIST);
-	list = list_node->value;
-	ft_vla_append(list, double_to_json_list(vec->x, NULL));
-	ft_vla_append(list, double_to_json_list(vec->y, NULL));
-	ft_vla_append(list, double_to_json_list(vec->z, NULL));
-	return (list_node);
+	if (key == NULL)
+		copy_key = NULL;
+	else
+		copy_key = ft_strdup(key);
+	return (
+		json_node_new(
+			copy_key,
+			ftoa_auto_adjust_when_over_limit(n),
+			NODE_VALUE
+		)
+	);
 }
