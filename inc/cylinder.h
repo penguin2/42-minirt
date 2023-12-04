@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:00:54 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 17:20:08 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:42:17 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,10 @@ t_color		cylinder_get_texture_color(
 				const t_cylinder *cylinder,
 				const t_ppm_reader *texture_map,
 				t_vec3 pos);
+t_vec3		cylinder_get_bump_normal(
+				const t_cylinder *cylinder,
+				const t_ppm_reader *bump_map,
+				t_vec3 pos,
+				t_vec3 normal);
 
 #endif

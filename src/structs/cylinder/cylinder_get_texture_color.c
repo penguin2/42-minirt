@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:47:14 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 17:14:54 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:53:10 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ t_color	cylinder_get_texture_color(
 			t_vec3 pos)
 {
 	const t_vec3	coord = vec3_sub(pos, cylinder->center);
-	const double	z = vec3_dot(coord, cylinder->system.axis_z)
-		/ cylinder->radius * DIV_PI * CYLINDER_CYCLE;
-	const double	x = vec3_dot(coord, cylinder->system.axis_x);
-	const double	y = vec3_dot(coord, cylinder->system.axis_y);
-	double			theta;
+	double			u;
+	double			v;
 
-	map_2d_to_spherical(&theta, x, y, cylinder->radius);
-	theta *= CYLINDER_CYCLE;
-	return (ppm_reader_get_color(
-			texture_map,
-			mod_double(theta),
-			mod_double(z)));
+	map_2d_to_spherical(
+		&v,
+		vec3_dot(coord, cylinder->system.axis_x),
+		vec3_dot(coord, cylinder->system.axis_y),
+		cylinder->radius);
+	u = mod_double(vec3_dot(coord, cylinder->system.axis_z)
+			/ (2.0 * cylinder->radius * PI) * CYLINDER_CYCLE);
+	v = mod_double(v * CYLINDER_CYCLE);
+	return (ppm_reader_get_color(texture_map, u, v));
 }
