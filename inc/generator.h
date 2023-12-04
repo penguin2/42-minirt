@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 14:23:58 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/04 21:38:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,11 @@ t_vla		*quadric_generator(t_object *object);
 t_json_node	*color_to_json_list_node(const t_color *color, const char *key);
 t_json_node	*vec3_to_json_list_node(const t_vec3 *vec, const char *key);
 t_json_node	*double_to_json_value_node(double n, const char *key);
+t_json_node	*bool_to_json_value_node(bool true_or_false, const char *key);
 char		*ftoa_auto_adjust_when_over_limit(double n);
+
+void		append_material_parameters_node(
+				t_vla *json_obj,
+				t_material material);
 
 #endif

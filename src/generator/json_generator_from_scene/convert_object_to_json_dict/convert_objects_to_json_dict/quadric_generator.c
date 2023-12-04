@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:47:16 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 14:28:58 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/04 21:39:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ t_vla	*quadric_generator(t_object *object)
 		double_to_json_value_node(quadric->coeff_array[COEFF_E], K_E));
 	ft_vla_append(json_quadric,
 		color_to_json_list_node(&object->color, COLORS));
+	append_material_parameters_node(json_quadric, object->material);
 	return (json_quadric);
 }

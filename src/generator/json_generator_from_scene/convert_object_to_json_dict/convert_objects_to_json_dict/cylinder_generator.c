@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:47:16 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 14:29:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/04 21:39:36 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ t_vla	*cylinder_generator(t_object *object)
 		double_to_json_value_node(cylinder->half_height * 2.0, HEIGHT));
 	ft_vla_append(json_cylinder,
 		color_to_json_list_node(&object->color, COLORS));
+	append_material_parameters_node(json_cylinder, object->material);
+	if (object->is_checkerboard)
+		ft_vla_append(json_cylinder,
+			bool_to_json_value_node(object->is_checkerboard, IS_CHECKERBOARD));
 	return (json_cylinder);
 }
