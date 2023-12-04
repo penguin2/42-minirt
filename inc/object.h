@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/25 15:06:34 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:39:09 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_hit	t_hit;
 
 typedef t_color			(*t_fn_obj_get_color)(const t_object*, const t_hit*);
 typedef bool			(*t_fn_obj_get_dist)(const t_object*, t_ray, double*);
-typedef t_vec3			(*t_fn_obj_get_normal)(const t_object*, t_ray, t_vec3);
+typedef t_vec3			(*t_fn_obj_get_normal)(
+							const t_object*, t_ray, t_vec3, t_vec3*);
 typedef void			(*t_fn_obj_free_ptr)(void*);
 typedef t_object_id		(*t_fn_obj_get_id)(void);
 

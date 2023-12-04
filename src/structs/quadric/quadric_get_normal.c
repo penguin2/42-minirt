@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 01:36:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/15 18:08:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/04 17:49:29 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 
 static bool	_is_interior(const t_quadric *quadric, t_vec3 point);
 
-t_vec3	quadric_get_normal(const t_object *object, t_ray ray, t_vec3 pos)
+t_vec3	quadric_get_normal(
+			const t_object *object,
+			t_ray ray,
+			t_vec3 pos,
+			t_vec3 *local_normal)
 {
 	const t_quadric	*quadric = object->ptr;
 	t_vec3			normal;
@@ -27,8 +31,12 @@ t_vec3	quadric_get_normal(const t_object *object, t_ray ray, t_vec3 pos)
 	normal.z = 2 * quadric->coeff_array[COEFF_C]
 		* pos.z + quadric->coeff_array[COEFF_D];
 	normal = vec3_unit(normal);
+	*local_normal = normal;
 	if (_is_interior(quadric, ray.origin))
-		return (vec3_mul(normal, -1.0));
+	{
+		*local_normal = vec3_mul(*local_normal, -1.0);
+		normal = vec3_mul(normal, -1.0);
+	}
 	return (normal);
 }
 
