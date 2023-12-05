@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_buffer.c                                     :+:      :+:    :+:   */
+/*   mlx_buffer_parse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 20:05:12 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 20:39:50 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/05 15:16:46 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_fn_exec_command	_select_command_function(const char *command)
 		return (NULL);
 }
 
-int	parse_buffer(const char *buffer)
+int	mlx_buffer_parse(const char *buffer)
 {
 	int					ret;
 	char				**strings;

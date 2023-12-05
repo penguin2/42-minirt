@@ -13,10 +13,11 @@
 #ifndef MLX_HOOK_HELPER_H
 # define MLX_HOOK_HELPER_H
 
-# define HOOK_KEY_PRESS_CNT			(16)
+# define HOOK_KEY_PRESS_CNT			(18)
 # define HOOK_KEY_RELEASE_CNT		(2)
 # define HOOK_BUTTON_PRESS_CNT		(2)
 # define HOOK_BUTTON_RELEASE_CNT	(1)
+# define HOOK_KEY_PRESS_CMD_CNT		(47)
 
 # define BUTTON_LEFT_X				(1)
 # define BUTTON_RIGHT_X				(3)
@@ -36,6 +37,7 @@ typedef struct s_mlx_hook_helper{
 	t_hook	hooks_key_release[HOOK_KEY_RELEASE_CNT];
 	t_hook	hooks_button_press[HOOK_BUTTON_PRESS_CNT];
 	t_hook	hooks_button_release[HOOK_BUTTON_RELEASE_CNT];
+	t_hook	hooks_key_press_cmd_mode[HOOK_KEY_PRESS_CMD_CNT];
 }	t_mlx_hook_helper;
 
 void	mlx_hook_helper_set_hook(t_hook *hook, int identifier, void *handler);
@@ -52,6 +54,7 @@ void	hook_fn_move_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_zoom_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_set_shift_on(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_save_scene(t_mlx_ptr *mlx_ptr, int keycode);
+void	hook_fn_enter_cmd_mode(t_mlx_ptr *mlx_ptr, int keycode);
 
 //hook_fn: key_release
 void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode);

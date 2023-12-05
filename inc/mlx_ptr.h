@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:30:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/02 20:44:46 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/05 17:06:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 
 # define COMMAND_MODE_SPACE_STR "	"
-# define MLX_BUFFER_SIZE 30
+# define MLX_BUFFER_SIZE 100
 
 typedef enum e_mlx_mode
 {
@@ -54,10 +54,5 @@ int	mlx_ptr_hook_button_release(int button, int x, int y, t_mlx_ptr *mlx_ptr);
 int	mlx_ptr_hook_motion_notify(int x, int y, t_mlx_ptr *mlx_ptr);
 int	mlx_ptr_hook_expose(t_mlx_ptr *mlx_ptr);
 int	mlx_ptr_hook_destroy_notify(t_mlx_ptr *mlx_ptr);
-
-// buffer utils
-int	write_buffer(char *buffer, int c, size_t buffer_max_size);
-int	remove_buffer(char *buffer);
-int	flush_buffer(char *buffer);
 
 #endif

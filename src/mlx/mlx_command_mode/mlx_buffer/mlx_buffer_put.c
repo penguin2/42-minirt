@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_buffer.c                                     :+:      :+:    :+:   */
+/*   mlx_buffer_put.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/02 19:45:46 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 20:40:31 by rikeda           ###   ########.fr       */
+/*   Created: 2023/12/05 16:13:30 by rikeda            #+#    #+#             */
+/*   Updated: 2023/12/05 17:50:03 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "mlx_command_mode.h"
 #include "define.h"
-#include <stddef.h>
-#include <unistd.h>
+#include <mlx.h>
 
-int	write_buffer(char *buffer, int c, size_t buffer_max_size)
+int	mlx_buffer_put(t_mlx_ptr *mlx_ptr)
 {
-	const size_t	buffer_len = ft_strlen(buffer);
-
-	if (buffer_len == 0)
-		return (ERROR);
-	else if (buffer_len == buffer_max_size - 1)
-	{
-		ft_putchar_fd('\a', STDOUT_FILENO);
-		return (ERROR);
-	}
-	buffer[buffer_len] = c;
-	buffer[buffer_len + 1] = '\0';
-	return (buffer_len);
+	mlx_string_put(
+		mlx_ptr->ptr,
+		mlx_ptr->wdw_ptr,
+		WDW_CMD_WIDTH_START,
+		WDW_HEIGHT - (WDW_CMD_HEIGHT / 3),
+		MLX_COMMAND_LINE_COLOR,
+		mlx_ptr->buffer
+		);
+	return (SUCCESS);
 }

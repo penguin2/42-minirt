@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove_buffer.c                                    :+:      :+:    :+:   */
+/*   mlx_buffer_remove.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 19:51:26 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 19:55:47 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/05 15:17:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "define.h"
 #include <stddef.h>
 
-int	remove_buffer(char *buffer)
+int	mlx_buffer_remove(char *buffer)
 {
 	const size_t	buffer_len = ft_strlen(buffer);
 
