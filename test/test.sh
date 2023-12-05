@@ -94,6 +94,10 @@ elif [ $2 == 'rt' ] ; then
 	EXEC_RT $FUNC
 elif [ $2 == 'rt_bonus' ] ; then
 	EXEC_RT_BONUS $FUNC
+elif [ $2 == 'scene_to_json' ] ; then
+	EXEC_RT $FUNC
+elif [ $2 == 'scene_to_json_bonus' ] ; then
+	EXEC_RT_BONUS $FUNC
 else
 	echo "please enter argument2 [json, scene, rt]"
 	exit 1

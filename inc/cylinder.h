@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:00:54 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 19:34:22 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:22:42 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		cylinder_free(void *cylinder);
 t_color		cylinder_get_color(const t_object *object, const t_hit *hit);
 bool		cylinder_get_dist(const t_object *object, t_ray ray, double *dist);
 t_vec3		cylinder_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
+t_object_id	cylinder_get_id(void);
 
 t_color		cylinder_get_checkerboard_color(
 				const t_cylinder *cylinder,

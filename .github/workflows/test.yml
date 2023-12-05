@@ -63,3 +63,25 @@ jobs:
     - name: test rt bonus
       run: |
         make test_rt_bonus
+
+  test_scene_to_json:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test scene to json
+      run: |
+        make test_scene_to_json
+
+  test_scene_to_json_bonus:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: test scene to json bonus
+      run: |
+        make test_scene_to_json_bonus

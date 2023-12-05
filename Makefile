@@ -31,6 +31,10 @@ ifeq ($(MAKECMDGOALS), test_json)
 	SRCS += main_json.c
 else ifeq ($(MAKECMDGOALS), test_scene)
 	SRCS += main_scene.c
+else ifeq ($(MAKECMDGOALS), test_scene_to_json)
+	SRCS += main_scene_to_json.c
+else ifeq ($(MAKECMDGOALS), test_scene_to_json_bonus)
+	SRCS += main_scene_to_json.c
 else ifeq ($(MAKECMDGOALS), test_rt)
 	SRCS += main_rt.c
 else ifeq ($(MAKECMDGOALS), test_rt_bonus)
@@ -87,6 +91,8 @@ OK_OR_KO	=	"KO"
 TEST_SH		=	"./test/test.sh"
 JSON		=	"json"
 SCENE		=	"scene"
+SCENE_TO_JSON	= "scene_to_json"
+SCENE_TO_JSON_BONUS	= "scene_to_json_bonus"
 RT			=	"rt"
 RT_BONUS	=	"rt_bonus"
 # SRCS 		+= leaks.c
@@ -106,6 +112,14 @@ test_rt : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
 test_rt_bonus : $(MINILIBX_DIR) $(OBJ_BONUS_SUBDIRS) $(OBJS_BONUS)
 	$(CC) $(CFLAGS_BONUS) $(OBJS_BONUS) $(INCLUDE) $(LINKER_OPT) -ominiRT_bonus
 	$(TEST_SH) $(OK_OR_KO) $(RT_BONUS)
+
+test_scene_to_json : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) $(LINKER_OPT) -ominiRT
+	$(TEST_SH) $(OK_OR_KO) $(SCENE_TO_JSON)
+
+test_scene_to_json_bonus : $(MINILIBX_DIR) $(OBJ_BONUS_SUBDIRS) $(OBJS_BONUS)
+	$(CC) $(CFLAGS_BONUS) $(OBJS_BONUS) $(INCLUDE) $(LINKER_OPT) -ominiRT_bonus
+	$(TEST_SH) $(OK_OR_KO) $(SCENE_TO_JSON_BONUS)
 
 .PHONY	:	norm
 norm :

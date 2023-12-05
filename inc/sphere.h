@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:57:02 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 01:38:58 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:19:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void		sphere_free(void *sphere);
 t_color		sphere_get_color(const t_object *object, const t_hit *hit);
 bool		sphere_get_dist(const t_object *object, t_ray ray, double *dist);
 t_vec3		sphere_get_normal(const t_object *object, t_ray ray, t_vec3 pos);
+t_object_id	sphere_get_id(void);
 
 t_color		sphere_get_checkerboard_color(const t_sphere *sphere, t_vec3 pos);
 

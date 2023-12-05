@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/27 18:32:03 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:51:27 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	_set_camera_infomation(t_camera *camera, double fov)
 		fov = FOV_UPPER_LIMIT;
 		print_warning(WARNING_FOV_IS_180);
 	}
-	camera->fov = fov * (2.0 * PI / 360);
+	camera->fov = fov * DEG_TO_RAD;
 	camera->dir = camera->dir;
 	camera->up = _get_camera_up_vector(camera->dir);
 	camera->right = vec3_cross(camera->dir, camera->up);

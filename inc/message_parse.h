@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/01 17:45:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/01 18:57:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define WARNING_FOV_IS_0 "Adjusted fov to 1 due to a 0 input"
 # define WARNING_FOV_IS_180 "Adjusted fov to 179 due to a 180 input"
 # define WARNING_LIGHT_COLORS "Light color is invalid, so I set white color"
+# define WARNING_REACH_LIMIT "Reach double limit, so I set double limit value"
 
 //// ERROR
 // tokenize
