@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:04:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/18 15:49:30 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/06 18:59:07 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ static const char	*_get_formal_option_key(const char *simplified_option_key)
 		return (K_REFLECT);
 	else if (ft_is_equal_str(simplified_option_key, CHECKERBOARD_OMITTED))
 		return (IS_CHECKERBOARD);
+	else if (ft_is_equal_str(simplified_option_key, TEXTURE_MAP_OMITTED))
+		return (TEXTURE_MAP);
+	else if (ft_is_equal_str(simplified_option_key, BUMP_MAP_OMITTED))
+		return (BUMP_MAP);
 	else
 		return (simplified_option_key);
 }

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:24:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/28 23:05:33 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:06:10 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define K_SHININESS_OMITTED "shi"
 # define K_REFLECT_OMITTED "rfl"
 # define BUMP_MAP_OMITTED "bmp"
+# define TEXTURE_MAP_OMITTED "tex"
 # define CHECKERBOARD_OMITTED "chk"
 
 # define K_AMBIENT "coefficient-ambient"
