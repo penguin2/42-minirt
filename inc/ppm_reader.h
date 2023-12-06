@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:05:21 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/29 19:35:39 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:25:02 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define PPM_P6_BYTES_PER_COLOR (3)
 
 typedef struct s_ppm_reader{
+	char			*filename;
 	unsigned char	*data;
 	int				width;
 	int				height;

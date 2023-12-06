@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/28 22:05:04 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/06 20:04:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ bool		is_list_with_value_nodes(const t_json_node *node, size_t size);
 bool		is_only_value_node(const t_vla *list);
 bool		is_with_double_quotes(const char *str);
 char		*remove_double_quotes(const char *double_quoted_str);
+char		*add_double_quotes(const char *src);
 
 // json -> token
 t_vla		*convert_json_to_token(const char *file);

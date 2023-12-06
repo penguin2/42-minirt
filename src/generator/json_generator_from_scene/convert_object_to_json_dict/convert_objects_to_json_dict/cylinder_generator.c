@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:47:16 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/05 16:56:45 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:29:24 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ t_vla	*cylinder_generator(t_object *object)
 	if (object->is_checkerboard)
 		ft_vla_append(json_cylinder,
 			bool_to_json_value_node(object->is_checkerboard, IS_CHECKERBOARD));
+	append_ppm_reader(json_cylinder, object->texture_map, TEXTURE_MAP);
+	append_ppm_reader(json_cylinder, object->bump_map, BUMP_MAP);
 	return (json_cylinder);
 }

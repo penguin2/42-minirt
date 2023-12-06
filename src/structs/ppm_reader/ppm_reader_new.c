@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 17:37:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/27 10:08:32 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:24:12 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_ppm_reader	*ppm_reader_new(const char *filename)
 		return (NULL);
 	}
 	new = ft_xcalloc(1, sizeof(t_ppm_reader));
+	new->filename = ft_strdup(filename);
 	if (ppm_reader_check_header(new, fd) == ERROR)
 		return (_free_close_return_null(new, NULL, fd));
 	data = (unsigned char *)get_next_line(fd, &data_size, GNL_MODE_ALL);

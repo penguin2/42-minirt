@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ppm_reader_free.c                                  :+:      :+:    :+:   */
+/*   add_double_quotes.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 21:00:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/06 19:24:49 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/06 19:57:59 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/06 20:09:00 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ppm_reader.h"
-#include <stdlib.h>
+#include "libft.h"
 
-void	ppm_reader_free(t_ppm_reader *ppm_reader)
+char	*add_double_quotes(const char *src)
 {
-	if (ppm_reader == NULL)
-		return ;
-	free(ppm_reader->filename);
-	free(ppm_reader->data);
-	free(ppm_reader);
+	size_t	size_with_double_quotes;
+	char	*dst;
+
+	size_with_double_quotes = ft_strlen(src) + 2;
+	dst = ft_xcalloc(size_with_double_quotes + 1, sizeof(char));
+	dst[0] = '\"';
+	ft_memcpy(dst + 1, src, size_with_double_quotes - 2);
+	dst[size_with_double_quotes - 1] = '\"';
+	dst[size_with_double_quotes] = '\0';
+	return (dst);
 }
