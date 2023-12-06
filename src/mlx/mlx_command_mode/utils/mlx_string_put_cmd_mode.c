@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_buffer_put.c                                   :+:      :+:    :+:   */
+/*   mlx_string_put_cmd_mode.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:13:30 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/05 17:50:03 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:13:18 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include "define.h"
 #include <mlx.h>
 
-int	mlx_buffer_put(t_mlx_ptr *mlx_ptr)
+int	mlx_string_put_cmd_mode(t_mlx_ptr *mlx_ptr, char *str, int color)
 {
 	mlx_string_put(
 		mlx_ptr->ptr,
 		mlx_ptr->wdw_ptr,
-		WDW_CMD_WIDTH_START,
-		WDW_HEIGHT - (WDW_CMD_HEIGHT / 3),
-		MLX_COMMAND_LINE_COLOR,
-		mlx_ptr->buffer
+		WDW_WIDTH / 100.0,
+		WDW_HEIGHT - (WDW_HEIGHT / 60.0),
+		color,
+		str
 		);
 	return (SUCCESS);
 }

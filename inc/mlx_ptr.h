@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:30:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/05 17:06:14 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:08:54 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 
 # define COMMAND_MODE_SPACE_STR "	"
-# define MLX_BUFFER_SIZE 100
+# define MLX_BUFFER_SIZE 125
 
 typedef enum e_mlx_mode
 {

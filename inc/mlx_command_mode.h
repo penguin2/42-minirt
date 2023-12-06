@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:44:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/05 18:01:52 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:13:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "mlx_ptr.h"
 # include <stddef.h>
-
-# define WDW_CMD_WIDTH_START (10)
-# define WDW_CMD_HEIGHT (22)
 
 # define MLX_BUFFER_SPACE_STR "		"
 # define MLX_COMMAND_LINE_COLOR 16776960
@@ -36,7 +33,7 @@ void	hook_fn_input_sp_char(t_mlx_ptr *mlx_ptr, int keycode);
 // utils
 void	exit_cmd_mode(t_mlx_ptr *mlx_ptr);
 void	reset_command_line_image(t_mlx_ptr *mlx_ptr);
-int		mlx_buffer_put(t_mlx_ptr *mlx_ptr);
+int		mlx_string_put_cmd_mode(t_mlx_ptr *mlx_ptr, char *str, int color);
 
 // buffer utils
 int		mlx_buffer_flush(char *buffer);

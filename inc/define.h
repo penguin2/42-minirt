@@ -18,6 +18,7 @@
 
 # define WDW_WIDTH	(800)
 # define WDW_HEIGHT	(450)
+# define WDW_CMD_HEIGHT (20)
 
 # define NAME		("miniRT")
 
