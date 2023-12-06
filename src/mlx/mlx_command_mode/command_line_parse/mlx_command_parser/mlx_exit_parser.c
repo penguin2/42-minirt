@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_fn_return.c                                   :+:      :+:    :+:   */
+/*   mlx_exit_parser.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 19:09:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 17:35:58 by rikeda           ###   ########.fr       */
+/*   Created: 2023/12/06 16:09:43 by rikeda            #+#    #+#             */
+/*   Updated: 2023/12/06 20:20:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "mlx_command_mode.h"
-#include <unistd.h>
+#include "libft.h"
+#include "message_parse.h"
+#include <stdlib.h>
 
-void	hook_fn_return(t_mlx_ptr *mlx_ptr, int keycode)
+int	mlx_exit_parser(t_mlx_ptr *mlx_ptr, char **strings)
 {
-	char	**strings;
-
-	(void)keycode;
-	exit_cmd_mode(mlx_ptr);
-	strings = ft_split(&mlx_ptr->buffer[1], MLX_BUFFER_SPACE_STR);
-	parse_mlx_command_line(mlx_ptr, strings);
-	ft_free_strings(strings);
+	if (ft_strings_len(strings) == 1)
+		exit(0);
+	else
+		return (mlx_error_message_put_cmd_mode(mlx_ptr, CMD_EXIT_FAILD));
 }

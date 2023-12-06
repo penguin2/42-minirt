@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:22:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/05 15:51:51 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/06 19:19:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	mlx_hook_helper_init_key_press(t_hook *hooks_kp)
 	mlx_hook_helper_set_hook(hooks_kp++, XK_F1, hook_fn_save_scene);
 	mlx_hook_helper_set_hook(hooks_kp++, XK_colon, hook_fn_enter_cmd_mode);
 	mlx_hook_helper_set_hook(hooks_kp++, XK_semicolon, hook_fn_enter_cmd_mode);
+	mlx_hook_helper_set_hook(hooks_kp++, XK_Return, hook_fn_rerendering);
 }

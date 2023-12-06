@@ -13,7 +13,7 @@
 #ifndef MLX_HOOK_HELPER_H
 # define MLX_HOOK_HELPER_H
 
-# define HOOK_KEY_PRESS_CNT			(18)
+# define HOOK_KEY_PRESS_CNT			(19)
 # define HOOK_KEY_RELEASE_CNT		(2)
 # define HOOK_BUTTON_PRESS_CNT		(2)
 # define HOOK_BUTTON_RELEASE_CNT	(1)
@@ -55,6 +55,7 @@ void	hook_fn_zoom_camera(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_set_shift_on(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_save_scene(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_enter_cmd_mode(t_mlx_ptr *mlx_ptr, int keycode);
+void	hook_fn_rerendering(t_mlx_ptr *mlx_ptr, int keycode);
 
 //hook_fn: key_release
 void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode);

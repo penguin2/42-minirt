@@ -63,5 +63,9 @@
 # define IS_CHECKERBOARD "checkerboard"
 # define TEXTURE_MAP "texture-map"
 # define BUMP_MAP "bump-map"
+// mlx command operator
+# define CMD_SAVE "Save"
+# define CMD_EXIT "Exit"
+# define CMD_DUMP "Dump"
 
 #endif

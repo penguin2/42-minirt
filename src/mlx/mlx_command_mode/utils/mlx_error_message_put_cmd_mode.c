@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_fn_return.c                                   :+:      :+:    :+:   */
+/*   mlx_error_message_put_cmd_mode.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 19:09:49 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 17:35:58 by rikeda           ###   ########.fr       */
+/*   Created: 2023/12/06 16:51:54 by rikeda            #+#    #+#             */
+/*   Updated: 2023/12/06 19:32:07 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "mlx_command_mode.h"
-#include <unistd.h>
+#include "define.h"
 
-void	hook_fn_return(t_mlx_ptr *mlx_ptr, int keycode)
+int	mlx_error_message_put_cmd_mode(t_mlx_ptr *mlx_ptr, char *str)
 {
-	char	**strings;
-
-	(void)keycode;
-	exit_cmd_mode(mlx_ptr);
-	strings = ft_split(&mlx_ptr->buffer[1], MLX_BUFFER_SPACE_STR);
-	parse_mlx_command_line(mlx_ptr, strings);
-	ft_free_strings(strings);
+	mlx_ptr->is_to_update = false;
+	reset_command_line_image(mlx_ptr);
+	mlx_string_put_cmd_mode(
+		mlx_ptr,
+		str,
+		MLX_COMMAND_LINE_ERROR_COLOR
+		);
+	return (ERROR);
 }

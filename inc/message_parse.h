@@ -13,6 +13,10 @@
 #ifndef MESSAGE_PARSE_H
 # define MESSAGE_PARSE_H
 
+//// SUCCESS
+# define CMD_SAVE_SUCCESS "Scene is saved!!"
+# define CMD_DUMP_SUCCESS "Dump is success!!"
+
 //// WARNING
 # define WARNING_NORMALIZED "I normalized the vector as it wasn't already"
 # define WARNING_FOV_IS_0 "Adjusted fov to 1 due to a 0 input"
@@ -52,5 +56,14 @@
 # define RT_OPTION_DUPLICATE "Optional parameters are duplicate"
 # define RT_OPTION_INVALID "Texture-map, Bump-map, Checkerboard options \
 are only for [sphere, plane, cylinder]"
+
+// command line parse
+# define CMD_EMPTY "Command line is empty"
+# define CMD_NOT_FOUND "Command is not found"
+# define CMD_SAVE_FAILD "Please understand format [Save FILEPATH]"
+# define CMD_OPEN_FAILED "File open Failed!!"
+# define CMD_SAVE_NOT_JSON "File extension is not json"
+# define CMD_EXIT_FAILD "Please understand format [Exit]"
+# define CMD_DUMP_FAILD "Please understand format [Dump FILEPATH]"
 
 #endif
