@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:33:41 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/23 22:32:37 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/08 21:16:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "utils.h"
 #include "parse.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
@@ -35,7 +34,6 @@ int	main(int argc, char *argv[])
 	success_or_error = json_object_to_scene(json_object, &scene);
 	free_json_object(json_object);
 	if (success_or_error == ERROR)
-		exit(EXIT_FAILURE);
-	else
-		exit(EXIT_SUCCESS);
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

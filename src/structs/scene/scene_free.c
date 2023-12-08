@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   scene_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/08 21:11:56 by rikeda           ###   ########.fr       */
+/*   Created: 2023/12/08 20:51:08 by rikeda            #+#    #+#             */
+/*   Updated: 2023/12/08 20:59:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "mlx_ptr.h"
 #include "scene.h"
-#include <stdlib.h>
+#include "object.h"
+#include "light.h"
+#include <stddef.h>
 
-int	main(int argc, char *argv[])
+void	scene_free(t_scene *scene)
 {
-	t_scene	scene;
-
-	if (scene_init(&scene, argc, argv) == ERROR
-		|| mlx_ptr_main(&scene) == ERROR)
-		return (EXIT_FAILURE);
-	scene_free(&scene);
-	return (EXIT_SUCCESS);
+	ft_vla_free(&scene->objects, object_free);
+	ft_vla_free(&scene->lights, light_free);
 }
