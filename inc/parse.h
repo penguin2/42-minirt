@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 20:04:26 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:30:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 // extension
 # define RT_EXTENSION ".rt"
 # define JSON_EXTENSION ".json"
+# define TXT_EXTENSION ".txt"
 
 // tokenize
 # define JSON_SPACE_CHARSETS " \t\n"

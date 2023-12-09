@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:05:06 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 15:15:09 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/09 13:37:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_command_mode.h"
+#include "define.h"
 #include <X11/keysym.h>
 
 void	hook_fn_delete(t_mlx_ptr *mlx_ptr, int keycode)
@@ -20,11 +21,7 @@ void	hook_fn_delete(t_mlx_ptr *mlx_ptr, int keycode)
 		exit_cmd_mode(mlx_ptr);
 	else
 	{
-		reset_command_line_image(mlx_ptr);
-		mlx_string_put_cmd_mode(
-			mlx_ptr,
-			mlx_ptr->buffer,
-			MLX_COMMAND_LINE_COLOR
-			);
+		reset_image(mlx_ptr, WDW_CMD_HEIGHT);
+		mlx_putcmd(mlx_ptr, mlx_ptr->buffer, COLOR_YELLOW, SUCCESS);
 	}
 }

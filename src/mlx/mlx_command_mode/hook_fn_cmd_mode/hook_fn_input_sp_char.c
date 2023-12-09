@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:23:48 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 15:15:15 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/09 16:35:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_hook_helper.h"
 #include "mlx_command_mode.h"
+#include "define.h"
 #include <X11/keysym.h>
 
 void	hook_fn_input_sp_char(t_mlx_ptr *mlx_ptr, int keycode)
@@ -26,7 +27,10 @@ void	hook_fn_input_sp_char(t_mlx_ptr *mlx_ptr, int keycode)
 		mlx_buffer_write(mlx_ptr->buffer, '-');
 	else if (keycode == XK_slash && !mlx_ptr->is_shift_pressed)
 		mlx_buffer_write(mlx_ptr->buffer, '/');
+	else if ((keycode == XK_underscore && !mlx_ptr->is_shift_pressed)
+		|| (keycode == XK_minus && mlx_ptr->is_shift_pressed))
+		mlx_buffer_write(mlx_ptr->buffer, '_');
 	else
 		return ;
-	mlx_string_put_cmd_mode(mlx_ptr, mlx_ptr->buffer, MLX_COMMAND_LINE_COLOR);
+	mlx_putcmd(mlx_ptr, mlx_ptr->buffer, COLOR_YELLOW, SUCCESS);
 }

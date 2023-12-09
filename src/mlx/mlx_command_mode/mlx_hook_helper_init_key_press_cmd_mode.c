@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:53:59 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/05 17:44:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/09 16:35:40 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,24 @@ static t_hook	*_mlx_set_helper_init_input_digit(t_hook *hooks_kp_cmd)
 
 static t_hook	*_mlx_set_helper_init_input_sp_char(t_hook *hooks_kp_cmd)
 {
-	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_space, hook_fn_input_sp_char);
-	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_comma, hook_fn_input_sp_char);
-	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_period, hook_fn_input_sp_char);
-	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_minus, hook_fn_input_sp_char);
-	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_slash, hook_fn_input_sp_char);
-	return (hooks_kp_cmd);
-}
-
-void	mlx_hook_helper_init_key_press_cmd_mode(t_hook *hooks_kp_cmd)
-{
 	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_Shift_L, hook_fn_set_shift_on);
 	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_Shift_R, hook_fn_set_shift_on);
 	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_Escape, hook_fn_exit_cmd_mode);
 	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_BackSpace, hook_fn_delete);
 	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_Delete, hook_fn_delete);
 	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_Return, hook_fn_return);
+	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_space, hook_fn_input_sp_char);
+	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_comma, hook_fn_input_sp_char);
+	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_period, hook_fn_input_sp_char);
+	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_minus, hook_fn_input_sp_char);
+	mlx_hook_helper_set_hook(hooks_kp_cmd++, XK_slash, hook_fn_input_sp_char);
+	mlx_hook_helper_set_hook(
+		hooks_kp_cmd++, XK_underscore, hook_fn_input_sp_char);
+	return (hooks_kp_cmd);
+}
+
+void	mlx_hook_helper_init_key_press_cmd_mode(t_hook *hooks_kp_cmd)
+{
 	hooks_kp_cmd = _mlx_set_helper_init_input_alphabet(hooks_kp_cmd);
 	hooks_kp_cmd = _mlx_set_helper_init_input_digit(hooks_kp_cmd);
 	hooks_kp_cmd = _mlx_set_helper_init_input_sp_char(hooks_kp_cmd);

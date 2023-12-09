@@ -17,7 +17,7 @@
 # define HOOK_KEY_RELEASE_CNT		(2)
 # define HOOK_BUTTON_PRESS_CNT		(2)
 # define HOOK_BUTTON_RELEASE_CNT	(1)
-# define HOOK_KEY_PRESS_CMD_CNT		(47)
+# define HOOK_KEY_PRESS_CMD_CNT		(48)
 
 # define BUTTON_LEFT_X				(1)
 # define BUTTON_RIGHT_X				(3)

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:25:01 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 20:27:52 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/09 15:06:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static t_fn_mlx_command	_select_command_function(const char *command)
 		return (mlx_exit_parser);
 	else if (ft_is_equal_str(command, CMD_DUMP))
 		return (mlx_dump_parser);
+	else if (ft_is_equal_str(command, CMD_HELP))
+		return (mlx_help_parser);
 	return (NULL);
 }
 
@@ -33,10 +35,9 @@ int	parse_mlx_command_line(t_mlx_ptr *mlx_ptr, char **strings)
 	t_fn_mlx_command	command_function;
 
 	if (ft_strings_len(strings) == 0)
-		return (mlx_error_message_put_cmd_mode(mlx_ptr, CMD_EMPTY));
+		return (mlx_putcmd(mlx_ptr, CMD_EMPTY, COLOR_RED, ERROR));
 	command_function = _select_command_function(strings[0]);
 	if (command_function == NULL)
-		return (mlx_error_message_put_cmd_mode(mlx_ptr, CMD_NOT_FOUND));
-	command_function(mlx_ptr, strings);
-	return (SUCCESS);
+		return (mlx_putcmd(mlx_ptr, CMD_NOT_FOUND, COLOR_RED, ERROR));
+	return (command_function(mlx_ptr, strings));
 }

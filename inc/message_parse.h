@@ -60,10 +60,13 @@ are only for [sphere, plane, cylinder]"
 // command line parse
 # define CMD_EMPTY "Command line is empty"
 # define CMD_NOT_FOUND "Command is not found"
-# define CMD_SAVE_FAILD "Please understand format [Save FILEPATH]"
 # define CMD_OPEN_FAILED "File open Failed!!"
+# define CMD_INVALID_EXTENSION "File extension is invalid"
+# define CMD_SAVE_FAILD "Please understand format [w FILEPATH]"
 # define CMD_SAVE_NOT_JSON "File extension is not json"
-# define CMD_EXIT_FAILD "Please understand format [Exit]"
-# define CMD_DUMP_FAILD "Please understand format [Dump FILEPATH]"
+# define CMD_EXIT_FAILD "Please understand format [q]"
+# define CMD_DUMP_FAILD "Please understand format [e FILE_PATH]"
+# define CMD_HELP_FAILD "Please understand format [help {HELP_OPTION}]"
+# define CMD_HELP_OPEN_FAILED "help options will be displayed by [:help]"
 
 #endif

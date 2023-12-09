@@ -1,0 +1,8 @@
+                  +-----------------------------------------------------------------+
+                  | Command            | Action                                     |
+                  |--------------------+--------------------------------------------|
+                  | help {HELP_OPTION} | Display help on the screen                 |
+                  | w [FILE]           | Write the scene in JSON format to FILE     |
+                  | e [FILE]           | Display the contents of FILE on the screen |
+                  | q                  | exit                                       |
+                  +-----------------------------------------------------------------+

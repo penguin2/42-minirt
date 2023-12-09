@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:47:52 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 15:14:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/09 13:38:20 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,5 @@ void	hook_fn_input_alphabet(t_mlx_ptr *mlx_ptr, int keycode)
 	if (_hook_fn_input_a_to_j(mlx_ptr, keycode) == SUCCESS
 		|| _hook_fn_input_k_to_t(mlx_ptr, keycode) == SUCCESS
 		|| _hook_fn_input_u_to_z(mlx_ptr, keycode) == SUCCESS)
-		mlx_string_put_cmd_mode(
-			mlx_ptr,
-			mlx_ptr->buffer,
-			MLX_COMMAND_LINE_COLOR
-			);
+		mlx_putcmd(mlx_ptr, mlx_ptr->buffer, COLOR_YELLOW, SUCCESS);
 }

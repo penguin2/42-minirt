@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:24:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 17:06:10 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:05:54 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@
 # define TEXTURE_MAP "texture-map"
 # define BUMP_MAP "bump-map"
 // mlx command operator
-# define CMD_SAVE "Save"
-# define CMD_EXIT "Exit"
-# define CMD_DUMP "Dump"
+# define CMD_SAVE "w"
+# define CMD_EXIT "q"
+# define CMD_DUMP "e"
+# define CMD_HELP "help"
 
 #endif
