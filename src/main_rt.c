@@ -6,13 +6,12 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/23 22:36:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/08 21:23:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "parse.h"
-#include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -47,10 +46,8 @@ int	main(int argc, char *argv[])
 	t_scene	scene;
 
 	if (scene_init(&scene, argc, argv) == ERROR)
-		exit (EXIT_FAILURE);
-	else
-	{
-		_print_json_file(argv[1]);
-		exit (EXIT_SUCCESS);
-	}
+		return (EXIT_FAILURE);
+	_print_json_file(argv[1]);
+	scene_free(&scene);
+	return (EXIT_SUCCESS);
 }

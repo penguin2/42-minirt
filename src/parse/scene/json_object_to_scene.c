@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 19:28:24 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/20 19:36:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/08 21:08:32 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ static int	_check_number_of_required_objects(const t_json_node *master_node)
 int	json_object_to_scene(t_vla *json_object, t_scene *scene)
 {
 	const t_json_node	*master_node = json_object->array[0];
+	int					success_or_error;
 
 	ft_vla_init(&scene->objects);
 	ft_vla_init(&scene->lights);
+	success_or_error = ERROR;
 	if (_check_number_of_required_objects(master_node) == ERROR)
-	{
 		print_error(INVALID_REQUIRED_OBJECT);
-		return (ERROR);
-	}
-	else if (camera_init(master_node, &scene->camera) == ERROR
-		|| append_lights(master_node, &scene->lights) == ERROR
-		|| append_objects(master_node, &scene->objects) == ERROR)
-		return (ERROR);
-	else
-		return (SUCCESS);
+	else if (camera_init(master_node, &scene->camera) == SUCCESS
+		&& append_lights(master_node, &scene->lights) == SUCCESS
+		&& append_objects(master_node, &scene->objects) == SUCCESS)
+		success_or_error = SUCCESS;
+	if (success_or_error == ERROR)
+		scene_free(scene);
+	return (success_or_error);
 }
