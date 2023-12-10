@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:33:41 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/08 21:16:57 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/10 16:02:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "message_parse.h"
 #include "utils.h"
 #include "parse.h"
+#include "scene.h"
 #include <stdlib.h>
 
 int	main(int argc, char *argv[])
@@ -35,5 +36,6 @@ int	main(int argc, char *argv[])
 	free_json_object(json_object);
 	if (success_or_error == ERROR)
 		return (EXIT_FAILURE);
+	scene_free(&scene);
 	return (EXIT_SUCCESS);
 }

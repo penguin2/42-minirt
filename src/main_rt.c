@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/28 23:12:16 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/10 16:03:23 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	_print_json_file(const char *file)
 		line = get_next_line(fd, NULL, GNL_MODE_NEWLINE);
 		if (line == NULL)
 			break ;
-		printf("%s", line);
+		printf("%s\n", line);
 		free(line);
 	}
 	close(fd);
