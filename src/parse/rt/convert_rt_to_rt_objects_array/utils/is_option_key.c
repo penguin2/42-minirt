@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:16:07 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 18:59:23 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/10 10:44:47 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ static bool	_is_bonus_option_key(const char *option_key, const char *identifer)
 	{
 		if (MODE == MODE_MANDATORY)
 			print_error(RT_OMITTED_KEY);
-		else if (ft_is_equal_str(option_key, CHECKERBOARD_OMITTED)
+		else if ((ft_is_equal_str(option_key, CHECKERBOARD_OMITTED)
+				|| ft_is_equal_str(option_key, TEXTURE_MAP_OMITTED)
+				|| ft_is_equal_str(option_key, BUMP_MAP_OMITTED))
 			&& !_is_mandatory_object_identifer(identifer))
-			print_error(RT_CHECKERBOARD);
+			print_error(RT_OPTION_INVALID);
 		else
 			return (true);
 	}
