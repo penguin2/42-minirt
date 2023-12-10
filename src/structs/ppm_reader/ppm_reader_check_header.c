@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:24:30 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/25 17:41:47 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:06:07 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,17 @@ int	ppm_reader_check_header(t_ppm_reader *new, int fd)
 static int	_check_format_str(int fd)
 {
 	char	*line;
-	bool	is_ok;
+	int		result;
 
 	line = ppm_reader_get_next_line(fd);
-	is_ok = ft_is_equal_str(line, PPM_P6_FORMAT_STR);
+	if (line == NULL)
+		return (ERROR);
+	if (ft_is_equal_str(line, PPM_P6_FORMAT_STR))
+		result = SUCCESS;
+	else
+		result = ERROR;
 	free(line);
-	return (is_ok);
+	return (result);
 }
 
 static int	_check_width_height(int fd, int *pwidth, int *pheight)
@@ -73,10 +78,15 @@ static int	_free_strings_return(char **strs, int ret)
 static int	_check_max_color_value(int fd)
 {
 	char	*line;
-	bool	is_ok;
+	int		result;
 
 	line = ppm_reader_get_next_line(fd);
-	is_ok = ft_is_equal_str(line, PPM_P6_MAX_COLOR_VALUE_STR);
+	if (line == NULL)
+		return (ERROR);
+	if (ft_is_equal_str(line, PPM_P6_MAX_COLOR_VALUE_STR))
+		result = SUCCESS;
+	else
+		result = ERROR;
 	free(line);
-	return (is_ok);
+	return (result);
 }
