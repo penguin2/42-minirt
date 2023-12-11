@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/04 17:39:09 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:19:56 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libcolor.h"
 # include "libft.h"
 # include "material.h"
+# include "material_box.h"
 # include "ppm_reader.h"
 # include "ray.h"
 # include <stdbool.h>
@@ -46,6 +47,7 @@ typedef struct s_object{
 	t_ppm_reader		*bump_map;
 	t_color				color;
 	t_material			material;
+	t_material_box		material_box;
 	t_fn_obj_get_color	get_color;
 	t_fn_obj_get_dist	get_dist;
 	t_fn_obj_get_normal	get_normal;
