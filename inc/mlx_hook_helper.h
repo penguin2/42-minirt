@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:13:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 12:30:09 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:07:41 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	hook_fn_set_shift_on(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_save_scene(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_enter_cmd_mode(t_mlx_ptr *mlx_ptr, int keycode);
 void	hook_fn_rerendering(t_mlx_ptr *mlx_ptr, int keycode);
+void	hook_fn_select_object(t_mlx_ptr *mlx_ptr, int x, int y);
 
 //hook_fn: key_release
 void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode);

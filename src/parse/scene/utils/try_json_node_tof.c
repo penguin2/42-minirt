@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:46:00 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/08 15:47:42 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/11 19:50:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	try_json_node_tof(const t_json_node *node, double *dptr)
 
 	success_or_error = try_atof_limit(nptr, dptr, DOUBLE_LIMIT_DIGIT);
 	if (success_or_error == ERROR)
-		print_error(ATOF_FAILD);
+		print_error(ATOF_FAILED);
 	return (success_or_error);
 }

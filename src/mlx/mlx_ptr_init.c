@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:37:54 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/05 16:27:05 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/11 19:13:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	mlx_ptr_init(t_mlx_ptr *mlx_ptr, t_image *image, t_scene *scene)
 	mlx_ptr->is_button_left_pressed = false;
 	mlx_ptr->is_shift_pressed = false;
 	mlx_ptr->mode = MLX_MODE_NORMAL;
+	mlx_ptr->selected_object = NULL;
 	return (SUCCESS);
 }
 

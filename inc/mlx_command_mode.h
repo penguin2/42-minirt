@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:44:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/09 17:02:16 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/11 19:56:10 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MLX_COMMAND_MODE_H
 
 # include "mlx_ptr.h"
+# include "range.h"
+# include "libcolor.h"
 # include <stddef.h>
 
 # define MLX_BUFFER_SPACE_STR " "
@@ -58,5 +60,38 @@ int		mlx_save_parser(t_mlx_ptr *mlx_ptr, char **strings);
 int		mlx_exit_parser(t_mlx_ptr *mlx_ptr, char **strings);
 int		mlx_dump_parser(t_mlx_ptr *mlx_ptr, char **strings);
 int		mlx_help_parser(t_mlx_ptr *mlx_ptr, char **strings);
+int		mlx_mod_parser(t_mlx_ptr *mlx_ptr, char **strings);
+int		mlx_del_parser(t_mlx_ptr *mlx_ptr, char **strings);
+
+// modify
+
+int		sphere_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value);
+int		plane_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value);
+int		cylinder_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value);
+int		quadric_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value);
+int		triangle_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value);
+int		modify_double(
+			t_mlx_ptr *mlx_ptr,
+			double *dptr,
+			const char *value,
+			t_range range);
+int		modify_double_half(t_mlx_ptr *mlx_ptr,
+			double *dptr,
+			const char *value,
+			t_range range);
+int		modify_vec3(
+			t_mlx_ptr *mlx_ptr,
+			t_vec3 *vec,
+			const char *value,
+			t_range range);
+int		modify_vec3_unit(t_mlx_ptr *mlx_ptr,
+			t_vec3 *vec,
+			const char *value,
+			t_range range);
+int		modify_color(
+			t_mlx_ptr *mlx_ptr,
+			t_color *color,
+			const char *value,
+			t_range range);
 
 #endif

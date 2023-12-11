@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:09:43 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/09 18:24:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/11 19:50:22 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	mlx_dump_parser(t_mlx_ptr *mlx_ptr, char **strings)
 	int	fd;
 
 	if (ft_strings_len(strings) != 2)
-		return (mlx_putcmd(mlx_ptr, CMD_DUMP_FAILD, COLOR_RED, ERROR));
+		return (mlx_putcmd(mlx_ptr, CMD_DUMP_FAILED, COLOR_RED, ERROR));
 	fd = open(strings[1], O_READ);
 	if (fd == -1)
 		return (mlx_putcmd(mlx_ptr, CMD_OPEN_FAILED, COLOR_RED, ERROR));

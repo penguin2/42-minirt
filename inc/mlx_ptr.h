@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:30:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/06 15:08:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/11 19:06:05 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "image.h"
 # include "mlx_hook_helper.h"
 # include "scene.h"
+# include "object.h"
 # include <stdbool.h>
 
 # define COMMAND_MODE_SPACE_STR "	"
@@ -40,6 +41,7 @@ typedef struct s_mlx_ptr{
 	t_mlx_hook_helper	mlx_hook_helper;
 	t_mlx_mode			mode;
 	char				buffer[MLX_BUFFER_SIZE];
+	t_object			*selected_object;
 }	t_mlx_ptr;
 
 int	mlx_ptr_init(t_mlx_ptr *mlx_ptr, t_image *image, t_scene *scene);

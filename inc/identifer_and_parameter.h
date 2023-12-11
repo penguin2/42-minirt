@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:24:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/09 15:05:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/11 19:33:19 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@
 # define CMD_EXIT "q"
 # define CMD_DUMP "e"
 # define CMD_HELP "help"
+# define CMD_MOD "mod"
+# define CMD_DEL "del"
 
 #endif
