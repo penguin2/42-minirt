@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:15:07 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/04 17:55:04 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:14:48 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "object.h"
 #include "utils.h"
 
-t_hit	*hit_new(t_ray incoming_ray, t_vla *objects)
+t_hit	*hit_new(t_ray incoming_ray, const t_vla *objects)
 {
 	const t_object	*object;
 	t_hit			*new;

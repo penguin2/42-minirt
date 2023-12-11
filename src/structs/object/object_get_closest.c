@@ -6,20 +6,20 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:31:10 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/18 11:23:54 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:15:23 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
 #include <float.h>
 
-const t_object	*object_get_closest(t_ray ray, t_vla *objects)
+t_object	*object_get_closest(t_ray ray, const t_vla *objects)
 {
-	t_object		**objs;
-	const t_object	*min_dist_obj;
-	size_t			i;
-	double			min_dist_to_object;
-	double			dist;
+	t_object	**objs;
+	t_object	*min_dist_obj;
+	size_t		i;
+	double		min_dist_to_object;
+	double		dist;
 
 	objs = (t_object **)objects->array;
 	i = 0;

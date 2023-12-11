@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hook_helper_init_button_press.c                :+:      :+:    :+:   */
+/*   get_viewport_ray.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 17:01:14 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 11:35:23 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/11 11:51:50 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/11 12:27:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_hook_helper.h"
+#include "camera.h"
+#include "libvec3.h"
+#include "ray.h"
 
-void	mlx_hook_helper_init_button_press(t_hook *hooks_bp)
+t_ray	get_viewport_ray(const t_camera *camera, int height_idx, int width_idx)
 {
-	mlx_hook_helper_set_hook(
-		hooks_bp++, BUTTON_LEFT_X, hook_fn_set_button_left_on);
-	mlx_hook_helper_set_hook(
-		hooks_bp++, BUTTON_RIGHT_X, hook_fn_handle_material);
+	t_vec3	target_pos;
+
+	target_pos = vec3_add(
+			camera->viewport.upper_left,
+			vec3_add(
+				vec3_mul(camera->viewport.dw, width_idx),
+				vec3_mul(camera->viewport.dh, height_idx)
+				)
+			);
+	return (ray_from_to(camera->eye, target_pos));
 }

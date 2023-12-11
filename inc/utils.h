@@ -6,15 +6,17 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 16:39:43 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:03:49 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
+# include "camera.h"
 # include "libvec3.h"
 # include "libft.h"
+# include "ray.h"
 # include <stdbool.h>
 
 # define NUM_QUADRATIC_EQUATION_ROOTS	(2)
@@ -42,5 +44,7 @@ int		convert_str_to_positive_int(const char *str, int *val);
 void	map_3d_to_spherical(double *u, double *v, t_vec3 pos);
 void	map_3d_to_cylinder(double *u, double *v, t_vec3 pos);
 double	mod_double(double x);
+
+t_ray	get_viewport_ray(const t_camera *camera, int height_idx, int width_idx);
 
 #endif

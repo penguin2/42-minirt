@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:46:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 11:19:56 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:15:02 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ typedef struct s_object{
 	t_fn_obj_free_ptr	free_ptr;
 }	t_object;
 
-t_object		*object_new(void *ptr);
-void			object_free(void *object);
-const t_object	*object_get_closest(t_ray ray, t_vla *objects);
+t_object	*object_new(void *ptr);
+void		object_free(void *object);
+t_object	*object_get_closest(t_ray ray, const t_vla *objects);
 
 #endif
