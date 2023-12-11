@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:19:56 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 01:34:11 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:29:37 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_vec3	sphere_get_bump_normal(
 	t_vec3				bump_normal;
 	t_cartesian_system	local_system;
 
-	map_3d_to_spherical(&u, &v, local_pos, sphere->radius);
+	map_3d_to_spherical(&u, &v, local_pos);
 	bump_normal = ppm_reader_get_normal(bump_map, u, v);
 	_set_local_system(&local_system, &sphere->system, normal);
 	return (cartesian_system_map_to_standard(&local_system, bump_normal));

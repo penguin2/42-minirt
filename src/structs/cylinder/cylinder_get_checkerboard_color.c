@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 01:35:24 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 17:13:17 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:39:12 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ t_color	cylinder_get_checkerboard_color(
 				const t_cylinder *cylinder,
 				t_vec3 pos)
 {
-	const t_vec3	coord = vec3_sub(pos, cylinder->center);
-	const double	z = vec3_dot(coord, cylinder->system.axis_z)
-		/ (2.0 * cylinder->radius * PI) * CYLINDER_CYCLE;
-	const double	x = vec3_dot(coord, cylinder->system.axis_x);
-	const double	y = vec3_dot(coord, cylinder->system.axis_y);
-	double			theta;
+	const t_vec3	local_pos = cartesian_system_map_from_standard(
+			&cylinder->system,
+			vec3_sub(pos, cylinder->center));
+	double			u;
+	double			v;
 
-	map_2d_to_spherical(&theta, x, y, cylinder->radius);
-	theta *= CYLINDER_CYCLE;
-	if (is_odd_2d(theta, z))
+	map_3d_to_cylinder(&u, &v, local_pos);
+	u = u / (2.0 * PI * cylinder->radius) * CYLINDER_CYCLE;
+	v = v * CYLINDER_CYCLE;
+	if (is_odd_2d(u, v))
 		return (color_white());
 	return (color_black());
 }

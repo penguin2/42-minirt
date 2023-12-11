@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 01:23:23 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 17:14:04 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:29:25 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_color	sphere_get_checkerboard_color(const t_sphere *sphere, t_vec3 pos)
 	double			u;
 	double			v;
 
-	map_3d_to_spherical(&u, &v, local_pos, sphere->radius);
+	map_3d_to_spherical(&u, &v, local_pos);
 	if (is_odd_2d(
 			u * SPHERE_LONGITUDE_CYCLE,
 			v * SPHERE_LATITUDE_CYCLE))

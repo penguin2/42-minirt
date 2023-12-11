@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:09:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/29 19:43:43 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:29:07 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ t_color	sphere_get_texture_color(
 	double			u;
 	double			v;
 
-	map_3d_to_spherical(&u, &v, local_pos, sphere->radius);
+	map_3d_to_spherical(&u, &v, local_pos);
 	return (ppm_reader_get_color(texture_map, u, v));
 }

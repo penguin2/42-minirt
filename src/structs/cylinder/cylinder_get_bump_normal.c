@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:41:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 18:00:07 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:42:24 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,16 @@ t_vec3	cylinder_get_bump_normal(
 			t_vec3 pos,
 			t_vec3 normal)
 {
-	const t_vec3		coord = vec3_sub(pos, cylinder->center);
+	const t_vec3		local_pos = cartesian_system_map_from_standard(
+			&cylinder->system,
+			vec3_sub(pos, cylinder->center));
 	double				u;
 	double				v;
 	t_vec3				bump_normal;
 	t_cartesian_system	local_system;
 
-	map_2d_to_spherical(
-		&v,
-		vec3_dot(coord, cylinder->system.axis_x),
-		vec3_dot(coord, cylinder->system.axis_y),
-		cylinder->radius);
-	u = mod_double(vec3_dot(coord, cylinder->system.axis_z)
-			/ (2.0 * PI * cylinder->radius) * CYLINDER_CYCLE);
+	map_3d_to_cylinder(&u, &v, local_pos);
+	u = mod_double(u / (2.0 * PI * cylinder->radius) * CYLINDER_CYCLE);
 	v = mod_double(v * CYLINDER_CYCLE);
 	bump_normal = ppm_reader_get_normal(bump_map, u, v);
 	_set_local_system(&local_system, &cylinder->system, normal);
