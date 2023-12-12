@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 02:18:48 by taekklee          #+#    #+#             */
-/*   Updated: 2023/10/20 16:00:00 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:22:34 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ bool	cylinder_get_dist(const t_object *object, t_ray ray, double *dist)
 	const t_cylinder	*cylinder = object->ptr;
 	const double		h_offset = vec3_dot(
 			vec3_sub(ray.origin, cylinder->center),
-			cylinder->dir);
+			cylinder->system.axis_z);
 	const t_vec3		center_adjusted = vec3_add(
 			cylinder->center,
-			vec3_mul(cylinder->dir, h_offset));
+			vec3_mul(cylinder->system.axis_z, h_offset));
 	double				roots[NUM_QUADRATIC_EQUATION_ROOTS];
 
 	if (!_get_dist_on_cylinder_plane(
 			roots,
 			vec3_sub(ray.origin, center_adjusted),
 			cylinder->radius,
-			vec3_projected(ray.dir, cylinder->dir)))
+			vec3_projected(ray.dir, cylinder->system.axis_z)))
 		return (false);
 	if (_update_dist_with_validation(dist, roots[LOWER_ROOT],
 			_is_valid_dist(roots[LOWER_ROOT], h_offset, ray, cylinder))
@@ -95,7 +95,7 @@ static bool	_is_valid_dist(
 				t_ray ray,
 				const t_cylinder *cylinder)
 {
-	const double	h_speed = vec3_dot(ray.dir, cylinder->dir);
+	const double	h_speed = vec3_dot(ray.dir, cylinder->system.axis_z);
 
 	return (t > 0 && fabs(h_speed * t + h_offset) < cylinder->half_height);
 }

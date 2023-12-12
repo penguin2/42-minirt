@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/01 18:57:00 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/10 10:44:16 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define INVALID_VECTOR "The vector parameters are invalid"
 # define INVALID_COLORS "The colors parameters are invalid"
 # define INVALID_REQUIRED_OBJECT "The number of required objects is invalid"
+# define INVALID_FILENAME "images for texture or bump may be inappropriate"
 # define OUTSIDE_THE_RANGE "Value is outside the range of upper or lower limit"
 # define ATOF_FAILD "Doesn't conform to atof format or exceeds precision limit"
 # define VECTOR_TOO_SMALL "The vector parameters are too small"
@@ -49,6 +50,7 @@
 # define RT_OPTION_PARAMETER_FMT "Optional parameters format is [-- ID PARAM]"
 # define RT_OPTION_IDENTIFER_INVALID "Optional parameter is invalid"
 # define RT_OPTION_DUPLICATE "Optional parameters are duplicate"
-# define RT_CHECKERBOARD "Checkerboard is only [sphere, plane, cylinder]"
+# define RT_OPTION_INVALID "Texture-map, Bump-map, Checkerboard options \
+are only for [sphere, plane, cylinder]"
 
 #endif

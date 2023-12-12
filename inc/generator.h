@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/04 21:38:53 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/06 19:28:30 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,9 @@ char		*ftoa_auto_adjust_when_over_limit(double n);
 void		append_material_parameters_node(
 				t_vla *json_obj,
 				t_material material);
+void		append_ppm_reader(
+				t_vla *json_obj,
+				const t_ppm_reader *ppm_reader,
+				const char *key);
 
 #endif

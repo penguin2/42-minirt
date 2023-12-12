@@ -6,11 +6,12 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/08 21:23:04 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/10 16:03:23 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
+#include "libgnl.h"
 #include "parse.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -32,10 +33,10 @@ static void	_print_json_file(const char *file)
 		return ;
 	while (1)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(fd, NULL, GNL_MODE_NEWLINE);
 		if (line == NULL)
 			break ;
-		printf("%s", line);
+		printf("%s\n", line);
 		free(line);
 	}
 	close(fd);

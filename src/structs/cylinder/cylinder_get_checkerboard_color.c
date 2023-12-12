@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 01:35:24 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 20:44:36 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:39:12 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * 			calculate the color of its position
  * 
  * 		the white/black part of the checkerboard is defined such that
- * 		1. white/black is alternating 'CHECKERBOARD_FREQUENCY_CYCLE' times
+ * 		1. white/black is alternating 'CYLINDER_CYCLE' times
  * 			per one cycle along the surface of the cylinder
  * 		2. every part should be square-shaped
  * @param cylinder given cylinder
@@ -31,18 +31,16 @@ t_color	cylinder_get_checkerboard_color(
 				const t_cylinder *cylinder,
 				t_vec3 pos)
 {
-	const t_vec3	coord = vec3_sub(pos, cylinder->center);
-	const double	y = vec3_dot(coord, cylinder->dir);
-	const double	z = vec3_dot(coord, cylinder->axis_u);
-	const double	x = vec3_dot(coord, cylinder->axis_v);
-	double			theta;
+	const t_vec3	local_pos = cartesian_system_map_from_standard(
+			&cylinder->system,
+			vec3_sub(pos, cylinder->center));
+	double			u;
+	double			v;
 
-	theta = acos(z / cylinder->radius);
-	if (x < 0)
-		theta = -theta;
-	if (is_odd_2d(
-			theta * CHECKERBOARD_FREQUENCY_CYCLE / PI,
-			y * CHECKERBOARD_FREQUENCY_CYCLE / PI / cylinder->radius))
+	map_3d_to_cylinder(&u, &v, local_pos);
+	u = u / (2.0 * PI * cylinder->radius) * CYLINDER_CYCLE;
+	v = v * CYLINDER_CYCLE;
+	if (is_odd_2d(u, v))
 		return (color_white());
 	return (color_black());
 }

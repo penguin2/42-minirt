@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 01:23:23 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 20:29:43 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:29:25 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,16 @@
  */
 t_color	sphere_get_checkerboard_color(const t_sphere *sphere, t_vec3 pos)
 {
-	const t_vec3	coord = vec3_sub(pos, sphere->center);
-	const double	radius_proj = sqrt(coord.z * coord.z + coord.x * coord.x);
-	double			phi;
-	double			theta;
+	const t_vec3	local_pos = cartesian_system_map_from_standard(
+			&sphere->system,
+			vec3_sub(pos, sphere->center));
+	double			u;
+	double			v;
 
-	phi = acos(coord.y / sphere->radius);
-	theta = acos(coord.z / radius_proj);
-	if (coord.x < 0)
-		theta = -theta;
+	map_3d_to_spherical(&u, &v, local_pos);
 	if (is_odd_2d(
-			phi * CHECKERBOARD_FREQUENCY_CYCLE / PI,
-			theta * CHECKERBOARD_FREQUENCY_CYCLE / PI))
+			u * SPHERE_LONGITUDE_CYCLE,
+			v * SPHERE_LATITUDE_CYCLE))
 		return (color_white());
 	return (color_black());
 }
