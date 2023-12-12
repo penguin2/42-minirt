@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object_new.c                                       :+:      :+:    :+:   */
+/*   hook_fn_handle_material.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 11:21:21 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/11 11:33:43 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/11 13:09:37 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "material.h"
+#include "define.h"
 #include "material_box.h"
+#include "mlx_ptr.h"
 #include "object.h"
-#include <stddef.h>
+#include "scene.h"
+#include "utils.h"
+#include <stdio.h>
 
-t_object	*object_new(void *ptr)
+void	hook_fn_handle_material(t_mlx_ptr *mlx_ptr, int x, int y)
 {
-	t_object	*new;
+	t_object	*closest;
 
-	new = ft_xcalloc(1, sizeof(t_object));
-	new->ptr = ptr;
-	new->is_checkerboard = false;
-	new->texture_map = NULL;
-	new->bump_map = NULL;
-	new->color = color_white();
-	new->material = material_create();
-	material_box_init(&new->material_box);
-	return (new);
+	closest = object_get_closest(
+			get_viewport_ray(&mlx_ptr->scene->camera, y, x),
+			&mlx_ptr->scene->objects
+			);
+	if (closest == NULL)
+		return ;
+	if (material_box_swap(
+			&closest->material_box, &closest->material) == SUCCESS)
+		mlx_ptr->is_to_update = true;
 }

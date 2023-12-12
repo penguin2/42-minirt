@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:43:31 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/15 17:33:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/12 17:59:15 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 # define MATERIAL_H
 
 # include <stdbool.h>
-
-# define K_AMBIENT_DEFAULT (0.1)
-# define K_DIFFUSE_DEFAULT (1.0)
-# define K_SPECULAR_DEFAULT (1.0)
-# define K_SHININESS_DEFAULT (5)
-# define K_REFLECT_DEFAULT (0.8)
-# define IS_REFLECTIVE_DEFAULT (0)
 
 typedef struct s_material{
 	double	k_ambient;
@@ -32,5 +25,8 @@ typedef struct s_material{
 }	t_material;
 
 t_material	material_create(void);
+t_material	material_create_metal(void);
+t_material	material_create_mirror(void);
+t_material	material_create_plastic(void);
 
 #endif

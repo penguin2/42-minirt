@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object_new.c                                       :+:      :+:    :+:   */
+/*   material_box_swap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:35:18 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 11:21:21 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/11 12:34:54 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/11 12:38:15 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "material.h"
+#include "define.h"
 #include "material_box.h"
-#include "object.h"
-#include <stddef.h>
 
-t_object	*object_new(void *ptr)
+int	material_box_swap(t_material_box *material_box, t_material *target)
 {
-	t_object	*new;
+	t_material	tmp;
 
-	new = ft_xcalloc(1, sizeof(t_object));
-	new->ptr = ptr;
-	new->is_checkerboard = false;
-	new->texture_map = NULL;
-	new->bump_map = NULL;
-	new->color = color_white();
-	new->material = material_create();
-	material_box_init(&new->material_box);
-	return (new);
+	if (material_box->next_idx >= MATERIAL_BOX_SIZE)
+		return (ERROR);
+	tmp = *target;
+	*target = material_box->materials[material_box->next_idx];
+	material_box->materials[material_box->next_idx] = tmp;
+	if (++material_box->next_idx == MATERIAL_BOX_SIZE)
+		material_box->next_idx = 0;
+	return (SUCCESS);
 }

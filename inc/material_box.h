@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   material_create.c                                  :+:      :+:    :+:   */
+/*   material_box.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:34:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/12 17:43:14 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/11 11:06:46 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/11 12:42:46 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "material.h"
-#include "material_parameter.h"
+#ifndef MATERIAL_BOX_H
+# define MATERIAL_BOX_H
 
-t_material	material_create(void)
-{
-	t_material	new;
+# include "material.h"
+# include <stddef.h>
 
-	new.k_ambient = MATERIAL_AMBIENT_DEFAULT;
-	new.k_diffuse = MATERIAL_DIFFUSE_DEFAULT;
-	new.k_specular = MATERIAL_SPECULAR_DEFAULT;
-	new.k_shininess = MATERIAL_SHININESS_DEFAULT;
-	new.is_reflective = MATERIAL_IS_REFLECTIVE_DEFAULT;
-	new.k_reflect = MATERIAL_REFLECT_DEFAULT;
-	return (new);
-}
+# define MATERIAL_BOX_SIZE (3)
+
+typedef struct s_material_box{
+	t_material	materials[MATERIAL_BOX_SIZE];
+	size_t		next_idx;
+}	t_material_box;
+
+int	material_box_init(t_material_box *material_box);
+int	material_box_swap(t_material_box *material_box, t_material *target);
+
+#endif

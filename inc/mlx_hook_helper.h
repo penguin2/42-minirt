@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:13:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 14:06:55 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/11 12:30:09 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # define HOOK_KEY_PRESS_CNT			(16)
 # define HOOK_KEY_RELEASE_CNT		(2)
-# define HOOK_BUTTON_PRESS_CNT		(1)
+# define HOOK_BUTTON_PRESS_CNT		(2)
 # define HOOK_BUTTON_RELEASE_CNT	(1)
 
 # define BUTTON_LEFT_X				(1)
+# define BUTTON_RIGHT_X				(3)
 
 typedef struct s_mlx_ptr	t_mlx_ptr;
 
@@ -57,6 +58,7 @@ void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode);
 
 //hook_fn: button_press 
 void	hook_fn_set_button_left_on(t_mlx_ptr *mlx_ptr, int x, int y);
+void	hook_fn_handle_material(t_mlx_ptr *mlx_ptr, int x, int y);
 
 //hook_fn: button_release 
 void	hook_fn_set_button_left_off(t_mlx_ptr *mlx_ptr, int x, int y);

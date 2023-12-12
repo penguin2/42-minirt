@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   material_create.c                                  :+:      :+:    :+:   */
+/*   material_create_plastic.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:34:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/12 17:43:14 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/11 13:39:40 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/12 17:43:51 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "material.h"
 #include "material_parameter.h"
 
-t_material	material_create(void)
+t_material	material_create_plastic(void)
 {
 	t_material	new;
 
-	new.k_ambient = MATERIAL_AMBIENT_DEFAULT;
-	new.k_diffuse = MATERIAL_DIFFUSE_DEFAULT;
-	new.k_specular = MATERIAL_SPECULAR_DEFAULT;
-	new.k_shininess = MATERIAL_SHININESS_DEFAULT;
-	new.is_reflective = MATERIAL_IS_REFLECTIVE_DEFAULT;
-	new.k_reflect = MATERIAL_REFLECT_DEFAULT;
+	new.k_ambient = MATERIAL_AMBIENT_PLASTIC;
+	new.k_diffuse = MATERIAL_DIFFUSE_PLASTIC;
+	new.k_specular = MATERIAL_SPECULAR_PLASTIC;
+	new.k_shininess = MATERIAL_SHININESS_PLASTIC;
+	new.is_reflective = MATERIAL_IS_REFLECTIVE_PLASTIC;
+	new.k_reflect = MATERIAL_REFLECT_PLASTIC;
 	return (new);
 }

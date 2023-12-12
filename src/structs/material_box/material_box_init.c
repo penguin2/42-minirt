@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   material_create.c                                  :+:      :+:    :+:   */
+/*   material_box_init.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:34:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/12 17:43:14 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/11 11:10:03 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/12 17:59:25 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "material.h"
-#include "material_parameter.h"
+#include "material_box.h"
+#include "define.h"
 
-t_material	material_create(void)
+int	material_box_init(t_material_box *material_box)
 {
-	t_material	new;
-
-	new.k_ambient = MATERIAL_AMBIENT_DEFAULT;
-	new.k_diffuse = MATERIAL_DIFFUSE_DEFAULT;
-	new.k_specular = MATERIAL_SPECULAR_DEFAULT;
-	new.k_shininess = MATERIAL_SHININESS_DEFAULT;
-	new.is_reflective = MATERIAL_IS_REFLECTIVE_DEFAULT;
-	new.k_reflect = MATERIAL_REFLECT_DEFAULT;
-	return (new);
+	material_box->next_idx = 0;
+	material_box->materials[0] = material_create_metal();
+	material_box->materials[1] = material_create_plastic();
+	material_box->materials[2] = material_create_mirror();
+	return (SUCCESS);
 }

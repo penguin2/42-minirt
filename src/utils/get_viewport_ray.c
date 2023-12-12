@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   material_create.c                                  :+:      :+:    :+:   */
+/*   get_viewport_ray.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 16:34:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/12 17:43:14 by taekklee         ###   ########.fr       */
+/*   Created: 2023/12/11 11:51:50 by taekklee          #+#    #+#             */
+/*   Updated: 2023/12/11 12:27:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "material.h"
-#include "material_parameter.h"
+#include "camera.h"
+#include "libvec3.h"
+#include "ray.h"
 
-t_material	material_create(void)
+t_ray	get_viewport_ray(const t_camera *camera, int height_idx, int width_idx)
 {
-	t_material	new;
+	t_vec3	target_pos;
 
-	new.k_ambient = MATERIAL_AMBIENT_DEFAULT;
-	new.k_diffuse = MATERIAL_DIFFUSE_DEFAULT;
-	new.k_specular = MATERIAL_SPECULAR_DEFAULT;
-	new.k_shininess = MATERIAL_SHININESS_DEFAULT;
-	new.is_reflective = MATERIAL_IS_REFLECTIVE_DEFAULT;
-	new.k_reflect = MATERIAL_REFLECT_DEFAULT;
-	return (new);
+	target_pos = vec3_add(
+			camera->viewport.upper_left,
+			vec3_add(
+				vec3_mul(camera->viewport.dw, width_idx),
+				vec3_mul(camera->viewport.dh, height_idx)
+				)
+			);
+	return (ray_from_to(camera->eye, target_pos));
 }
