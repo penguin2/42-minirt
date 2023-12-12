@@ -6,11 +6,12 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 13:39:40 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 13:41:51 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:43:51 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "material.h"
+#include "material_parameter.h"
 
 t_material	material_create_plastic(void)
 {
