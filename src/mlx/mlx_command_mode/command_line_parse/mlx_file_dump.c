@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:22:56 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/09 16:57:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/12 14:13:51 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_command_mode.h"
 #include "define.h"
+#include "libgnl.h"
 #include <stdlib.h>
 #include <mlx.h>
 
@@ -42,7 +43,7 @@ void	mlx_file_dump(t_mlx_ptr *mlx_ptr, int fd)
 	idx = 0;
 	while (idx++ < (WDW_HEIGHT / WDW_CMD_HEIGHT - 2))
 	{
-		line = get_next_line(fd);
+		line = get_next_line(fd, NULL, GNL_MODE_NEWLINE);
 		if (line == NULL)
 			return ;
 		line = _replace_tab_to_space(line);
@@ -50,6 +51,7 @@ void	mlx_file_dump(t_mlx_ptr *mlx_ptr, int fd)
 			(idx * WDW_CMD_HEIGHT), COLOR_WHITE, line);
 		free(line);
 	}
+	get_next_line(fd, NULL, GNL_MODE_RESET);
 	mlx_string_put(mlx_ptr->ptr, mlx_ptr->wdw_ptr, (WDW_WIDTH / 100),
 		(idx * WDW_CMD_HEIGHT), COLOR_WHITE, MLX_DUMP_END_STR);
 }

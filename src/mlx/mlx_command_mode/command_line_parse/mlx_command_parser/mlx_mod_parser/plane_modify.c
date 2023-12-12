@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:29:35 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 20:12:35 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/12 14:09:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	plane_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
 				&plane->origin, value, range_create(-DBL_MAX, DBL_MAX)));
 	if (ft_is_equal_str(key, NORMAL))
 		return (modify_vec3_unit(mlx_ptr,
-				&plane->normal, value, range_create(-1.0, 1.0)));
+				&plane->system.axis_z, value, range_create(-1.0, 1.0)));
 	else if (ft_is_equal_str(key, COLORS))
 		return (modify_color(mlx_ptr,
 				color, value, range_create(0, MAX_COLOR_8BIT)));

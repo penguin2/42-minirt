@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:29:35 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 20:13:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/12 14:09:34 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	cylinder_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
 				&cylinder->center, value, range_create(-DBL_MAX, DBL_MAX)));
 	else if (ft_is_equal_str(key, AXIS))
 		return (modify_vec3_unit(mlx_ptr,
-				&cylinder->dir, value, range_create(-1.0, 1.0)));
+				&cylinder->system.axis_z, value, range_create(-1.0, 1.0)));
 	else if (ft_is_equal_str(key, DIAMETER))
 		return (modify_double_half(mlx_ptr,
 				&cylinder->radius, value, range_create(DBL_MIN, DBL_MAX)));

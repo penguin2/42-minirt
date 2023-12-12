@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:29:35 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 20:08:33 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/12 15:48:18 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ static int	_vertex_modify(t_mlx_ptr *mlx_ptr,
 	return (modify_vec3(mlx_ptr, vertex, value, range_vertex));
 }
 
-static void	_copy_from_tmp_to_triangle(t_vec3 tmp[3], t_triangle *triangle)
+static void	_copy_from_tmp_to_triangle(t_vec3 vertex[3], t_triangle *triangle)
 {
-	triangle->origin = tmp[0];
-	triangle->edge[0] = tmp[1];
-	triangle->edge[1] = tmp[2];
+	triangle->origin = vertex[0];
+	triangle->edge[0] = vec3_sub(vertex[1], vertex[0]);
+	triangle->edge[1] = vec3_sub(vertex[2], vertex[0]);
 }
 
 int	triangle_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
@@ -71,8 +71,8 @@ int	triangle_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
 
 	color = &mlx_ptr->selected_object->color;
 	tmp_vertex[0] = triangle->origin;
-	tmp_vertex[1] = triangle->edge[0];
-	tmp_vertex[2] = triangle->edge[1];
+	tmp_vertex[1] = vec3_add(triangle->origin, triangle->edge[0]);
+	tmp_vertex[2] = vec3_add(triangle->origin, triangle->edge[1]);
 	if (ft_is_equal_str(key, COLORS))
 		return (modify_color(
 				mlx_ptr, color, value, range_create(0, MAX_COLOR_8BIT)));

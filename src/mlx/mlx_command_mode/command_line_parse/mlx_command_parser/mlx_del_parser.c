@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:09:43 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 20:18:20 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/12 15:00:13 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static int	_delete_object(t_mlx_ptr *mlx_ptr)
 		{
 			object = ft_vla_pop(objects, idx);
 			object_free(object);
+			mlx_ptr->selected_object = NULL;
 			return (SUCCESS);
 		}
 		idx++;
