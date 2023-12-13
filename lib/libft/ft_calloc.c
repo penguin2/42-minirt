@@ -6,12 +6,13 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:40:03 by rikeda            #+#    #+#             */
-/*   Updated: 2023/10/10 21:43:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 18:27:24 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdint.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
