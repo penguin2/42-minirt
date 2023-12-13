@@ -56,6 +56,7 @@
 # define RT_OPTION_DUPLICATE "Optional parameters are duplicate"
 # define RT_OPTION_INVALID "Texture-map, Bump-map, Checkerboard options \
 are only for [sphere, plane, cylinder]"
+# define RT_OPTIONLESS "Optionless rt_object have options"
 
 // command line parse
 # define CMD_EMPTY "Command line is empty"
