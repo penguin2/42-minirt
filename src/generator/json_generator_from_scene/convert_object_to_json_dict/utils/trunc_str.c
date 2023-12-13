@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_to_json_value_node.c                        :+:      :+:    :+:   */
+/*   trunc_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 18:23:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/13 20:31:10 by rikeda           ###   ########.fr       */
+/*   Created: 2023/12/13 20:20:35 by rikeda            #+#    #+#             */
+/*   Updated: 2023/12/14 23:16:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "generator.h"
+#include "libft.h"
 
-t_json_node	*double_to_json_value_node(double n, const char *key)
+void	trunc_str(char *str)
 {
-	char		*copy_key;
+	char	*trunc_start_ptr;
 
-	if (key == NULL)
-		copy_key = NULL;
-	else
-		copy_key = ft_strdup(key);
-	return (
-		json_node_new(
-			copy_key,
-			ftoa_auto_adjust(n),
-			NODE_VALUE
-		)
-	);
+	trunc_start_ptr = ft_strchr(str, '.');
+	if (trunc_start_ptr == NULL)
+		return ;
+	str = &str[ft_strlen(str) - 1];
+	while (trunc_start_ptr != str)
+	{
+		if (*str != '0')
+			return ;
+		*str-- = '\0';
+	}
+	if (trunc_start_ptr == str)
+		*str = '\0';
 }
