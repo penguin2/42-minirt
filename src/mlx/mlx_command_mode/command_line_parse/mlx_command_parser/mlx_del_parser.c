@@ -6,22 +6,18 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:09:43 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/12 15:00:13 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:25:02 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_command_mode.h"
-#include "libft.h"
 #include "define.h"
 #include "message_parse.h"
-#include "object.h"
 #include <stddef.h>
-#include <stdlib.h>
 
 static int	_delete_object(t_mlx_ptr *mlx_ptr)
 {
 	t_vla		*objects;
-	t_object	*object;
 	size_t		idx;
 
 	objects = &mlx_ptr->scene->objects;
@@ -30,8 +26,7 @@ static int	_delete_object(t_mlx_ptr *mlx_ptr)
 	{
 		if (objects->array[idx] == mlx_ptr->selected_object)
 		{
-			object = ft_vla_pop(objects, idx);
-			object_free(object);
+			object_free(ft_vla_pop(objects, idx));
 			mlx_ptr->selected_object = NULL;
 			return (SUCCESS);
 		}

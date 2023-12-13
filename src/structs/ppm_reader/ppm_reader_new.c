@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 17:37:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/10 11:13:23 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:47:56 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_ppm_reader	*ppm_reader_new(const char *filename)
 	if (ppm_reader_check_header(new, fd) == ERROR)
 		return (_free_close_return_null(new, NULL, fd));
 	data = (unsigned char *)get_next_line(fd, &data_size, GNL_MODE_ALL);
+	get_next_line(fd, NULL, GNL_MODE_RESET);
 	if (!(data != NULL && new->width > 0 && new->height > 0
 			&& data_size == (size_t)new->width * new->height * 3))
 		return (_free_close_return_null(new, data, fd));
@@ -53,5 +54,6 @@ static void	*_free_close_return_null(void *new_ptr, void *data, int fd)
 	if (data != NULL)
 		free(data);
 	close(fd);
+	get_next_line(fd, NULL, GNL_MODE_RESET);
 	return (NULL);
 }

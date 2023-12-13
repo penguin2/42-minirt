@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:41:47 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/12 14:49:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 16:08:19 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static char	*_get_all_chars_in_json_file(const char *file)
 	if (fd == ERROR)
 		return (NULL);
 	all_chars = get_next_line(fd, NULL, GNL_MODE_ALL);
+	get_next_line(fd, NULL, GNL_MODE_RESET);
 	if (all_chars == NULL)
 		print_error(JSON_FILE_IS_EMPTY);
 	close(fd);
-	get_next_line(fd, NULL, GNL_MODE_RESET);
 	return (all_chars);
 }
 

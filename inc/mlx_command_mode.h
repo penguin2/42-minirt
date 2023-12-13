@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:44:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 19:56:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:21:03 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # define MLX_BUFFER_SPACE_STR " "
 # define MLX_DUMP_END_STR "..."
+# define MLX_BLANK_STR " \t\n"
 # define COLOR_YELLOW 16776960
 # define COLOR_RED 16711680
 # define COLOR_GREEN 65280

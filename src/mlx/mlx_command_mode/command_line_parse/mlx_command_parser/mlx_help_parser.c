@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:06:53 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 19:50:17 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:28:30 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int	mlx_help_parser(t_mlx_ptr *mlx_ptr, char **strings)
 	reset_image(mlx_ptr, WDW_HEIGHT);
 	mlx_file_dump(mlx_ptr, fd);
 	close(fd);
-	mlx_ptr->is_to_update = false;
 	return (SUCCESS);
 }

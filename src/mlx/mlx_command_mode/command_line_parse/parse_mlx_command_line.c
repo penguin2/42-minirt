@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:25:01 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 19:33:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:14:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "mlx_command_mode.h"
 #include "message_parse.h"
 #include "identifer_and_parameter.h"
-#include <unistd.h>
 
 static t_fn_mlx_command	_select_command_function(const char *command)
 {

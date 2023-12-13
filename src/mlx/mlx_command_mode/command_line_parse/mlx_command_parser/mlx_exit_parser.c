@@ -6,12 +6,11 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:09:43 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 19:50:25 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:26:03 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_command_mode.h"
-#include "libft.h"
 #include "define.h"
 #include "message_parse.h"
 #include <stdlib.h>

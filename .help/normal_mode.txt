@@ -1,22 +1,21 @@
-                    +----------------------------------------------------------+
-                    | Key           | Action                                   |
-                    |---------------+------------------------------------------|
-                    | a             | Move the viewport to the left            |
-                    | d             | Move the viewport to the right           |
-                    | w             | Move the viewport backward               |
-                    | s             | Move the viewport forward                |
-                    | space         | Move the viewport up                     |
-                    | shift + space | Move the viewport down                   |
-                    | q             | Rotate the viewport counterclockwise     |
-                    | e             | Rotate the viewport clockwise            |
-                    | up arrow      | Rotate the viewport upward               |
-                    | down arrow    | Rotate the viewport downward             |
-                    | left arrow    | Rotate the viewport to the left          |
-                    | right arrow   | Rotate the viewport to the right         |
-                    | z             | Zoom in                                  |
-                    | shift + z     | Zoom out                                 |
-                    | :             | Switch to command mode                   |
-                    | F1            | Write the scene in JSON format to STDOUT |
-                    | return        | rerendering scene                        |
-                    | escape        | exit                                     |
-                    +----------------------------------------------------------+
+               +---------------------------------------------------------------------+
+               | Key           | Action                                              |
+               |---------------+-----------------------------------------------------|
+               | a, d, w, s    | Move the viewport to left, forward, backward, right |
+               | space         | Move the viewport up                                |
+               | shift + space | Move the viewport down                              |
+               | q, e          | Rotate the viewport counterclockwise, clockwise     |
+               | up arrow      | Rotate the viewport upward                          |
+               | down arrow    | Rotate the viewport downward                        |
+               | left arrow    | Rotate the viewport to the left                     |
+               | right arrow   | Rotate the viewport to the right                    |
+               | z             | Zoom in                                             |
+               | shift + z     | Zoom out                                            |
+               | :, ;          | Switch to command mode                              |
+               | F1            | Write the scene in JSON format to STDOUT            |
+               | left button   | Selecting an object with the mouse                  |
+               | right button  | Changing the material of an object with the mouse   |
+               |               |  [defailt -> metal -> plastic -> mirror]            |
+               | return        | rerendering scene                                   |
+               | escape        | exit                                                |
+               +---------------------------------------------------------------------+

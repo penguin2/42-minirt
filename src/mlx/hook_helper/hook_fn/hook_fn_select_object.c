@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:04:49 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 20:29:44 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 14:03:35 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,7 @@
 #include "message_parse.h"
 #include "object.h"
 #include "define.h"
-
-t_ray	get_viewport_ray(const t_camera *camera, int height_idx, int width_idx)
-{
-	t_vec3	target_pos;
-
-	target_pos = vec3_add(
-			camera->viewport.upper_left,
-			vec3_add(
-				vec3_mul(camera->viewport.dw, width_idx),
-				vec3_mul(camera->viewport.dh, height_idx)
-				)
-			);
-	return (ray_from_to(camera->eye, target_pos));
-}
+#include "utils.h"
 
 void	hook_fn_select_object(t_mlx_ptr *mlx_ptr, int x, int y)
 {

@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:03 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/10 16:03:23 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/13 16:49:49 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	_print_json_file(const char *file)
 		printf("%s\n", line);
 		free(line);
 	}
+	get_next_line(fd, NULL, GNL_MODE_ALL);
 	close(fd);
 }
 
