@@ -6,11 +6,12 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:04:33 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/24 18:04:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:13:44 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libgnl.h"
 #include "parse.h"
 #include "generator.h"
 #include <stdlib.h>
@@ -80,4 +81,5 @@ void	convert_rt_to_no_grouping_rt_objects(t_vla *no_grouping_rt_objects,
 	}
 	if (rt_object != NULL)
 		ft_vla_append(no_grouping_rt_objects, rt_object);
+	get_next_line(fd, NULL, GNL_MODE_RESET);
 }
