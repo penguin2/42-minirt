@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:29:35 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/12 14:09:34 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/14 19:54:01 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@
 #include "float.h"
 #include "parse.h"
 
-int	cylinder_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
+static int	_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
 {
 	t_cylinder	*cylinder;
-	t_color		*color;
 
 	cylinder = mlx_ptr->selected_object->ptr;
-	color = &mlx_ptr->selected_object->color;
 	if (ft_is_equal_str(key, COORDINATES))
 		return (modify_vec3(mlx_ptr,
 				&cylinder->center, value, range_create(-DBL_MAX, DBL_MAX)));
@@ -40,9 +38,24 @@ int	cylinder_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
 	else if (ft_is_equal_str(key, HEIGHT))
 		return (modify_double_half(mlx_ptr,
 				&cylinder->half_height, value, range_create(DBL_MIN, DBL_MAX)));
-	else if (ft_is_equal_str(key, COLORS))
-		return (modify_color(mlx_ptr,
-				color, value, range_create(0, MAX_COLOR_8BIT)));
 	else
 		return (mlx_putcmd(mlx_ptr, CMD_MOD_KEY_FAILED, COLOR_RED, ERROR));
+}
+
+int	cylinder_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
+{
+	t_cylinder	*old_cylinder;
+	t_cylinder	*new_cylinder;
+
+	if (_modify(mlx_ptr, key, value) == ERROR)
+		return (ERROR);
+	old_cylinder = mlx_ptr->selected_object->ptr;
+	new_cylinder = cylinder_new(
+			old_cylinder->center,
+			old_cylinder->system.axis_z,
+			old_cylinder->radius,
+			old_cylinder->half_height);
+	mlx_ptr->selected_object->free_ptr(old_cylinder);
+	mlx_ptr->selected_object->ptr = new_cylinder;
+	return (SUCCESS);
 }

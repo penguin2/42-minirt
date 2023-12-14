@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:29:35 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 20:11:22 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/14 19:57:47 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,31 @@
 #include "float.h"
 #include "parse.h"
 
-int	sphere_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
+static int	_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
 {
 	t_sphere	*sphere;
-	t_color		*color;
 
 	sphere = mlx_ptr->selected_object->ptr;
-	color = &mlx_ptr->selected_object->color;
 	if (ft_is_equal_str(key, COORDINATES))
 		return (modify_vec3(mlx_ptr,
 				&sphere->center, value, range_create(-DBL_MAX, DBL_MAX)));
 	else if (ft_is_equal_str(key, DIAMETER))
 		return (modify_double_half(mlx_ptr,
 				&sphere->radius, value, range_create(DBL_MIN, DBL_MAX)));
-	else if (ft_is_equal_str(key, COLORS))
-		return (modify_color(mlx_ptr,
-				color, value, range_create(0, MAX_COLOR_8BIT)));
 	else
 		return (mlx_putcmd(mlx_ptr, CMD_MOD_KEY_FAILED, COLOR_RED, ERROR));
+}
+
+int	sphere_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
+{
+	t_sphere	*old_sphere;
+	t_sphere	*new_sphere;
+
+	if (_modify(mlx_ptr, key, value) == ERROR)
+		return (ERROR);
+	old_sphere = mlx_ptr->selected_object->ptr;
+	new_sphere = sphere_new(old_sphere->center, old_sphere->radius);
+	mlx_ptr->selected_object->free_ptr(old_sphere);
+	mlx_ptr->selected_object->ptr = new_sphere;
+	return (SUCCESS);
 }

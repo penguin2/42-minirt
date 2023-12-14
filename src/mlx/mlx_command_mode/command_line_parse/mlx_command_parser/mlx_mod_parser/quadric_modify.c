@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:29:35 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 20:11:59 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/14 19:56:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,28 @@ static int	_coeff_array_modify(t_mlx_ptr *mlx_ptr,
 		return (mlx_putcmd(mlx_ptr, CMD_MOD_KEY_FAILED, COLOR_RED, ERROR));
 }
 
-int	quadric_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
+static int	_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
 {
 	t_quadric		*quadric;
-	t_color			*color;
 
 	quadric = mlx_ptr->selected_object->ptr;
-	color = &mlx_ptr->selected_object->color;
 	if (ft_is_equal_str(key, COORDINATES))
 		return (modify_vec3(mlx_ptr,
 				&quadric->center, value, range_create(-DBL_MAX, DBL_MAX)));
-	else if (ft_is_equal_str(key, COLORS))
-		return (modify_color(mlx_ptr,
-				color, value, range_create(0, MAX_COLOR_8BIT)));
 	else
 		return (_coeff_array_modify(mlx_ptr, key, value));
+}
+
+int	quadric_modify(t_mlx_ptr *mlx_ptr, const char *key, const char *value)
+{
+	t_quadric	*old_quadric;
+	t_quadric	*new_quadric;
+
+	if (_modify(mlx_ptr, key, value) == ERROR)
+		return (ERROR);
+	old_quadric = mlx_ptr->selected_object->ptr;
+	new_quadric = quadric_new(old_quadric->center, old_quadric->coeff_array);
+	mlx_ptr->selected_object->free_ptr(old_quadric);
+	mlx_ptr->selected_object->ptr = new_quadric;
+	return (SUCCESS);
 }

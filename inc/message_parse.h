@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/11 19:50:03 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:34:09 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ are only for [sphere, plane, cylinder]"
 # define CMD_INVALID_EXTENSION "File extension is invalid"
 # define CMD_NOT_SELECT "Object not selected"
 # define CMD_SELECTED "Selected object!!!"
-# define CMD_SAVE_FAILED "Please understand format [w FILEPATH]"
+# define CMD_SAVE_FAILED "Please understand format [save FILEPATH]"
 # define CMD_SAVE_NOT_JSON "File extension is not json"
 # define CMD_EXIT_FAILED "Please understand format [q]"
-# define CMD_DUMP_FAILED "Please understand format [e FILE_PATH]"
+# define CMD_DUMP_FAILED "Please understand format [dump FILE_PATH]"
 # define CMD_HELP_FAILED "Please understand format [help {HELP_OPTION}]"
 # define CMD_HELP_OPEN_FAILED "help options will be displayed by [:help]"
 # define CMD_MOD_FAILED "Please understand format [mod PARAMETERNAME VALUE]"

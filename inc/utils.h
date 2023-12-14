@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/13 14:47:41 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/14 20:32:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define PRINT_COLOR_END "\e[m"
 
 bool	is_zero(double val);
+bool	is_normalized(t_vec3 vec);
 bool	solve_quadratic_equation(
 			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
 void	rotate_two_vecs_clockwise(t_vec3 *u, t_vec3 *v, double theta);

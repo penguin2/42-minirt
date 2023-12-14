@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_fn_enter_cmd_mode.c                           :+:      :+:    :+:   */
+/*   is_normalized.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 15:52:14 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/14 18:16:55 by rikeda           ###   ########.fr       */
+/*   Created: 2023/12/14 20:31:02 by rikeda            #+#    #+#             */
+/*   Updated: 2023/12/14 20:31:52 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_command_mode.h"
-#include "define.h"
+#include "libvec3.h"
+#include "utils.h"
+#include <stdbool.h>
+#include <math.h>
 
-void	hook_fn_enter_cmd_mode(t_mlx_ptr *mlx_ptr, int keycode)
+bool	is_normalized(t_vec3 vec)
 {
-	(void)keycode;
-	mlx_ptr->mode = MLX_MODE_COMMAND;
-	mlx_buffer_flush(mlx_ptr->buffer);
-	mlx_buffer_write(mlx_ptr->buffer, ':');
-	mlx_putcmd(mlx_ptr, mlx_ptr->buffer, COLOR_YELLOW, SUCCESS);
+	const double	pow_x = pow(vec.x, 2.0);
+	const double	pow_y = pow(vec.y, 2.0);
+	const double	pow_z = pow(vec.z, 2.0);
+	const double	sum = pow_x + pow_y + pow_z;
+
+	return (is_zero(sqrt(sum) - 1.0));
 }
