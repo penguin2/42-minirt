@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:39:41 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/14 23:10:01 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 14:44:55 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "utils.h"
 #include "message_parse.h"
 
-char	*_create_double_limit_str(bool is_minus)
+static char	*_create_double_limit_str(bool is_minus)
 {
 	char	*str;
 	char	*str_top_ptr;

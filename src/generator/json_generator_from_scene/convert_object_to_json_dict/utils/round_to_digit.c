@@ -6,11 +6,11 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:11:09 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/14 22:44:38 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 14:45:02 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	_create_small_number_with_digit(int digit)
+static double	_create_small_number_with_digit(int digit)
 {
 	double	n;
 

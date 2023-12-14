@@ -1,7 +1,7 @@
-# bmpパラメータのファイルが存在しない
+# bmpファイルが0byte
 
 A 0.5 255,255,255
 C 0,0,100 0,0,-1 70
 L 0,100,100 0.5 255,255,255
 sp 0,0,20 20 255,0,0
--- bmp sanple-bmp
+-- bmp "./test/rt_to_json/error_bonus/map-file/empty.bmp"

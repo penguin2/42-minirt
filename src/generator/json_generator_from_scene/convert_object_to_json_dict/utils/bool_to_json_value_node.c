@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 21:17:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/04 21:25:02 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 14:44:46 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdbool.h>
 
-const char	*_get_bool_string(bool true_or_false)
+static const char	*_get_bool_string(bool true_or_false)
 {
 	if (true_or_false)
 		return (TRUE_STRING);
