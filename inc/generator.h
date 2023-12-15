@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/14 23:11:40 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 16:54:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@
 # define GENERATOR_COMMA ","
 
 # define RT_VECTOR_SEPARATOR ","
-
-# define GENERATOR_LIMIT_DIGIT 10
 
 //// json_object -> json
 void		json_generator_from_json_object(t_json_node *master_node,
