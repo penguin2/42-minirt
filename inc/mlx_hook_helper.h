@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:13:25 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 19:07:41 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 20:04:55 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define HOOK_KEY_PRESS_CNT			(19)
 # define HOOK_KEY_RELEASE_CNT		(2)
 # define HOOK_BUTTON_PRESS_CNT		(2)
-# define HOOK_BUTTON_RELEASE_CNT	(1)
 # define HOOK_KEY_PRESS_CMD_CNT		(48)
 
 # define BUTTON_LEFT_X				(1)
@@ -36,7 +35,6 @@ typedef struct s_mlx_hook_helper{
 	t_hook	hooks_key_press[HOOK_KEY_PRESS_CNT];
 	t_hook	hooks_key_release[HOOK_KEY_RELEASE_CNT];
 	t_hook	hooks_button_press[HOOK_BUTTON_PRESS_CNT];
-	t_hook	hooks_button_release[HOOK_BUTTON_RELEASE_CNT];
 	t_hook	hooks_key_press_cmd_mode[HOOK_KEY_PRESS_CMD_CNT];
 }	t_mlx_hook_helper;
 
@@ -62,10 +60,6 @@ void	hook_fn_select_object(t_mlx_ptr *mlx_ptr, int x, int y);
 void	hook_fn_set_shift_off(t_mlx_ptr *mlx_ptr, int keycode);
 
 //hook_fn: button_press 
-void	hook_fn_set_button_left_on(t_mlx_ptr *mlx_ptr, int x, int y);
 void	hook_fn_handle_material(t_mlx_ptr *mlx_ptr, int x, int y);
-
-//hook_fn: button_release 
-void	hook_fn_set_button_left_off(t_mlx_ptr *mlx_ptr, int x, int y);
 
 #endif
