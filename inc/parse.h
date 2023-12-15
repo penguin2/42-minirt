@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/12 14:16:32 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 20:22:51 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define FALSE_NUMBER "0"
 
 // atof limit digit
-# define DOUBLE_LIMIT_DIGIT 15
+# define DOUBLE_LIMIT_DIGIT 6
 
 # define ACCEPT_1_OR_OVER -1
 
