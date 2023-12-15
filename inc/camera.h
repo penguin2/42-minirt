@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:10:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/10 18:02:24 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 20:48:03 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # define COUNT_TO_ROTATE_CAMERA_ONCE	(100)
 # define UNIT_LEN_CAMERA_MOVE			(1.0)
 # define UNIT_FOV_CAMERA_ZOOM			(1.0)
+
+# define CAMERA_EYE_LIMIT				(1e6)
 
 # define FOV_DEFAULT					(70.0)
 # define FOV_LOWER_LIMIT				(1.0)
@@ -63,4 +65,6 @@ void	camera_set_viewport(t_camera *camera, t_viewport *viewport);
 int		camera_move(t_camera *camera, t_camera_direction camera_direction);
 int		camera_rotate(t_camera *camera, t_camera_rotation camera_rotation);
 int		camera_zoom(t_camera *camera, double deg);
+int		camera_check_eye(t_vec3 eye);
+
 #endif

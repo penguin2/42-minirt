@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:08:04 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/29 01:50:47 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/15 20:52:42 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	camera_init(const t_json_node *node, t_camera *camera)
 			range_create(0.0, 180.0)) == ERROR
 		|| query_set_vec3(
 			query_create(camera_dict, COORDINATES, &camera->eye, true),
-			range_create(-DBL_MAX, DBL_MAX)) == ERROR
+			range_create(-CAMERA_EYE_LIMIT, CAMERA_EYE_LIMIT)) == ERROR
 		|| query_set_vec3(
 			query_create(camera_dict, DIRECTION, &camera->dir, true),
 			range_create(-1.0, 1.0)) == ERROR
