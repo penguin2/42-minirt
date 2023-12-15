@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/14 17:34:09 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:58:57 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define VECTOR_TOO_SMALL "The vector parameters are too small"
 # define INVALID_BOOLEAN "parameter is not boolean"
 # define VERTEXES_IS_STRAIGHT_LINE "triangle Vertexes is straight line"
+# define FILE_OPEN_FAILED "File open failed"
 
 // rt parse
 # define SPOT_LIGHT_DUPLICATE "[mandatory only] Light are duplicate"
