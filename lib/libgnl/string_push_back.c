@@ -6,11 +6,12 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:27:36 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/24 16:27:37 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:55:26 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgnl.h"
+#include <stdint.h>
 
 int	string_push_back(t_string *str, char c)
 {
