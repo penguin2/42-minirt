@@ -1,0 +1,11 @@
+                +-----------------------------------------------------------------+
+                | Command            | Action                                     |
+                |--------------------+--------------------------------------------|
+                | help {HELP_OPTION} | Display help on the screen                 |
+                | mod [KEY] [VALUE]  | Change parameter specified by the KEY      |
+                |                    |  of selected object to a VALUE             |
+                | del                | Delete the selected object                 |
+                | save [FILE]        | Write the scene in JSON format to FILE     |
+                | dump [FILE]        | Display the contents of FILE on the screen |
+                | q                  | exit                                       |
+                +-----------------------------------------------------------------+

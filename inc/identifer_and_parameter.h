@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:24:15 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 17:06:10 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:56:00 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,12 @@
 # define IS_CHECKERBOARD "checkerboard"
 # define TEXTURE_MAP "texture-map"
 # define BUMP_MAP "bump-map"
+// mlx command operator
+# define CMD_SAVE "save"
+# define CMD_EXIT "q"
+# define CMD_DUMP "dump"
+# define CMD_HELP "help"
+# define CMD_MOD "mod"
+# define CMD_DEL "del"
 
 #endif

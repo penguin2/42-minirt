@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 17:37:47 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/10 11:13:23 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:57:51 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_ppm_reader	*ppm_reader_new(const char *filename)
 		return (_free_close_return_null(new, data, fd));
 	new->data = data;
 	new->filename = ft_strdup(filename);
-	close(fd);
+	_free_close_return_null(NULL, NULL, fd);
 	return (new);
 }
 
@@ -53,5 +53,6 @@ static void	*_free_close_return_null(void *new_ptr, void *data, int fd)
 	if (data != NULL)
 		free(data);
 	close(fd);
+	get_next_line(fd, NULL, GNL_MODE_RESET);
 	return (NULL);
 }

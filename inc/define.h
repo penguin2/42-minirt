@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:27:51 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/01 16:53:06 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:45:23 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define WDW_WIDTH	(800)
 # define WDW_HEIGHT	(450)
+# define WDW_CMD_HEIGHT (18)
 
 # define NAME		("miniRT")
 

@@ -1,0 +1,16 @@
+                  +---------------------------------------------------------------+
+                  | Key           | Action                                        |
+                  |---------------+-----------------------------------------------|
+                  | a-z           | write lowercase letters into the command line |
+                  | shift + a-z   | write uppercase letters into the command line |
+                  | 0-9           | write digit letters into the command line     |
+                  | space         | write a space                                 |
+                  | ,             | write a comma                                 |
+                  | .             | write a period                                |
+                  | -             | write a hyphen                                |
+                  | _             | write a underscore                            |
+                  | /             | write a slash                                 |
+                  | delete        | delete one character                          |
+                  | return        | Execute the entered command                   |
+                  | escape        | Switch to normal mode                         |
+                  +---------------------------------------------------------------+

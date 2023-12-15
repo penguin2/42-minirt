@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:27:55 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/24 00:15:05 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:52:38 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int	json_node_to_double(const t_json_node *node, t_range range, double *val)
 
 	if (node == NULL || node->type != NODE_VALUE)
 		return (error_with_message_if(true, INVALID_PARAMETERS));
-	if (try_json_node_tof(node, &double_val) == ERROR
-		|| !is_between_min_to_max(double_val, range.start, range.end))
-		return (ERROR);
+	if (try_json_node_tof(node, &double_val) == ERROR)
+		return (error_with_message_if(true, ATOF_FAILED));
+	if (!is_between_min_to_max(double_val, range.start, range.end))
+		return (error_with_message_if(true, OUTSIDE_THE_RANGE));
 	*val = double_val;
 	return (SUCCESS);
 }

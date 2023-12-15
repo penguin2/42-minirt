@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 12:03:49 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:32:04 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define PRINT_COLOR_END "\e[m"
 
 bool	is_zero(double val);
+bool	is_normalized(t_vec3 vec);
 bool	solve_quadratic_equation(
 			double roots[NUM_QUADRATIC_EQUATION_ROOTS], double b, double c);
 void	rotate_two_vecs_clockwise(t_vec3 *u, t_vec3 *v, double theta);
@@ -46,5 +47,7 @@ void	map_3d_to_cylinder(double *u, double *v, t_vec3 pos);
 double	mod_double(double x);
 
 t_ray	get_viewport_ray(const t_camera *camera, int height_idx, int width_idx);
+
+int		check_triangle_vertex_valid(t_vec3 vertex[3]);
 
 #endif

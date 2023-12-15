@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 20:04:26 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:16:32 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 // extension
 # define RT_EXTENSION ".rt"
 # define JSON_EXTENSION ".json"
+# define TXT_EXTENSION ".txt"
 
 // tokenize
 # define JSON_SPACE_CHARSETS " \t\n"
@@ -141,7 +142,6 @@ void		free_json_object(t_vla *json_object);
 int			check_extension(const char *file, const char *extension);
 char		*delete_commentout(const char *str, const char *commentout_str);
 int			try_atof_limit(const char *nptr, double *dptr, size_t limit);
-char		*get_all_chars_in_file(int fd);
 char		*get_next_removed_comment_line(int fd);
 int			try_open_file(const char *file, const char *extension, int flag);
 char		*convert_extension(const char *file,
