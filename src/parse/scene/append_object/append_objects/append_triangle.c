@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:18:23 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/13 14:46:00 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:34:24 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@ int	append_triangle(const t_json_node *node, t_vla *objects)
 			range_create(-DBL_MAX, DBL_MAX)) == ERROR
 		|| query_set_vec3(
 			query_create(node, VERTEX3, &vertex[2], true),
-			range_create(-DBL_MAX, DBL_MAX)) == ERROR
-		|| check_triangle_vertex_valid(vertex) == ERROR)
+			range_create(-DBL_MAX, DBL_MAX)) == ERROR)
 		return (ERROR);
+	if (check_triangle_vertex_valid(vertex) == ERROR)
+	{
+		print_error(VERTEXES_IS_STRAIGHT_LINE);
+		return (ERROR);
+	}
 	ft_vla_append(objects, triangle_object_new(vertex));
 	return (SUCCESS);
 }

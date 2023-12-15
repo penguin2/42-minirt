@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:46:39 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/13 14:47:30 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:33:05 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int	check_triangle_vertex_valid(t_vec3 vertex[3])
 	edge[1] = vec3_sub(vertex[2], vertex[0]);
 	if (is_zero(vec3_len(edge[0])) || is_zero(vec3_len(edge[1]))
 		|| _is_two_vecs_aligned(edge[0], edge[1]))
-	{
-		print_error(VERTEXES_IS_STRAIGHT_LINE);
 		return (ERROR);
-	}
 	return (SUCCESS);
 }
