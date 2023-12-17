@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:39:41 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/15 16:54:03 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/17 20:01:40 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*_create_double_limit_str(bool is_minus)
 	char	*str_top_ptr;
 	size_t	idx;
 
-	str = ft_xcalloc(sizeof(char), DOUBLE_LIMIT_DIGIT + 1 + is_minus);
+	str = ft_xcalloc(DOUBLE_LIMIT_DIGIT + 1 + is_minus, sizeof(char));
 	str_top_ptr = str;
 	if (is_minus)
 		*str++ = '-';

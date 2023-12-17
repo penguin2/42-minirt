@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/13 19:58:19 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/17 19:58:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 #include "utils.h"
 #include "message_parse.h"
 #include "identifer_and_parameter.h"
+#include <stdbool.h>
 #include <stddef.h>
 
-static int	_is_optionless_rt_object(const char *identifer)
+static bool	_is_optionless_rt_object(const char *identifer)
 {
 	if (ft_is_equal_str(identifer, ID_AMBIENT)
 		|| ft_is_equal_str(identifer, ID_SPOT)
 		|| ft_is_equal_str(identifer, ID_CAMERA))
-		return (ERROR);
-	return (SUCCESS);
+		return (true);
+	return (false);
 }
 
 static int	_check_optionless(const t_vla *rt_object)
