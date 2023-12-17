@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:27:00 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/16 20:52:41 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:58:58 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	try_open_file(const char *file, const char *extension, int flag)
 	if (fd == -1)
 	{
 		perror("open");
+		print_error(FILE_OPEN_FAILED);
 		return (ERROR);
 	}
 	return (fd);

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bool_to_json_value_node.c                          :+:      :+:    :+:   */
+/*   trunc_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 21:17:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/15 14:44:46 by rikeda           ###   ########.fr       */
+/*   Created: 2023/12/13 20:20:35 by rikeda            #+#    #+#             */
+/*   Updated: 2023/12/14 23:16:25 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
 #include "libft.h"
-#include <stdbool.h>
 
-static const char	*_get_bool_string(bool true_or_false)
+void	trunc_str(char *str)
 {
-	if (true_or_false)
-		return (TRUE_STRING);
-	else
-		return (FALSE_STRING);
-}
+	char	*trunc_start_ptr;
 
-t_json_node	*bool_to_json_value_node(bool true_or_false, const char *key)
-{
-	const char	*bool_string = _get_bool_string(true_or_false);
-
-	return (
-		json_node_new(
-			ft_strdup(key),
-			ft_strdup(bool_string),
-			NODE_VALUE
-		)
-	);
+	trunc_start_ptr = ft_strchr(str, '.');
+	if (trunc_start_ptr == NULL)
+		return ;
+	str = &str[ft_strlen(str) - 1];
+	while (trunc_start_ptr != str)
+	{
+		if (*str != '0')
+			return ;
+		*str-- = '\0';
+	}
+	if (trunc_start_ptr == str)
+		*str = '\0';
 }

@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:17:20 by rikeda            #+#    #+#             */
-/*   Updated: 2023/11/24 20:05:29 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:54:42 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ static int	_try_open_converted_extension_json_file(const char *rt_file)
 
 	json_file = convert_extension(rt_file, RT_EXTENSION, JSON_EXTENSION);
 	json_fd = try_open_file(json_file, JSON_EXTENSION, O_WRITE);
-	if (json_fd == ERROR)
-		print_error(INVALID_FILE_EXTENSION);
 	free(json_file);
 	return (json_fd);
 }

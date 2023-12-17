@@ -6,13 +6,14 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 18:15:57 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/04 20:45:54 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/15 16:51:42 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generator.h"
 #include "identifer_and_parameter.h"
 #include "define.h"
+#include <math.h>
 
 static t_vla	*_json_camera_generator(t_camera *camera)
 {
@@ -24,7 +25,7 @@ static t_vla	*_json_camera_generator(t_camera *camera)
 	ft_vla_append(json_camera,
 		vec3_to_json_list_node(&camera->dir, DIRECTION));
 	ft_vla_append(json_camera,
-		double_to_json_value_node(camera->fov / DEG_TO_RAD, FOV));
+		double_to_json_value_node(round(camera->fov / DEG_TO_RAD), FOV));
 	return (json_camera);
 }
 

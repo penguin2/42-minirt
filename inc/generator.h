@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:39:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/06 19:28:30 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:54:33 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,9 @@ t_json_node	*color_to_json_list_node(const t_color *color, const char *key);
 t_json_node	*vec3_to_json_list_node(const t_vec3 *vec, const char *key);
 t_json_node	*double_to_json_value_node(double n, const char *key);
 t_json_node	*bool_to_json_value_node(bool true_or_false, const char *key);
-char		*ftoa_auto_adjust_when_over_limit(double n);
+char		*ftoa_auto_adjust(double n);
+double		round_to_digit(double n, int limit_digit);
+void		trunc_str(char *str);
 
 void		append_material_parameters_node(
 				t_vla *json_obj,

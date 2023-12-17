@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:52:37 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 19:04:28 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/17 19:58:14 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,29 @@
 #include "parse.h"
 #include "utils.h"
 #include "message_parse.h"
+#include "identifer_and_parameter.h"
+#include <stdbool.h>
 #include <stddef.h>
+
+static bool	_is_optionless_rt_object(const char *identifer)
+{
+	if (ft_is_equal_str(identifer, ID_AMBIENT)
+		|| ft_is_equal_str(identifer, ID_SPOT)
+		|| ft_is_equal_str(identifer, ID_CAMERA))
+		return (true);
+	return (false);
+}
+
+static int	_check_optionless(const t_vla *rt_object)
+{
+	if (rt_object->size == 1)
+		return (SUCCESS);
+	else
+	{
+		print_error(RT_OPTIONLESS);
+		return (ERROR);
+	}
+}
 
 /**
 * @brief Sort the option parameters in ascii order, looking for
@@ -33,6 +55,8 @@ int	check_rt_object_option_format(const t_vla *rt_object)
 	const char	*identifer = *((char **)rt_object->array[0]);
 	const char	*prev_option_key;
 
+	if (_is_optionless_rt_object(identifer))
+		return (_check_optionless(rt_object));
 	sort_rt_object_options(rt_object);
 	prev_option_key = NULL;
 	idx = 1;

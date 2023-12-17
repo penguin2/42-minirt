@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:48:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/02 19:09:21 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/17 20:03:53 by rikeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_sort(void **array, size_t size,
 {
 	void	**tmp_array;
 
-	tmp_array = (void **)ft_xcalloc(sizeof(void *), size);
+	tmp_array = (void **)ft_xcalloc(size, sizeof(void *));
 	_merge_sort(array, size, tmp_array, cmp);
 	free(tmp_array);
 }

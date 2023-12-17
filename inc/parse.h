@@ -288,8 +288,7 @@ int			check_rt_object_format(t_vla *no_grouping_rt_objects);
 int			check_rt_object_option_format(const t_vla *rt_object);
 int			check_duplicate_spot(t_vla *rt_objects_array);
 int			check_size_of_parameters(const t_vla *rt_object,
-				t_required_max_size required_parameters_max_size,
-				t_optional_max_size optional_parameters_max_size);
+				t_required_max_size required_parameters_max_size);
 
 bool		is_duplicate(const char *str1, const char *str2);
 bool		is_option_key(const char *option_key, const char *identifer);
