@@ -1,9 +1,9 @@
 ```mermaid
 classDiagram
 
-SCENE *-- LIGHTS
-SCENE *-- OBJECTS
-SCENE *-- CAMERA
+SCENE "1" *-- "1...*" LIGHTS
+SCENE "1" *-- "0...*" OBJECTS
+SCENE "1" *-- "1" CAMERA
 
 LIGHTS <|-- ABS_LIGHT
 ABS_LIGHT <|-- A
