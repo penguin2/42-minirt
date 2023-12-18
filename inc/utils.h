@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/15 20:24:30 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:15:28 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define PRINT_COLOR_YELLOW "\e[33m "
 # define PRINT_COLOR_END "\e[m"
 
+bool	is_lower(double x, double y);
+bool	is_higher(double x, double y);
 bool	is_zero(double val);
 bool	is_normalized(t_vec3 vec);
 bool	solve_quadratic_equation(
