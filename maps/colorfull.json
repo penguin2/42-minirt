@@ -1,0 +1,198 @@
+{
+    "C": [
+        {
+            "coordinates": [-0.31099, 15.1599, -10.6515],
+            "orientation": [0.06101, -0.12436, 0.99036],
+            "fov": 97
+        }
+    ],
+    "A": [
+        {
+            "brightness": 0.2,
+            "colors": [255, 255, 255]
+        }
+    ],
+    "L": [
+        {
+            "coordinates": [0, 0, 0],
+            "brightness": 1,
+            "colors": [255, 255, 255]
+        }
+    ],
+    "sp": [
+        {
+            "coordinates": [0, 0, 19.45],
+            "diameter": 9,
+            "colors": [0, 123, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [0, 0, 20],
+            "diameter": 10,
+            "colors": [255, 51, 51],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.8,
+            "coefficient-specular": 1,
+            "coefficient-shininess": 64,
+            "is-reflective": true,
+            "coefficient-reflect": 0.05
+        },
+        {
+            "coordinates": [9.7, 0, 19.5],
+            "diameter": 9,
+            "colors": [255, 0, 0],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [10, 0, 20],
+            "diameter": 10,
+            "colors": [204, 153, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.8,
+            "coefficient-specular": 1,
+            "coefficient-shininess": 64,
+            "is-reflective": true,
+            "coefficient-reflect": 0.05
+        },
+        {
+            "coordinates": [-9.7, 0, 19.5],
+            "diameter": 9,
+            "colors": [0, 255, 0],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [-10, 0, 20],
+            "diameter": 10,
+            "colors": [255, 51, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.8,
+            "coefficient-specular": 1,
+            "coefficient-shininess": 64,
+            "is-reflective": true,
+            "coefficient-reflect": 0.05
+        },
+        {
+            "coordinates": [-4.75, 10, 19.5],
+            "diameter": 9,
+            "colors": [255, 255, 0],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [-5, 10, 20],
+            "diameter": 10,
+            "colors": [148, 0, 211],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.8,
+            "coefficient-specular": 1,
+            "coefficient-shininess": 64,
+            "is-reflective": true,
+            "coefficient-reflect": 0.05
+        },
+        {
+            "coordinates": [4.75, 10, 19.5],
+            "diameter": 9,
+            "colors": [0, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [5, 10, 20],
+            "diameter": 10,
+            "colors": [255, 215, 0],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.8,
+            "coefficient-specular": 1,
+            "coefficient-shininess": 64,
+            "is-reflective": true,
+            "coefficient-reflect": 0.05
+        },
+        {
+            "coordinates": [0, 19.7, 19.5],
+            "diameter": 9,
+            "colors": [255, 0, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [0, 20, 20],
+            "diameter": 10,
+            "colors": [153, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.8,
+            "coefficient-specular": 1,
+            "coefficient-shininess": 64,
+            "is-reflective": true,
+            "coefficient-reflect": 0.05
+        }
+    ],
+    "tr": [
+        {
+            "vertex1": [0, 0, -100],
+            "vertex2": [-100, -100, 100],
+            "vertex3": [100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.1,
+            "coefficient-diffuse": 0.5,
+            "coefficient-specular": 0.5,
+            "coefficient-shininess": 8
+        },
+        {
+            "vertex1": [0, 100, 0],
+            "vertex2": [-100, -100, 100],
+            "vertex3": [100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.1,
+            "coefficient-diffuse": 0.5,
+            "coefficient-specular": 0.5,
+            "coefficient-shininess": 8
+        },
+        {
+            "vertex1": [0, 100, 0],
+            "vertex2": [0, 0, -100],
+            "vertex3": [100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.1,
+            "coefficient-diffuse": 0.5,
+            "coefficient-specular": 0.5,
+            "coefficient-shininess": 8
+        },
+        {
+            "vertex1": [0, 100, 0],
+            "vertex2": [0, 0, -100],
+            "vertex3": [-100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.1,
+            "coefficient-diffuse": 0.5,
+            "coefficient-specular": 0.5,
+            "coefficient-shininess": 8
+        }
+    ]
+}
