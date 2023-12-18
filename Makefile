@@ -15,6 +15,7 @@ OBJ_BONUS_DIR	=	./obj_bonus
 INC_DIR			=	./inc
 LIB_DIR			=	./lib
 MINILIBX_DIR	=	./minilibx
+TEST_MAIN_DIR	=	./test_main
 
 
 LIB_HEADER		=	$(shell find lib/* -name "*.h")
@@ -28,17 +29,17 @@ LIB_OBJS_BONUS	=	$(patsubst %.o, $(OBJ_BONUS_DIR)/%.o, $(LIB_SRCS:.c=.o))
 SRCS			=	$(shell cd $(SRC_DIR) && find * -name "*.c" -and ! -name "main*.c" -and ! -name "leaks.c")
 
 ifeq ($(MAKECMDGOALS), test_json)
-	SRCS += main_json.c
+	SRCS += $(TEST_MAIN_DIR)/main_json.c
 else ifeq ($(MAKECMDGOALS), test_scene)
-	SRCS += main_scene.c
+	SRCS += $(TEST_MAIN_DIR)/main_scene.c
 else ifeq ($(MAKECMDGOALS), test_scene_to_json)
-	SRCS += main_scene_to_json.c
+	SRCS += $(TEST_MAIN_DIR)/main_scene_to_json.c
 else ifeq ($(MAKECMDGOALS), test_scene_to_json_bonus)
-	SRCS += main_scene_to_json.c
+	SRCS += $(TEST_MAIN_DIR)/main_scene_to_json.c
 else ifeq ($(MAKECMDGOALS), test_rt)
-	SRCS += main_rt.c
+	SRCS += $(TEST_MAIN_DIR)/main_rt.c
 else ifeq ($(MAKECMDGOALS), test_rt_bonus)
-	SRCS += main_rt.c
+	SRCS += $(TEST_MAIN_DIR)/main_rt.c
 else
 	SRCS += main.c
 endif
@@ -95,7 +96,7 @@ SCENE_TO_JSON	= "scene_to_json"
 SCENE_TO_JSON_BONUS	= "scene_to_json_bonus"
 RT			=	"rt"
 RT_BONUS	=	"rt_bonus"
-# SRCS 		+= leaks.c
+# SRCS		+=	$(TEST_MAIN_DIR)/leaks.c
 
 test_json : $(MINILIBX_DIR) $(OBJ_SUBDIRS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) $(LINKER_OPT) -ominiRT
