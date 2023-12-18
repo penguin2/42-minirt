@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:33:43 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/11 13:09:37 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:26:55 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "object.h"
 #include "scene.h"
 #include "utils.h"
-#include <stdio.h>
 
 void	hook_fn_handle_material(t_mlx_ptr *mlx_ptr, int x, int y)
 {
