@@ -6,7 +6,7 @@
 /*   By: rikeda <rikeda@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:48:58 by rikeda            #+#    #+#             */
-/*   Updated: 2023/12/17 20:03:53 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/18 16:27:14 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 static void	_merge(void **array, size_t size, void **tmp_array,
 					bool (*cmp)(const void *, const void *))
