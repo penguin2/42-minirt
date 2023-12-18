@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:10:59 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/15 20:48:03 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:24:56 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define UNIT_LEN_CAMERA_MOVE			(1.0)
 # define UNIT_FOV_CAMERA_ZOOM			(1.0)
 
-# define CAMERA_EYE_LIMIT				(1e6)
+# define CAMERA_EYE_LIMIT				(999999.0)
 
 # define FOV_DEFAULT					(70.0)
 # define FOV_LOWER_LIMIT				(1.0)
