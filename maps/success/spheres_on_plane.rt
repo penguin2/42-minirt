@@ -1,0 +1,60 @@
+# one simple plane with one large sphere (dome)
+
+A 0.5 225,225,225
+C 0,0,50 0,0,-1 70
+L -200,300,150 1.0 255,255,255
+
+# sphere center
+sp 0,0,0 20 255,156,94
+-- amb 0.2
+-- dif 1.0 
+-- spc 1.0
+-- shi 64.0
+
+# sphere left
+sp -25,-2,10 16 62,180,137
+-- amb 0.2
+-- dif 0.8
+-- spc 1.0
+-- shi 64.0
+
+# sphere medium left front
+sp -15,-4,20 12 145,157,255
+-- amb 0.2
+-- dif 0.8
+-- spc 1.0
+-- shi 64.0
+
+# sphere small front
+sp -5,-7,30 6 255,243,145
+-- amb 0.2
+-- dif 0.8
+-- spc 1.0
+-- shi 64.0
+
+# sphere right
+sp 30,2,0 24 255,170,180
+-- amb 0.2
+-- dif 0.8
+-- spc 1.0
+-- shi 64.0
+
+# sphere right front
+sp 15,-4,25 12 255,214,192
+-- amb 0.2
+-- dif 0.8
+-- spc 1.0
+-- shi 64.0
+
+# sky
+sp 0,0,0 2000 135,206,235
+-- amb 0.2
+-- dif 0.8
+-- spc 0.0
+
+# ground 
+pl 0,-10,0 0,1,0 62,180,137
+-- amb 0.3
+-- dif 1.0
+-- spc 0.1
+-- shi 12.0
