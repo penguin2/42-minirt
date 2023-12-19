@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:31:37 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/17 03:51:59 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:39:01 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,22 @@ t_color	spot_get_color(
 			spot->brightness * (i_diffuse + i_specular)));
 }
 
+// 2 * EPS : one EPS for each end of the ray(hit->spot)
 static bool	_is_spot_blocked(
 				t_vec3 hit_to_spot,
 				const t_hit *hit,
 				const t_vla *objects)
 {
-	const double	dist_hit_to_spot = vec3_len(hit_to_spot);
+	double			dist_hit_to_spot;
 	double			dist_hit_to_object;
 	const t_object	*object;
 	size_t			object_idx;
 	t_ray			ray_hit_to_spot;
 
-	if (vec3_dot(hit->normal, hit_to_spot) < EPS)
+	dist_hit_to_spot = vec3_len(hit_to_spot);
+	if (dist_hit_to_spot < 2 * EPS || vec3_dot(hit->normal, hit_to_spot) < EPS)
 		return (true);
+	dist_hit_to_spot -= 2 * EPS;
 	ray_hit_to_spot = ray_create(hit->pos, hit_to_spot);
 	object_idx = 0;
 	while (object_idx < objects->size)
