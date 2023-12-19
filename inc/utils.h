@@ -6,7 +6,7 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:57 by taekklee          #+#    #+#             */
-/*   Updated: 2023/12/18 16:15:28 by taekklee         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:58:01 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define LOWER_ROOT						(0)
 # define HIGHER_ROOT					(1)
 
+# define SQRT_EPS						(1e-4)
 # define EPS							(1e-8)
 
 # define PRINT_COLOR_RED "\e[31m "

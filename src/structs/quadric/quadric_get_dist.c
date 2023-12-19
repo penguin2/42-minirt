@@ -6,12 +6,13 @@
 /*   By: taekklee <taekklee@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 01:09:50 by taekklee          #+#    #+#             */
-/*   Updated: 2023/11/15 18:06:10 by rikeda           ###   ########.fr       */
+/*   Updated: 2023/12/19 18:20:00 by taekklee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "quadric.h"
 #include "utils.h"
+#include <float.h>
 
 static bool	_solve_quadric_ray_equation(
 				const t_quadric *quadric,
@@ -24,9 +25,9 @@ bool	quadric_get_dist(const t_object *object, t_ray ray, double *dist)
 	double			roots[NUM_QUADRATIC_EQUATION_ROOTS];
 
 	if (!_solve_quadric_ray_equation(quadric, ray, roots)
-		|| roots[HIGHER_ROOT] < 0)
+		|| !is_higher(roots[HIGHER_ROOT], SQRT_EPS))
 		return (false);
-	if (roots[LOWER_ROOT] > 0)
+	if (is_higher(roots[LOWER_ROOT], SQRT_EPS))
 		*dist = roots[LOWER_ROOT];
 	else
 		*dist = roots[HIGHER_ROOT];
