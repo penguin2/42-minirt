@@ -1,0 +1,86 @@
+{
+    "A": [{
+        "brightness": 0.3,
+        "colors": [255, 255, 255]
+    }],
+    "C": [{
+        "coordinates": [0, 0, 100],
+        "orientation": [0, 0, -1],
+        "fov": 70
+    }],
+    "L": [
+	{
+        "coordinates": [-100, 100, 100],
+        "brightness": 0.5,
+        "colors": [255, 255, 255]
+    },
+	{
+        "coordinates": [-100, -100, 100],
+        "brightness": 0.5,
+        "colors": [255, 255, 255]
+    }
+	],
+    "pl": [{
+        "coordinates": [0, -10, 0],
+        "normal": [0, 1.0, 0],
+        "colors": [255, 0, 255],
+        "coefficient-ambient": 0.2,
+        "coefficient-diffuse": 0.8, "coefficient-specular": 0.0,
+        "coefficient-shininess": 8.0,
+        "texture-map": "texture-map/Tiles130.ppm",
+        "bump-map": "bump-map/Tiles130_normal.ppm",
+		"coefficient-reflective": 0.8,
+		"is-reflective": false
+    }],
+    "sp": [
+	{
+        "coordinates": [-30, 0, 0],
+        "diameter": 3,
+        "colors": [0, 255, 255],
+        "coefficient-ambient": 1,
+        "coefficient-diffuse": 1,
+        "texture-map": "texture-map/Concrete044B.ppm",
+		"checkerboard": false
+    },
+	{
+        "coordinates": [-20, 0, 0],
+        "diameter": 3,
+        "colors": [0, 255, 255],
+        "coefficient-ambient": 1,
+        "coefficient-diffuse": 1,
+        "texture-map": "texture-map/Concrete044B.ppm",
+        "bump-map": "bump-map/Concrete044B_normal.ppm",
+		"checkerboard": false
+    },
+	{
+        "coordinates": [30, 0, 0],
+        "diameter": 10,
+        "colors": [0, 255, 255],
+        "texture-map": "texture-map/earth_texture.ppm",
+        "bump-map": "bump-map/earth_normal.ppm",
+        "coefficient-ambient": 0.5,
+        "coefficient-specular": 0.0,
+        "coefficient-diffuse": 0.8
+    },
+	{
+        "coordinates": [50, 0, 0],
+        "diameter": 10,
+        "colors": [0, 128, 128],
+        "texture-map": "texture-map/earth_texture.ppm",
+        "bump-map": "bump-map/Rock030_normal.ppm",
+        "coefficient-ambient": 0.5,
+        "coefficient-specular": 0.0,
+        "coefficient-diffuse": 0.8
+    },
+	{
+        "coordinates": [150, 0, 0],
+        "diameter": 10,
+        "colors": [0, 128, 128],
+        "texture-map": "texture-map/Rock030.ppm",
+        "coefficient-shininess": 4.0,
+        "coefficient-ambient": 0.5,
+        "coefficient-specular": 0.0,
+        "coefficient-diffuse": 0.8
+    }
+	]
+}
