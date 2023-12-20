@@ -1,0 +1,101 @@
+{
+    "C": [
+        {
+            "coordinates": [42, 0, -50],
+            "orientation": [-0.4775, -0.46162, -0.74759],
+            "fov": 70
+        }
+    ],
+    "A": [
+        {
+            "brightness": 0.2,
+            "colors": [255, 255, 255]
+        }
+    ],
+    "L": [
+        {
+            "coordinates": [0, 0, 0],
+            "brightness": 1,
+            "colors": [255, 255, 255]
+        }
+    ],
+    "sp": [
+        {
+            "coordinates": [0, 0, 20],
+            "diameter": 10,
+            "colors": [123, 123, 123],
+            "coefficient-ambient": 0.1,
+            "coefficient-diffuse": 0.5,
+            "coefficient-specular": 0.5,
+            "coefficient-shininess": 8
+        }
+    ],
+    "pl": [
+        {
+            "coordinates": [0, 0, -100],
+            "normal": [0, 0, 1],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [0, 0, 100],
+            "normal": [0, 0, 1],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [0, -100, 0],
+            "normal": [0, 1, 0],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [0, 100, 0],
+            "normal": [0, 1, 0],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [100, 0, 0],
+            "normal": [1, 0, 0],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "coordinates": [-100, 0, 0],
+            "normal": [1, 0, 0],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        }
+    ]
+}

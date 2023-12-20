@@ -1,0 +1,87 @@
+{
+    "C": [
+        {
+            "coordinates": [0, 0, 10],
+            "orientation": [0, 0.90482, -0.42577],
+            "fov": 152
+        }
+    ],
+    "A": [
+        {
+            "brightness": 0.2,
+            "colors": [255, 255, 255]
+        }
+    ],
+    "L": [
+        {
+            "coordinates": [0, 0, 20],
+            "brightness": 1,
+            "colors": [255, 255, 255]
+        }
+    ],
+    "tr": [
+        {
+            "vertex1": [0, 0, -100],
+            "vertex2": [-100, -100, 100],
+            "vertex3": [100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "vertex1": [0, 100, 0],
+            "vertex2": [-100, -100, 100],
+            "vertex3": [100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "vertex1": [0, 100, 0],
+            "vertex2": [0, 0, -100],
+            "vertex3": [100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        },
+        {
+            "vertex1": [0, 100, 0],
+            "vertex2": [0, 0, -100],
+            "vertex3": [-100, -100, 100],
+            "colors": [255, 255, 255],
+            "coefficient-ambient": 0.2,
+            "coefficient-diffuse": 0.3,
+            "coefficient-specular": 0,
+            "coefficient-shininess": 1,
+            "is-reflective": true,
+            "coefficient-reflect": 0.8
+        }
+    ],
+    "qd": [
+        {
+            "coordinates": [0, 0, 0],
+            "coefficient-a": 1,
+            "coefficient-b": -1,
+            "coefficient-c": 1,
+            "coefficient-d": 0,
+            "coefficient-e": 0,
+            "colors": [0, 255, 255],
+            "coefficient-ambient": 0.1,
+            "coefficient-diffuse": 0.5,
+            "coefficient-specular": 0.5,
+            "coefficient-shininess": 8
+        }
+    ]
+}
