@@ -39,6 +39,65 @@
 3. `make bonus`
 4. `./miniRT_bonus ./path/to/設定ファイル` 設定ファイルはrt形式とjson形式を使用可能([詳細な設定ファイルの記述方法](https://github.com/penguin2/42-minirt/wiki/rt%E3%81%8B%E3%82%89json%E3%81%B8%E3%81%AE%E5%A4%89%E6%8F%9B%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB))
 
+## ファイル構成
+```
+.
+├── Makefile
+├── README.md
+├── asset
+├── bump-map
+├── inc
+├── lib
+│   ├── libcolor
+│   ├── libft
+│   ├── libgnl
+│   └── libvec3
+├── map
+├── minilibx
+├── scenes
+│   ├── bonus
+│   ├── error
+│   └── success
+── src
+│   ├── generator
+│   │   ├── json_generator_from_json_object
+│   │   ├── json_generator_from_rt_objects_array
+│   │   ├── json_generator_from_scene
+│   │   └── utils
+│   ├── main.c
+│   ├── mlx
+│   ├── parse
+│   │   ├── json
+│   │   ├── rt
+│   │   ├── scene
+│   │   └── utils
+│   ├── structs
+│   │   ├── ambient
+│   │   ├── camera
+│   │   ├── cartesian_system
+│   │   ├── cylinder
+│   │   ├── hit
+│   │   ├── image
+│   │   ├── light
+│   │   ├── material
+│   │   ├── material_box
+│   │   ├── object
+│   │   ├── plane
+│   │   ├── ppm_reader
+│   │   ├── quadric
+│   │   ├── range
+│   │   ├── ray
+│   │   ├── scene
+│   │   ├── sphere
+│   │   ├── spot
+│   │   └── triangle
+│   ├── test_main
+│   └── utils
+├── test
+└── texture-map
+
+```
+
 ## オブジェクト一覧
 * Sphere(球体)
 * Plane(平面)
