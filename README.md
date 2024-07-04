@@ -21,3 +21,17 @@
 <img width="200" height="200" alt="spheres_within_box" src="https://github.com/penguin2/42-minirt/assets/110877359/e195b450-8361-4c46-ba96-9ef489b873f5">
 <img width="200" height="200" alt="yoshi_eggs" src="https://github.com/penguin2/42-minirt/assets/110877359/ddad27c7-0a25-40a5-98ef-a462899b80d0">
 <img width="200" height="200" alt="triangle_box" src="https://github.com/penguin2/42-minirt/assets/110877359/4fe4ee83-514d-45f4-83dc-d96144cc9888">
+
+## movie
+
+
+
+
+
+
+
+
+
+|ノーマルモード|コマンドモード|
+|:-:|:-:|
+|<video src="https://github.com/penguin2/42-minirt/assets/110877359/a979446c-6323-4ef9-a4c9-d9efb94cf497">|<video src="https://github.com/penguin2/42-minirt/assets/110877359/836c9022-40c0-4292-b8c5-23e4f14e6dec">|
