@@ -28,7 +28,7 @@
 |<video src="https://github.com/penguin2/42-minirt/assets/110877359/a979446c-6323-4ef9-a4c9-d9efb94cf497">|<video src="https://github.com/penguin2/42-minirt/assets/110877359/836c9022-40c0-4292-b8c5-23e4f14e6dec">|
 
 ## プロジェクト概要
-* レイトレーシングを用いた図形の描画
+* [レイトレーシング](https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%B3%E3%82%B0)を用いた図形の描画
 * 視点の移動・回転・ズームの実装
 * 図形の材質変化の実装
 * vimライクなユーザーインターフェースの実装
@@ -106,6 +106,7 @@
 * Quadric(二次曲面)
 
 ## リンク
+* [レイトレーシング](https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%A4%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%B3%E3%82%B0)
 * [設定ファイルの仕様](https://github.com/penguin2/42-minirt/wiki/rt%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%A8json%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BB%95%E6%A7%98%E6%9B%B8)
 * [設定ファイルのサンプル](https://github.com/penguin2/42-minirt/wiki/rt%E3%81%8B%E3%82%89json%E3%81%B8%E3%81%AE%E5%A4%89%E6%8F%9B%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB)
 * [操作方法](https://github.com/penguin2/42-minirt/wiki/%E6%93%8D%E4%BD%9C%E6%B3%95)
